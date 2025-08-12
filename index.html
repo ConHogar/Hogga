@@ -1,105 +1,282 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html lang="es-CL">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hogga</title>
-  <link rel="stylesheet" href="css/styles.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hogga — Servicios confiables para tu hogar en el sur de Chile</title>
+  <meta name="description" content="Hogga conecta vecinos con proveedores verificados para el hogar en Puerto Varas, Puerto Montt, Osorno y alrededores. Pide 3 datos confiables en 60 segundos por WhatsApp o Instagram." />
+  <link rel="canonical" href="https://hogga.cl/" />
+  <meta name="theme-color" content="#136565" />
 
-  <!-- Favicons -->
-  <link rel="apple-touch-icon" sizes="180x180" href="images/favic/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favic/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="images/favic/favicon-16x16.png">
-  <link rel="manifest" href="images/favic/site.webmanifest">
-  <link rel="icon" type="image/x-icon" href="images/favic/favicon.ico">
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://hogga.cl/" />
+  <meta property="og:title" content="Hogga — Servicios confiables para tu hogar" />
+  <meta property="og:description" content="Pide 3 datos verificados en 60 segundos. Gasfitería, electricidad, limpieza, jardinería y más." />
+  <meta property="og:image" content="/images/og/og-hogga.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Hogga — Servicios confiables para tu hogar" />
+  <meta name="twitter:description" content="Pide 3 datos verificados en 60 segundos." />
+  <meta name="twitter:image" content="/images/og/og-hogga.jpg" />
+
+  <!-- Favicons (importante: sube también /favicon.ico a la RAÍZ del sitio) -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favic/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favic/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favic/favicon-16x16.png">
+  <link rel="manifest" href="/images/favic/site.webmanifest">
+  <link rel="mask-icon" href="/images/favic/safari-pinned-tab.svg" color="#136565">
+  <link rel="icon" href="/favicon.ico">
+
+  <link rel="preload" as="image" href="images/logo.png" />
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 
 <body>
   <header class="main-header">
     <div class="container header-content">
-      <div class="logo">Hogga</div>
+      <a class="brand" href="#inicio" aria-label="Hogga, inicio">
+        <img class="logo" src="images/logo.png" alt="Hogga" width="120" height="36" />
+      </a>
       <nav>
-        <a href="#funciona">¿Cómo Funciona?</a>
-        <a href="#hogar">Servicios</a>
-        <a href="#proveedores">Proveedores</a>
-        <a href="#formulario">Participa</a>
+        <a href="#como-funciona">¿Cómo funciona?</a>
+        <a href="#categorias">Servicios</a>
+        <a href="#ciudades">Ciudades</a>
+        <a href="#contacto">Participa</a>
       </nav>
     </div>
   </header>
 
-  <section class="hero">
-    <div class="hero-overlay"></div>
-    <div class="container hero-content">
-      <h1>¿Buscas a alguien que cumpla en tu casa?<br /> Usa Hogga.</h1>
-      <p>Servicios verificados para el hogar. Sin excusas. Sin ausencias.</p>
-      <div class="cta-buttons">
-        <a href="#formulario" class="btn">Encontrar servicios confiables</a>
-        <a href="#formulario" class="btn outline">Quiero recomendar un dato</a>
+  <main id="inicio">
+    <!-- HERO tipo chat (sin imagen) -->
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="container hero-content">
+        <span class="eyebrow">Hecho en el sur de Chile</span>
+        <h1>+1.000 búsquedas atendidas. Menos búsqueda, más soluciones</h1>
+        <p class="lead">
+          Hogar, mascotas, bienestar, eventos y transporte. Concepción → Chiloé.
+          Recibe recomendaciones en menos 60 s y elige a quién llamar.
+        </p>
+    
+        <div class="chat-demo" aria-label="Demostración de flujo">
+          <div class="bubble me">Necesito un gasfiter hoy en Puerto Montt.</div>
+          <div class="bubble bot">Listo, Aquí van 3 verificados 🔧 zona, horario y contacto.</div>
+          <div class="bubble me">Perfecto, muchas gracias!</div>
+        </div>
+    
+        <div class="cta-row" role="group" aria-label="Acciones principales">
+          <a class="btn primary" href="https://wa.me/569XXXXXXXX?text=Hola%20Hogga%2C%20necesito%20un%20dato" target="_blank" rel="noopener">
+            Pedir datos por Instagram
+          </a>
+          <a class="btn outline" href="https://www.instagram.com/hogga_chile/" target="_blank" rel="noopener">
+            Escríbenos por WhatsApp
+          </a>
+        </div>
+    
+
+      </div>
+    </section>
+    
+    
+
+    <!-- Trust bar -->
+    <div class="trust">
+      <div class="container trust-row">
+        <div class="trust-item"><span class="dot"></span> Proveedores verificados en tu ciudad</div>
+        <div class="trust-item"><span class="dot"></span> Reseñas reales de usuarios</div>
+        <div class="trust-item"><span class="dot"></span> Soporte rápido si algo falla</div>
       </div>
     </div>
-  </section>
 
-  <section id="funciona" class="section">
-    <div class="container">
-      <h2>¿Cómo funciona?</h2>
-      <div class="cards">
-        <div class="card">✅ Encuentra servicios recomendados por tu comunidad.</div>
-        <div class="card">⭐ Deja una reseña después del trabajo.</div>
-        <div class="card">🚫 Reporta si no se presentan.</div>
+    <!-- Cómo funciona -->
+    <section id="como-funciona" class="section alt">
+      <div class="container">
+        <h2>¿Cómo funciona Hogga?</h2>
+        <p class="sub">Somos el vecino útil de la cuadra. Te pasamos datos confiables y tú decides a quién llamar.</p>
+
+        <div class="steps" role="list">
+          <div class="step" role="listitem"><span>🔎</span><div><b>1) Cuéntanos qué necesitas</b> Gasfitería, electricidad, limpieza, jardinería, etc.</div></div>
+          <div class="step" role="listitem"><span>📲</span><div><b>2) Recibe hasta 3 recomendaciones</b> Verificadas, con zona y contacto directo.</div></div>
+          <div class="step" role="listitem"><span>⭐</span><div><b>3) Califica después del trabajo</b> Tu reseña sube a los mejores.</div></div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="hogar" class="section">
-    <div class="container">
-      <h2>Servicios para tu hogar</h2>
-      <ul>
-        <li>🛠️ Instalación de calefonts y gasfitería</li>
-        <li>🔌 Electricistas certificados</li>
-        <li>🧼 Limpieza profunda de casas o departamentos</li>
-        <li>🌿 Jardinería y mantenimiento de patios</li>
-        <li>🪵 Reparaciones menores y trabajos de carpintería</li>
-      </ul>
-    </div>
-  </section>
+    <!-- Categorías -->
+    <section id="categorias" class="section">
+      <div class="container">
+        <h2>Servicios para tu hogar</h2>
+        <p class="sub">Categorías más pedidas en la zona.</p>
 
-  <section id="proveedores" class="section">
-    <div class="container">
-      <h2>Para proveedores responsables</h2>
-      <ul>
-        <li>Gana visibilidad en tu ciudad.</li>
-        <li>Recibe calificaciones positivas de tus clientes.</li>
-        <li>Evita grupos de WhatsApp. Aquí están tus futuros clientes.</li>
-      </ul>
-    </div>
-  </section>
+        <div class="grid">
+          <a class="cat" href="https://wa.me/569XXXXXXXX?text=Necesito%20gasfiter%20en%20[tu%20ciudad]">🛠️ Gasfitería <span>Instalación de calefonts</span></a>
+          <a class="cat" href="https://wa.me/569XXXXXXXX?text=Necesito%20electricista%20en%20[tu%20ciudad]">🔌 Electricidad <span>Boletín SEC</span></a>
+          <a class="cat" href="https://wa.me/569XXXXXXXX?text=Necesito%20limpieza%20en%20[tu%20ciudad]">🧼 Limpieza <span>Casas y deptos</span></a>
+          <a class="cat" href="https://wa.me/569XXXXXXXX?text=Necesito%20jardiner%C3%ADa%20en%20[tu%20ciudad]">🌿 Jardinería <span>Poda y mantención</span></a>
+          <a class="cat" href="https://wa.me/569XXXXXXXX?text=Necesito%20carpintero%20en%20[tu%20ciudad]">🪵 Carpintería <span>Reparaciones</span></a>
+          <a class="cat" href="https://wa.me/569XXXXXXXX?text=Necesito%20pintor%20en%20[tu%20ciudad]">🎨 Pintura <span>Interior y exterior</span></a>
+          <a class="cat" href="https://wa.me/569XXXXXXXX?text=Necesito%20vidriero%20en%20[tu%20ciudad]">🪟 Vidriería <span>Urgencias</span></a>
+          <a class="cat" href="https://wa.me/569XXXXXXXX?text=Necesito%20maestro%20multiuso%20en%20[tu%20ciudad]">🧰 Maestro multiuso <span>Arreglos varios</span></a>
+        </div>
+      </div>
+    </section>
 
-  <section id="formulario" class="section">
-    <div class="container">
-      <h2>¿Quieres sumarte?</h2>
-      <p>Completa este formulario y te contactamos.</p>
-      <form>
-        <input type="text" placeholder="Nombre" required />
-        <input type="email" placeholder="Correo electrónico" required />
-        <select required>
-          <option disabled selected>¿Qué servicio prestas o necesitas?</option>
-          <option>Gasfitería</option>
-          <option>Electricidad</option>
-          <option>Limpieza</option>
-          <option>Jardinería</option>
-          <option>Otros</option>
-        </select>
-        <textarea placeholder="Tu mensaje o recomendación" required></textarea>
-        <button type="submit">Enviar</button>
-      </form>
-    </div>
-  </section>
+    <!-- Ciudades -->
+    <section id="ciudades" class="section alt">
+      <div class="container">
+        <h2>Cobertura actual</h2>
+        <p class="sub">Partimos en el sur de Chile y seguimos creciendo.</p>
+
+        <div class="chips" role="list">
+          <span class="chip" role="listitem">Puerto Varas</span>
+          <span class="chip" role="listitem">Puerto Montt</span>
+          <span class="chip" role="listitem">Frutillar</span>
+          <span class="chip" role="listitem">Llanquihue</span>
+          <span class="chip" role="listitem">Osorno</span>
+          <span class="chip" role="listitem">Chiloé</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonio (opcional) -->
+    <section class="section">
+      <div class="container">
+        <h2>Lo que dicen los vecinos</h2>
+        <div class="quote">
+          <p>“Pedí un gasfiter a las 10:05, a las 10:06 ya tenía 3 teléfonos. Llegó puntual y quedó todo ok.” — <b>Fernanda, Puerto Varas</b></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section alt">
+      <div class="container">
+        <h2>Preguntas frecuentes</h2>
+        <details>
+          <summary>¿Hogga cobra comisión por los trabajos?</summary>
+          <p>No. Hogga no cobra comisión a los usuarios. Funcionamos con planes para proveedores y acuerdos locales.</p>
+        </details>
+        <details>
+          <summary>¿Cómo verifican a los proveedores?</summary>
+          <p>Revisamos identidad, experiencia, zonas de servicio y reseñas. Además, la comunidad reporta no‑shows para mantener el ranking al día.</p>
+        </details>
+        <details>
+          <summary>¿En qué ciudades opera Hogga?</summary>
+          <p>Puerto Varas, Puerto Montt, Osorno, Frutillar, Llanquihue y Chiloé. Vamos sumando nuevas zonas según demanda.</p>
+        </details>
+        <details>
+          <summary>¿Cómo pido un dato?</summary>
+          <p>Escríbenos por WhatsApp o Instagram y cuéntanos qué necesitas. Te enviamos hasta 3 recomendaciones en 60 segundos.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- Formulario -->
+    <section id="contacto" class="section">
+      <div class="container">
+        <h2>¿Quieres sumarte?</h2>
+        <p class="sub">Completa este formulario y te contactamos (proveedores o recomendaciones).</p>
+
+        <form action="#" method="post" name="lead-form" aria-label="Formulario de contacto">
+          <div class="form-grid">
+            <label>
+              <span>Nombre</span>
+              <input required name="name" type="text" placeholder="Tu nombre" />
+            </label>
+            <label>
+              <span>Correo electrónico</span>
+              <input required name="email" type="email" placeholder="tucorreo@dominio.com" />
+            </label>
+            <label>
+              <span>WhatsApp (opcional)</span>
+              <input name="phone" type="tel" placeholder="+56991234567" />
+            </label>
+            <label>
+              <span>¿Qué servicio prestas o necesitas?</span>
+              <select required name="category">
+                <option disabled selected value="">Selecciona una opción</option>
+                <option>Gasfitería</option>
+                <option>Electricidad</option>
+                <option>Limpieza</option>
+                <option>Jardinería</option>
+                <option>Carpintería</option>
+                <option>Otro</option>
+              </select>
+            </label>
+            <label class="full">
+              <span>Tu mensaje o recomendación</span>
+              <textarea required name="message" rows="4" placeholder="Cuéntanos brevemente…"></textarea>
+            </label>
+          </div>
+
+          <div class="cta-row left">
+            <button class="btn primary" type="submit">Enviar</button>
+            <a class="btn outline" href="https://wa.me/569XXXXXXXX?text=Quiero%20sumarme%20a%20Hogga" target="_blank" rel="noopener">Hablar por WhatsApp</a>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
 
   <footer class="footer">
-    <div class="container">
-      <p>Hogga es una comunidad construida con confianza. Gracias por ser parte.</p>
-      <p>Síguenos en Instagram: @hoggaapp</p>
+    <div class="container foot">
+      <div>
+        <strong>Hogga</strong><br />
+        <small>Plataforma local de recomendaciones confiables para el hogar. Hecho en el sur de Chile.</small>
+      </div>
+      <div class="socials">
+        <a href="https://www.instagram.com/hogga_chile/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.facebook.com/profile.php?id=61577176559219" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.youtube.com/@hogga_chile" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.tiktok.com/@hogga_chile" target="_blank" rel="noopener">TikTok</a>
+        <!-- X (placeholder) -->
+        <!-- <a href="https://x.com/hogga_chile" target="_blank" rel="noopener" ref="nofollow">X</a> -->
+      </div>
     </div>
   </footer>
+
+  <!-- JSON-LD: Organization + Website + FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Hogga",
+    "url": "https://hogga.cl/",
+    "logo": "https://hogga.cl/images/logo.png",
+    "sameAs": [
+      "https://www.instagram.com/hogga_chile/",
+      "https://www.facebook.com/profile.php?id=61577176559219",
+      "https://www.youtube.com/@hogga_chile",
+      "https://www.tiktok.com/@hogga_chile"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://hogga.cl/",
+    "name": "Hogga",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://wa.me/569XXXXXXXX?text=Busco%20{search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type":"Question","name":"¿Hogga cobra comisión por los trabajos?","acceptedAnswer":{"@type":"Answer","text":"No. Hogga no cobra comisión a los usuarios. Funcionamos con planes para proveedores y acuerdos locales."}},
+      {"@type":"Question","name":"¿Cómo verifican a los proveedores?","acceptedAnswer":{"@type":"Answer","text":"Revisamos identidad, experiencia, zonas de servicio y reseñas. La comunidad reporta no-shows para mantener el ranking al día."}},
+      {"@type":"Question","name":"¿En qué ciudades opera Hogga?","acceptedAnswer":{"@type":"Answer","text":"Puerto Varas, Puerto Montt, Osorno, Frutillar, Llanquihue y Chiloé. Vamos sumando nuevas zonas según demanda."}},
+      {"@type":"Question","name":"¿Cómo pido un dato?","acceptedAnswer":{"@type":"Answer","text":"Escríbenos por WhatsApp o Instagram y cuéntanos qué necesitas. Te enviamos hasta 3 recomendaciones en 60 segundos."}}
+    ]
+  }
+  </script>
+
+  <script defer src="js/main.js"></script>
 </body>
 </html>
