@@ -20,7 +20,7 @@
       bubbles.forEach((b, i) => {
         b.style.opacity = '0';
         b.style.transform = 'translateY(8px)';
-        // repaint para que el transition se aplique
+        // Forzar repaint para que el transition se aplique correctamente
         // eslint-disable-next-line no-unused-expressions
         b.offsetHeight;
         setTimeout(() => {
@@ -58,7 +58,6 @@
         const originalText = btn ? btn.textContent : '';
         if (btn) { btn.disabled = true; btn.textContent = 'Enviando…'; }
   
-        // Construir payload seguro
         const data = new FormData(form);
   
         // AbortController para evitar colgarse
@@ -76,15 +75,13 @@
   
           clearTimeout(timeout);
   
-          if (!res.ok) {
-            throw new Error(`Bad status: ${res.status}`);
-          }
+          if (!res.ok) throw new Error(`Bad status: ${res.status}`);
   
           // Éxito UX
           if (btn) btn.textContent = '¡Listo!';
           form.reset();
   
-          // Vuelve el botón a su estado luego de un respiro
+          // Restore botón luego de un respiro
           setTimeout(() => {
             if (btn) { btn.disabled = false; btn.textContent = originalText || 'Enviar'; }
           }, 1000);
@@ -108,7 +105,7 @@
       if (y) y.textContent = new Date().getFullYear();
     }
   
-    // ===== Nav activo (mejora UX, opcional) =====
+    // ===== Nav activo (mejora UX) =====
     function setupActiveNav() {
       const links = $$('header nav a[href^="#"]');
       const sections = links
@@ -123,7 +120,10 @@
           const link = $(`header nav a[href="#${id}"]`);
           if (!link) return;
           if (entry.isIntersecting) {
-            links.forEach(l => l.classList.remove('active'));
+            links.forEach(l => {
+              l.classList.remove('active');
+              l.removeAttribute('aria-current');
+            });
             link.classList.add('active');
             link.setAttribute('aria-current', 'page');
           }
@@ -133,6 +133,67 @@
       sections.forEach(s => io.observe(s));
     }
   
+    // ===== Prefill de ciudad en categorías (con persistencia) =====
+    function setupCategoryPrefill() {
+      // Preferencia persistida
+      const LS_KEY = 'hogga_city';
+      const defaultCity = 'Puerto Varas';
+      let ciudadPreferida = localStorage.getItem(LS_KEY) || defaultCity;
+  
+      // 1) Preparar templates de href en las cards
+      const cards = $$('.grid.cats .cat, .grid .cat'); // por si olvidamos .cats
+      cards.forEach(card => {
+        const href = card.getAttribute('href');
+        if (href && !card.dataset.hrefTemplate) {
+          card.dataset.hrefTemplate = href;
+        }
+      });
+  
+      // 2) Función para actualizar todos los href desde el template
+      const applyCityToLinks = (city) => {
+        const encodedCity = encodeURIComponent(city);
+        cards.forEach(card => {
+          const tpl = card.dataset.hrefTemplate || card.getAttribute('href') || '';
+          // Reemplaza ambos formatos: [tu%20ciudad] y %5Btu%20ciudad%5D
+          const updated = tpl
+            .replace(/\[tu%20ciudad\]/gi, encodedCity)
+            .replace(/\%5Btu%20ciudad\%5D/gi, encodedCity);
+          card.setAttribute('href', updated);
+        });
+      };
+  
+      // 3) Marcar chip activo y escuchar clicks en chips
+      const chips = $$('.chips .chip');
+      const setActiveChip = (city) => {
+        chips.forEach(chip => {
+          const isActive = chip.textContent.trim().toLowerCase() === city.toLowerCase();
+          chip.classList.toggle('active', isActive);
+          chip.setAttribute('aria-pressed', String(isActive));
+        });
+      };
+  
+      chips.forEach(chip => {
+        chip.setAttribute('role', 'button');
+        chip.setAttribute('tabindex', '0');
+        chip.addEventListener('click', () => {
+          ciudadPreferida = chip.textContent.trim();
+          localStorage.setItem(LS_KEY, ciudadPreferida);
+          setActiveChip(ciudadPreferida);
+          applyCityToLinks(ciudadPreferida);
+        });
+        chip.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            chip.click();
+          }
+        });
+      });
+  
+      // 4) Inicializar estado
+      setActiveChip(ciudadPreferida);
+      applyCityToLinks(ciudadPreferida);
+    }
+  
     // ===== Init =====
     document.addEventListener('DOMContentLoaded', () => {
       setupLazyImages();
@@ -140,6 +201,7 @@
       setupLeadForm();
       setupFooterYear();
       setupActiveNav();
+      setupCategoryPrefill();
     });
   })();
   
