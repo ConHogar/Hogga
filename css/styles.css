@@ -149,14 +149,83 @@ h2{font-size:clamp(1.4rem,2.6vw,2rem);margin:0 0 10px}
 .stepper-label b{display:inline;margin-right:6px;color:#0f2f2f}
 
 
-/* Categorías grid */
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+/* ===== Categories (cards) ===== */
+.grid.cats{gap:14px} /* un poquito más de aire entre cards */
+
 .cat{
-  background:#fff;border:1px solid #e5e7eb;border-radius:var(--r-lg);padding:14px;font-weight:700;
-  display:flex;align-items:center;justify-content:space-between; transition:outline-color .15s ease
+  position:relative;
+  display:grid;
+  grid-template-columns:auto 1fr auto; /* emoji | cuerpo | cta */
+  align-items:center;
+  gap:12px;
+  padding:16px;
+  border:1px solid #e5e7eb;
+  border-radius:var(--r-xl);
+  background:linear-gradient(0deg, #ffffff, #ffffff);
+  box-shadow:var(--shadow-1);
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease,
+    border-color .18s ease,
+    background .18s ease;
 }
-.cat span{color:var(--muted);font-weight:600;font-size:.9rem}
-.cat:hover{outline:2px solid var(--brand)}
+
+.cat-emoji{
+  font-size:1.6rem;
+  line-height:1;
+  display:grid; place-items:center;
+  width:40px; height:40px; border-radius:var(--pill);
+  background:#f3fbfa;
+}
+
+.cat-body{display:grid; gap:4px; min-width:0}
+.cat-title{
+  display:block; font-weight:800; color:#0f2f2f; letter-spacing:.2px;
+  overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+}
+.cat-sub{
+  display:block; color:#64748b; font-weight:600; font-size:.92rem;
+  overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+}
+
+.cat-pills{display:flex; gap:8px; flex-wrap:wrap; margin-top:6px}
+.pill{
+  display:inline-flex; align-items:center; gap:6px;
+  border:1px solid #e5e7eb; background:#fff;
+  color:#136565; font-weight:700; font-size:.78rem;
+  padding:4px 8px; border-radius:var(--pill);
+}
+
+.cat-cta{
+  font-weight:800; color:var(--brand);
+  border:1px solid rgba(19,101,101,.22);
+  padding:8px 10px; border-radius:var(--r-sm);
+  transition:background .15s ease, color .15s ease, border-color .15s ease;
+}
+
+/* Hover & focus */
+.cat:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 28px rgba(17,24,39,.07);
+  border-color:#cfe6e6;
+  background:linear-gradient(180deg,#ffffff 0%, #fbfefd 100%);
+}
+.cat:hover .cat-cta{
+  background:#eaf6f6; border-color:#97d1d1; color:#0e4b4b;
+}
+
+/* Accesibilidad */
+.cat:focus-visible{
+  outline:3px solid rgba(19,101,101,.35);
+  outline-offset:3px;
+}
+
+/* Responsive refinements */
+@media (min-width:760px){
+  .grid.cats{gap:16px}
+  .cat-emoji{width:44px;height:44px;font-size:1.8rem}
+}
+
 
 
 /* Chips (ciudades genéricas en otras secciones) */
