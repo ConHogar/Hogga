@@ -1,6 +1,12 @@
 (() => {
     'use strict';
   
+    // ===== Config global WhatsApp =====
+    const HOGGA_WA_NUMBER = '56951809138'; // único lugar a cambiar
+    const buildWa = (text) =>
+    `https://wa.me/${HOGGA_WA_NUMBER}?text=${encodeURIComponent(text)}`;
+
+
     // ===== Utilidades pequeñas =====
     const $ = (s, r = document) => r.querySelector(s);
     const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
@@ -194,11 +200,24 @@
       applyCityToLinks(ciudadPreferida);
     }
   
+    function normalizeWhatsAppLinks() {
+        // 1) Hero / Footer / CTA sueltos
+        $$('a[href*="wa.me"]').forEach(a => {
+          const url = new URL(a.href, location.origin);
+          const textParam = url.searchParams.get('text') || 'Hola Hogga, necesito un dato';
+          a.href = buildWa(textParam);
+        });
+      
+        // 2) JSON-LD (sólo si quieres actualizarlo dinámicamente)
+        // Nota: si el JSON-LD es estático en HTML, cámbialo también ahí.
+      }
+
     // ===== Init =====
     document.addEventListener('DOMContentLoaded', () => {
       setupLazyImages();
       animateChatDemo();
       setupLeadForm();
+      normalizeWhatsAppLinks();
       setupFooterYear();
       setupActiveNav();
       setupCategoryPrefill();
