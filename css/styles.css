@@ -18,6 +18,10 @@ img{max-width:100%;display:block}
 nav a{padding:8px 10px;border-radius:8px;font-weight:600;color:#374151}
 nav a:hover{background:#f1f5f9}
 
+body{font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif}
+h1,h2,.btn{font-family:Manrope, Inter, system-ui, sans-serif}
+
+
 /* ===== Hero (chat-like) ===== */
 /* Fondo manejado por .hero-bg para poder animarlo */
 .hero {
@@ -58,7 +62,7 @@ nav a:hover{background:#f1f5f9}
 }
 
 .cta-row {
-  margin-top: 16px;
+  margin-top: 20px;
   display: flex;
   gap: 12px;
   justify-content: center;
@@ -222,11 +226,59 @@ h2{font-size:clamp(1.4rem,2.6vw,2rem);margin:0 0 10px}
 .form-grid .full{grid-column:1/-1}
 
 /* Footer */
-.footer{background:#0b2e2e;color:#d1fae5;padding:32px 0}
-.foot{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.socials{display:flex;gap:12px;flex-wrap:wrap}
-.socials a{padding:8px 10px;border:1px solid rgba(255,255,255,.25);border-radius:10px;color:#e6fffa}
-.socials a:hover{background:rgba(255,255,255,.08)}
+.footer{background:#0b2e2e;color:#d1fae5;padding:36px 0 16px}
+.foot{
+  display:grid;
+  gap:24px;
+  grid-template-columns:1fr;      /* móvil: 1 col */
+  align-items:start;               /* alinea top en todas las columnas */
+}
+
+.foot-title{display:block;font-weight:800;margin-bottom:6px;color:#e6fffa}
+
+/* Columna 1 */
+.foot-brand small{display:block;margin:8px 0 14px;color:#bfeee4;font-size:.9rem}
+.foot-cta{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:10px 14px;border-radius:10px;font-weight:800;letter-spacing:.2px;
+  background:#25D366;color:#083a2e;border:2px solid transparent;transition:filter .15s ease
+}
+.foot-cta:hover{filter:brightness(.95)}
+
+/* Columna 2 */
+.foot-links{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(140px,1fr));
+  gap:18px
+}
+.foot-links ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.foot-links a{color:#e6fffa;opacity:.9;font-size:.95rem}
+.foot-links a:hover{opacity:1;text-decoration:underline}
+
+/* Columna 3 */
+.foot-social .socials{display:flex;gap:16px;flex-wrap:wrap;margin-top:6px}
+.foot-social .socials a{
+  color:#e6fffa;opacity:.85;font-size:.95rem;
+  transition:opacity .15s ease,color .15s ease
+}
+.foot-social .socials a:hover{opacity:1;color:#fff}
+
+/* Pie inferior */
+.foot-bottom{
+  border-top:1px solid rgba(255,255,255,.12);
+  margin-top:18px;padding-top:12px;
+  display:flex;justify-content:space-between
+}
+.foot-bottom small{color:#bfeee4;font-size:.85rem}
+
+/* Desktop */
+@media (min-width:760px){
+  .foot{grid-template-columns:1.2fr .9fr 1fr}  /* 3 columnas alineadas arriba */
+}
+
+
+
+
 
 @media (min-width:760px){
   .trust-row{grid-template-columns:repeat(3,1fr)}
