@@ -170,6 +170,7 @@ h2{font-size:clamp(1.4rem,2.6vw,2rem);margin:0 0 10px}
   }
 }
 
+#categorias{text-align:center}
 
 .grid.cats{gap:14px} /* un poquito más de aire entre cards */
 
@@ -253,6 +254,57 @@ h2{font-size:clamp(1.4rem,2.6vw,2rem);margin:0 0 10px}
 .cats-compact .cat-title { font-size:1rem; }
 .cats-compact .cat-cta { padding:6px 10px; }
 
+/* Ciudades centrado + fondo */
+#ciudades { text-align: center; }
+#ciudades .chips { justify-content: center; }
+
+/* Variante con imagen de fondo (oscurecida) */
+.section.alt.map{
+  position: relative;
+  color:#fff;
+
+  /* simplest, bulletproof */
+  background:
+    linear-gradient(0deg, rgba(11,46,46,.70), rgba(11,46,46,.70)),
+    url('../images/sur-chile.webp') center/cover no-repeat;
+
+  /* if you want fallbacks later, add them once this works */
+  /* background:
+    linear-gradient(0deg, rgba(11,46,46,.70), rgba(11,46,46,.70)),
+    image-set(
+      url('../images/sur-chile.avif') type('image/avif') 1x,
+      url('../images/sur-chile.webp') type('image/webp') 1x,
+      url('../images/sur-chile.jpg')  type('image/jpeg') 1x
+    ) center/cover no-repeat; */
+}
+
+/* Mejorar legibilidad de títulos en fondo oscuro */
+.section.alt.map h2,
+.section.alt.map .sub { color:#fff; }
+
+/* Chips sobre fondo oscuro */
+.section.alt.map .chip{
+  background: rgba(255,255,255,.92);
+  border-color: transparent;
+  color: #0b2e2e;
+}
+
+/* Badge superior “Sur de Chile” */
+.region-badge{
+  display:inline-block;
+  margin-bottom:10px;
+  padding:6px 12px;
+  border-radius: var(--pill);
+  background: rgba(255,255,255,.92);
+  color:#0b2e2e;
+  font-weight:800;
+  letter-spacing:.2px;
+}
+
+/* Parallax suave sólo en desktop para no afectar móviles */
+@media (min-width:1024px){
+  .section.alt.map{ background-attachment: fixed; }
+}
 
 
 /* Chips (ciudades genéricas en otras secciones) */
