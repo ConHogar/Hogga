@@ -4,9 +4,8 @@
     // ===== Config global WhatsApp =====
     const HOGGA_WA_NUMBER = '56951809138'; // único lugar a cambiar
     const buildWa = (text) =>
-    `https://wa.me/${HOGGA_WA_NUMBER}?text=${encodeURIComponent(text)}`;
-
-
+      `https://wa.me/${HOGGA_WA_NUMBER}?text=${encodeURIComponent(text)}`;
+  
     // ===== Utilidades pequeñas =====
     const $ = (s, r = document) => r.querySelector(s);
     const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
@@ -54,8 +53,7 @@
   
       // Configura TU endpoint real (Formspree / Worker / Supabase Edge)
       const FORM_ENDPOINT = ''; // ej: 'https://formspree.io/f/xxxxxxx'
-      const WHATSAPP_FALLBACK =
-        'https://wa.me/569XXXXXXXX?text=Hola%20Hogga%2C%20necesito%20un%20dato';
+      const WHATSAPP_FALLBACK = buildWa('Hola Hogga, necesito un dato');
   
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -200,18 +198,71 @@
       applyCityToLinks(ciudadPreferida);
     }
   
+    // ===== Normaliza enlaces de WhatsApp a un solo número =====
     function normalizeWhatsAppLinks() {
-        // 1) Hero / Footer / CTA sueltos
-        $$('a[href*="wa.me"]').forEach(a => {
+      // 1) Hero / Footer / CTA sueltos
+      $$('a[href*="wa.me"]').forEach(a => {
+        try {
           const url = new URL(a.href, location.origin);
           const textParam = url.searchParams.get('text') || 'Hola Hogga, necesito un dato';
           a.href = buildWa(textParam);
-        });
-      
-        // 2) JSON-LD (sólo si quieres actualizarlo dinámicamente)
-        // Nota: si el JSON-LD es estático en HTML, cámbialo también ahí.
+        } catch (_) {
+          // si falla parseo de URL, no romper
+        }
+      });
+  
+      // 2) JSON-LD (si alguna vez se hace dinámico, actualizar ahí también)
+    }
+  
+    // ===== Counters (count-up on view) =====
+    function setupCounters() {
+      const els = document.querySelectorAll('.stat-num[data-target]');
+      if (!els.length) return;
+  
+      const prefersReduced =
+        window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const fmt = new Intl.NumberFormat('es-CL');
+  
+      const setFinal = el => {
+        const end = Number(el.dataset.target || 0);
+        const suffix = el.dataset.suffix || '';
+        el.textContent = fmt.format(end) + suffix;
+      };
+  
+      const animate = el => {
+        const end = Number(el.dataset.target || 0);
+        const suffix = el.dataset.suffix || '';
+        const dur = 1200; // ms
+        let startTime;
+  
+        const step = t => {
+          if (!startTime) startTime = t;
+          const p = Math.min((t - startTime) / dur, 1);
+          const eased = 1 - Math.pow(1 - p, 3); // easeOutCubic
+          const val = Math.round(end * eased);
+          el.textContent = fmt.format(val) + suffix;
+          if (p < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      };
+  
+      if (prefersReduced) {
+        els.forEach(setFinal);
+        return;
       }
-
+  
+      const io = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animate(entry.target);
+            obs.unobserve(entry.target); // una sola vez
+          }
+        });
+      }, { threshold: 0.4 });
+  
+      els.forEach(el => io.observe(el));
+    }
+  
     // ===== Init =====
     document.addEventListener('DOMContentLoaded', () => {
       setupLazyImages();
@@ -221,6 +272,7 @@
       setupFooterYear();
       setupActiveNav();
       setupCategoryPrefill();
+      setupCounters(); // métricas animadas
     });
   })();
   
