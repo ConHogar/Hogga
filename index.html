@@ -29,6 +29,10 @@
 
   <link rel="preload" as="image" href="images/logo.png" />
   <link rel="stylesheet" href="css/styles.css" />
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -52,7 +56,7 @@
       <div class="hero-bg"></div>
       <div class="container hero-content">
         <span class="eyebrow">Hecho en el sur de Chile</span>
-        <h1>+1.000 búsquedas atendidas. Menos búsqueda, más soluciones</h1>
+        <h1>Tu dato confiable en menos de un minuto</h1>
         <p class="lead">
           Hogar, mascotas, bienestar, eventos y transporte. Concepción → Chiloé.
           Recibe recomendaciones en menos 60 s y elige a quién llamar.
@@ -63,27 +67,25 @@
           <div class="bubble bot">Listo, Aquí van 3 verificados 🔧 zona, horario y contacto.</div>
           <div class="bubble me">Perfecto, muchas gracias!</div>
         </div>
-    
+     
         <div class="cta-row" role="group" aria-label="Acciones principales">
-          <a class="btn primary" href="https://wa.me/569XXXXXXXX?text=Hola%20Hogga%2C%20necesito%20un%20dato" target="_blank" rel="noopener">
+          <a class="btn primary" href="https://www.instagram.com/hogga_chile/" target="_blank" rel="noopener">
             Pedir datos por Instagram
           </a>
-          <a class="btn outline" href="https://www.instagram.com/hogga_chile/" target="_blank" rel="noopener">
+          <a class="btn outline" href="https://wa.me/56951809138?text=Hola%20Hogga%2C%20necesito%20un%20dato" target="_blank" rel="noopener">
             Escríbenos por WhatsApp
           </a>
         </div>
-    
 
       </div>
     </section>
-    
     
 
     <!-- Trust bar -->
     <div class="trust">
       <div class="container trust-row">
         <div class="trust-item"><span class="dot"></span> Proveedores verificados en tu ciudad</div>
-        <div class="trust-item"><span class="dot"></span> Reseñas reales de usuarios</div>
+        <div class="trust-item"><span class="dot"></span> 1.000+ búsquedas atendidas</div>
         <div class="trust-item"><span class="dot"></span> Soporte rápido si algo falla</div>
       </div>
     </div>
@@ -229,21 +231,53 @@
 
   <footer class="footer">
     <div class="container foot">
-      <div>
-        <strong>Hogga</strong><br />
+      <!-- Columna 1: marca -->
+      <div class="foot-brand">
+        <strong>Hogga</strong>
         <small>Plataforma local de recomendaciones confiables para el hogar. Hecho en el sur de Chile.</small>
+        <a class="foot-cta" href="https://wa.me/569XXXXXXXX?text=Hola%20Hogga%2C%20necesito%20un%20dato" target="_blank" rel="noopener">
+          Pide tu dato por WhatsApp
+        </a>
       </div>
-      <div class="socials">
-        <a href="https://www.instagram.com/hogga_chile/" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://www.facebook.com/profile.php?id=61577176559219" target="_blank" rel="noopener">Facebook</a>
-        <a href="https://www.youtube.com/@hogga_chile" target="_blank" rel="noopener">YouTube</a>
-        <a href="https://www.tiktok.com/@hogga_chile" target="_blank" rel="noopener">TikTok</a>
-        <!-- X (placeholder) -->
-        <!-- <a href="https://x.com/hogga_chile" target="_blank" rel="noopener" ref="nofollow">X</a> -->
+  
+      <!-- Columna 2: enlaces del sitio -->
+      <nav class="foot-links" aria-label="Enlaces">
+        <div>
+          <span class="foot-title">Hogga</span>
+          <ul>
+            <li><a href="#como-funciona">Cómo funciona</a></li>
+            <li><a href="#categorias">Servicios</a></li>
+            <li><a href="#ciudades">Ciudades</a></li>
+            <li><a href="#contacto">Participa</a></li>
+          </ul>
+        </div>
+        <div>
+          <span class="foot-title">Legal</span>
+          <ul>
+            <li><a href="/terminos.html">Términos</a></li>
+            <li><a href="/privacidad.html">Privacidad</a></li>
+          </ul>
+        </div>
+      </nav>
+  
+      <!-- Columna 3: redes sociales con título -->
+      <div class="foot-social">
+        <span class="foot-title">Síguenos</span>
+        <div class="socials">
+          <a href="https://www.instagram.com/hogga_chile/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+          <a href="https://www.facebook.com/profile.php?id=61577176559219" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
+          <a href="https://www.youtube.com/@hogga_chile" target="_blank" rel="noopener" aria-label="YouTube">YouTube</a>
+          <a href="https://www.tiktok.com/@hogga_chile" target="_blank" rel="noopener" aria-label="TikTok">TikTok</a>
+        </div>
       </div>
     </div>
+  
+    <div class="container foot-bottom">
+      <small>© <span id="y"></span> Hogga. Todos los derechos reservados.</small>
+    </div>
   </footer>
-
+  
+  
   <!-- JSON-LD: Organization + Website + FAQPage -->
   <script type="application/ld+json">
   {
