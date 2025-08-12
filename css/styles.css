@@ -150,6 +150,27 @@ h2{font-size:clamp(1.4rem,2.6vw,2rem);margin:0 0 10px}
 
 
 /* ===== Categories (cards) ===== */
+/* Grid de categorías: 2 / 3 / 4 columnas */
+.grid.cats{
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));   /* móvil */
+}
+
+@media (min-width:760px){
+  .grid.cats{
+    grid-template-columns: repeat(3, minmax(0, 1fr)); /* tablet */
+    gap: 16px;
+  }
+}
+
+@media (min-width:1024px){
+  .grid.cats{
+    grid-template-columns: repeat(4, minmax(0, 1fr)); /* desktop */
+  }
+}
+
+
 .grid.cats{gap:14px} /* un poquito más de aire entre cards */
 
 .cat{
@@ -225,6 +246,12 @@ h2{font-size:clamp(1.4rem,2.6vw,2rem);margin:0 0 10px}
   .grid.cats{gap:16px}
   .cat-emoji{width:44px;height:44px;font-size:1.8rem}
 }
+
+/* Versión compacta de categorías */
+.cats-compact .cat { padding:14px; }
+.cats-compact .cat-body { gap:0; }
+.cats-compact .cat-title { font-size:1rem; }
+.cats-compact .cat-cta { padding:6px 10px; }
 
 
 
@@ -352,7 +379,6 @@ a:focus-visible {
   .stepper-item:last-child::after{display:none}
 
   /* Trust, categories, hero spacing */
-  .grid{grid-template-columns:repeat(4,1fr)}
   .hero-content{padding:96px 0 72px}
 
   /* Footer grid columns */
