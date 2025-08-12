@@ -278,6 +278,63 @@ h2{font-size:clamp(1.4rem,2.6vw,2rem);margin:0 0 10px}
 
 
 
+/* ===== FAQ ===== */
+.faq details{
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:14px;
+  padding:12px 14px;
+  margin:12px 0;
+  box-shadow:0 4px 16px rgba(17,24,39,.04);
+  transition:border-color .15s ease, box-shadow .15s ease, background .15s ease;
+}
+.faq details:hover{
+  border-color:#d8e7e7;
+  box-shadow:0 6px 22px rgba(17,24,39,.06);
+}
+.faq details[open]{ background:#fbfefd; border-color:#cfe6e6; }
+
+.faq summary{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  cursor:pointer;
+  list-style:none;
+  font-weight:800;
+  color:#0f2f2f;
+  position:relative;
+  padding-right:28px; /* espacio para la flecha */
+}
+.faq summary::-webkit-details-marker{ display:none; }
+
+/* Flecha */
+.faq summary::after{
+  content:"";
+  position:absolute; right:6px; top:50%; transform:translateY(-50%) rotate(-90deg);
+  width:10px; height:10px;
+  border-right:2px solid #0f2f2f; border-bottom:2px solid #0f2f2f;
+  opacity:.7; transition:transform .2s ease, opacity .2s ease;
+}
+.faq details[open] summary::after{
+  transform:translateY(-50%) rotate(0deg); opacity:1;
+}
+
+.faq summary span{ line-height:1.35; }
+
+/* Contenido */
+.faq p{
+  margin:10px 2px 4px;
+  color:#374151;
+}
+
+/* Foco accesible */
+.faq summary:focus-visible{
+  outline:3px solid rgba(19,101,101,.35);
+  outline-offset:3px;
+  border-radius:10px;
+}
+
+
 
 
 @media (min-width:760px){
