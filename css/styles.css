@@ -140,56 +140,67 @@ nav a:hover{background:#f1f5f9}
 h2{font-size:clamp(1.4rem,2.6vw,2rem);margin:0 0 10px}
 .sub{color:var(--muted);margin:0 0 24px}
 
-/* Cómo funciona section */
-#como-funciona {
-  text-align: center;
+/* Center section title & sub (puedes mantener lo que ya tienes) */
+#como-funciona { text-align: center; }
+#como-funciona .sub { max-width: 720px; margin: 0 auto 22px; }
+
+/* Stepper horizontal compacto */
+.stepper{
+  --line:#e5e7eb;
+  --dot-bg:#136565;
+  --dot-ink:#fff;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:18px;
+  padding:0;
+  margin:14px auto 0;
+  list-style:none;
+  max-width:1000px;
+}
+.stepper-item{
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  justify-content:flex-start;
+  text-align:left;
+}
+.stepper-dot{
+  flex:0 0 34px;
+  width:34px; height:34px; border-radius:999px;
+  background:var(--dot-bg);
+  color:var(--dot-ink);
+  display:grid; place-items:center;
+  font-weight:800; font-size:.95rem;
+  box-shadow:0 0 0 4px rgba(19,101,101,.10);
+}
+.stepper-label{
+  font-size:.98rem; color:#374151;
+}
+.stepper-label b{ display:inline; margin-right:6px; color:#0f2f2f; }
+
+/* Desktop: 3 columnas con línea conectando puntos */
+@media (min-width: 760px){
+  .stepper{
+    grid-template-columns: repeat(3, 1fr);
+    gap:26px;
+  }
+  .stepper-item{
+    justify-content:center; text-align:center; flex-direction:column; gap:10px;
+    padding:0 8px; min-height:120px;
+  }
+  .stepper-item::after{
+    content:""; position:absolute; top:17px; left:50%; right:-50%;
+    height:2px; background:var(--line);
+  }
+  .stepper-item:last-child::after{ display:none; }
 }
 
-#como-funciona h2 {
-  margin-bottom: 8px;
+/* Muy compacto en mobile para que no se alargue */
+@media (max-width: 759.98px){
+  .stepper-item{ min-height:auto; }
 }
 
-#como-funciona .sub {
-  max-width: 600px;
-  margin: 0 auto 32px;
-}
-
-.steps {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  align-items: center;
-}
-
-.step {
-  background: var(--card);
-  border: 1px solid #e5e7eb;
-  border-radius: 16px;
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  max-width: 500px;
-  width: 100%;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.step:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.06);
-}
-
-.step b {
-  display: block;
-  margin-bottom: 4px;
-}
-
-.step:first-child::before,
-.step:nth-child(2)::before,
-.step:nth-child(3)::before {
-  font-size: 1.5rem;
-}
 
 /* Categorías grid */
 .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
