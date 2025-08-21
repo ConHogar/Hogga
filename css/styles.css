@@ -556,3 +556,58 @@ a:focus-visible {
 @media (max-width:1023.98px){
   .section.alt.map{ background-attachment: scroll; }
 }
+
+
+/* ===== Mobile Nav (Hamburger) ===== */
+
+/* botón hamburger oculto en desktop */
+.nav-toggle{
+  display:none; appearance:none; border:0; background:transparent; cursor:pointer;
+  padding:8px; margin-left:auto; border-radius:10px;
+}
+.nav-toggle:focus-visible{ outline:3px solid rgba(19,101,101,.35); outline-offset:3px; }
+.nav-toggle-box{ display:grid; gap:4px; }
+.nav-toggle-line{
+  width:24px; height:2px; background:#0f2f2f; display:block; border-radius:2px;
+  transition:transform .2s ease, opacity .2s ease, background .2s ease;
+}
+
+/* contenedor menú base (desktop) */
+.site-nav{ display:flex; gap:8px; }
+.site-nav a{ padding:8px 10px; border-radius:8px; font-weight:600; color:#374151; }
+.site-nav a:hover{ background:#f1f5f9; }
+
+/* layout móvil */
+@media (max-width: 759.98px){
+  .nav-toggle{ display:block; }
+
+  /* header: marca a la izquierda, botón a la derecha */
+  .header-content{ gap:8px; }
+  .site-nav{
+    position: fixed; inset: 64px 0 0 0; /* debajo del header */
+    background:#ffffff; border-top:1px solid #e5e7eb;
+    display: grid; gap: 6px; padding: 12px;
+    transform: translateY(-8px); opacity:0; pointer-events:none;
+    transition: transform .18s ease, opacity .18s ease;
+  }
+  .site-nav a{ padding:12px; font-size:1.05rem; }
+
+  /* estado abierto */
+  .nav-open .site-nav{
+    transform: translateY(0); opacity:1; pointer-events:auto;
+  }
+
+  /* animación del ícono a "X" */
+  .nav-open .nav-toggle-line:nth-child(1){
+    transform: translateY(6px) rotate(45deg);
+  }
+  .nav-open .nav-toggle-line:nth-child(2){
+    opacity:0;
+  }
+  .nav-open .nav-toggle-line:nth-child(3){
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  /* bloquea scroll de fondo cuando el menú está abierto */
+  .nav-open{ overflow:hidden; }
+}
