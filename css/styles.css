@@ -641,3 +641,50 @@ a:focus-visible {
 @media (min-width:760px){
   .hero-content{ padding: 96px 0 72px; }       /* desktop se mantiene amplio */
 }
+
+/* ===== Reviews ===== */
+.reviews-grid{
+  display:grid;
+  gap:18px;
+  grid-template-columns:1fr;
+  max-width:1000px;
+  margin:0 auto;
+}
+@media (min-width:760px){
+  .reviews-grid{ grid-template-columns:repeat(3,1fr); }
+}
+
+.quote-card{
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:var(--r-xl);
+  box-shadow:var(--shadow-card);
+  padding:20px 18px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+
+.quote-card blockquote{
+  margin:0 0 12px 0;
+  font-size:1.05rem;
+  color:#374151;
+  line-height:1.5;
+  position:relative;
+}
+
+.quote-card blockquote::before{
+  content:"“";
+  position:absolute;
+  top:-10px; left:-6px;
+  font-size:2.5rem;
+  color:#d9f2ef;
+  font-family:Georgia, serif;
+}
+
+.quote-card figcaption{
+  font-weight:600;
+  color:#0f2f2f;
+  font-size:.95rem;
+  margin-top:auto;
+}
