@@ -611,3 +611,33 @@ a:focus-visible {
   /* bloquea scroll de fondo cuando el menú está abierto */
   .nav-open{ overflow:hidden; }
 }
+
+/* ===== Compactar menú móvil ===== */
+@media (max-width: 759.98px){
+  .site-nav{
+    display:grid;
+    gap: 0;                 /* sin gaps entre filas */
+    padding: 8px 10px;      /* menos padding del contenedor */
+    align-content: start;   /* evita que Safari reparta el espacio vertical */
+    justify-items: start;   /* alinea los links a la izquierda */
+  }
+  .site-nav a{
+    padding: 12px 4px;      /* menos alto por ítem */
+    font-size: 1rem;        /* texto un pelín más chico */
+    line-height: 1.25;      /* altura de línea contenida */
+    width: 100%;
+    border-radius: 8px;
+  }
+  /* separadores sutiles en vez de grandes espacios */
+  .site-nav a + a{
+    border-top: 1px solid #eef2f7;
+  }
+}
+
+
+/* ===== Hero más compacto en móvil ===== */
+.hero-content{ padding: 68px 0 56px; }         /* antes: 96px 0 72px */
+
+@media (min-width:760px){
+  .hero-content{ padding: 96px 0 72px; }       /* desktop se mantiene amplio */
+}
