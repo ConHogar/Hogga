@@ -113,7 +113,7 @@
     function setupEmailLink(){
       const el = document.getElementById('contact-email');
       if (!el) return;
-      const user = 'hola'; const domain = 'hogga.cl';
+      const user = 'hablemos'; const domain = 'hogga.cl';
       const subj = 'Quiero sumarme a Hogga';
       const body = `Hola Hogga,%0D%0A%0D%0AQuiero sumarme como proveedor / dejar una recomendación.%0D%0A` +
                   `Nombre:%0D%0ACiudad:%0D%0ACategoría:%0D%0AWhatsApp:%0D%0A%0D%0AGracias.`;
