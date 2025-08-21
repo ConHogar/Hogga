@@ -41,7 +41,18 @@
       <a class="brand" href="#inicio" aria-label="Hogga, inicio">
         <img class="logo" src="images/logo.png" alt="Hogga" width="120" height="36" />
       </a>
-      <nav>
+  
+      <!-- Botón hamburger (solo móvil) -->
+      <button class="nav-toggle" aria-label="Abrir menú" aria-controls="site-nav" aria-expanded="false">
+        <span class="nav-toggle-box" aria-hidden="true">
+          <span class="nav-toggle-line"></span>
+          <span class="nav-toggle-line"></span>
+          <span class="nav-toggle-line"></span>
+        </span>
+      </button>
+  
+      <!-- Menú -->
+      <nav id="site-nav" class="site-nav" role="navigation">
         <a href="#como-funciona">¿Cómo funciona?</a>
         <a href="#categorias">Servicios</a>
         <a href="#ciudades">Ciudades</a>
@@ -49,6 +60,7 @@
       </nav>
     </div>
   </header>
+  
 
   <main id="inicio">
     <!-- HERO tipo chat (sin imagen) -->
@@ -393,7 +405,7 @@
     "name": "Hogga",
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://wa.me/56951809138?text=Busco%20{search_term_string}"
+      "target": "https://wa.me/56951809138?text=Busco%20{search_term_string}",
       "query-input": "required name=search_term_string"
     }
   }
