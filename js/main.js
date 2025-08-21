@@ -108,6 +108,32 @@
       const y = $('#y');
       if (y) y.textContent = new Date().getFullYear();
     }
+
+    // ===== Email link seguro (evita scrapers) =====
+    function setupEmailLink(){
+      const el = document.getElementById('contact-email');
+      if (!el) return;
+      const user = 'hola'; const domain = 'hogga.cl';
+      const subj = 'Quiero sumarme a Hogga';
+      const body = `Hola Hogga,%0D%0A%0D%0AQuiero sumarme como proveedor / dejar una recomendación.%0D%0A` +
+                  `Nombre:%0D%0ACiudad:%0D%0ACategoría:%0D%0AWhatsApp:%0D%0A%0D%0AGracias.`;
+      el.href = `mailto:${user}@${domain}?subject=${encodeURIComponent(subj)}&body=${body}`;
+      el.setAttribute('aria-label', 'Enviar email a Hogga');
+    }
+
+    // (opcional) abre WhatsApp al pedir "formulario" por ahora
+    function setupFormAlt(){
+      const alt = document.getElementById('form-alt');
+      if (!alt) return;
+      alt.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.open(
+          'https://wa.me/56951759158?text=Hola%20Hogga%2C%20prefiero%20enviar%20mis%20datos%20por%20formulario.%20%C2%BFMe%20lo%20pueden%20compartir%3F',
+          '_blank','noopener'
+        );
+      });
+    }
+
   
     // ===== Nav activo (mejora UX) =====
     function setupActiveNav() {
@@ -319,7 +345,9 @@ function setupMobileNav(){
       setupActiveNav();
       setupCategoryPrefill();
       setupCounters(); // métricas animadas
-      setupMobileNav(); 
+      setupMobileNav();
+      setupEmailLink();
+      setupFormAlt();
     });
   })();
   
