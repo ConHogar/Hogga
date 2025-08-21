@@ -263,6 +263,43 @@
       els.forEach(el => io.observe(el));
     }
   
+
+// ===== Mobile menu (hamburger) =====
+function setupMobileNav(){
+  const btn  = document.querySelector('.nav-toggle');
+  const nav  = document.getElementById('site-nav');
+  if (!btn || !nav) return;
+
+  const open = () => {
+    document.body.classList.add('nav-open');
+    btn.setAttribute('aria-expanded', 'true');
+    btn.setAttribute('aria-label', 'Cerrar menú');
+  };
+  const close = () => {
+    document.body.classList.remove('nav-open');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-label', 'Abrir menú');
+  };
+  const toggle = () => {
+    if (document.body.classList.contains('nav-open')) close(); else open();
+  };
+
+  btn.addEventListener('click', toggle);
+
+  // Cerrar con ESC
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') close();
+  });
+
+  // Cerrar al hacer click en un enlace del menú
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+
+  // Cerrar al cambiar a desktop (evita quedar "pegado")
+  const mq = window.matchMedia('(min-width: 760px)');
+  mq.addEventListener?.('change', () => close());
+}
+
+
     // ===== Init =====
     document.addEventListener('DOMContentLoaded', () => {
       setupLazyImages();
@@ -273,6 +310,7 @@
       setupActiveNav();
       setupCategoryPrefill();
       setupCounters(); // métricas animadas
+      setupMobileNav(); 
     });
   })();
   
