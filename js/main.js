@@ -297,6 +297,15 @@ function setupMobileNav(){
   // Cerrar al cambiar a desktop (evita quedar "pegado")
   const mq = window.matchMedia('(min-width: 760px)');
   mq.addEventListener?.('change', () => close());
+
+  // Cerrar al tocar fuera del header
+    document.addEventListener('click', (e) => {
+      const header = document.querySelector('.main-header');
+      if (document.body.classList.contains('nav-open') && header && !header.contains(e.target)) {
+        close();
+      }
+    }, { capture: true });
+
 }
 
 
