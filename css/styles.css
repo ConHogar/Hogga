@@ -71,7 +71,7 @@ h1,h2,.btn{font-family:Manrope, Inter, system-ui, sans-serif}
 }
 
 /* CTAs */
-.cta-row{margin-top:20px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
+.cta-row{margin-top:26px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
 .cta-row.left{justify-content:flex-start}
 
 @media (prefers-reduced-motion: no-preference){
@@ -636,10 +636,10 @@ a:focus-visible {
 
 
 /* ===== Hero más compacto en móvil ===== */
-.hero-content{ padding: 68px 0 56px; }         /* antes: 96px 0 72px */
+.hero-content{ padding: 56px 0 56px; }         /* antes: 96px 0 72px */
 
 @media (min-width:760px){
-  .hero-content{ padding: 96px 0 72px; }       /* desktop se mantiene amplio */
+  .hero-content{ padding: 82px 0 72px; }       /* desktop se mantiene amplio */
 }
 
 /* ===== Reviews ===== */
