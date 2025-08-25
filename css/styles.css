@@ -460,11 +460,22 @@ a:focus-visible {
     justify-content:center; text-align:center; flex-direction:column; gap:10px;
     padding:0 8px; min-height:120px;
   }
-  .stepper-item::after{
-    content:""; position:absolute; top:17px; left:50%; right:-50%;
-    height:2px; background:var(--line);
+  /* Horizontal connector line between stepper dots */
+  .stepper-item::after {
+    content: "";
+    position: absolute;
+    top: 50%;              /* middle of the dot */
+    left: 100%;            /* start right after the dot */
+    width: 100%;           /* stretch to next step */
+    height: 2px;
+    background: var(--line);
+    transform: translateY(-50%); /* keep it centered */
+    z-index: -1;           /* make sure dots are above the line */
   }
-  .stepper-item:last-child::after{display:none}
+
+  .stepper-item:last-child::after {
+    display: none; /* no line after the last dot */
+  }
 
   /* Trust, categories, hero spacing */
   .hero-content{padding:96px 0 72px}
