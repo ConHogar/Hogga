@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Política de Privacidad | Hogga</title>
   <meta name="description" content="Política de Privacidad de Hogga Group SpA. Información clara sobre qué datos recopilamos, para qué los usamos y cómo ejercer tus derechos." />
-  <link rel="canonical" href="https://hogga.cl/privacidad.html" />
+  <link rel="canonical" href="https://hogga.cl/politica-privacidad/" />
   <meta name="theme-color" content="#136565" />
   <link rel="stylesheet" href="/css/styles.css" />
   <style>
@@ -17,12 +17,30 @@
   </style>
 </head>
 <body>
-  <!-- Encabezado simple (coherente con el sitio) -->
+
+  <!-- HEADER (igual que el home, con enlaces absolutos) -->
   <header class="main-header">
     <div class="container header-content">
       <a class="brand" href="/" aria-label="Hogga, inicio">
         <img class="logo" src="/images/logo.png" alt="Hogga" width="120" height="36" />
       </a>
+
+      <!-- Botón hamburger -->
+      <button class="nav-toggle" aria-label="Abrir menú" aria-controls="site-nav" aria-expanded="false">
+        <span class="nav-toggle-box" aria-hidden="true">
+          <span class="nav-toggle-line"></span>
+          <span class="nav-toggle-line"></span>
+          <span class="nav-toggle-line"></span>
+        </span>
+      </button>
+
+      <!-- Menú -->
+      <nav id="site-nav" class="site-nav" role="navigation">
+        <a href="/#como-funciona">¿Cómo funciona?</a>
+        <a href="/#categorias">Servicios</a>
+        <a href="/#ciudades">Ciudades</a>
+        <a href="/#contacto">Participa</a>
+      </nav>
     </div>
   </header>
 
@@ -32,13 +50,14 @@
 
     <h2>1. Introducción</h2>
     <p>
-      Esta Política de Privacidad describe cómo <strong>Hogga Group SpA</strong> (“Hogga”) trata los datos personales de quienes usan nuestras plataformas (sitio web, bots de mensajería y otros servicios digitales). Nuestro objetivo es explicar de forma clara qué datos recopilamos, para qué los usamos y cómo puedes ejercer tus derechos, conforme a la Ley N° 19.628 sobre protección de la vida privada.
+      Esta Política de Privacidad describe cómo <strong>Hogga Group SpA</strong> (“Hogga”) trata los datos personales de quienes usan nuestras plataformas (sitio web, bots de mensajería y otros servicios digitales).
+      Nuestro objetivo es explicar de forma clara qué datos recopilamos, para qué los usamos y cómo puedes ejercer tus derechos, conforme a la Ley N° 19.628 sobre protección de la vida privada.
     </p>
 
     <h2>2. Datos que recopilamos</h2>
     <ul>
-      <li><strong>Datos de contacto</strong> (quando los entregas voluntariamente): nombre, correo, usuario de redes o WhatsApp.</li>
-      <li><strong>Datos de uso y navegación</strong>: dirección IP parcial, dispositivo, navegador, páginas visitadas, interacción con el sitio/bots.</li>
+      <li><strong>Datos de contacto</strong> (cuando los entregas voluntariamente): nombre, correo, usuario de redes o WhatsApp.</li>
+      <li><strong>Datos de uso y navegación</strong>: dirección IP parcial, dispositivo, navegador, interacción con el sitio/bots.</li>
       <li><strong>Datos de servicio</strong>: ciudad, categoría solicitada, reseñas y feedback sobre proveedores.</li>
     </ul>
 
@@ -58,13 +77,13 @@
 
     <h2>5. Cómo recopilamos datos</h2>
     <ul>
-      <li><strong>Automáticamente</strong> (cookies/analítica): para medir tráfico, desempeño y uso del sitio de forma agregada.</li>
-      <li><strong>Manualmente</strong>: cuando compartes datos por WhatsApp, Instagram o formularios para recibir recomendaciones o dejar reseñas.</li>
+      <li><strong>Automáticamente</strong>: cookies y analítica web para medir tráfico y desempeño.</li>
+      <li><strong>Manualmente</strong>: cuando compartes datos por WhatsApp, Instagram o formularios.</li>
     </ul>
 
     <h2>6. Acceso, almacenamiento y seguridad</h2>
     <p>
-      Los datos se almacenan con proveedores tecnológicos confiables y solo accede personal autorizado o encargados de tratamiento que prestan servicios a Hogga. Adoptamos medidas razonables de seguridad para proteger la información.
+      Los datos se almacenan con proveedores tecnológicos confiables y solo accede personal autorizado o encargados de tratamiento que prestan servicios a Hogga.
     </p>
 
     <h2>7. Tus derechos</h2>
@@ -88,10 +107,56 @@
     </p>
   </main>
 
+  <!-- FOOTER (igual al home) -->
   <footer class="footer">
     <div class="container foot">
-      <small>© <script>document.write(new Date().getFullYear())</script> Hogga. Todos los derechos reservados.</small>
+      <!-- Columna 1: marca -->
+      <div class="foot-brand">
+        <strong>Hogga</strong>
+        <small>Plataforma local de <strong>recomendaciones verificadas</strong> para el hogar. Hecho en el sur de Chile.</small>
+        <a class="foot-cta" href="https://wa.me/569XXXXXXXX?text=Hola%20Hogga%2C%20necesito%20un%20dato" target="_blank" rel="noopener">
+          Pide tu dato por WhatsApp
+        </a>
+      </div>
+
+      <!-- Columna 2: enlaces -->
+      <nav class="foot-links" aria-label="Enlaces">
+        <div>
+          <span class="foot-title">Hogga</span>
+          <ul>
+            <li><a href="/#como-funciona">Cómo funciona</a></li>
+            <li><a href="/#categorias">Servicios</a></li>
+            <li><a href="/#ciudades">Ciudades</a></li>
+            <li><a href="/#contacto">Participa</a></li>
+          </ul>
+        </div>
+        <div>
+          <span class="foot-title">Legal</span>
+          <ul>
+            <li><a href="/terminos.html">Términos</a></li>
+            <li><a href="/politica-privacidad/">Privacidad</a></li>
+            <li><a href="/bases-legales-concursos-instagram/">Bases Concursos</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Columna 3: redes sociales -->
+      <div class="foot-social">
+        <span class="foot-title">Síguenos</span>
+        <div class="socials">
+          <a href="https://www.instagram.com/hogga_chile/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+          <a href="https://www.facebook.com/profile.php?id=61577176559219" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
+          <a href="https://www.youtube.com/@hogga_chile" target="_blank" rel="noopener" aria-label="YouTube">YouTube</a>
+          <a href="https://www.tiktok.com/@hogga_chile" target="_blank" rel="noopener" aria-label="TikTok">TikTok</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container foot-bottom">
+      <small>© <span id="y"></span> Hogga. Todos los derechos reservados.</small>
     </div>
   </footer>
+
+  <script defer src="/js/main.js"></script>
 </body>
 </html>

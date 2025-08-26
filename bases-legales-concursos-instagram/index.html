@@ -8,48 +8,46 @@
   <link rel="canonical" href="https://hogga.cl/bases-legales-concursos-instagram/" />
   <meta name="theme-color" content="#136565" />
   <link rel="stylesheet" href="/css/styles.css" />
-
   <style>
-    .legal-wrapper {
-      max-width: 880px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-    .legal-card {
-      border: 1px solid #e5e7eb;
-      border-radius: 12px;
-      padding: 16px 20px;
-      margin: 16px 0;
-      background: #fff;
-    }
-    .legal-card h2 {
-      margin-top: 0;
-      font-size: 1.25rem;
-    }
-    .legal-card p.meta {
-      font-size: 0.875rem;
-      color: #6b7280;
-    }
-    .legal-card a.btn {
-      display: inline-block;
-      margin-top: 10px;
-    }
+    .legal-wrapper{max-width:880px;margin:0 auto;padding:20px}
+    .legal-card{border:1px solid #e5e7eb;border-radius:12px;padding:16px 20px;margin:16px 0;background:#fff}
+    .legal-card h2{margin:0 0 6px;font-size:1.25rem}
+    .legal-card p.meta{margin:0 0 10px;color:#6b7280;font-size:.9rem}
   </style>
 </head>
 <body>
+
+  <!-- HEADER (mismo que tu home, con enlaces absolutos a secciones) -->
   <header class="main-header">
     <div class="container header-content">
       <a class="brand" href="/" aria-label="Hogga, inicio">
         <img class="logo" src="/images/logo.png" alt="Hogga" width="120" height="36" />
       </a>
+
+      <!-- Botón hamburger (solo móvil) -->
+      <button class="nav-toggle" aria-label="Abrir menú" aria-controls="site-nav" aria-expanded="false">
+        <span class="nav-toggle-box" aria-hidden="true">
+          <span class="nav-toggle-line"></span>
+          <span class="nav-toggle-line"></span>
+          <span class="nav-toggle-line"></span>
+        </span>
+      </button>
+
+      <!-- Menú -->
+      <nav id="site-nav" class="site-nav" role="navigation">
+        <a href="/#como-funciona">¿Cómo funciona?</a>
+        <a href="/#categorias">Servicios</a>
+        <a href="/#ciudades">Ciudades</a>
+        <a href="/#contacto">Participa</a>
+      </nav>
     </div>
   </header>
 
-  <main class="legal-wrapper">
+  <main class="legal-wrapper" role="main">
     <h1>Bases legales — Concursos Instagram</h1>
     <p class="sub">Aquí encontrarás las bases de cada concurso vigente o finalizado.</p>
 
-    <!-- Concurso actual -->
+    <!-- Concurso vigente -->
     <article class="legal-card">
       <h2>Concurso: Castillo Inflable (ago–sep 2025)</h2>
       <p class="meta">Vigencia: 27/08/2025 al 06/09/2025</p>
@@ -58,7 +56,7 @@
       </a>
     </article>
 
-    <!-- Ejemplo futuro:
+    <!-- Plantilla para futuros concursos
     <article class="legal-card">
       <h2>Concurso: [Nombre] (mes año)</h2>
       <p class="meta">Vigencia: dd/mm/aaaa al dd/mm/aaaa</p>
@@ -67,10 +65,57 @@
     -->
   </main>
 
+  <!-- FOOTER (idéntico al que enviaste) -->
   <footer class="footer">
     <div class="container foot">
-      <small>© <script>document.write(new Date().getFullYear())</script> Hogga. Todos los derechos reservados.</small>
+      <!-- Columna 1: marca -->
+      <div class="foot-brand">
+        <strong>Hogga</strong>
+        <small>Plataforma local de <strong>recomendaciones verificadas</strong> para el hogar. Hecho en el sur de Chile.</small>
+        <a class="foot-cta" href="https://wa.me/569XXXXXXXX?text=Hola%20Hogga%2C%20necesito%20un%20dato" target="_blank" rel="noopener">
+          Pide tu dato por WhatsApp
+        </a>
+      </div>
+
+      <!-- Columna 2: enlaces del sitio -->
+      <nav class="foot-links" aria-label="Enlaces">
+        <div>
+          <span class="foot-title">Hogga</span>
+          <ul>
+            <li><a href="/#como-funciona">Cómo funciona</a></li>
+            <li><a href="/#categorias">Servicios</a></li>
+            <li><a href="/#ciudades">Ciudades</a></li>
+            <li><a href="/#contacto">Participa</a></li>
+          </ul>
+        </div>
+        <div>
+          <span class="foot-title">Legal</span>
+          <ul>
+            <li><a href="/terminos.html">Términos</a></li>
+            <li><a href="/politica-privacidad/">Privacidad</a></li>
+            <li><a href="/bases-legales-concursos-instagram/">Bases Concursos</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Columna 3: redes sociales con título -->
+      <div class="foot-social">
+        <span class="foot-title">Síguenos</span>
+        <div class="socials">
+          <a href="https://www.instagram.com/hogga_chile/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+          <a href="https://www.facebook.com/profile.php?id=61577176559219" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
+          <a href="https://www.youtube.com/@hogga_chile" target="_blank" rel="noopener" aria-label="YouTube">YouTube</a>
+          <a href="https://www.tiktok.com/@hogga_chile" target="_blank" rel="noopener" aria-label="TikTok">TikTok</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container foot-bottom">
+      <small>© <span id="y"></span> Hogga. Todos los derechos reservados.</small>
     </div>
   </footer>
+
+  <!-- Tu JS global para menú/ano -->
+  <script defer src="/js/main.js"></script>
 </body>
 </html>
