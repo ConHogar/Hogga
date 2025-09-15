@@ -19,7 +19,7 @@
   <meta name="twitter:description" content="Aparece verificado, recibe clientes en menos de 60 s. Sin comisiones." />
   <meta name="twitter:image" content="https://hogga.cl/images/og/og-hogga.jpg" />
 
-  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/css/styles.css" />
   <link rel="preload" as="image" href="/images/logo.png" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
@@ -65,17 +65,23 @@
 </head>
 
 <body>
-  <!-- Header igual al sitio -->
+  <!-- HEADER (igual que el home, con enlaces absolutos) -->
   <header class="main-header">
     <div class="container header-content">
       <a class="brand" href="/" aria-label="Hogga, inicio">
         <img class="logo" src="/images/logo.png" alt="Hogga" width="120" height="36" />
       </a>
+
+      <!-- Botón hamburger -->
       <button class="nav-toggle" aria-label="Abrir menú" aria-controls="site-nav" aria-expanded="false">
         <span class="nav-toggle-box" aria-hidden="true">
-          <span class="nav-toggle-line"></span><span class="nav-toggle-line"></span><span class="nav-toggle-line"></span>
+          <span class="nav-toggle-line"></span>
+          <span class="nav-toggle-line"></span>
+          <span class="nav-toggle-line"></span>
         </span>
       </button>
+
+      <!-- Menú -->
       <nav id="site-nav" class="site-nav" role="navigation">
         <a href="/#como-funciona">¿Cómo funciona?</a>
         <a href="/#categorias">Servicios</a>
@@ -84,7 +90,6 @@
       </nav>
     </div>
   </header>
-
   <main role="main">
     <!-- HERO -->
     <section class="lp-hero">
