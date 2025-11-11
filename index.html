@@ -3,23 +3,27 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Hogga — +40 servicios de proveedores verificados en Chile</title>
-    <meta name="description" content="Encuentra en Hogga +40 tipos de servicios para tu hogar y más. Proveedores verificados, recomendaciones en 60 segundos por WhatsApp o Instagram." />
+  
+    <!-- SEO principal -->
+    <title>Hogga — Recomendaciones verificadas en Chile para tu hogar y tus viajes</title>
+    <meta name="description" content="Hogga es tu vecino digital de confianza. Encuentra servicios para el hogar, restaurantes, hoteles, cafés y tours en Chile. Pide tu dato por WhatsApp o Instagram y recibe recomendaciones verificadas en menos de 60 segundos." />
     <link rel="canonical" href="https://hogga.cl/" />
     <meta name="theme-color" content="#136565" />
   
-    <!-- Open Graph / Twitter -->
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://hogga.cl/" />
-    <meta property="og:title" content="Hogga — +40 servicios de proveedores verificados en Chile" />
-    <meta property="og:description" content="Pide tu dato express en 60 s. Gasfitería, electricidad, limpieza, jardinería y mucho más." />
+    <meta property="og:title" content="Hogga — Recomendaciones verificadas en Chile para tu hogar y tus viajes" />
+    <meta property="og:description" content="Pide tu dato express en 60 s. Desde gasfitería y limpieza hasta restaurantes, hoteles, cafés y tours en Chile." />
     <meta property="og:image" content="https://hogga.cl/images/og/og-hogga.jpg" />
+  
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Hogga — +40 servicios de proveedores verificados en Chile" />
-    <meta name="twitter:description" content="Recibe recomendaciones verificadas en menos de un minuto. Escríbenos por WhatsApp o Instagram." />
+    <meta name="twitter:title" content="Hogga — Recomendaciones verificadas en Chile para tu hogar y tus viajes" />
+    <meta name="twitter:description" content="Recibe recomendaciones verificadas en menos de un minuto. Escríbenos por WhatsApp o Instagram y elige a quién llamar." />
     <meta name="twitter:image" content="https://hogga.cl/images/og/og-hogga.jpg" />
   
-    <!-- Favicons (importante: sube también /favicon.ico a la RAÍZ del sitio) -->
+    <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="/images/favic/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favic/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favic/favicon-16x16.png">
@@ -27,301 +31,449 @@
     <link rel="mask-icon" href="/images/favic/safari-pinned-tab.svg" color="#136565">
     <link rel="icon" href="/favicon.ico">
   
+    <!-- Performance / estilos -->
     <link rel="preload" as="image" href="images/logo.png" />
     <link rel="stylesheet" href="css/styles.css" />
   
+    <!-- Fuentes -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+  
+    <!-- GA4 (cuando quieras activarlo) -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7H96RZLD5E"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7H96RZLD5E');
+    </script>
+    -->
+  
+    <!-- JSON-LD de Organization y WebSite lo podemos añadir después
+         (en el <head> o al final del <body>) cuando cerremos el contenido -->
   </head>
-
+  
 <body>
-  <header class="main-header">
-    <div class="container header-content">
-      <a class="brand" href="/" aria-label="Hogga, inicio">
-        <img class="logo" src="images/logo.png" alt="Hogga" width="120" height="36" />
-      </a>
+  <body>
+    <header class="main-header">
+      <div class="container header-content">
+        <a class="brand" href="/" aria-label="Hogga, inicio">
+          <img class="logo" src="images/logo.png" alt="Hogga" width="120" height="36" />
+        </a>
   
-      <!-- Botón hamburger (solo móvil) -->
-      <button class="nav-toggle" aria-label="Abrir menú" aria-controls="site-nav" aria-expanded="false">
-        <span class="nav-toggle-box" aria-hidden="true">
-          <span class="nav-toggle-line"></span>
-          <span class="nav-toggle-line"></span>
-          <span class="nav-toggle-line"></span>
-        </span>
-      </button>
+        <!-- Botón hamburger (solo móvil) -->
+        <button class="nav-toggle" aria-label="Abrir menú" aria-controls="site-nav" aria-expanded="false">
+          <span class="nav-toggle-box" aria-hidden="true">
+            <span class="nav-toggle-line"></span>
+            <span class="nav-toggle-line"></span>
+            <span class="nav-toggle-line"></span>
+          </span>
+        </button>
   
-      <!-- Menú -->
-      <nav id="site-nav" class="site-nav" role="navigation">
-        <a href="#como-funciona">¿Cómo funciona?</a>
-        <a href="#categorias">Servicios</a>
-        <a href="#ciudades">Ciudades</a>
-        <a href="#contacto">Participa</a>
-      </nav>
-    </div>
-  </header>
-  
-
-  <main id="inicio">
-    <!-- HERO tipo chat (sin imagen) -->
-    <section class="hero">
-      <div class="hero-bg"></div>
-      <div class="container hero-content">
-        <span class="eyebrow">Hecho en el sur de Chile</span>
-        <h1>Tu dato verificado en menos de un minuto</h1>
-        <p class="lead">
-          Hogar, mascotas, bienestar, eventos y transporte. Concepción a Chiloé. Recibe recomendaciones en menos de 60 s y elige a quién llamar.
-        </p>
-    
-        <div class="chat-demo" aria-label="Demostración de flujo">
-          <div class="bubble me">Necesito un gasfiter hoy en Puerto Montt.</div>
-          <div class="bubble bot">Listo, aquí van proveedores de servicio de gasfitería 👌.</div>
-          <div class="bubble me">Perfecto, muchas gracias!</div>
-        </div>
-     
-        <div class="cta-row" role="group" aria-label="Acciones principales">
-          <a class="btn primary" href="https://www.instagram.com/hogga_chile/" target="_blank" rel="noopener">
-            Pedir datos por Instagram
-          </a>
-          <a class="btn outline" href="https://wa.me/56951809138?text=Hola%20Hogga%2C%20necesito%20un%20dato" target="_blank" rel="noopener">
-            Escríbenos por WhatsApp
-          </a>
-        </div>
-
+        <!-- Menú principal -->
+        <nav id="site-nav" class="site-nav" role="navigation">
+          <a href="#como-funciona">¿Cómo funciona?</a>
+          <a href="/servicios/">Hogga Servicios</a>
+          <a href="/turismo/">Hogga Turismo</a>
+          <a href="#contacto">Participa</a>
+        </nav>
       </div>
-    </section>
-    
-
-    <!-- Trust bar -->
-    <div class="trust">
-      <div class="container trust-row">
-        <div class="trust-item"><span class="dot"></span> Proveedores verificados en tu ciudad</div>
-        <div class="trust-item"><span class="dot"></span> 1.000+ búsquedas atendidas</div>
-        <div class="trust-item"><span class="dot"></span> Soporte rápido si algo falla</div>
+    </header>
+  
+    <main id="inicio">
+      <!-- HERO principal -->
+      <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="container hero-content">
+          <span class="eyebrow">Tu vecino digital de confianza en Chile 🇨🇱</span>
+  
+          <h1>Tu dato verificado en 60 segundos para el hogar y tus viajes</h1>
+  
+          <p class="lead">
+            Hogga te conecta con <strong>servicios confiables para tu casa, tus mascotas y tus eventos</strong>, 
+            además de <strong>restaurantes, hoteles, cafés y tours en Chile</strong>. 
+            Pide tu dato por WhatsApp o Instagram y elige a quién llamar.
+          </p>
+  
+          <!-- Demo de chat: hogar + turismo -->
+          <div class="chat-demo" aria-label="Demostración de cómo funciona Hogga">
+            <div class="bubble me">Necesito un gasfiter urgente en Puerto Montt.</div>
+            <div class="bubble bot">Listo, te paso 3 gasfiter verificados para que elijas 👌</div>
+            <div class="bubble me">Y para el finde, algún restaurante rico en Valdivia?</div>
+            <div class="bubble bot">Te dejo varios con buenas reseñas y vista linda 🍽️</div>
+          </div>
+  
+          <!-- CTAs principales -->
+          <div class="cta-row" role="group" aria-label="Acciones principales">
+            <a class="btn primary" href="https://wa.me/56951809138?text=Hola%20Hogga%2C%20necesito%20un%20dato" target="_blank" rel="noopener">
+              Pedir dato por WhatsApp
+            </a>
+            <a class="btn outline" href="/servicios/">
+              Ver Hogga Servicios
+            </a>
+            <a class="btn outline" href="/turismo/">
+              Ver Hogga Turismo
+            </a>
+          </div>
+        </div>
+      </section>
+  
+      <!-- Trust bar -->
+      <div class="trust">
+        <div class="container trust-row">
+          <div class="trust-item"><span class="dot"></span> Proveedores y lugares verificados por ciudad</div>
+          <div class="trust-item"><span class="dot"></span> 1.000+ búsquedas atendidas</div>
+          <div class="trust-item"><span class="dot"></span> Acompañamiento si algo no sale bien</div>
+        </div>
       </div>
-    </div>
+  
+      <section id="verticales" class="section alt">
+        <div class="container">
+          <h2>¿Qué estás buscando hoy?</h2>
+          <p class="sub">
+            En Hogga tienes dos caminos: <strong>servicios para tu hogar</strong> y 
+            <strong>lugares para salir y viajar</strong>. 
+            Tú pides el dato, nosotros te pasamos opciones verificadas.
+          </p>
+  
+          <div class="grid verticals-grid">
+            <!-- Tarjeta Hogga Servicios -->
+            <article class="vertical-card">
+              <span class="badge">Hogga Servicios</span>
+              <h3>Servicios para tu casa, tus mascotas y tus eventos</h3>
+              <p>
+                Gasfitería, electricidad, limpieza, jardinería, maestros multiuso, 
+                organización de cumpleaños y más. 
+                Te pasamos datos confiables para que elijas a quién llamar.
+              </p>
+  
+              <ul class="pill-list">
+                <li>🛠️ Gasfitería y reparaciones</li>
+                <li>🔌 Electricistas y técnicos</li>
+                <li>🧼 Limpieza de casas y departamentos</li>
+                <li>🎈 Cumpleaños y eventos familiares</li>
+              </ul>
+  
+              <div class="card-cta">
+                <a class="btn secondary" href="/servicios/">
+                  Ver Hogga Servicios
+                </a>
+                <small class="card-note">
+                  ¿Eres proveedor de servicios? Aquí es donde puedes aparecer.
+                </small>
+              </div>
+            </article>
+  
+            <!-- Tarjeta Hogga Turismo -->
+            <article class="vertical-card">
+              <span class="badge alt-badge">Hogga Turismo</span>
+              <h3>Restaurantes, hoteles, cafés y tours en Chile</h3>
+              <p>
+                Dónde comer, dónde dormir y qué hacer en tus viajes. 
+                Te mostramos lugares con buenas reseñas y contacto directo por WhatsApp, Instagram o web.
+              </p>
+  
+              <ul class="pill-list">
+                <li>🍽️ Restaurantes y cafés</li>
+                <li>🏨 Hoteles, hostales y cabañas</li>
+                <li>🚤 Tours, termas y panoramas</li>
+                <li>🌄 Ideas para recorrer Chile</li>
+              </ul>
+  
+              <div class="card-cta">
+                <a class="btn secondary" href="/turismo/">
+                  Ver Hogga Turismo
+                </a>
+                <small class="card-note">
+                  ¿Tienes un restaurante, hotel o tour? Súmate a Hogga Turismo.
+                </small>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+  
 
     <!-- Cómo funciona -->
-    <section id="como-funciona" class="section alt">
+    <section id="como-funciona" class="section">
       <div class="container">
         <h2>¿Cómo funciona Hogga?</h2>
-        <p class="sub">Somos el vecino útil de la cuadra. Te pasamos <strong>recomendaciones verificadas</strong> y tú decides a quién llamar.</p>
+        <p class="sub">
+          Muy simple. Nos cuentas qué necesitas —ya sea un servicio para tu casa o un lugar donde comer y descansar— 
+          y nosotros te pasamos <strong>datos verificados</strong> para que elijas con confianza.
+        </p>
 
         <ul class="stepper" aria-label="Cómo funciona" role="list">
           <li class="stepper-item">
             <span class="stepper-dot">1</span>
-            <span class="stepper-label"><b>Pide tu dato</b> <br>Hogar, mascotas, eventos, transporte.</span>
+            <span class="stepper-label">
+              <b>Pide tu dato</b><br>
+              Escríbenos por WhatsApp o Instagram y cuéntanos qué buscas.
+            </span>
           </li>
+
           <li class="stepper-item">
             <span class="stepper-dot">2</span>
-            <span class="stepper-label"><b>Recibe opciones de proveedores</b> <br> Verificadas, con WhatsApp directo.</span>
+            <span class="stepper-label">
+              <b>Recibe opciones verificadas</b><br>
+              Te enviamos varias alternativas con contacto directo para elegir a quién llamar o visitar.
+            </span>
           </li>
+
           <li class="stepper-item">
             <span class="stepper-dot">3</span>
-            <span class="stepper-label"><b>Elige y califica</b> <br>Suben los cumplidores.</span>
+            <span class="stepper-label">
+              <b>Evalúa y comparte tu experiencia</b><br>
+              Así ayudamos a subir en el ranking a los cumplidores y a mejorar la red.
+            </span>
           </li>
         </ul>
-      </div>
-    </section>
 
-    <!-- Categorías -->
-
-<section id="categorias" class="section">
-  <div class="container">
-    <h2>Servicios para tu hogar</h2>
-    <p class="sub">Pide tu dato y te pasamos opciones verificadas.</p>
-
-    <div class="grid cats cats-compact">
-      <a class="cat" href="https://wa.me/569XXXXXXXX?text=Necesito%20gasfiter%20en%20[tu%20ciudad]" aria-label="Pedir datos de Gasfitería">
-        <span class="cat-emoji" aria-hidden="true">🛠️</span>
-        <div class="cat-body">
-          <span class="cat-title">Gasfitería</span>
-        </div>
-        <span class="cat-cta" aria-hidden="true">Pedir</span>
-      </a>
-
-      <a class="cat" href="https://wa.me/569XXXXXXXX?text=Necesito%20electricista%20en%20[tu%20ciudad]" aria-label="Pedir datos de Electricidad">
-        <span class="cat-emoji" aria-hidden="true">🔌</span>
-        <div class="cat-body">
-          <span class="cat-title">Electricidad</span>
-        </div>
-        <span class="cat-cta" aria-hidden="true">Pedir</span>
-      </a>
-
-      <a class="cat" href="https://wa.me/569XXXXXXXX?text=Necesito%20limpieza%20en%20[tu%20ciudad]" aria-label="Pedir datos de Limpieza">
-        <span class="cat-emoji" aria-hidden="true">🧼</span>
-        <div class="cat-body">
-          <span class="cat-title">Limpieza</span>
-        </div>
-        <span class="cat-cta" aria-hidden="true">Pedir</span>
-      </a>
-
-      <a class="cat" href="https://wa.me/569XXXXXXXX?text=Necesito%20jardiner%C3%ADa%20en%20[tu%20ciudad]" aria-label="Pedir datos de Jardinería">
-        <span class="cat-emoji" aria-hidden="true">🌿</span>
-        <div class="cat-body">
-          <span class="cat-title">Jardinería</span>
-        </div>
-        <span class="cat-cta" aria-hidden="true">Pedir</span>
-      </a>
-
-      <a class="cat" href="https://wa.me/569XXXXXXXX?text=Necesito%20carpintero%20en%20[tu%20ciudad]" aria-label="Pedir datos de Carpintería">
-        <span class="cat-emoji" aria-hidden="true">🪵</span>
-        <div class="cat-body">
-          <span class="cat-title">Carpintería</span>
-        </div>
-        <span class="cat-cta" aria-hidden="true">Pedir</span>
-      </a>
-
-      <a class="cat" href="https://wa.me/569XXXXXXXX?text=Necesito%20pintor%20en%20[tu%20ciudad]" aria-label="Pedir datos de Pintura">
-        <span class="cat-emoji" aria-hidden="true">🎨</span>
-        <div class="cat-body">
-          <span class="cat-title">Pintura</span>
-        </div>
-        <span class="cat-cta" aria-hidden="true">Pedir</span>
-      </a>
-
-      <a class="cat" href="https://wa.me/569XXXXXXXX?text=Necesito%20vidriero%20en%20[tu%20ciudad]" aria-label="Pedir datos de Vidriería">
-        <span class="cat-emoji" aria-hidden="true">🪟</span>
-        <div class="cat-body">
-          <span class="cat-title">Vidriería</span>
-        </div>
-        <span class="cat-cta" aria-hidden="true">Pedir</span>
-      </a>
-
-      <a class="cat" href="https://wa.me/569XXXXXXXX?text=Necesito%20maestro%20multiuso%20en%20[tu%20ciudad]" aria-label="Pedir datos de Maestro multiuso">
-        <span class="cat-emoji" aria-hidden="true">🧰</span>
-        <div class="cat-body">
-          <span class="cat-title">Maestro multiuso</span>
-        </div>
-        <span class="cat-cta" aria-hidden="true">Pedir</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- Métricas / Counters -->
-<section id="metricas" class="section alt stats">
-  <div class="container">
-    <h2>Lo que hemos logrado</h2>
-    <p class="sub">Hecho en el sur de Chile, creciendo con la comunidad.</p>
-
-    <div class="stats-grid" role="list" aria-label="Métricas de Hogga">
-      <div class="stat-card" role="listitem">
-        <div class="stat-num" data-target="1000" data-suffix="+">0</div>
-        <div class="stat-label">Búsquedas atendidas</div>
-      </div>
-
-      <div class="stat-card" role="listitem">
-        <div class="stat-num" data-target="40" data-suffix="+">0</div>
-        <div class="stat-label">Categorías</div>
-      </div>
-
-      <div class="stat-card" role="listitem">
-        <div class="stat-num" data-target="900" data-suffix="+">0</div>
-        <div class="stat-label">Proveedores verificados</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-    <!-- Ciudades -->
-    <section id="ciudades" class="section alt map">
-      <div class="container">
-        <span class="region-badge">Sur de Chile</span>
-        <h2>Cobertura actual</h2>
-        <p class="sub">Concepción a Chiloé. Seguimos creciendo.</p>
-
-        <div class="chips" role="list">
-          <span class="chip" role="listitem">Puerto Varas</span>
-          <span class="chip" role="listitem">Puerto Montt</span>
-          <span class="chip" role="listitem">Frutillar</span>
-          <span class="chip" role="listitem">Valdivia</span>
-          <span class="chip" role="listitem">Osorno</span>
-          <span class="chip" role="listitem">Ancud</span>
-          <span class="chip" role="listitem">Temuco</span>
-        </div>
-
-        <!-- opcional: CTA -->
-        <div class="cta-row" style="margin-top:16px; justify-content:center">
-          <a class="btn outline" href="https://wa.me/56951809138?text=Quiero%20sugerir%20mi%20ciudad">¿Tu ciudad no aparece?</a>
+        <!-- CTA final de la sección -->
+        <div class="cta-row" style="margin-top:32px; justify-content:center" role="group" aria-label="Acciones principales">
+          <a class="btn primary" href="https://wa.me/56951809138?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20servicios" target="_blank" rel="noopener">
+            Pedir dato Hogga Servicios
+          </a>
+          <a class="btn primary" href="https://wa.me/56951809138?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20turismo" target="_blank" rel="noopener">
+            Pedir dato Hogga Turismo
+          </a>
+          <a class="btn outline" href="#contacto">
+            Súmate a la red Hogga
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- Testimonio (opcional) -->
-    <section class="section" id="reviews">
+    <!-- Métricas / Comunidad Hogga -->
+    <section id="metricas" class="section alt stats">
       <div class="container">
-        <h2>Lo que dicen los vecinos</h2>
+        <h2>Lo que ya estamos moviendo con la comunidad Hogga</h2>
+        <p class="sub">
+          Un proyecto nacido en el sur de Chile, creciendo barrio a barrio con datos reales de vecinos, 
+          proveedores y negocios turísticos.
+        </p>
+
+        <div class="stats-grid" role="list" aria-label="Métricas de Hogga">
+          <div class="stat-card" role="listitem">
+            <div class="stat-num" data-target="1000" data-suffix="+">0</div>
+            <div class="stat-label">Búsquedas atendidas entre hogar y turismo</div>
+          </div>
+
+          <div class="stat-card" role="listitem">
+            <div class="stat-num" data-target="40" data-suffix="+">0</div>
+            <div class="stat-label">Categorías de servicios y lugares</div>
+          </div>
+
+          <div class="stat-card" role="listitem">
+            <div class="stat-num" data-target="900" data-suffix="+">0</div>
+            <div class="stat-label">Proveedores y lugares verificados en la red</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <!-- Únete a Hogga -->
+        <section id="unete" class="section join">
+          <div class="container">
+            <h2>¿Tienes un servicio o negocio? Súmate a Hogga</h2>
+            <p class="sub">
+              Miles de personas ya usan Hogga para encontrar <strong>servicios confiables y lugares recomendados</strong> en Chile. 
+              Si prestas servicios o tienes un restaurante, hotel o tour, también puedes ser parte.
+            </p>
     
+            <div class="join-grid">
+              <div class="join-item">
+                <h3>🔧 Hogga Servicios</h3>
+                <p>
+                  Llegas directo a vecinos que necesitan gasfitería, limpieza, jardinería, eventos y más.  
+                  Nosotros te ayudamos a generar contactos reales, sin pagar por clics.
+                </p>
+                <a class="btn secondary" href="https://wa.me/56951809138?text=Hola%20Hogga%2C%20quiero%20sumarme%20a%20Hogga%20Servicios" target="_blank" rel="noopener">
+                  Quiero sumarme a Hogga Servicios
+                </a>
+              </div>
+    
+              <div class="join-item">
+                <h3>🌄 Hogga Turismo</h3>
+                <p>
+                  Conecta con viajeros y locales que buscan experiencias confiables en Chile. 
+                  Hoteles, cafés, restaurantes, tours y más pueden aparecer en Hogga Turismo.
+                </p>
+                <a class="btn secondary" href="https://wa.me/56951809138?text=Hola%20Hogga%2C%20quiero%20sumarme%20a%20Hogga%20Turismo" target="_blank" rel="noopener">
+                  Quiero sumarme a Hogga Turismo
+                </a>
+              </div>
+            </div>
+    
+            <div class="cta-row" style="margin-top:24px; justify-content:center">
+              <a class="btn outline" href="#contacto">Ver opciones de planes y contacto</a>
+            </div>
+          </div>
+        </section>
+    
+
+    <!-- Testimonios / Lo que dicen los vecinos -->
+    <section id="testimonios" class="section">
+      <div class="container">
+        <h2>Lo que dicen los vecinos y viajeros</h2>
+        <p class="sub">
+          Historias reales de quienes ya usan Hogga para resolver en casa o descubrir nuevos lugares en Chile.
+        </p>
+
         <div class="reviews-grid">
           <figure class="quote-card">
             <blockquote>
-              “Ayer me quedé fuera de mi casa sin llaves 😅. Gracias a Hogga encontré un cerrajero en minutos y me solucionaron el problema al tiro.”
+              “Ayer se me reventó una cañería 😅. Gracias a Hogga encontré un gasfiter en minutos y me solucionó todo al tiro. ¡Dato salvador!”
             </blockquote>
-            <figcaption>— <strong>Víctor</strong>, Puerto Varas</figcaption>
+            <figcaption>— <strong>Víctor</strong>, Puerto Varas · Hogga Servicios</figcaption>
           </figure>
-    
+
           <figure class="quote-card">
             <blockquote>
-              “Me ayudó a organizar los últimos detalles del cumpleaños de mi hija y encontré servicios muy rápido. ¡Me salvaron!”
+              “Organizar el cumpleaños de mi hija fue fácil con Hogga. Encontré decoración, pastelería y animación en menos de 10 minutos 🎈”
             </blockquote>
-            <figcaption>— <strong>Paula</strong>, Puerto Varas</figcaption>
+            <figcaption>— <strong>Paula</strong>, Osorno · Hogga Servicios</figcaption>
           </figure>
-    
+
           <figure class="quote-card">
             <blockquote>
-              “Busqué alguien de limpieza en Osorno y recibí datos al toque. Trabajo impecable, 100% recomendado.”
+              “Buscábamos un restaurante en Valdivia y Hogga nos mostró opciones con buenas reseñas. Terminamos cenando frente al río, espectacular 🍽️”
             </blockquote>
-            <figcaption>— <strong>Hernán</strong>, Osorno</figcaption>
+            <figcaption>— <strong>Camila</strong>, Santiago · Hogga Turismo</figcaption>
           </figure>
+
+          <figure class="quote-card">
+            <blockquote>
+              “Reservamos cabañas por Hogga Turismo y todo resultó perfecto. Me encanta que los lugares estén verificados y sean reales 🙌”
+            </blockquote>
+            <figcaption>— <strong>Hernán</strong>, Valdivia · Hogga Turismo</figcaption>
+          </figure>
+        </div>
+
+        <div class="cta-row" style="margin-top:32px; justify-content:center">
+          <a class="btn primary" href="https://wa.me/56951809138?text=Hola%20Hogga%2C%20necesito%20un%20dato" target="_blank" rel="noopener">
+            Pedir mi dato ahora
+          </a>
+          <a class="btn outline" href="#unete">
+            Quiero aparecer en Hogga
+          </a>
         </div>
       </div>
     </section>
+
     
     
     <!-- FAQ -->
     <section id="faq" class="section alt faq">
       <div class="container">
         <h2>Preguntas frecuentes</h2>
-    
+        <p class="sub">
+          Algunas de las dudas que más se repiten cuando alguien conoce Hogga por primera vez.
+        </p>
+
         <details>
-          <summary><span>¿Hogga cobra comisión por los trabajos?</span></summary>
-          <p>No. Hogga no cobra comisión a los usuarios. Funcionamos con planes para proveedores y acuerdos locales.</p>
+          <summary><span>¿Qué es Hogga?</span></summary>
+          <p>
+            Hogga es tu <strong>vecino digital de confianza</strong>. Una plataforma de recomendaciones verificadas
+            para servicios del hogar (Hogga Servicios) y para restaurantes, hoteles, cafés y tours en Chile (Hogga Turismo).
+          </p>
         </details>
+
         <details>
-          <summary><span>¿Cómo verifican a los proveedores?</span></summary>
-          <p>Revisamos identidad, experiencia, zonas de servicio y reseñas. Además, la comunidad reporta no‑shows para mantener el ranking al día.</p>
+          <summary><span>¿Hogga cobra comisión por los trabajos o reservas?</span></summary>
+          <p>
+            No cobramos comisión a las personas que usan Hogga. 
+            El proyecto se sostiene con <strong>planes para proveedores y acuerdos con negocios</strong>, 
+            no con comisiones por cada trabajo o reserva.
+          </p>
         </details>
+
+        <details>
+          <summary><span>¿Cuál es la diferencia entre Hogga Servicios y Hogga Turismo?</span></summary>
+          <p>
+            <strong>Hogga Servicios</strong> se enfoca en tu casa, tus mascotas y tus eventos 
+            (gasfitería, limpieza, jardinería, maestros, cumpleaños, etc.).<br><br>
+            <strong>Hogga Turismo</strong> se enfoca en dónde comer, dormir y qué hacer en Chile 
+            (restaurantes, hoteles, cafés, cabañas, tours, termas, panoramas, etc.).
+          </p>
+        </details>
+
         <details>
           <summary><span>¿En qué ciudades opera Hogga?</span></summary>
-          <p>Actualmente operamos desde Concepción hasta Chiloé, incluyendo Puerto Varas, Puerto Montt, Osorno, Frutillar y Llanquihue. Vamos sumando nuevas zonas según demanda.</p>
-        </details>        
-    
+          <p>
+            Partimos en el sur de Chile (Puerto Varas, Puerto Montt, Osorno, Valdivia, Chiloé y alrededores) 
+            y vamos sumando nuevas ciudades y destinos turísticos según la demanda. 
+            Si quieres que lleguemos a tu ciudad, puedes sugerirla por WhatsApp.
+          </p>
+        </details>
+
         <details>
           <summary><span>¿Cómo pido un dato?</span></summary>
-          <p>Escríbenos por WhatsApp o Instagram y cuéntanos qué necesitas. Te enviamos varias recomendaciones en menos de 60 segundos.</p>
+          <p>
+            Muy simple: nos escribes por <strong>WhatsApp o Instagram</strong> y nos cuentas qué necesitas 
+            (servicio para el hogar o dato turístico). En menos de 60 segundos te pasamos varias recomendaciones 
+            con contacto directo para que elijas.
+          </p>
+        </details>
+
+        <details>
+          <summary><span>¿Puedo aparecer en Hogga como proveedor o negocio turístico?</span></summary>
+          <p>
+            Sí. Si prestas servicios para el hogar o tienes un restaurante, hotel, café o tour, 
+            puedes <strong>sumarte a la red Hogga</strong>. Escríbenos por WhatsApp y te contamos cómo funcionan los planes 
+            y qué se necesita para estar verificado.
+          </p>
         </details>
       </div>
     </section>
+
     
 
+    <!-- Contacto / Participa -->
     <section id="contacto" class="section">
       <div class="container">
-        <h2>¿Quieres sumarte?</h2>
-        <p class="sub">Escríbenos y te contactamos. Proveedores y también recomendaciones de vecinos.</p>
-    
+        <h2>¿Hablemos?</h2>
+        <p class="sub">
+          Ya sea que necesites un dato para hoy o quieras sumar tu servicio o negocio a Hogga, 
+          estamos a un mensaje de distancia.
+        </p>
+
         <div class="cta-row left" role="group" aria-label="Formas de contacto">
-          <a class="btn primary" href="https://wa.me/56951809138?text=Hola%20Hogga%2C%20quiero%20sumarme%20como%20proveedor%20(o%20dejar%20una%20recomendaci%C3%B3n)."
-             target="_blank" rel="noopener">Hablar por WhatsApp</a>
-    
-          <a id="contact-email" class="btn outline" href="#" rel="nofollow">Escríbenos por Email</a>
+          <!-- Usuario que quiere servicios hogar -->
+          <a class="btn primary" 
+             href="https://wa.me/56951809138?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20servicios" 
+             target="_blank" rel="noopener">
+            Pedir dato Hogga Servicios
+          </a>
+
+          <!-- Usuario que quiere turismo -->
+          <a class="btn primary" 
+             href="https://wa.me/56951809138?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20turismo" 
+             target="_blank" rel="noopener">
+            Pedir dato Hogga Turismo
+          </a>
+
+          <!-- Proveedores / negocios -->
+          <a class="btn outline" 
+             href="https://wa.me/56951809138?text=Hola%20Hogga%2C%20quiero%20sumarme%20como%20proveedor%20(o%20negocio%20tur%C3%ADstico)" 
+             target="_blank" rel="noopener">
+            Súmate a la red Hogga
+          </a>
         </div>
-    
+
+        <div class="cta-row left" style="margin-top:16px">
+          <a id="contact-email" class="btn outline" href="#" rel="nofollow">
+            Escríbenos por Email
+          </a>
+        </div>
+
         <small style="display:block;margin-top:10px;color:#6b7280">
-          ¿Prefieres un formulario? <a href="#" id="form-alt">Pedir formulario</a>
+          ¿Prefieres un formulario? <a href="#" id="form-alt">Pedir formulario de contacto</a>
         </small>
       </div>
     </section>
+
     
 
     <!-- Formulario --
@@ -377,23 +529,36 @@
       <!-- Columna 1: marca -->
       <div class="foot-brand">
         <strong>Hogga</strong>
-        <small>Plataforma local de <strong>recomendaciones verificadas</strong> para el hogar. Hecho en el sur de Chile.</small>
-        <a class="foot-cta" href="https://wa.me/569XXXXXXXX?text=Hola%20Hogga%2C%20necesito%20un%20dato" target="_blank" rel="noopener">
-          Pide tu dato por WhatsApp
-        </a>
+        <small>
+          Ecosistema chileno de <strong>recomendaciones verificadas</strong> 
+          para servicios del hogar, turismo y experiencias locales.  
+          Hecho con cariño desde el sur de Chile 🇨🇱
+        </small>
+  
+        <div class="cta-column">
+          <a class="foot-cta" href="https://wa.me/56951809138?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20servicios" 
+             target="_blank" rel="noopener">
+            Pedir dato Hogga Servicios
+          </a>
+          <a class="foot-cta" href="https://wa.me/56975457652?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20turismo" 
+             target="_blank" rel="noopener">
+            Pedir dato Hogga Turismo
+          </a>
+        </div>
       </div>
   
-      <!-- Columna 2: enlaces del sitio -->
-      <nav class="foot-links" aria-label="Enlaces">
+      <!-- Columna 2: enlaces -->
+      <nav class="foot-links" aria-label="Enlaces del sitio">
         <div>
-          <span class="foot-title">Hogga</span>
+          <span class="foot-title">Explora</span>
           <ul>
             <li><a href="#como-funciona">Cómo funciona</a></li>
-            <li><a href="#categorias">Servicios</a></li>
-            <li><a href="#ciudades">Ciudades</a></li>
+            <li><a href="/servicios/">Hogga Servicios</a></li>
+            <li><a href="/turismo/">Hogga Turismo</a></li>
             <li><a href="#contacto">Participa</a></li>
           </ul>
         </div>
+  
         <div>
           <span class="foot-title">Legal</span>
           <ul>
@@ -402,24 +567,24 @@
             <li><a href="/bases-legales-concursos-instagram/">Bases Concursos</a></li>
           </ul>
         </div>
-      </nav>
   
-      <!-- Columna 3: redes sociales con título -->
-      <div class="foot-social">
-        <span class="foot-title">Síguenos</span>
-        <div class="socials">
-          <a href="https://www.instagram.com/hogga_chile/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
-          <a href="https://www.facebook.com/profile.php?id=61577176559219" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
-          <a href="https://www.youtube.com/@hogga_chile" target="_blank" rel="noopener" aria-label="YouTube">YouTube</a>
-          <a href="https://www.tiktok.com/@hogga_chile" target="_blank" rel="noopener" aria-label="TikTok">TikTok</a>
+        <div>
+          <span class="foot-title">Instagram</span>
+          <ul>
+            <li><a href="https://www.instagram.com/hogga_servicios/" target="_blank" rel="noopener">Hogga Servicios</a></li>
+            <li><a href="https://www.instagram.com/hogga_turismo/" target="_blank" rel="noopener">Hogga Turismo</a></li>
+            <li><a href="https://www.instagram.com/hogga_regala/" target="_blank" rel="noopener">Hogga Regala</a></li>
+          </ul>
         </div>
-      </div>
+      </nav>
     </div>
   
     <div class="container foot-bottom">
-      <small>© <span id="y"></span> Hogga. Todos los derechos reservados.</small>
+      <small>© <span id="y"></span> Hogga Group SpA. Todos los derechos reservados.</small>
     </div>
   </footer>
+  
+  
   
   
   <!-- JSON-LD: Organization + Website + FAQPage -->
