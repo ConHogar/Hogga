@@ -699,3 +699,25 @@ a:focus-visible {
   font-size:.95rem;
   margin-top:auto;
 }
+
+.foot-brand .cta-column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.foot-cta {
+  display: inline-block;
+  background-color: #136565;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-align: center;
+  transition: background-color 0.2s ease;
+}
+
+.foot-cta:hover {
+  background-color: #0f4d4d;
+}
