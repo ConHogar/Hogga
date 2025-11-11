@@ -721,3 +721,214 @@ a:focus-visible {
 .foot-cta:hover {
   background-color: #0f4d4d;
 }
+
+/* ===== Verticales: Hogga Servicios + Hogga Turismo ===== */
+
+#verticales {
+  text-align: center;
+}
+
+#verticales .sub {
+  max-width: 720px;
+  margin: 0 auto 28px;
+}
+
+/* Grid de las dos tarjetas */
+.verticals-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 1fr; /* móvil: 1 columna */
+}
+
+@media (min-width: 760px) {
+  .verticals-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* desktop: 2 columnas */
+    align-items: stretch;
+  }
+}
+
+/* Card base */
+.vertical-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow-card);
+  padding: 20px 18px 18px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Badges */
+.vertical-card .badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: var(--pill);
+  background: rgba(19, 101, 101, 0.08);
+  color: #0f2f2f;
+  font-weight: 800;
+  font-size: 0.78rem;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.vertical-card .alt-badge {
+  background: rgba(0, 119, 204, 0.10);
+}
+
+/* Títulos y texto */
+.vertical-card h3 {
+  margin: 6px 0 4px;
+  font-size: 1.1rem;
+}
+
+.vertical-card p {
+  margin: 0 0 8px;
+  color: #374151;
+}
+
+/* Lista de bullets */
+.pill-list {
+  list-style: none;
+  padding: 0;
+  margin: 4px 0 10px;
+  display: grid;
+  gap: 4px;
+  font-size: 0.95rem;
+  color: #334155;
+}
+
+/* CTA al fondo de la tarjeta */
+.card-cta {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.card-note {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* Botón secundario */
+.btn.secondary {
+  background: #ffffff;
+  color: var(--brand);
+  border-color: var(--brand);
+}
+
+.btn.secondary:hover {
+  background: #eaf6f6;
+}
+
+/* ===== Footer universal Hogga ===== */
+
+.footer {
+  background: #0b2e2e;
+  color: #d1fae5;
+  padding: 36px 0 16px;
+}
+
+.foot {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr;
+  align-items: flex-start;
+}
+
+@media (min-width: 760px) {
+  .foot {
+    grid-template-columns: 1.3fr 1.2fr; /* marca | links */
+  }
+}
+
+/* Columna marca */
+.foot-brand small {
+  display: block;
+  margin: 8px 0 14px;
+  color: #bfeee4;
+  font-size: 0.9rem;
+}
+
+.foot-brand .cta-column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Botones WhatsApp footer */
+.foot-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  background: #136565;
+  color: #e6fffa;
+  border: 2px solid transparent;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.foot-cta:hover {
+  background: #0e4b4b;
+  transform: translateY(-1px);
+}
+
+/* Títulos columnas links */
+.foot-title {
+  display: block;
+  font-weight: 800;
+  margin-bottom: 6px;
+  color: #e6fffa;
+}
+
+/* Grid con Explora / Legal / Instagram */
+.foot-links {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(2, minmax(140px, 1fr));
+}
+
+@media (min-width: 900px) {
+  .foot-links {
+    grid-template-columns: repeat(3, minmax(140px, 1fr));
+  }
+}
+
+.foot-links ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+}
+
+.foot-links a {
+  color: #e6fffa;
+  opacity: 0.9;
+  font-size: 0.95rem;
+}
+
+.foot-links a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+/* Pie inferior */
+.foot-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  margin-top: 18px;
+  padding-top: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.foot-bottom small {
+  color: #bfeee4;
+  font-size: 0.85rem;
+}
