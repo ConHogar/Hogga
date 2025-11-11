@@ -385,51 +385,6 @@ h2{font-size:clamp(1.4rem,2.6vw,2rem);margin:0 0 10px}
 .form-grid input,.form-grid select,.form-grid textarea{padding:10px;border:1px solid #e5e7eb;border-radius:var(--r-sm);font-size:1rem}
 .form-grid .full{grid-column:1/-1}
 
-/* Footer */
-.footer{background:#0b2e2e;color:#d1fae5;padding:36px 0 16px}
-.foot{
-  display:grid;
-  gap:24px;
-  grid-template-columns:1fr;      /* móvil: 1 col */
-  align-items:start;               /* alinea top en todas las columnas */
-}
-
-.foot-title{display:block;font-weight:800;margin-bottom:6px;color:#e6fffa}
-
-/* Columna 1 */
-.foot-brand small{display:block;margin:8px 0 14px;color:#bfeee4;font-size:.9rem}
-.foot-cta{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:10px 14px;border-radius:10px;font-weight:800;letter-spacing:.2px;
-  background:#25D366;color:#083a2e;border:2px solid transparent;transition:filter .15s ease
-}
-.foot-cta:hover{filter:brightness(.95)}
-
-/* Columna 2 */
-.foot-links{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(140px,1fr));
-  gap:18px
-}
-.foot-links ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
-.foot-links a{color:#e6fffa;opacity:.9;font-size:.95rem}
-.foot-links a:hover{opacity:1;text-decoration:underline}
-
-/* Columna 3 */
-.foot-social .socials{display:flex;gap:16px;flex-wrap:wrap;margin-top:6px}
-.foot-social .socials a{
-  color:#e6fffa;opacity:.85;font-size:.95rem;
-  transition:opacity .15s ease,color .15s ease
-}
-.foot-social .socials a:hover{opacity:1;color:#fff}
-
-/* Pie inferior */
-.foot-bottom{
-  border-top:1px solid rgba(255,255,255,.12);
-  margin-top:18px;padding-top:12px;
-  display:flex;justify-content:space-between
-}
-.foot-bottom small{color:#bfeee4;font-size:.85rem}
 
 
 
@@ -700,27 +655,6 @@ a:focus-visible {
   margin-top:auto;
 }
 
-.foot-brand .cta-column {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-top: 8px;
-}
-
-.foot-cta {
-  display: inline-block;
-  background-color: #136565;
-  color: #fff;
-  padding: 8px 14px;
-  border-radius: 8px;
-  font-weight: 600;
-  text-align: center;
-  transition: background-color 0.2s ease;
-}
-
-.foot-cta:hover {
-  background-color: #0f4d4d;
-}
 
 /* ===== Verticales: Hogga Servicios + Hogga Turismo ===== */
 
