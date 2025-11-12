@@ -10,8 +10,21 @@
     <link rel="canonical" href="https://hogga.cl/blog/parques-nacionales-los-lagos/" />
     <meta name="theme-color" content="#136565" />
   
-    <!-- Preload LCP image (opcional, si es la de portada) -->
-    <link rel="preload" as="image" href="/images/blog/parques-lagos.webp" imagesrcset="/images/blog/parques-lagos-800.webp 800w, /images/blog/parques-lagos-1200.webp 1200w, /images/blog/parques-lagos-1600.webp 1600w" imagesizes="(max-width: 960px) 100vw, 960px" />
+    <!-- CSS del sitio -->
+    <link rel="stylesheet" href="/css/styles.css" />
+  
+    <!-- (Opcional) Tipografías -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+  
+    <!-- Preload LCP (ruta nueva) -->
+    <link rel="preload" as="image"
+          href="/images/blog/parques-nacionales-los-lagos/parques-lagos.webp"
+          imagesrcset="/images/blog/parques-nacionales-los-lagos/parques-lagos-800.webp 800w,
+                       /images/blog/parques-nacionales-los-lagos/parques-lagos-1200.webp 1200w,
+                       /images/blog/parques-nacionales-los-lagos/parques-lagos-1600.webp 1600w"
+          imagesizes="(max-width: 960px) 100vw, 960px" />
   
     <!-- Open Graph / Twitter -->
     <meta property="og:type" content="article" />
@@ -20,48 +33,73 @@
     <meta property="og:url" content="https://hogga.cl/blog/parques-nacionales-los-lagos/" />
     <meta property="og:title" content="Parques Nacionales de Los Lagos — Naturaleza a minutos del Llanquihue" />
     <meta property="og:description" content="Descubre los parques Vicente Pérez Rosales, Alerce Andino y Puyehue. Naturaleza, rutas y datos verificados cerca de Puerto Varas y Puerto Montt." />
-    <meta property="og:image" content="https://hogga.cl/images/blog/parques-lagos-og.webp" />
+    <meta property="og:image" content="https://hogga.cl/images/blog/parques-nacionales-los-lagos/parques-lagos-1200.webp" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Vista de bosque y lago en la Región de Los Lagos, Chile" />
-  
+    <meta property="og:image:alt" content="Vista del volcán Osorno y los Saltos del Petrohué" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Parques Nacionales de Los Lagos — Naturaleza a minutos del Llanquihue" />
     <meta name="twitter:description" content="Guía práctica de los parques Vicente Pérez Rosales, Alerce Andino y Puyehue con consejos reales de Hogga Turismo." />
-    <meta name="twitter:image" content="https://hogga.cl/images/blog/parques-lagos-og.webp" />
-    <meta name="twitter:image:alt" content="Vista de bosque y lago en la Región de Los Lagos, Chile" />
+    <meta name="twitter:image" content="https://hogga.cl/images/blog/parques-nacionales-los-lagos/parques-lagos-1200.webp" />
+    <meta name="twitter:image:alt" content="Vista del volcán Osorno y los Saltos del Petrohué" />
   
-    <!-- JSON-LD BlogPosting -->
+    <!-- JSON-LD -->
     <script type="application/ld+json">
     {
       "@context":"https://schema.org",
       "@type":"BlogPosting",
       "headline":"Parques Nacionales de Los Lagos — Naturaleza a minutos del Llanquihue",
       "description":"Explora los parques Vicente Pérez Rosales, Alerce Andino y Puyehue con esta guía práctica de Hogga Turismo. Datos verificados, rutas y consejos del sur de Chile.",
-      "image":{
-        "@type":"ImageObject",
-        "url":"https://hogga.cl/images/blog/parques-lagos-og.webp",
-        "width":1200,
-        "height":630
-      },
+      "image":{"@type":"ImageObject","url":"https://hogga.cl/images/blog/parques-nacionales-los-lagos/parques-lagos-1200.webp","width":1200,"height":630},
       "articleSection":"Turismo",
       "keywords":["Parques Nacionales","Los Lagos","Puerto Varas","Petrohué","Puyehue","Alerce Andino","sur de Chile"],
       "author":{"@type":"Organization","name":"Hogga Turismo"},
-      "publisher":{
-        "@type":"Organization",
-        "name":"Hogga Turismo",
-        "logo":{"@type":"ImageObject","url":"https://hogga.cl/images/logo.png","width":240,"height":72}
-      },
+      "publisher":{"@type":"Organization","name":"Hogga Turismo","logo":{"@type":"ImageObject","url":"https://hogga.cl/images/logo.png","width":240,"height":72}},
       "mainEntityOfPage":{"@type":"WebPage","@id":"https://hogga.cl/blog/parques-nacionales-los-lagos/"},
       "datePublished":"2025-11-12",
       "dateModified":"2025-11-12",
       "inLanguage":"es-CL"
     }
     </script>
+    <script type="application/ld+json">
+      {
+        "@context":"https://schema.org",
+        "@type":"BreadcrumbList",
+        "itemListElement":[
+          {"@type":"ListItem","position":1,"name":"Inicio","item":"https://hogga.cl/"},
+          {"@type":"ListItem","position":2,"name":"Blog","item":"https://hogga.cl/blog/"},
+          {"@type":"ListItem","position":3,"name":"Parques Nacionales de Los Lagos","item":"https://hogga.cl/blog/parques-nacionales-los-lagos/"}
+        ]
+      }
+      </script>
   </head>
-  
+
   <body>
-  
+    <!-- HEADER -->
+    <header class="main-header">
+      <div class="container header-content">
+        <a class="brand" href="/" aria-label="Hogga, inicio">
+          <img class="logo" src="/images/logo.png" alt="Hogga" width="120" height="36" />
+        </a>
+
+        <button class="nav-toggle" aria-label="Abrir menú" aria-controls="site-nav" aria-expanded="false">
+          <span class="nav-toggle-box" aria-hidden="true">
+            <span class="nav-toggle-line"></span>
+            <span class="nav-toggle-line"></span>
+            <span class="nav-toggle-line"></span>
+          </span>
+        </button>
+
+        <nav id="site-nav" class="site-nav" role="navigation">
+          <a href="/#como-funciona">¿Cómo funciona?</a>
+          <a href="/servicios/">Hogga Servicios</a>
+          <a href="/turismo/">Hogga Turismo</a>
+          <a class="active" href="/blog/">Blog</a>
+          <a href="/contacto/">Contacto</a>
+        </nav>
+      </div>
+    </header>
+    
   <main class="blog-post container">
     <article>
       <header class="post-header">
@@ -69,7 +107,14 @@
         <h1>Parques Nacionales de Los Lagos: naturaleza a minutos del Llanquihue</h1>
         <p class="post-meta">Por <strong>Equipo Hogga Turismo</strong> · Actualizado el 12 de noviembre de 2025</p>
         <figure class="post-cover">
-          <img src="/images/blog/parques-lagos.webp" width="1200" height="630" loading="eager" alt="Parques Nacionales de Los Lagos, Chile">
+          <img
+            src="/images/blog/parques-nacionales-los-lagos/parques-lagos-1200.webp"
+            srcset="/images/blog/parques-nacionales-los-lagos/parques-lagos-800.webp 800w,
+                    /images/blog/parques-nacionales-los-lagos/parques-lagos-1200.webp 1200w,
+                    /images/blog/parques-nacionales-los-lagos/parques-lagos-1600.webp 1600w"
+            sizes="(max-width: 960px) 100vw, 960px"
+            width="1200" height="630" loading="eager"
+            alt="Volcán Osorno entre nubes y los Saltos del Petrohué en el Parque Vicente Pérez Rosales">
         </figure>
       </header>
   
@@ -173,8 +218,6 @@
     </article>
   </main>
   
-
-
 
 <!-- FOOTER (reuse your same footer here) -->
 <footer class="footer">
