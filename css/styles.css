@@ -470,6 +470,10 @@ a:focus-visible {
   padding: clamp(48px, 6vw, 88px) 0;
 }
 
+#testimonios.section.alt.map::after {
+  content: none !important;
+}
+
 /* remove top fade (clean edge) */
 .section.alt.map::before{ content:none; }
 
@@ -478,7 +482,7 @@ a:focus-visible {
   content:"";
   position:absolute; left:0; right:0; bottom:0; z-index:0;
   height:70px; pointer-events:none;
-  background: linear-gradient(to bottom, transparent, #fff 85%);
+  background: linear-gradient(to bottom, transparent, #fff 55%);
 }
 
 /* title/sub legibility over photo */
