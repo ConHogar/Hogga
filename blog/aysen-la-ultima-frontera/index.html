@@ -10,18 +10,44 @@
     <link rel="preconnect" href="https://www.google-analytics.com" />
     <link rel="preconnect" href="https://wa.me" />
 
-    <!-- Consent Mode v2 (default denied) -->
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('consent', 'default', {
-        'ad_storage': 'denied',
-        'ad_user_data': 'denied',
-        'ad_personalization': 'denied',
-        'analytics_storage': 'denied',
-        'wait_for_update': 500
-      });
-    </script>
+  <!-- Consent Mode v2 (regional: CL granted; EEA/UK denied) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+
+    /* 1) Default global: analytics granted (Chile y LatAm) */
+    gtag('consent','default',{
+      analytics_storage:'granted',
+      ad_storage:'denied',
+      ad_user_data:'denied',
+      ad_personalization:'denied',
+      wait_for_update: 500
+    });
+
+    /* 2) Override EEA/UK/CH/NO/IS/LI: todo denied por defecto */
+    gtag('consent','default',{
+      region:['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','CH','GB'],
+      analytics_storage:'denied',
+      ad_storage:'denied',
+      ad_user_data:'denied',
+      ad_personalization:'denied'
+    });
+
+    /* 3) Aplica preferencia guardada (si existe) ANTES de cargar GTM */
+    (function(){
+      try{
+        // reset rápido: ?consent=reset
+        if (new URLSearchParams(location.search).get('consent') === 'reset') {
+          localStorage.removeItem('hogga_consent_pref');
+        }
+        const pref = JSON.parse(localStorage.getItem('hogga_consent_pref'));
+        if (pref && pref.values) {
+          gtag('consent','update', pref.values);
+          window.__hoggaConsentChosen = true;
+        }
+      }catch(e){}
+    })();
+  </script>
 
     <!-- Google Tag Manager -->
     <script>

@@ -351,3 +351,52 @@ function setupMobileNav(){
     });
   })();
   
+
+  // =======================
+//  HOGGA CONSENT BANNER
+// =======================
+(function(){
+  function showBar(){
+    if (!window.__hoggaConsentChosen) {
+      const bar = document.getElementById('cookie-bar');
+      if (bar) bar.style.display = 'block';
+    }
+  }
+  function hideBar(){
+    const bar = document.getElementById('cookie-bar');
+    if (bar) bar.style.display = 'none';
+  }
+  function applyAndSave(choice, values){
+    try {
+      localStorage.setItem('hogga_consent_pref', JSON.stringify({choice, values, ts: Date.now()}));
+    } catch(e){}
+    if (typeof gtag === 'function') gtag('consent','update', values);
+    hideBar();
+  }
+  function essentials(){
+    applyAndSave('essentials_only', {
+      ad_storage:'denied',
+      ad_user_data:'denied',
+      ad_personalization:'denied',
+      analytics_storage:'denied'
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    const btnAccept   = document.getElementById('btn-accept');
+    const btnEssential= document.getElementById('btn-essential');
+    const btnReject   = document.getElementById('btn-reject');
+    if (!btnAccept || !btnEssential || !btnReject) return;
+
+    btnAccept.addEventListener('click', ()=>applyAndSave('accept_all',{
+      ad_storage:'granted',
+      ad_user_data:'granted',
+      ad_personalization:'granted',
+      analytics_storage:'granted'
+    }));
+    btnEssential.addEventListener('click', essentials);
+    btnReject.addEventListener('click', essentials);
+
+    if (!window.__hoggaConsentChosen) showBar();
+  });
+})();

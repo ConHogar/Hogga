@@ -164,6 +164,21 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-56V9ZN8P"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
+   <!-- Banner de cookies Hogga -->
+    <div id="cookie-bar" role="dialog" aria-live="polite" aria-label="Preferencias de privacidad"
+    style="position:fixed;left:0;right:0;bottom:0;display:none;z-index:9999;background:#0f172a;color:#fff;font:14px/1.4 system-ui;-webkit-font-smoothing:antialiased">
+    <div style="max-width:1100px;margin:0 auto;padding:14px 16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:space-between">
+    <div style="max-width:760px">
+    Usamos cookies para métricas y mejoras del sitio. Puedes aceptar todo o continuar solo con lo esencial.
+    <a href="/politica-privacidad/" style="color:#a5b4fc;text-decoration:underline">Más info</a>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+    <button id="btn-essential"  style="background:#374151;border:0;color:#fff;padding:8px 12px;border-radius:8px;cursor:pointer">Solo esenciales</button>
+    <button id="btn-reject"     style="background:#6b7280;border:0;color:#fff;padding:8px 12px;border-radius:8px;cursor:pointer">Rechazar</button>
+    <button id="btn-accept"     style="background:#16a34a;border:0;color:#fff;padding:8px 12px;border-radius:8px;cursor:pointer">Aceptar todo</button>
+    </div>
+    </div>
+    </div>
     <header class="main-header">
       <div class="container header-content">
         <a class="brand" href="/" aria-label="Hogga, inicio">
@@ -343,7 +358,7 @@
               href="https://wa.me/56975457652?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20turismo" target="_blank" rel="noopener noreferrer">
             Pedir dato Hogga Turismo
           </a>
-          <a class="btn outline" href="/contacto">
+          <a class="btn outline" href="/contacto/">
             Súmate a la red Hogga
           </a>
         </div>
@@ -710,7 +725,9 @@
       ]
     }
     </script>
-    
+    <script>
+      document.getElementById('y').textContent = new Date().getFullYear();
+    </script>
   <script defer src="js/main.js"></script>
 </body>
 </html>
