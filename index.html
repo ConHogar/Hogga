@@ -10,18 +10,45 @@
       <link rel="preconnect" href="https://www.google-analytics.com" />
       <link rel="preconnect" href="https://wa.me" />
 
-      <!-- Consent Mode v2 (default denied) -->
+      <!-- Consent Mode v2 (regional: CL granted; EEA/UK denied) -->
       <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('consent', 'default', {
-          'ad_storage': 'denied',
-          'analytics_storage': 'granted',
-          'ad_user_data': 'denied',
-          'ad_personalization': 'denied',
-          'wait_for_update': 500
+        function gtag(){ dataLayer.push(arguments); }
+
+        /* 1) Default global: analytics granted (Chile y LatAm) */
+        gtag('consent','default',{
+          analytics_storage:'granted',
+          ad_storage:'denied',
+          ad_user_data:'denied',
+          ad_personalization:'denied',
+          wait_for_update: 500
         });
+
+        /* 2) Override EEA/UK/CH/NO/IS/LI: todo denied por defecto */
+        gtag('consent','default',{
+          region:['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','CH','GB'],
+          analytics_storage:'denied',
+          ad_storage:'denied',
+          ad_user_data:'denied',
+          ad_personalization:'denied'
+        });
+
+        /* 3) Aplica preferencia guardada (si existe) ANTES de cargar GTM */
+        (function(){
+          try{
+            // reset rápido: ?consent=reset
+            if (new URLSearchParams(location.search).get('consent') === 'reset') {
+              localStorage.removeItem('hogga_consent_pref');
+            }
+            const pref = JSON.parse(localStorage.getItem('hogga_consent_pref'));
+            if (pref && pref.values) {
+              gtag('consent','update', pref.values);
+              window.__hoggaConsentChosen = true;
+            }
+          }catch(e){}
+        })();
       </script>
+
 
       <!-- Google Tag Manager -->
       <script>
@@ -81,6 +108,7 @@
     {
       "@context": "https://schema.org",
       "@type": "Organization",
+      "@id": "https://hogga.cl/#organization",
       "name": "Hogga",
       "url": "https://hogga.cl/",
       "logo": "https://hogga.cl/images/logo.png",
@@ -110,6 +138,7 @@
       "url": "https://hogga.cl/",
       "name": "Hogga",
       "inLanguage": "es-CL",
+      "publisher": { "@id": "https://hogga.cl/#organization" },
       "potentialAction": [
         {
           "@type": "SearchAction",
@@ -127,30 +156,6 @@
     }
     </script>
   
-    <!-- ✅ JSON-LD: LocalBusiness (mínimo, sin horarios ni precios) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Hogga",
-      "url": "https://hogga.cl/",
-      "image": "https://hogga.cl/images/logo.png",
-      "description": "Red chilena de datos confiables y verificados para servicios, turismo y experiencias locales.",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Puerto Varas",
-        "addressRegion": "Los Lagos",
-        "addressCountry": "CL"
-      },
-      "areaServed": "Chile",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+56 9 5175 9158",
-        "contactType": "customer service",
-        "availableLanguage": ["es"]
-      }
-    }
-    </script>
   </head>
   
   
@@ -207,10 +212,10 @@
           </div>
       
           <div class="cta-row" role="group" aria-label="Acciones principales">
-            <a class="btn primary" href="https://wa.me/56951809138?text=Hola%20Hogga%2C%20quiero%20un%20dato%20de%20servicios" target="_blank" rel="noopener">
+            <a class="btn primary" href="https://wa.me/56951809138?text=Hola%20Hogga%2C%20quiero%20un%20dato%20de%20servicios" target="_blank" rel="noopener noreferrer">
               Encuentra servicios verificados
             </a>
-            <a class="btn outline" href="https://wa.me/56975457652?text=Hola%20Hogga%2C%20quiero%20un%20dato%20de%20turismo" target="_blank" rel="noopener">
+            <a class="btn outline" href="https://wa.me/56975457652?text=Hola%20Hogga%2C%20quiero%20un%20dato%20de%20turismo" target="_blank" rel="noopener noreferrer">
               Descubre datos turísticos
             </a>
           </div>
@@ -331,11 +336,11 @@
 
         <!-- CTA final de la sección -->
         <div class="cta-row" style="margin-top:32px; justify-content:center" role="group" aria-label="Acciones principales">
-          <a class="btn primary" href="https://wa.me/56951809138?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20servicios" target="_blank" rel="noopener">
+          <a class="btn primary" href="https://wa.me/56951809138?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20servicios" target="_blank" rel="noopener noreferrer">
             Pedir dato Hogga Servicios
           </a>
           <a class="btn primary" 
-              href="https://wa.me/56975457652?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20turismo" target="_blank" rel="noopener">
+              href="https://wa.me/56975457652?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20turismo" target="_blank" rel="noopener noreferrer">
             Pedir dato Hogga Turismo
           </a>
           <a class="btn outline" href="/contacto">
@@ -389,7 +394,7 @@
                 Llegas directo a vecinos que necesitan gasfitería, limpieza, jardinería, eventos y más.  
                 Nosotros te ayudamos a generar contactos reales, sin pagar por clics.
               </p>
-              <a class="btn secondary" href="https://wa.me/56951759158?text=Hola%20Hogga%2C%20quiero%20sumarme%20a%20Hogga%20Servicios" target="_blank" rel="noopener">
+              <a class="btn secondary" href="https://wa.me/56951759158?text=Hola%20Hogga%2C%20quiero%20sumarme%20a%20Hogga%20Servicios" target="_blank" rel="noopener noreferrer">
                 Quiero sumarme a Hogga Servicios
               </a>
             </div>
@@ -400,7 +405,7 @@
                 Conecta con viajeros y locales que buscan experiencias confiables en Chile. 
                 Hoteles, cafés, restaurantes, tours y más pueden aparecer en Hogga Turismo.
               </p>
-              <a class="btn secondary" href="https://wa.me/56951759158?text=Hola%20Hogga%2C%20quiero%20sumarme%20a%20Hogga%20Turismo" target="_blank" rel="noopener">
+              <a class="btn secondary" href="https://wa.me/56951759158?text=Hola%20Hogga%2C%20quiero%20sumarme%20a%20Hogga%20Turismo" target="_blank" rel="noopener noreferrer">
                 Quiero sumarme a Hogga Turismo
               </a>
             </div>
@@ -534,21 +539,21 @@
           <!-- Usuario que quiere servicios hogar -->
           <a class="btn primary" 
              href="https://wa.me/56951809138?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20servicios" 
-             target="_blank" rel="noopener">
+             target="_blank" rel="noopener noreferrer">
             Pedir dato Hogga Servicios
           </a>
 
           <!-- Usuario que quiere turismo -->
           <a class="btn primary" 
              href="https://wa.me/56975457652?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20turismo" 
-             target="_blank" rel="noopener">
+             target="_blank" rel="noopener noreferrer">
             Pedir dato Hogga Turismo
           </a>
 
           <!-- Proveedores / negocios -->
           <a class="btn outline" 
              href="https://wa.me/56951759158?text=Hola%20Hogga%2C%20quiero%20sumarme%20como%20proveedor%20(o%20negocio%20tur%C3%ADstico)" 
-             target="_blank" rel="noopener">
+             target="_blank" rel="noopener noreferrer">
             Súmate a la red Hogga
           </a>
         </div>
@@ -625,8 +630,8 @@
           Hecho con cariño desde el sur de Chile 🇨🇱
         </small>
         <div class="cta-column">
-          <a class="foot-cta" href="https://wa.me/56951809138?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20servicios" target="_blank" rel="noopener">Pedir dato Hogga Servicios</a>
-          <a class="foot-cta" href="https://wa.me/56975457652?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20turismo" target="_blank" rel="noopener">Pedir dato Hogga Turismo</a>
+          <a class="foot-cta" href="https://wa.me/56951809138?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20servicios" target="_blank" rel="noopener noreferrer">Pedir dato Hogga Servicios</a>
+          <a class="foot-cta" href="https://wa.me/56975457652?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20turismo" target="_blank" rel="noopener noreferrer">Pedir dato Hogga Turismo</a>
         </div>
       </div>
       <nav class="foot-links" aria-label="Enlaces del sitio">
@@ -651,9 +656,9 @@
         <div>
           <span class="foot-title">Síguenos</span>
           <ul>
-            <li><a href="https://www.instagram.com/hogga_chile/" target="_blank" rel="noopener">Hogga Servicios</a></li>
-            <li><a href="https://www.instagram.com/hogga_turismo/" target="_blank" rel="noopener">Hogga Turismo</a></li>
-            <li><a href="https://www.instagram.com/hogga_regala/" target="_blank" rel="noopener">Hogga Regala</a></li>
+            <li><a href="https://www.instagram.com/hogga_chile/" target="_blank" rel="noopener noreferrer">Hogga Servicios</a></li>
+            <li><a href="https://www.instagram.com/hogga_turismo/" target="_blank" rel="noopener noreferrer">Hogga Turismo</a></li>
+            <li><a href="https://www.instagram.com/hogga_regala/" target="_blank" rel="noopener noreferrer">Hogga Regala</a></li>
           </ul>
         </div>
       </nav>
