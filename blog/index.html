@@ -14,12 +14,12 @@
   <meta property="og:url" content="https://hogga.cl/blog/" />
   <meta property="og:title" content="Blog Hogga — Consejos y datos verificados en Chile" />
   <meta property="og:description" content="Explora artículos sobre turismo, hogar y experiencias locales, escritos con la voz cercana de Hogga." />
-  <meta property="og:image" content="https://hogga.cl/images/og/og-hogga-blog.jpg" />
+  <meta property="og:image" content="https://hogga.cl/images/og-hogga.jpg" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Blog Hogga — Consejos y datos verificados en Chile" />
   <meta name="twitter:description" content="Explora artículos sobre turismo, hogar y experiencias locales, escritos con la voz cercana de Hogga." />
-  <meta name="twitter:image" content="https://hogga.cl/images/og/og-hogga-blog.jpg" />
+  <meta name="twitter:image" content="https://hogga.cl/images/og-hogga.jpg" />
 
     <!-- ✅ Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="/images/favic/apple-touch-icon.png">
@@ -28,10 +28,52 @@
     <link rel="manifest" href="/images/favic/site.webmanifest">
     <link rel="mask-icon" href="/images/favic/safari-pinned-tab.svg" color="#136565">
     <link rel="icon" href="/favicon.ico">
-  
+    
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="/css/styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="Blog Hogga RSS" href="https://hogga.cl/blog/rss.xml" />
+
+    <!-- Breadcrumb -->
+    <script type="application/ld+json">
+    {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Inicio","item":"https://hogga.cl/"},
+        {"@type":"ListItem","position":2,"name":"Blog","item":"https://hogga.cl/blog/"}
+    ]
+    }
+    </script>
+
+    <!-- Blog + ItemList de últimos artículos -->
+    <script type="application/ld+json">
+    {
+    "@context":"https://schema.org",
+    "@graph":[
+        {
+        "@type":"Blog",
+        "@id":"https://hogga.cl/blog/#blog",
+        "name":"Blog Hogga",
+        "url":"https://hogga.cl/blog/",
+        "inLanguage":"es-CL",
+        "description":"Consejos, guías y datos verificados sobre hogar, turismo y experiencias locales en Chile."
+        },
+        {
+        "@type":"ItemList",
+        "name":"Últimos artículos",
+        "itemListOrder":"https://schema.org/ItemListOrderDescending",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"url":"https://hogga.cl/blog/ahorrar-agua-en-casa/"},
+            {"@type":"ListItem","position":2,"url":"https://hogga.cl/blog/ruta-lagos-sur-chile/"},
+            {"@type":"ListItem","position":3,"url":"https://hogga.cl/blog/elegir-proveedor-seguro/"}
+        ]
+        }
+    ]
+    }
+    </script>
+
 </head>
 
 <body>
@@ -62,67 +104,78 @@
   <!-- MAIN -->
   <main>
     <!-- HERO -->
-    <section class="hero">
-      <div class="hero-bg"></div>
-      <div class="container hero-content">
-        <span class="eyebrow">Blog Hogga</span>
-        <h1>Consejos y datos verificados para la vida en Chile</h1>
-        <p class="lead">
-          Historias, guías y recomendaciones reales sobre <strong>hogar, turismo y experiencias locales</strong>.  
-          Escritos con el mismo tono cercano y útil de siempre.
-        </p>
-      </div>
-    </section>
+    <section class="hero hero--blog">
+        <div class="hero-bg"></div>
+        <div class="container hero-content">
+          <span class="eyebrow">Blog Hogga</span>
+          <h1>Consejos y datos verificados para la vida en Chile</h1>
+          <p class="lead">
+            Guías prácticas y <strong>recomendaciones reales</strong> sobre 
+            <a href="/blog/hogar/">hogar</a>, <a href="/blog/turismo/">turismo</a> y 
+            <a href="/blog/consejos/">experiencias locales</a>. 
+            Todo con foco en descubribilidad y utilidad — en menos de 5 minutos de lectura.
+          </p>
+        </div>
+      </section>
 
     <!-- Últimos artículos -->
     <section class="section">
-      <div class="container">
+    <div class="container">
         <h2>Últimos artículos</h2>
         <p class="sub">Novedades, guías y curiosidades del equipo Hogga.</p>
 
-        <div class="grid cats">
-          <a href="/blog/ahorrar-agua-en-casa/" class="cat">
-            <span class="cat-emoji">💧</span>
-            <div class="cat-body">
-              <span class="cat-title">5 formas simples de ahorrar agua en casa</span>
-              <span class="cat-sub">Hogar · 4 min de lectura</span>
+        <div class="post-grid">
+        <a href="/blog/ahorrar-agua-en-casa/" class="post-card">
+            <figure class="post-media" aria-hidden="true">
+            <img src="/images/blog/agua.webp" width="96" height="96" loading="lazy" alt="">
+            <span class="emoji">💧</span>
+            </figure>
+            <div class="post-body">
+            <h3 class="post-title">5 formas simples de ahorrar agua en casa</h3>
+            <p class="post-meta">Hogar · 4 min</p>
             </div>
-            <span class="cat-cta">Leer</span>
-          </a>
+            <span class="post-cta">Leer</span>
+        </a>
 
-          <a href="/blog/ruta-lagos-sur-chile/" class="cat">
-            <span class="cat-emoji">🚗</span>
-            <div class="cat-body">
-              <span class="cat-title">Ruta de los Lagos: los imperdibles del sur</span>
-              <span class="cat-sub">Turismo · 6 min de lectura</span>
+        <a href="/blog/ruta-lagos-sur-chile/" class="post-card">
+            <figure class="post-media" aria-hidden="true">
+            <img src="/images/blog/lagos.webp" width="96" height="96" loading="lazy" alt="">
+            <span class="emoji">🚗</span>
+            </figure>
+            <div class="post-body">
+            <h3 class="post-title">Ruta de los Lagos: los imperdibles del sur</h3>
+            <p class="post-meta">Turismo · 6 min</p>
             </div>
-            <span class="cat-cta">Leer</span>
-          </a>
+            <span class="post-cta">Leer</span>
+        </a>
 
-          <a href="/blog/elegir-proveedor-seguro/" class="cat">
-            <span class="cat-emoji">🛠️</span>
-            <div class="cat-body">
-              <span class="cat-title">Cómo elegir un proveedor confiable en tu ciudad</span>
-              <span class="cat-sub">Servicios · 5 min de lectura</span>
+        <a href="/blog/elegir-proveedor-seguro/" class="post-card">
+            <figure class="post-media" aria-hidden="true">
+            <img src="/images/blog/proveedor.webp" width="96" height="96" loading="lazy" alt="">
+            <span class="emoji">🛠️</span>
+            </figure>
+            <div class="post-body">
+            <h3 class="post-title">Cómo elegir un proveedor confiable en tu ciudad</h3>
+            <p class="post-meta">Servicios · 5 min</p>
             </div>
-            <span class="cat-cta">Leer</span>
-          </a>
+            <span class="post-cta">Leer</span>
+        </a>
         </div>
-      </div>
+    </div>
     </section>
 
     <!-- Categorías -->
     <section class="section alt">
-      <div class="container">
-        <h2>Categorías</h2>
-        <div class="chips">
-          <span class="chip">🏡 Hogar</span>
-          <span class="chip">🌄 Turismo</span>
-          <span class="chip">💡 Consejos</span>
-          <span class="chip">📍 Historias locales</span>
+        <div class="container">
+          <h2>Categorías</h2>
+          <div class="chips">
+            <a class="chip" href="/blog/hogar/">🏡 Hogar</a>
+            <a class="chip" href="/blog/turismo/">🌄 Turismo</a>
+            <a class="chip" href="/blog/consejos/">💡 Consejos</a>
+            <a class="chip" href="/blog/historias/">📍 Historias locales</a>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
     <!-- CTA -->
     <section class="section">
