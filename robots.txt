@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Evita indexar archivos sueltos innecesarios
+Disallow: /favicon_io.zip
+
+Sitemap: https://hogga.cl/sitemap.xml
