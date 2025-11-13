@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="es-CL">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="index,follow" />
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://www.google-analytics.com" />
+    <link rel="preconnect" href="https://wa.me" />
+
+    <!-- Consent Mode v2 -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+
+      /* Default: granted en LATAM */
+      gtag('consent','default',{
+        analytics_storage:'granted',
+        ad_storage:'denied',
+        ad_user_data:'denied',
+        ad_personalization:'denied',
+        wait_for_update: 500
+      });
+
+      /* EEA/UK denied */
+      gtag('consent','default',{
+        region:['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','CH','GB'],
+        analytics_storage:'denied',
+        ad_storage:'denied',
+        ad_user_data:'denied',
+        ad_personalization:'denied'
+      });
+
+      /* Preferencia guardada */
+      (function(){
+        try{
+          if (new URLSearchParams(location.search).get('consent') === 'reset') {
+            localStorage.removeItem('hogga_consent_pref');
+          }
+          const pref = JSON.parse(localStorage.getItem('hogga_consent_pref'));
+          if (pref && pref.values) {
+            gtag('consent','update', pref.values);
+            window.__hoggaConsentChosen = true;
+          }
+        }catch(e){}
+      })();
+    </script>
+
+    <!-- GTM -->
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-56V9ZN8P');
+    </script>
+
+    <title>Ruta de los Lagos: los imperdibles del sur de Chile | Hogga Turismo</title>
+    <meta name="description" content="Descubre la Ruta de los Lagos en el sur de Chile: Puerto Varas, Llanquihue, Frutillar, Ensenada y Petrohué. Una guía real de Hogga Turismo con rutas, miradores y consejos verificados." />
+    <meta name="author" content="Hogga Turismo" />
+    <meta property="article:section" content="Turismo" />
+    <meta property="article:tag" content="Ruta de los Lagos, Los Lagos, Puerto Varas, Llanquihue, Frutillar, Ensenada, Petrohué, Ruta 225, sur de Chile" />
+    <link rel="canonical" href="https://hogga.cl/blog/ruta-lagos-sur-chile/" />
+    <link rel="alternate" href="https://hogga.cl/blog/ruta-lagos-sur-chile/" hreflang="es-cl" />
+    <link rel="alternate" href="https://hogga.cl/blog/ruta-lagos-sur-chile/" hreflang="x-default" />    
+    <meta name="theme-color" content="#136565" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/styles.css" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Manrope:wght@700;800&display=swap" rel="stylesheet" />
+
+    <!-- Preload LCP -->
+    <link rel="preload" as="image" href="/images/blog/lagos.webp" fetchpriority="high" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Hogga Turismo" />
+    <meta property="og:locale" content="es_CL" />
+    <meta property="og:url" content="https://hogga.cl/blog/ruta-lagos-sur-chile/" />
+    <meta property="og:title" content="Ruta de los Lagos: los imperdibles del sur de Chile" />
+    <meta property="og:description" content="Descubre lo mejor de la Ruta de los Lagos: Puerto Varas, Llanquihue, Frutillar, Ensenada y Petrohué. Consejos reales para recorrer el sur de Chile sin perder tiempo." />
+    <meta property="og:image" content="https://hogga.cl/images/blog/lagos.webp" />
+    <meta property="og:image:alt" content="Vista del Lago Llanquihue con el volcán Osorno de fondo" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ruta de los Lagos: los imperdibles del sur de Chile" />
+    <meta name="twitter:description" content="Guía práctica para recorrer la Ruta de los Lagos en el sur de Chile: rutas, miradores y consejos verificados." />
+    <meta name="twitter:image" content="https://hogga.cl/images/blog/lagos.webp" />
+
+    <!-- JSON-LD BlogPosting -->
+    <script type="application/ld+json">
+    {
+      "@context":"https://schema.org",
+      "@type":"BlogPosting",
+      "headline":"Ruta de los Lagos: los imperdibles del sur de Chile",
+      "description":"Explora la Ruta de los Lagos en el sur de Chile: Puerto Varas, Llanquihue, Frutillar, Ensenada y Petrohué con esta guía de Hogga Turismo.",
+      "image":{
+        "@type":"ImageObject",
+        "url":"https://hogga.cl/images/blog/lagos.webp",
+        "width":1200,
+        "height":630
+      },
+      "articleSection":"Turismo",
+      "keywords":["Ruta de los Lagos","sur de Chile","Lago Llanquihue","Puerto Varas","Frutillar","Ensenada","Petrohué"],
+      "author":{"@type":"Organization","name":"Hogga Turismo"},
+      "publisher":{
+        "@type":"Organization",
+        "name":"Hogga Turismo",
+        "logo":{"@type":"ImageObject","url":"https://hogga.cl/images/logo.png","width":240,"height":72}
+      },
+      "mainEntityOfPage":{"@type":"WebPage","@id":"https://hogga.cl/blog/ruta-lagos-sur-chile/"},
+      "datePublished":"2025-11-13",
+      "dateModified":"2025-11-13",
+      "inLanguage":"es-CL"
+    }
+    </script>
+
+    <!-- BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context":"https://schema.org",
+      "@type":"BreadcrumbList",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Inicio","item":"https://hogga.cl/"},
+        {"@type":"ListItem","position":2,"name":"Blog","item":"https://hogga.cl/blog/"},
+        {"@type":"ListItem","position":3,"name":"Ruta de los Lagos: los imperdibles del sur","item":"https://hogga.cl/blog/ruta-lagos-sur-chile/"}
+      ]
+    }
+    </script>
+
+  </head>
+
+
+  <body>
+
+    <!-- GTM noscript -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-56V9ZN8P" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <!-- HEADER -->
+    <header class="main-header">
+      <div class="container header-content">
+        <a class="brand" href="/" aria-label="Hogga, inicio">
+          <img class="logo" src="/images/logo.png" alt="Hogga" width="120" height="36" />
+        </a>
+
+        <button class="nav-toggle" aria-label="Abrir menú" aria-controls="site-nav" aria-expanded="false">
+          <span class="nav-toggle-box" aria-hidden="true">
+            <span class="nav-toggle-line"></span>
+            <span class="nav-toggle-line"></span>
+            <span class="nav-toggle-line"></span>
+          </span>
+        </button>
+
+        <nav id="site-nav" class="site-nav" role="navigation">
+          <a href="/#como-funciona">¿Cómo funciona?</a>
+          <a href="/servicios/">Hogga Servicios</a>
+          <a href="/turismo/">Hogga Turismo</a>
+          <a class="active" href="/blog/">Blog</a>
+          <a href="/contacto/">Contacto</a>
+        </nav>
+      </div>
+    </header>
+
+
+    <!-- MAIN -->
+    <main class="blog-post container">
+      <article>
+        <header class="post-header">
+          <span class="post-category">Turismo · Chile Sur</span>
+          <h1>Ruta de los Lagos: los imperdibles del sur de Chile</h1>
+          <p class="post-meta">Por <strong>Equipo Hogga Turismo</strong> · Actualizado el 13 de noviembre de 2025</p>
+          <figure class="post-cover">
+            <img src="/images/blog/lagos.webp"
+                 loading="eager" fetchpriority="high" decoding="async"
+                 alt="Vista del Lago Llanquihue con el volcán Osorno al fondo">
+            <figcaption>Lago Llanquihue: punto central de la Ruta de los Lagos.</figcaption>
+          </figure>
+        </header>
+
+        <p>La <strong>Ruta de los Lagos</strong> es el corazón viajero del sur de Chile: caminos rodeados de verde, pueblos con ritmo tranquilo y un lago enorme vigilado por volcanes perfectos. Si buscas una ruta fácil de recorrer, ideal para ir parando, sacar fotos y comer rico, este circuito te va a dejar feliz.</p>
+
+        <p>En esta guía muy aterrizada repasamos los <strong>imperdibles</strong> entre <strong>Puerto Varas, Llanquihue, Frutillar, Ensenada y Petrohué</strong>. No necesitas correr ni hacer trekking técnico: solo ganas de manejar despacio, mirar por la ventana y dejarte sorprender. 🚗</p>
+
+        <h2>Antes de partir: tres claves prácticas</h2>
+        <ul>
+          <li><strong>Clima cambiante:</strong> incluso en verano llueve de un rato para otro. Lleva una capa liviana y otra seca de repuesto.</li>
+          <li><strong>Combustible:</strong> carga en Puerto Varas o Llanquihue antes de salir hacia Ensenada y Petrohué.</li>
+          <li><strong>Tiempos reales:</strong> las distancias son cortas, pero la ruta invita a parar. Calcula más tiempo del que dice el mapa.</li>
+        </ul>
+
+        <h2>1. Puerto Varas: la base perfecta</h2>
+        <figure>
+          <img src="/images/blog/ruta-lagos/puerto-varas.webp"
+               loading="lazy" decoding="async"
+               alt="Puerto Varas con vista al Lago Llanquihue y volcán Osorno">
+          <figcaption>Puerto Varas: punto de partida ideal para explorar la Ruta de los Lagos.</figcaption>
+        </figure>
+
+        <p><strong>Por qué ir:</strong> ciudad pequeña, linda y con vista directa al volcán Osorno. Tiene buena gastronomía, cafés y playas tranquilas para empezar el viaje.</p>
+
+        <p><strong>Qué hacer:</strong></p>
+        <ul>
+          <li>Paseo por la costanera y miradores.</li>
+          <li>Playita Niklitschek al atardecer.</li>
+          <li>Cafés con tortas y kuchen estilo alemán.</li>
+        </ul>
+
+        <h2>2. Llanquihue: calma, campo y vista al Osorno</h2>
+        <figure>
+          <img src="/images/blog/ruta-lagos/llanquihue.webp"
+               loading="lazy" decoding="async"
+               alt="Orilla del lago en Llanquihue con vista al volcán Osorno">
+          <figcaption>Llanquihue: borde lacustre amplio y vista limpia al volcán.</figcaption>
+        </figure>
+
+        <p><strong>Por qué ir:</strong> es menos turístico que Puerto Varas, pero con playas amplias y miradores perfectos para fotos del volcán.</p>
+
+        <p><strong>Plan simple:</strong> bordear el lago y parar en los muelles o pequeñas playas que aparecen camino a Frutillar.</p>
+
+        <h2>3. Frutillar: música, teatro y lago</h2>
+        <figure>
+          <img src="/images/blog/ruta-lagos/frutillar-teatro.webp"
+               loading="lazy" decoding="async"
+               alt="Teatro del Lago en Frutillar con el volcán al fondo">
+          <figcaption>Frutillar: uno de los escenarios más fotogénicos del sur de Chile.</figcaption>
+        </figure>
+
+        <p><strong>Por qué ir:</strong> mezcla de tradiciones alemanas, arquitectura de madera y un teatro que parece flotar sobre el lago.</p>
+
+        <ul>
+          <li>Recorrer la costanera completa.</li>
+          <li>Visitar el <strong>Teatro del Lago</strong>.</li>
+          <li>Parar a comer kuchen o almorzar en restaurantes con vista.</li>
+        </ul>
+
+        <h2>4. Ensenada: naturaleza en primera fila</h2>
+        <figure>
+          <img src="/images/blog/ruta-lagos/ensenada.webp"
+               loading="lazy" decoding="async"
+               alt="Vista del volcán Osorno desde Ensenada en la Ruta 225">
+          <figcaption>Ensenada: montañas, ríos y el volcán Osorno siempre presente.</figcaption>
+        </figure>
+
+        <p><strong>Por qué ir:</strong> es el punto donde empiezas a sentir realmente la energía de la montaña. Bosques, ríos, campings y mucha vista amplia.</p>
+
+        <p><strong>Ideas de paradas:</strong></p>
+        <ul>
+          <li>Laguna Verde (parada corta y bonita).</li>
+          <li>Miradores camino al volcán Osorno.</li>
+          <li>Ríos y áreas de picnic.</li>
+        </ul>
+
+        <h2>5. Petrohué: agua turquesa y volcanes</h2>
+        <figure>
+          <img src="/images/blog/ruta-lagos/petrohue.webp"
+               loading="lazy" decoding="async"
+               alt="Saltos del Petrohué y volcán Osorno al fondo">
+          <figcaption>Saltos del Petrohué: el imperdible absoluto de la Ruta de los Lagos.</figcaption>
+        </figure>
+
+        <p><strong>Por qué ir:</strong> es probablemente el lugar más famoso y fotogénico de la Ruta de los Lagos. Aguas turquesa, pasarelas y el Osorno de fondo.</p>
+
+        <ul>
+          <li><strong>Saltos del Petrohué:</strong> pasarelas, miradores y senderos cortos.</li>
+          <li><strong>Lago Todos los Santos:</strong> playa de piedras negras y navegaciones.</li>
+          <li><strong>Senderos fáciles:</strong> Ensenillos y Carilemu.</li>
+        </ul>
+
+        <p><em>Tip Hogga:</em> si puedes, llega temprano. Menos gente, mejor luz y fotos espectaculares.</p>
+
+        <h2>¿Cuándo hacer la Ruta de los Lagos?</h2>
+        <ul>
+          <li><strong>Verano (dic–feb):</strong> días largos y rutas activas.</li>
+          <li><strong>Otoño (mar–may):</strong> colores increíbles alrededor del lago.</li>
+          <li><strong>Primavera (sept–nov):</strong> aire fresco y ríos caudalosos.</li>
+          <li><strong>Invierno (jun–ago):</strong> lluvias frecuentes, pero vistas mágicas con nieve en los volcanes.</li>
+        </ul>
+
+        <h2>Itinerarios rápidos para inspirarte</h2>
+        <ul>
+          <li><strong>1 día:</strong> Puerto Varas → Ensenada → Petrohué.</li>
+          <li><strong>2 días:</strong> Puerto Varas → Llanquihue → Frutillar (día 1). Ensenada → Petrohué (día 2).</li>
+          <li><strong>3 días:</strong> todo lo anterior + ruta larga bordeando el lago y paradas fotográficas.</li>
+        </ul>
+
+        <h2>Consejos Hogga para viajar tranquilo</h2>
+        <ul>
+          <li><strong>Ropa:</strong> capas, impermeable y algo abrigado incluso en verano.</li>
+          <li><strong>Fotos:</strong> lleva bolsita seca para lluvia inesperada.</li>
+          <li><strong>Basura:</strong> todo lo que llevas, vuelve contigo.</li>
+          <li><strong>Mapas:</strong> descarga rutas offline; hay tramos sin señal.</li>
+        </ul>
+
+        <h2>¿Quieres recomendaciones verificadas?</h2>
+        <p>Si buscas <strong>alojamientos, tours o restaurantes confiables</strong> para recorrer la Ruta de los Lagos, te podemos ayudar con opciones reales según tu ruta y presupuesto:<br>
+        👉 <a href="https://wa.me/56975457652?text=Hola%20Hogga%2C%20quiero%20opciones%20verificadas%20para%20la%20Ruta%20de%20los%20Lagos" target="_blank" rel="noopener noreferrer">Escríbenos por WhatsApp</a>.</p>
+
+        <blockquote>
+          <p><strong>Hogga Turismo:</strong> datos reales y recomendaciones verificadas para viajar por Chile sin perder tiempo. Hecho con cariño desde el sur 🇨🇱</p>
+        </blockquote>
+
+      </article>
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container foot">
+        <div class="foot-brand">
+          <strong>Hogga</strong>
+          <small>
+            <strong>Hogga — la red chilena de datos confiables y verificados</strong>  
+            para descubrir, conectar y crecer.  
+            Hecho con cariño desde el sur de Chile 🇨🇱
+          </small>
+          <div class="cta-column">
+            <a class="foot-cta" href="https://wa.me/56951809138?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20servicios" target="_blank" rel="noopener noreferrer">Pedir dato Hogga Servicios</a>
+            <a class="foot-cta" href="https://wa.me/56975457652?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20turismo" target="_blank" rel="noopener noreferrer">Pedir dato Hogga Turismo</a>
+          </div>
+        </div>
+
+        <nav class="foot-links" aria-label="Enlaces del sitio">
+          <div>
+            <span class="foot-title">Explora Hogga</span>
+            <ul>
+              <li><a href="/#como-funciona">¿Cómo funciona?</a></li>
+              <li><a href="/servicios/">Hogga Servicios</a></li>
+              <li><a href="/turismo/">Hogga Turismo</a></li>
+              <li><a href="/blog/">Blog</a></li>
+              <li><a href="/contacto/">Contacto</a></li>
+            </ul>
+          </div>
+          <div>
+            <span class="foot-title">Legal</span>
+            <ul>
+              <li><a href="/terminos-y-condiciones/">Términos</a></li>
+              <li><a href="/politica-privacidad/">Privacidad</a></li>
+              <li><a href="/bases-legales-concursos-instagram/">Bases Concursos</a></li>
+            </ul>
+          </div>
+          <div>
+            <span class="foot-title">Síguenos</span>
+            <ul>
+              <li><a href="https://www.instagram.com/hogga_chile/" target="_blank" rel="noopener noreferrer">Hogga Servicios</a></li>
+              <li><a href="https://www.instagram.com/hogga_turismo/" target="_blank" rel="noopener noreferrer">Hogga Turismo</a></li>
+              <li><a href="https://www.instagram.com/hogga_regala/" target="_blank" rel="noopener noreferrer">Hogga Regala</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+
+      <div class="container foot-bottom">
+        <small>© <span id="y"></span> Hogga Group SpA. Todos los derechos reservados.</small>
+      </div>
+    </footer>
+
+    <script defer src="/js/main.js"></script>
+  </body>
+</html>
