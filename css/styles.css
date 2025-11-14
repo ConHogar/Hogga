@@ -302,7 +302,7 @@ h2{font-size:clamp(1.4rem,2.6vw,2rem);margin:0 0 10px}
   /* simplest, bulletproof */
   background:
     linear-gradient(0deg, rgba(11,46,46,.70), rgba(11,46,46,.70)),
-    url('../images/sur-chile.webp') center/cover no-repeat;
+    url('../images/sur-chile-osorno.webp') center/cover no-repeat;
 
   /* if you want fallbacks later, add them once this works */
   /* background:
@@ -458,7 +458,7 @@ a:focus-visible {
   color:#fff;
   background:
     linear-gradient(0deg, var(--map-overlay), var(--map-overlay)),
-    url('../images/sur-chile.webp') center var(--map-y) / cover no-repeat;
+    url('../images/sur-chile-osorno.webp') center var(--map-y) / cover no-repeat;
   background-attachment: fixed;        /* parallax */
 }
 
