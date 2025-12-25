@@ -225,20 +225,20 @@
     }
   
     // ===== Normaliza enlaces de WhatsApp a un solo número =====
-    function normalizeWhatsAppLinks() {
-      // 1) Hero / Footer / CTA sueltos
-      $$('a[href*="wa.me"]').forEach(a => {
-        try {
-          const url = new URL(a.href, location.origin);
-          const textParam = url.searchParams.get('text') || 'Hola Hogga, necesito un dato';
-          a.href = buildWa(textParam);
-        } catch (_) {
-          // si falla parseo de URL, no romper
-        }
-      });
-  
+//    function normalizeWhatsAppLinks() {
+//      // 1) Hero / Footer / CTA sueltos
+//      $$('a[href*="wa.me"]').forEach(a => {
+//        try {
+//          const url = new URL(a.href, location.origin);
+//          const textParam = url.searchParams.get('text') || 'Hola Hogga, necesito un dato';
+//          a.href = buildWa(textParam);
+//        } catch (_) {
+//          // si falla parseo de URL, no romper
+//        }
+//      });
+//  
       // 2) JSON-LD (si alguna vez se hace dinámico, actualizar ahí también)
-    }
+//    }
   
     // ===== Counters (count-up on view) =====
     function setupCounters() {
@@ -335,12 +335,14 @@ function setupMobileNav(){
 }
 
 
+
+
     // ===== Init =====
     document.addEventListener('DOMContentLoaded', () => {
       setupLazyImages();
       animateChatDemo();
       setupLeadForm();
-      normalizeWhatsAppLinks();
+     // normalizeWhatsAppLinks();
       setupFooterYear();
       setupActiveNav();
       setupCategoryPrefill();
@@ -400,3 +402,4 @@ function setupMobileNav(){
     if (!window.__hoggaConsentChosen) showBar();
   });
 })();
+

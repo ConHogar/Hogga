@@ -14,44 +14,8 @@
   <link rel="preconnect" href="https://www.google-analytics.com" />
   <link rel="preconnect" href="https://wa.me" />
 
-  <!-- Consent Mode v2 (regional: CL granted; EEA/UK denied) -->
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-
-    /* 1) Default global: analytics granted (Chile y LatAm) */
-    gtag('consent','default',{
-      analytics_storage:'granted',
-      ad_storage:'denied',
-      ad_user_data:'denied',
-      ad_personalization:'denied',
-      wait_for_update: 500
-    });
-
-    /* 2) Override EEA/UK/CH/NO/IS/LI: todo denied por defecto */
-    gtag('consent','default',{
-      region:['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','CH','GB'],
-      analytics_storage:'denied',
-      ad_storage:'denied',
-      ad_user_data:'denied',
-      ad_personalization:'denied'
-    });
-
-    /* 3) Aplica preferencia guardada (si existe) ANTES de cargar GTM */
-    (function(){
-      try{
-        // reset rápido: ?consent=reset
-        if (new URLSearchParams(location.search).get('consent') === 'reset') {
-          localStorage.removeItem('hogga_consent_pref');
-        }
-        const pref = JSON.parse(localStorage.getItem('hogga_consent_pref'));
-        if (pref && pref.values) {
-          gtag('consent','update', pref.values);
-          window.__hoggaConsentChosen = true;
-        }
-      }catch(e){}
-    })();
-  </script>
+    <!-- Consent logic (centralizada) -->
+    <script src="/js/consent.js"></script>
 
   <!-- Google Tag Manager -->
   <script>
@@ -65,7 +29,8 @@
   
     <!-- SEO principal -->
     <title>Hogga Turismo — Datos confiables para descubrir dónde comer, dormir y qué hacer en Chile</title>
-    <meta name="description" content="Encuentra restaurantes, hoteles, cafés, tours y panoramas con datos confiables y verificados. Pide tu dato por WhatsApp y recibe 2–3 opciones reales en menos de 60 segundos. Cobertura en la zona sur y Patagonia, expandiendo a todo Chile." />
+    <meta name="description" content="Encuentra restaurantes, hoteles, cafés, tours y panoramas con datos confiables y verificados. Pide tu dato por WhatsApp y recibe 2–3 opciones reales en menos de 60 segundos. Cobertura nacional en Chile." />
+
     <link rel="canonical" href="https://hogga.cl/turismo/" />
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -112,9 +77,13 @@
       "@graph": [
         {
           "@type": "Organization",
+          "@id": "https://hogga.cl/#organization",
           "name": "Hogga Group SpA",
           "url": "https://hogga.cl/",
-          "logo": "https://hogga.cl/images/logo.webp",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://hogga.cl/images/logo.webp"
+          },
           "description": "Hogga — la red chilena de datos confiables y verificados para descubrir, conectar y crecer.",
           "sameAs": [
             "https://www.instagram.com/hogga_chile/",
@@ -124,65 +93,88 @@
             "https://www.youtube.com/@hogga_chile",
             "https://www.tiktok.com/@hogga_chile"
           ],
-          "contactPoint": [{
-            "@type": "ContactPoint",
-            "telephone": "+56 9 5175 9158",
-            "contactType": "customer service",
-            "availableLanguage": ["es"]
-          }]
+          "contactPoint": [
+              {
+                "@type": "ContactPoint",
+                "telephone": "+56 9 5175 9158",
+                "contactType": "customer service",
+                "availableLanguage": ["es"]
+              },
+              {
+                "@type": "ContactPoint",
+                "telephone": "+56 9 7545 7652",
+                "contactType": "customer service",
+                "availableLanguage": ["es"]
+              }
+            ]
         },
         {
           "@type": "WebSite",
+          "@id": "https://hogga.cl/#website",
           "url": "https://hogga.cl/",
           "name": "Hogga",
-          "inLanguage": "es-CL"
+          "inLanguage": "es-CL",
+          "publisher": { "@id": "https://hogga.cl/#organization" }
         },
         {
           "@type": "WebPage",
-          "@id": "https://hogga.cl/turismo/",
+          "@id": "https://hogga.cl/turismo/#webpage",
           "url": "https://hogga.cl/turismo/",
           "name": "Hogga Turismo",
-          "isPartOf": { "@id": "https://hogga.cl/" },
+          "isPartOf": { "@id": "https://hogga.cl/#website" },
+          "about": { "@id": "https://hogga.cl/turismo/#service" },
           "inLanguage": "es-CL",
-          "description": "Encuentra restaurantes, hoteles, cafés, tours y panoramas con datos confiables y verificados en Chile.",
+          "description": "Encuentra restaurantes, hoteles, cafés, tours y panoramas con datos confiables y verificados. Pide tu dato por WhatsApp y recibe 2–3 opciones reales en menos de 60 segundos. Cobertura nacional en Chile.",
           "primaryImageOfPage": {
             "@type": "ImageObject",
             "url": "https://hogga.cl/images/og/og-hogga-turismo.jpg",
             "width": 1200,
             "height": 630
           },
-          "potentialAction": [{
-            "@type": "SearchAction",
-            "target": "https://wa.me/56975457652?text=Busco%20{search_term_string}%20(Hogga%20Turismo)",
-            "query-input": "required name=search_term_string"
-          }]
+          "potentialAction": [
+            {
+              "@type": "SearchAction",
+              "target": "https://wa.me/56975457652?text=Busco%20{search_term_string}%20(Hogga%20Turismo)",
+              "query-input": "required name=search_term_string"
+            }
+          ]
         },
         {
           "@type": "Service",
+          "@id": "https://hogga.cl/turismo/#service",
+          "name": "Hogga Turismo",
           "serviceType": "Recomendaciones turísticas verificadas",
-          "provider": {
-            "@type": "Organization",
-            "name": "Hogga Turismo",
-            "url": "https://hogga.cl/turismo/"
+          "provider": { "@id": "https://hogga.cl/#organization" },
+          "areaServed": {
+            "@type": "Country",
+            "name": "Chile"
           },
-          "areaServed": "Chile",
-          "availableChannel": {
-            "@type": "ServiceChannel",
-            "serviceUrl": "https://wa.me/56975457652",
-            "availableLanguage": ["es"]
-          },
+            "availableChannel": [
+              {
+                "@type": "ServiceChannel",
+                "serviceUrl": "https://wa.me/56975457652",
+                "availableLanguage": ["es"]
+              },
+              {
+                "@type": "ServiceChannel",
+                "serviceUrl": "https://wa.me/56951759158",
+                "availableLanguage": ["es"]
+              }
+            ],
           "description": "Datos confiables de restaurantes, hoteles, cafés, tours y panoramas. Recibe 2–3 opciones reales por WhatsApp en menos de 60 segundos."
         },
         {
           "@type": "BreadcrumbList",
+          "@id": "https://hogga.cl/turismo/#breadcrumbs",
           "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Inicio",   "item": "https://hogga.cl/" },
+            { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://hogga.cl/" },
             { "@type": "ListItem", "position": 2, "name": "Turismo", "item": "https://hogga.cl/turismo/" }
           ]
         }
       ]
     }
     </script>
+
   </head>
   
   <body>
@@ -191,38 +183,39 @@
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
     <header class="main-header">
-        <div class="container header-content">
-          <a class="brand" href="/" aria-label="Hogga, inicio">
-            <img class="logo" src="/images/logo.webp" alt="Hogga" width="120" height="36" />
-          </a>
-          <!-- Botón hamburger (solo móvil) -->
-          <button class="nav-toggle" aria-label="Abrir menú" aria-controls="site-nav" aria-expanded="false">
-            <span class="nav-toggle-box" aria-hidden="true">
-              <span class="nav-toggle-line"></span>
-              <span class="nav-toggle-line"></span>
-              <span class="nav-toggle-line"></span>
-            </span>
-          </button>
-          <nav id="site-nav" class="site-nav" role="navigation">
-            <a href="/#como-funciona">¿Cómo funciona?</a>
-            <a href="/hogga-servicios/">Hogga Servicios</a>
-            <a href="/turismo/">Hogga Turismo</a>
+      <div class="container header-content">
+        <a class="brand" href="/" aria-label="Hogga, inicio">
+          <img class="logo" src="/images/logo.webp" alt="Hogga — red chilena de datos confiables y verificados" width="120" height="36" />
+        </a>
+        <!-- Botón hamburger (solo móvil) -->
+        <button class="nav-toggle" aria-label="Abrir menú" aria-controls="site-nav" aria-expanded="false">
+          <span class="nav-toggle-box" aria-hidden="true">
+            <span class="nav-toggle-line"></span>
+            <span class="nav-toggle-line"></span>
+            <span class="nav-toggle-line"></span>
+          </span>
+        </button>
+          <nav id="site-nav" class="site-nav" role="navigation" aria-label="Navegación principal">
+            <a href="/hogga-servicios/">Para hogar</a>
+            <a href="/turismo/">Para viajar</a>
+            <a href="/negocios/">Para negocios</a>
+            <a href="/decisiones/">Decisiones</a>
             <a href="/blog/">Blog</a>
             <a href="/contacto/">Contacto</a>
           </nav>
-        </div>
-      </header>
+      </div>
+    </header>
 
     <main id="inicio">
       <!-- HERO -->
       <section class="hero">
         <div class="hero-bg"></div>
         <div class="container hero-content">
-          <span class="eyebrow">Hecho en el sur de Chile</span>
-          <h1>Descubre lugares verificados y confiables en todo Chile</h1>
+          <span class="eyebrow">Restaurantes • Tours • Hoteles</span>
+          <h1>Recomendaciones locales verificadas para viajar por Chile</h1>
           <p class="lead">
-            Restaurantes, cafés, hoteles, tours y experiencias únicas.  
-            Recibe recomendaciones locales en menos de 60 s y elige dónde ir.
+            Restaurantes, cafés, hoteles, tours y experiencias únicas.
+            Te pasamos recomendaciones locales rápido, para que elijas bien.
           </p>
 
           <div class="chat-demo" aria-label="Ejemplo de conversación">
@@ -232,13 +225,10 @@
           </div>
 
           <div class="cta-row" role="group" aria-label="Acciones principales">
-            <a class="btn primary" href="https://www.instagram.com/hogga_turismo/" target="_blank" rel="noopener noreferrer">
-              Pedir datos por Instagram
-            </a>
             <a class="btn outline"
-                href="https://wa.me/56975457652?text=Hola%20Hogga%20Turismo%2C%20quiero%20un%20dato%20para%20mi%20viaje&utm_source=web&utm_medium=cta&utm_campaign=turismo_home"
-                target="_blank" rel="noopener noreferrer">
-              Escríbenos por WhatsApp
+              href="https://wa.me/56975457652?text=Hola%20Hogga%20Turismo%2C%20quiero%20un%20dato%20para%20mi%20viaje"
+              target="_blank" rel="noopener noreferrer">
+              Quiero un dato para mi viaje
             </a>
           </div>
         </div>
@@ -248,7 +238,7 @@
       <div class="trust">
         <div class="container trust-row">
           <div class="trust-item"><span class="dot"></span> Lugares verificados en tu ciudad</div>
-          <div class="trust-item"><span class="dot"></span> +1.000 recomendaciones compartidas</div>
+          <div class="trust-item"><span class="dot"></span> +5.000 recomendaciones compartidas</div>
           <div class="trust-item"><span class="dot"></span> En todo Chile 🇨🇱</div>
         </div>
       </div>
@@ -279,77 +269,113 @@
         </div>
       </section>
 
-      <!-- Categorías -->
+     <!-- CATEGORÍAS (macro) -->
       <section id="categorias" class="section">
         <div class="container">
           <h2>Encuentra tu próxima experiencia</h2>
-          <p class="sub">Pide tu dato turístico y recibe lugares verificados en segundos.</p>
+          <p class="sub">Estas son algunas de las experiencias que cubrimos. Escríbenos y te pasamos datos verificados según tu viaje.</p>
 
-          <div class="grid cats cats-compact">
-            <a class="cat" href="https://wa.me/56975457652?text=Busco%20restaurante%20en%20[tu%20ciudad]" aria-label="Pedir datos de restaurantes">
-              <span class="cat-emoji">🍽️</span>
-              <div class="cat-body"><span class="cat-title">Restaurantes</span></div>
-              <span class="cat-cta">Ver</span>
+          <div class="grid cats cats-compact cats-static" role="list" aria-label="Categorías disponibles">
+            <div class="cat" role="listitem" tabindex="0" aria-label="Mantención Hogar">
+              <span class="cat-emoji" aria-hidden="true">🧗‍♂️</span>
+              <div class="cat-body">
+                <span class="cat-title">Actividades</span>
+              </div>
+            </div>
+
+            <div class="cat" role="listitem" tabindex="0" aria-label="Limpieza">
+              <span class="cat-emoji" aria-hidden="true">🍽️</span>
+              <div class="cat-body">
+                <span class="cat-title">Gastronomía & Cafeterías</span>
+              </div>
+            </div>
+
+            <div class="cat" role="listitem" tabindex="0" aria-label="Mascotas">
+              <span class="cat-emoji" aria-hidden="true">🏨</span>
+              <div class="cat-body">
+                <span class="cat-title">Hospedaje</span>
+              </div>
+            </div>
+
+            <div class="cat" role="listitem" tabindex="0" aria-label="Bienestar">
+              <span class="cat-emoji" aria-hidden="true">🚐</span>
+              <div class="cat-body">
+                <span class="cat-title">Transporte Turístico</span>
+              </div>
+            </div>
+
+            <div class="cat" role="listitem" tabindex="0" aria-label="Eventos y Cumpleaños">
+              <span class="cat-emoji" aria-hidden="true">🧘‍♀️</span>
+              <div class="cat-body">
+                <span class="cat-title">Bienestar y Relax</span>
+              </div>
+            </div>
+
+            <div class="cat" role="listitem" tabindex="0" aria-label="Transporte y Otros">
+              <span class="cat-emoji" aria-hidden="true">🏛️</span>
+              <div class="cat-body">
+                <span class="cat-title">Cultura y Compras</span>
+              </div>
+            </div>
+
+            <div class="cat" role="listitem" tabindex="0" aria-label="Transporte y Otros">
+              <span class="cat-emoji" aria-hidden="true">🍸</span>
+              <div class="cat-body">
+                <span class="cat-title">Vida Nocturna</span>
+              </div>
+            </div>
+
+            <div class="cat" role="listitem" tabindex="0" aria-label="Transporte y Otros">
+              <span class="cat-emoji" aria-hidden="true">📍</span>
+              <div class="cat-body">
+                <span class="cat-title">Datos y Picadas</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cta-row" style="margin-top:18px; justify-content:center; gap:12px; flex-wrap:wrap;">
+            <a class="btn secondary"
+              href="https://wa.me/56975457652?text=Hola%20Hogga%20Turismo%2C%20quiero%20un%20dato%20para%20mi%20viaje"
+              target="_blank" rel="noopener noreferrer">
+              Escríbenos por WhatsApp
             </a>
 
-            <a class="cat" href="https://wa.me/56975457652?text=Busco%20hotel%20en%20[tu%20ciudad]" aria-label="Pedir datos de hoteles">
-              <span class="cat-emoji">🏨</span>
-              <div class="cat-body"><span class="cat-title">Hoteles</span></div>
-              <span class="cat-cta">Ver</span>
-            </a>
-
-            <a class="cat" href="https://wa.me/56975457652?text=Busco%20café%20en%20[tu%20ciudad]" aria-label="Pedir datos de cafés">
-              <span class="cat-emoji">☕</span>
-              <div class="cat-body"><span class="cat-title">Cafés</span></div>
-              <span class="cat-cta">Ver</span>
-            </a>
-
-            <a class="cat" href="https://wa.me/56975457652?text=Busco%20tour%20en%20[tu%20ciudad]" aria-label="Pedir datos de tours">
-              <span class="cat-emoji">🚤</span>
-              <div class="cat-body"><span class="cat-title">Tours y excursiones</span></div>
-              <span class="cat-cta">Ver</span>
-            </a>
-
-            <a class="cat" href="https://wa.me/56975457652?text=Busco%20spa%20en%20[tu%20ciudad]" aria-label="Pedir datos de spas">
-              <span class="cat-emoji">💆‍♀️</span>
-              <div class="cat-body"><span class="cat-title">Spas y termas</span></div>
-              <span class="cat-cta">Ver</span>
-            </a>
-
-            <a class="cat" href="https://wa.me/56975457652?text=Busco%20panoramas%20en%20[tu%20ciudad]" aria-label="Pedir datos de panoramas">
-              <span class="cat-emoji">🎣</span>
-              <div class="cat-body"><span class="cat-title">Panoramas</span></div>
-              <span class="cat-cta">Ver</span>
+          <a class="btn outline"
+            href="https://www.instagram.com/hogga_turismo/"
+              target="_blank" rel="noopener noreferrer">
+              Síguenos por Instagram
             </a>
           </div>
+
+
         </div>
       </section>
 
-      <!-- Ciudades -->
+      <!-- Cobertura Nacional -->
       <section id="ciudades" class="section alt map">
         <div class="container">
-          <span class="region-badge">Zona Sur y Patagonia</span>
-          <h2>Ciudades con cobertura</h2>
-          <p class="sub">Descubre recomendaciones locales en las principales ciudades turísticas de Chile.</p>
+          <span class="region-badge" style="background-color: rgb(2, 73, 188);">Cobertura nacional</span>
 
-          <div class="chips">
+          <h2>Recomendaciones turísticas en todo Chile</h2>
+
+          <p class="sub">
+            Desde el norte al sur de Chile, te ayudamos a descubrir restaurantes,
+            cafés, hoteles, tours y experiencias confiables según donde estés viajando.
+          </p>
+
+          <div class="chips chips-soft">
             <span class="chip">Puerto Varas</span>
             <span class="chip">Pucón</span>
             <span class="chip">Valdivia</span>
-            <span class="chip">Frutillar</span>
-            <span class="chip">Osorno</span>
+            <span class="chip">Santiago</span>
+            <span class="chip">San Pedro de Atacama</span>
             <span class="chip">Punta Arenas</span>
-            <span class="chip">Puerto Montt</span>
-            <span class="chip">Más ciudades pronto</span>
+            <span class="chip">Y muchas ciudades más</span>
           </div>
 
-          <div class="cta-row" style="margin-top:16px; justify-content:center">
-            <a class="btn outline" href="https://wa.me/56975457652?text=Quiero%20sugerir%20mi%20ciudad">
-              ¿Tu ciudad no aparece?
-            </a>
-          </div>
         </div>
       </section>
+
 
       <!-- Testimonios -->
       <section id="reviews" class="section">
@@ -382,7 +408,7 @@
 
           <details>
             <summary><span>¿Cómo funciona Hogga Turismo?</span></summary>
-            <p>Solo escríbenos por WhatsApp o Instagram. Cuéntanos dónde estás y qué buscas — te enviamos recomendaciones verificadas en segundos.</p>
+            <p>Solo escríbenos por WhatsApp. Cuéntanos dónde estás y qué buscas — te enviamos recomendaciones verificadas en segundos.</p>
           </details>
           <details>
             <summary><span>¿Tiene costo para los usuarios?</span></summary>
@@ -390,77 +416,139 @@
           </details>
           <details>
             <summary><span>¿En qué zonas funciona?</span></summary>
-            <p>Actualmente cubrimos el sur de Chile: Puerto Varas, Pucón, Valdivia, Frutillar, Osorno y Punta Arenas. Pronto expandiremos al resto del país.</p>
+            <p>En todo Chile</p>
           </details>
         </div>
       </section>
 
-      <!-- Contacto -->
-      <section id="contacto" class="section">
-        <div class="container">
-          <h2>¿Quieres una recomendación ahora?</h2>
-          <p class="sub">Escríbenos y te ayudamos a encontrar lugares imperdibles para tu viaje.</p>
+      <!-- CONTACTO / ÚNETE TURISMO -->
+<section id="unete" class="section join">
+  <div class="container">
+    <h2 style="text-align:center;">¿Quieres aparecer en Hogga Turismo?</h2>
+    <p class="sub" style="text-align:center;">
+      Si tienes un lugar, tour o experiencia (o quieres recomendar uno), escríbenos y lo revisamos.
+    </p>
 
-          <div class="cta-row left">
-            <a class="btn primary" href="https://wa.me/56975457652?text=Hola%20Hogga%20Turismo%2C%20quiero%20una%20recomendación%20de%20viaje" target="_blank" rel="noopener noreferrer">
-              Hablar por WhatsApp
-            </a>
-            <a class="btn outline" href="https://www.instagram.com/hogga_turismo/" target="_blank" rel="noopener noreferrer">
-              Escríbenos por Instagram
-            </a>
-          </div>
+    <div class="join-grid" role="group" aria-label="Formas de contacto">
+
+      <!-- WhatsApp (principal) -->
+      <div class="join-item">
+        <h3>💬 WhatsApp</h3>
+        <p>
+          La forma más rápida. Cuéntanos tu ciudad + tipo de lugar y te respondemos.
+        </p>
+
+        <div class="cta-row" style="margin-top:14px; justify-content:flex-start; gap:10px; flex-wrap:wrap;">
+          <a class="btn secondary"
+            href="https://wa.me/56975457652?text=Hola%20Hogga%20Turismo%2C%20quiero%20aparecer%20(o%20recomendar%20un%20dato).%0A%0ACiudad%3A%20%0ACategor%C3%ADa%3A%20(restaurante%2Fhotel%2Ftour%2Factividad%2Fotro)%0AInstagram%20o%20web%3A%20%0ATel%C3%A9fono%3A%20"
+            target="_blank" rel="noopener noreferrer">
+            Hablar por WhatsApp
+          </a>
         </div>
-      </section>
+
+        <p style="margin:10px 0 0 0; color:#6b7280; font-size:0.92rem;">
+          Tip: con IG o Google Maps listo, mejor.
+        </p>
+      </div>
+
+      <!-- Alternativas -->
+      <div class="join-item">
+        <h3>✉️ Email o Formulario</h3>
+        <p>
+          Si prefieres hacerlo con calma, usa email o el formulario.
+        </p>
+
+        <div class="cta-row" style="margin-top:14px; justify-content:flex-start; gap:10px; flex-wrap:wrap;">
+          <a id="contact-email" class="btn outline" href="#" rel="nofollow">
+            Escribir por Email
+          </a>
+
+          <a class="btn outline"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSfkvYUZwkZQ348Qo3Hde37NbdmhTx2yyT_DmG5Q2HfgKpyprg/viewform?usp=sharing&ouid=118128082900340771596"
+            id="contact-form-link"
+            target="_blank"
+            rel="noopener">
+            Usar formulario
+          </a>
+        </div>
+
+        <p style="margin:10px 0 0 0; color:#6b7280; font-size:0.92rem;">
+          Si es recomendación, con nombre + ciudad nos basta.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
     </main>
 
-    <!-- Footer (reused) -->
+<!-- FOOTER  -->
     <footer class="footer">
-        <div class="container foot">
-          <div class="foot-brand">
-            <strong>Hogga</strong>
-            <small>
-              <strong>Hogga — la red chilena de datos confiables y verificados</strong>  
-              para descubrir, conectar y crecer.  
-              Hecho con cariño desde el sur de Chile 🇨🇱
-            </small>
-            <div class="cta-column">
-              <a class="foot-cta" href="https://wa.me/56951809138?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20servicios" target="_blank" rel="noopener noreferrer">Pedir dato Hogga Servicios</a>
-              <a class="foot-cta" href="https://wa.me/56975457652?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20turismo" target="_blank" rel="noopener noreferrer">Pedir dato Hogga Turismo</a>
-            </div>
+      <div class="container foot">
+        <div class="foot-brand">
+          <strong>Hogga</strong>
+          <small>
+            Hogga conecta personas con datos locales confiables y proveedores verificados en Chile.  
+            Hecho desde el sur de Chile 🇨🇱
+          </small>
+          <div class="cta-column">
+                <a class="foot-cta"
+                    href="https://wa.me/56951809138?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20servicios"
+                    target="_blank" rel="noopener noreferrer">
+                    Pedir dato Hogga Servicios
+                </a>
+
+                <a class="foot-cta"
+                    href="https://wa.me/56975457652?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20turismo"
+                    target="_blank" rel="noopener noreferrer">
+                    Pedir dato Hogga Turismo
+                </a>
+
+                <!-- Nuevo botón para empresas / Hogga Negocios -->
+                <a class="foot-cta"
+                    href="https://wa.me/56951759158?text=Hola%20Hogga%2C%20quiero%20mejorar%20el%20posicionamiento%20de%20mi%20negocio"
+                    target="_blank" rel="noopener noreferrer">
+                    Hablar con Hogga Negocios
+                </a>
+                </div>
+
+        </div>
+        <nav class="foot-links" aria-label="Enlaces del sitio">
+          <div>
+            <span class="foot-title">Explora Hogga</span>
+            <ul>
+              <li><a href="/">Inicio</a></li>
+              <li><a href="/hogga-servicios/">Para Hogar</a></li>
+              <li><a href="/turismo/">Para Viajar</a></li>
+              <li><a href="/negocios/">Para negocios</a></li>
+              <li><a href="/decisiones/">Decisiones</a></li>
+              <li><a href="/blog/">Blog</a></li>
+              <li><a href="/contacto/">Contacto</a></li>
+            </ul>
           </div>
-          <nav class="foot-links" aria-label="Enlaces del sitio">
-            <div>
-              <span class="foot-title">Explora Hogga</span>
-              <ul>
-                <li><a href="/#como-funciona">¿Cómo funciona?</a></li>
-                <li><a href="/hogga-servicios/">Hogga Servicios</a></li>
-                <li><a href="/turismo/">Hogga Turismo</a></li>
-                <li><a href="/blog/">Blog</a></li>
-                <li><a href="/contacto/">Contacto</a></li>
-              </ul>
-            </div>
-            <div>
-              <span class="foot-title">Legal</span>
-              <ul>
-                <li><a href="/terminos-y-condiciones/">Términos</a></li>
-                <li><a href="/politica-privacidad/">Privacidad</a></li>
-                <li><a href="/bases-legales-concursos-instagram/">Bases Concursos</a></li>
-              </ul>
-            </div>
-            <div>
-              <span class="foot-title">Síguenos</span>
-              <ul>
-                <li><a href="https://www.instagram.com/hogga_chile/" target="_blank" rel="noopener noreferrer">Hogga Servicios</a></li>
-                <li><a href="https://www.instagram.com/hogga_turismo/" target="_blank" rel="noopener noreferrer">Hogga Turismo</a></li>
-                <li><a href="https://www.instagram.com/hogga_regala/" target="_blank" rel="noopener noreferrer">Hogga Regala</a></li>
-              </ul>
-            </div>
-          </nav>
-        </div>
-        <div class="container foot-bottom">
-          <small>© <span id="y"></span> Hogga Group SpA. Todos los derechos reservados.</small>
-        </div>
-      </footer>
+          <div>
+            <span class="foot-title">Legal</span>
+            <ul>
+              <li><a href="/terminos-y-condiciones/">Términos</a></li>
+              <li><a href="/politica-privacidad/">Privacidad</a></li>
+              <li><a href="/bases-legales-concursos-instagram/">Bases Concursos</a></li>
+            </ul>
+          </div>
+          <div>
+            <span class="foot-title">Síguenos</span>
+            <ul>
+              <li><a href="https://www.instagram.com/hogga_chile/" target="_blank" rel="noopener noreferrer">Hogga Servicios</a></li>
+              <li><a href="https://www.instagram.com/hogga_turismo/" target="_blank" rel="noopener noreferrer">Hogga Turismo</a></li>
+              <li><a href="https://www.instagram.com/hogga_regala/" target="_blank" rel="noopener noreferrer">Hogga Regala</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="container foot-bottom">
+        <small>© <span id="y"></span> Hogga Group SpA. Todos los derechos reservados.</small>
+      </div>
+    </footer>
       
 
   <!-- JSON-LD: Hogga Turismo (solo FAQ) -->
@@ -487,18 +575,10 @@
         },
         {
           "@type": "Question",
-          "name": "¿Qué tipo de lugares recomiendan?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Hoteles, restaurantes, cafés, tours, spas y panoramas, seleccionados y verificados según calidad, atención y reputación local."
-          }
-        },
-        {
-          "@type": "Question",
           "name": "¿En qué zonas funciona?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Actualmente cubrimos el sur de Chile: Puerto Varas, Pucón, Valdivia, Frutillar, Osorno y Punta Arenas. Pronto expandiremos al resto del país."
+            "text": "En todo Chile."
           }
         }
       ]
@@ -507,5 +587,6 @@
   
 
     <script defer src="/js/main.js"></script>
+    <script defer src="/js/consent-banner.js"></script>
   </body>
 </html>

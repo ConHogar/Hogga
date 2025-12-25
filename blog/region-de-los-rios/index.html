@@ -155,9 +155,9 @@
     <header class="main-header">
       <div class="container header-content">
         <a class="brand" href="/" aria-label="Hogga, inicio">
-          <img class="logo" src="/images/logo.webp" alt="Hogga" width="120" height="36" />
+          <img class="logo" src="/images/logo.webp" alt="Hogga — red chilena de datos confiables y verificados" width="120" height="36" />
         </a>
-
+        <!-- Botón hamburger (solo móvil) -->
         <button class="nav-toggle" aria-label="Abrir menú" aria-controls="site-nav" aria-expanded="false">
           <span class="nav-toggle-box" aria-hidden="true">
             <span class="nav-toggle-line"></span>
@@ -165,14 +165,14 @@
             <span class="nav-toggle-line"></span>
           </span>
         </button>
-
-        <nav id="site-nav" class="site-nav" role="navigation">
-          <a href="/#como-funciona">¿Cómo funciona?</a>
-          <a href="/hogga-servicios/">Hogga Servicios</a>
-          <a href="/turismo/">Hogga Turismo</a>
-          <a class="active" href="/blog/">Blog</a>
-          <a href="/contacto/">Contacto</a>
-        </nav>
+          <nav id="site-nav" class="site-nav" role="navigation" aria-label="Navegación principal">
+            <a href="/hogga-servicios/">Para hogar</a>
+            <a href="/turismo/">Para viajar</a>
+            <a href="/negocios/">Para negocios</a>
+            <a href="/decisiones/">Decisiones</a>
+            <a href="/blog/">Blog</a>
+            <a href="/contacto/">Contacto</a>
+          </nav>
       </div>
     </header>
     
@@ -352,29 +352,46 @@
       </article>
     </main>
   
-
-    <!-- FOOTER (mismo que Parques Nacionales Los Lagos) -->
+<!-- FOOTER  -->
     <footer class="footer">
       <div class="container foot">
         <div class="foot-brand">
           <strong>Hogga</strong>
           <small>
-            <strong>Hogga — la red chilena de datos confiables y verificados</strong>  
-            para descubrir, conectar y crecer.  
-            Hecho con cariño desde el sur de Chile 🇨🇱
+            Hogga conecta personas con datos locales confiables y proveedores verificados en Chile.  
+            Hecho desde el sur de Chile 🇨🇱
           </small>
           <div class="cta-column">
-            <a class="foot-cta" href="https://wa.me/56951809138?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20servicios" target="_blank" rel="noopener noreferrer">Pedir dato Hogga Servicios</a>
-            <a class="foot-cta" href="https://wa.me/56975457652?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20turismo" target="_blank" rel="noopener noreferrer">Pedir dato Hogga Turismo</a>
-          </div>
+                <a class="foot-cta"
+                    href="https://wa.me/56951809138?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20servicios"
+                    target="_blank" rel="noopener noreferrer">
+                    Pedir dato Hogga Servicios
+                </a>
+
+                <a class="foot-cta"
+                    href="https://wa.me/56975457652?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20turismo"
+                    target="_blank" rel="noopener noreferrer">
+                    Pedir dato Hogga Turismo
+                </a>
+
+                <!-- Nuevo botón para empresas / Hogga Negocios -->
+                <a class="foot-cta"
+                    href="https://wa.me/56951759158?text=Hola%20Hogga%2C%20quiero%20mejorar%20el%20posicionamiento%20de%20mi%20negocio"
+                    target="_blank" rel="noopener noreferrer">
+                    Hablar con Hogga Negocios
+                </a>
+                </div>
+
         </div>
         <nav class="foot-links" aria-label="Enlaces del sitio">
           <div>
             <span class="foot-title">Explora Hogga</span>
             <ul>
-              <li><a href="/#como-funciona">¿Cómo funciona?</a></li>
-              <li><a href="/hogga-servicios/">Hogga Servicios</a></li>
-              <li><a href="/turismo/">Hogga Turismo</a></li>
+              <li><a href="/">Inicio</a></li>
+              <li><a href="/hogga-servicios/">Para Hogar</a></li>
+              <li><a href="/turismo/">Para Viajar</a></li>
+              <li><a href="/negocios/">Para negocios</a></li>
+              <li><a href="/decisiones/">Decisiones</a></li>
               <li><a href="/blog/">Blog</a></li>
               <li><a href="/contacto/">Contacto</a></li>
             </ul>
@@ -401,7 +418,6 @@
         <small>© <span id="y"></span> Hogga Group SpA. Todos los derechos reservados.</small>
       </div>
     </footer>
-  
 
     <script defer src="/js/main.js"></script>
   </body>
