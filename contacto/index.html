@@ -1,186 +1,313 @@
 <!doctype html>
 <html lang="es-CL">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Performance (opcional) -->
-    <link rel="preconnect" href="https://www.googletagmanager.com" />
-    <link rel="preconnect" href="https://www.google-analytics.com" />
-    <link rel="preconnect" href="https://wa.me" />
+  <!-- Performance -->
+  <link rel="preconnect" href="https://www.googletagmanager.com" />
+  <link rel="preconnect" href="https://www.google-analytics.com" />
+  <link rel="preconnect" href="https://wa.me" />
 
-      <!-- Consent logic (centralizada) -->
-      <script src="/js/consent.js"></script>
+  <!-- Consent logic (centralizada) -->
+  <script src="/js/consent.js"></script>
 
-    <!-- Google Tag Manager -->
-    <script>
+  <!-- Google Tag Manager -->
+  <script>
     (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-56V9ZN8P');
-    </script>
-    <!-- End Google Tag Manager -->
+  </script>
+  <!-- End Google Tag Manager -->
 
-    <!-- 🔹 SEO principal -->
-    <title>Contacto — Hogga Chile | Recomendaciones verificadas de servicios y turismo</title>
-    <meta name="description" content="¿Necesitas ayuda o quieres sumarte a Hogga? Contáctanos por WhatsApp, correo o Instagram. Somos tu vecino digital de confianza en Chile, con recomendaciones verificadas para el hogar y el turismo." />
-    <link rel="canonical" href="https://hogga.cl/contacto/" />
-    <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#136565" />
+  <title>Contacto | Hogga</title>
+  <meta name="description" content="Elige tu motivo y habla con Hogga en 30 segundos: datos para el hogar, recomendaciones de turismo o mejorar tu negocio." />
+  <link rel="canonical" href="https://hogga.cl/contacto/" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#136565" />
 
-    <!-- 🔹 Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://hogga.cl/contacto/" />
-    <meta property="og:title" content="Contacto — Hogga Chile" />
-    <meta property="og:description" content="Ponte en contacto con Hogga por WhatsApp, correo o Instagram. Te ayudamos con datos verificados para tu hogar y tus viajes." />
-    <meta property="og:image" content="https://hogga.cl/images/og/og-hogga.jpg" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://hogga.cl/contacto/" />
+  <meta property="og:title" content="Contacto | Hogga" />
+  <meta property="og:description" content="Elige tu motivo y habla con Hogga en 30 segundos." />
+  <meta property="og:image" content="https://hogga.cl/images/og/og-hogga.jpg" />
 
-    <!-- 🔹 Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Contacto — Hogga Chile" />
-    <meta name="twitter:description" content="Escríbenos por WhatsApp o correo y súmate a la comunidad Hogga, el ecosistema chileno de recomendaciones verificadas." />
-    <meta name="twitter:image" content="https://hogga.cl/images/og/og-hogga.jpg" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contacto | Hogga" />
+  <meta name="twitter:description" content="Elige tu motivo y habla con Hogga en 30 segundos." />
+  <meta name="twitter:image" content="https://hogga.cl/images/og/og-hogga.jpg" />
 
-    <!-- 🔹 Favicons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/favic/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/images/favic/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/images/favic/favicon-16x16.png">
-    <link rel="manifest" href="/images/favic/site.webmanifest">
-    <link rel="mask-icon" href="/images/favic/safari-pinned-tab.svg" color="#136565">
-    <link rel="icon" href="/favicon.ico">
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favic/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favic/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favic/favicon-16x16.png">
+  <link rel="manifest" href="/images/favic/site.webmanifest">
+  <link rel="mask-icon" href="/images/favic/safari-pinned-tab.svg" color="#136565">
+  <link rel="icon" href="/favicon.ico">
 
-    <!-- 🔹 Estilos y fuentes -->
-    <link rel="preload" as="image" href="/images/logo.png" />
-    <link rel="stylesheet" href="/css/styles.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+  <!-- CSS -->
+  <link rel="preload" as="image" href="/images/logo.webp" />
+  <link rel="stylesheet" href="/css/styles.css" />
 
-    <!-- 🔹 JSON-LD: Organization -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Hogga Group SpA",
-      "url": "https://hogga.cl/",
-      "logo": "https://hogga.cl/images/logo.png",
-      "description": "Hogga es un ecosistema chileno de recomendaciones verificadas para servicios del hogar, turismo y experiencias locales.",
-      "contactPoint": [{
-        "@type": "ContactPoint",
-        "telephone": "+56 9 5180 9138",
-        "contactType": "customer service",
-        "areaServed": "CL",
-        "availableLanguage": ["Spanish"]
-      }],
-      "sameAs": [
-        "https://www.instagram.com/hogga_chile/",
-        "https://www.facebook.com/profile.php?id=61577176559219",
-        "https://www.youtube.com/@hogga_chile",
-        "https://www.tiktok.com/@hogga_chile"
-      ]
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+
+  <!-- JSON-LD: ContactPage -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ContactPage",
+    "url":"https://hogga.cl/contacto/",
+    "name":"Contacto | Hogga",
+    "description":"Página de contacto de Hogga: hogar, turismo y negocios.",
+    "publisher":{"@type":"Organization","name":"Hogga","url":"https://hogga.cl/"}
+  }
+  </script>
+
+  <style>
+    /* Page-only */
+    .contact-wrap { max-width: 980px; margin: 0 auto; }
+    .contact-lead { max-width: 880px; margin: 0 auto; }
+    .contact-grid {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
     }
-    </script>
-
-    <!-- 🔹 JSON-LD: ContactPage -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ContactPage",
-      "url": "https://hogga.cl/contacto/",
-      "name": "Contacto — Hogga Chile",
-      "description": "Página oficial de contacto de Hogga. Escríbenos por WhatsApp, correo o Instagram.",
-      "publisher": {
-        "@type": "Organization",
-        "name": "Hogga Group SpA",
-        "url": "https://hogga.cl/"
-      },
-      "mainEntity": {
-        "@type": "Organization",
-        "name": "Hogga Group SpA",
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": "+56 9 5180 9138",
-          "contactType": "customer support",
-          "areaServed": "CL",
-          "availableLanguage": ["Spanish"]
-        }
-      }
+    @media (min-width: 880px) {
+      .contact-grid { grid-template-columns: 1fr 1fr 1fr; }
     }
-    </script>
-  </head>
+    .contact-card {
+      background: rgba(255,255,255,0.75);
+      border: 1px solid rgba(15, 23, 42, 0.10);
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: var(--shadow-card);
+      display: grid;
+      gap: 10px;
+    }
+    .contact-card h3 { margin: 0; }
+    .contact-card p { margin: 0; color: rgba(15,23,42,.78); }
+    .mini-pills { display:flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+    .mini-pill {
+      display:inline-flex; align-items:center;
+      padding: 6px 10px; border-radius: 999px;
+      border: 1px solid rgba(15,23,42,.10);
+      background: rgba(255,255,255,.75);
+      font-weight: 700; font-size: .86rem;
+      color: rgba(15,23,42,.85);
+    }
+    .contact-actions { display:flex; gap:10px; flex-wrap: wrap; }
+    .contact-actions .btn { width: 100%; }
+    @media (min-width: 520px) {
+      .contact-actions .btn { width: auto; }
+    }
 
-  <body>
-    <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-56V9ZN8P"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    .contact-form {
+      margin-top: 22px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(15,23,42,.10);
+      border-radius: 18px;
+      padding: 16px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .helper-note {
+      margin-top: 10px;
+      color: rgba(15,23,42,.65);
+      font-size: .95rem;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-56V9ZN8P" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
-    <!-- HEADER -->
-    <header class="main-header">
-      <div class="container header-content">
-        <a class="brand" href="/" aria-label="Hogga, inicio">
-          <img class="logo" src="/images/logo.webp" alt="Hogga — red chilena de datos confiables y verificados" width="120" height="36" />
-        </a>
-        <!-- Botón hamburger (solo móvil) -->
-        <button class="nav-toggle" aria-label="Abrir menú" aria-controls="site-nav" aria-expanded="false">
-          <span class="nav-toggle-box" aria-hidden="true">
-            <span class="nav-toggle-line"></span>
-            <span class="nav-toggle-line"></span>
-            <span class="nav-toggle-line"></span>
-          </span>
-        </button>
-          <nav id="site-nav" class="site-nav" role="navigation" aria-label="Navegación principal">
-            <a href="/hogga-servicios/">Para hogar</a>
-            <a href="/turismo/">Para viajar</a>
-            <a href="/negocios/">Para negocios</a>
-            <a href="/decisiones/">Decisiones</a>
-            <a href="/blog/">Blog</a>
-            <a href="/contacto/">Contacto</a>
-          </nav>
+
+  <!-- HEADER -->
+  <header class="main-header">
+    <div class="container header-content">
+      <a class="brand" href="/" aria-label="Hogga, inicio">
+        <img class="logo" src="/images/logo.webp" alt="Hogga — red chilena de datos confiables y verificados" width="120" height="36" />
+      </a>
+
+      <button class="nav-toggle" aria-label="Abrir menú" aria-controls="site-nav" aria-expanded="false">
+        <span class="nav-toggle-box" aria-hidden="true">
+          <span class="nav-toggle-line"></span>
+          <span class="nav-toggle-line"></span>
+          <span class="nav-toggle-line"></span>
+        </span>
+      </button>
+
+      <nav id="site-nav" class="site-nav" role="navigation" aria-label="Navegación principal">
+        <a href="/hogga-servicios/">Para hogar</a>
+        <a href="/turismo/">Para viajar</a>
+        <a href="/negocios/">Para negocios</a>
+        <a href="/decisiones/">Decisiones</a>
+        <a href="/blog/">Blog</a>
+        <a href="/contacto/">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contacto">
+    <!-- HERO -->
+    <section class="hero hero--decision">
+      <div class="hero-bg"></div>
+      <div class="container hero-content contact-wrap">
+        <span class="eyebrow">Contacto</span>
+        <h1>¿Qué necesitas hoy?</h1>
+
+        <p class="lead contact-lead">
+          Elige una opción y te llevamos al WhatsApp correcto. Sin vueltas.
+        </p>
+
+        <div class="mini-pills" aria-label="Atajos">
+          <span class="mini-pill">⚡ Respuesta rápida</span>
+          <span class="mini-pill">🧠 Directo al grano</span>
+          <span class="mini-pill">🛡️ Datos verificados</span>
+        </div>
+
+        <div class="cta-row" style="justify-content:center; margin-top: 16px;">
+          <a class="btn outline" href="/decisiones/">Ver Decisiones Hogga</a>
+          <a class="btn primary" href="#form">Escribir ahora</a>
+        </div>
       </div>
-    </header>
+    </section>
 
-    <!-- MAIN -->
-    <main>
-      <section class="hero">
-        <div class="hero-bg"></div>
-        <div class="container hero-content">
-          <span class="eyebrow">¿Hablemos?</span>
-          <h1>Contáctanos — Hogga Chile 💬</h1>
-          <p class="lead">
-            Escríbenos por WhatsApp, correo o Instagram. Ya sea que necesites un dato, quieras aparecer en Hogga o tengas una idea, 
-            estamos felices de ayudarte.
-          </p>
+    <!-- OPTIONS -->
+    <section class="section">
+      <div class="container contact-wrap">
+        <h2 style="text-align:center">3 caminos claros</h2>
+        <p class="sub" style="text-align:center; margin-bottom: 18px;">
+          Escoge el que te calce y listo.
+        </p>
 
-          <div class="cta-row" style="margin-top:1rem" role="group" aria-label="Opciones de contacto">
-            <a class="btn primary" href="https://wa.me/56951809138?text=Hola%20Hogga%2C%20necesito%20un%20dato" target="_blank" rel="noopener noreferrer">WhatsApp Hogga Servicios</a>
-            <a class="btn primary" href="https://wa.me/56975457652?text=Hola%20Hogga%20Turismo%2C%20quiero%20una%20recomendación" target="_blank" rel="noopener noreferrer">WhatsApp Hogga Turismo</a>
+        <div class="contact-grid">
+          <!-- Hogar -->
+          <div class="contact-card">
+            <h3>🏠 Necesito un dato de servicios</h3>
+            <p>Cuéntanos ciudad + qué necesitas (gasfiter, electricista, limpieza, etc.).</p>
+            <div class="mini-pills">
+              <span class="mini-pill">WhatsApp</span>
+              <span class="mini-pill">Hogga Servicios</span>
+            </div>
+            <div class="contact-actions">
+              <a class="btn primary" target="_blank" rel="noopener noreferrer"
+                 href="https://wa.me/56951809138?text=Hola%20Hogga%20Servicios%2C%20necesito%20un%20dato.%0A%0ACiudad%3A%20_____%0AServicio%3A%20_____%0ADetalle%20(opcional)%3A%20_____">
+                Abrir WhatsApp Servicios
+              </a>
+              <a class="btn outline" href="/hogga-servicios/">Ver Hogga Servicios</a>
+            </div>
           </div>
 
-          <div class="cta-row" style="margin-top:1.5rem; justify-content:center">
-            <a class="btn outline" href="mailto:hablemos@hogga.cl">📧 Escríbenos por correo</a>
-            <a class="btn outline" href="https://www.instagram.com/hogga_chile/" target="_blank" rel="noopener noreferrer">📸 Instagram @hogga_chile</a>
+          <!-- Turismo -->
+          <div class="contact-card">
+            <h3>🧭 Quiero recomendación para viajar</h3>
+            <p>Restaurantes, cafés, hoteles, tours, panoramas. Dinos ciudad + estilo.</p>
+            <div class="mini-pills">
+              <span class="mini-pill">WhatsApp</span>
+              <span class="mini-pill">Hogga Turismo</span>
+            </div>
+            <div class="contact-actions">
+              <a class="btn primary" target="_blank" rel="noopener noreferrer"
+                 href="https://wa.me/56975457652?text=Hola%20Hogga%20Turismo%2C%20busco%20una%20recomendaci%C3%B3n.%0A%0ACiudad%3A%20_____%0A%C2%BFQu%C3%A9%20busco%3F%20(restaurante%2Fcaf%C3%A9%2Fhotel%2Ftour%2Fotro)%0AEstilo%20o%20presupuesto%20(opcional)%3A%20_____">
+                Abrir WhatsApp Turismo
+              </a>
+              <a class="btn outline" href="/turismo/">Ver Hogga Turismo</a>
+            </div>
+          </div>
+
+          <!-- Negocios -->
+          <div class="contact-card">
+            <h3>📈 Soy negocio y quiero más clientes</h3>
+            <p>Si quieres mejorar tu presencia en Google, tu web o tu conversión, hablemos.</p>
+            <div class="mini-pills">
+              <span class="mini-pill">WhatsApp</span>
+              <span class="mini-pill">Hogga Negocios</span>
+            </div>
+            <div class="contact-actions">
+              <a class="btn primary" target="_blank" rel="noopener noreferrer"
+                 href="https://wa.me/56951759158?text=Hola%20Hogga%2C%20soy%20negocio%20y%20quiero%20mejorar%20mi%20presencia%20digital.%0A%0ARubro%3A%20_____%0ACiudad%3A%20_____%0ALinks%20(Web%2FIG%2FGMaps)%3A%20_____%0A%C2%BFQu%C3%A9%20quiero%20lograr%3F%20(m%C3%A1s%20reservas%2Fleads%2Fventas)%3A%20_____">
+                Abrir WhatsApp Negocios
+              </a>
+              <a class="btn outline" href="/negocios/">Ver Hogga Negocios</a>
+            </div>
           </div>
         </div>
-      </section>
 
-      <!-- FORM -->
-      <section id="formulario" class="section">
-        <div class="container">
-          <h2>Formulario de contacto</h2>
-          <p class="sub">Completa tus datos y te responderemos lo antes posible.</p>
+        <p class="helper-note" style="text-align:center;">
+          ¿Quieres aparecer como proveedor en Hogga? Anda directo a <a href="/proveedores/">/proveedores/</a>.
+        </p>
+      </div>
+    </section>
 
-          <form action="#" method="post" name="lead-form" aria-label="Formulario de contacto">
-            <div class="form-grid">
-              <label><span>Nombre</span><input required name="name" type="text" placeholder="Tu nombre" /></label>
-              <label><span>Correo electrónico</span><input required name="email" type="email" placeholder="tucorreo@dominio.com" /></label>
-              <label><span>WhatsApp (opcional)</span><input name="phone" type="tel" placeholder="+56991234567" /></label>
-              <label class="full"><span>Tu mensaje</span><textarea required name="message" rows="4" placeholder="Cuéntanos brevemente en qué te podemos ayudar…"></textarea></label>
+    <!-- FORM -->
+    <section id="form" class="section alt">
+      <div class="container contact-wrap">
+        <h2 style="text-align:center">Escríbenos (rápido)</h2>
+        <p class="sub" style="text-align:center; margin-bottom: 18px;">
+          Este formulario arma el mensaje y lo manda al WhatsApp correcto.
+        </p>
+
+        <div class="contact-form">
+          <form id="contactForm" class="form-grid" aria-label="Formulario de contacto Hogga">
+            <label>
+              <span>¿Qué necesitas?</span>
+              <select name="topic" required>
+                <option value="" selected disabled>Selecciona una opción</option>
+                <option value="servicios">Dato de servicios (hogar)</option>
+                <option value="turismo">Recomendación turismo</option>
+                <option value="negocios">Soy negocio (quiero más clientes)</option>
+                <option value="proveedores">Quiero aparecer como proveedor</option>
+                <option value="otro">Otro</option>
+              </select>
+            </label>
+
+            <label>
+              <span>Nombre</span>
+              <input name="name" type="text" placeholder="Tu nombre" required />
+            </label>
+
+            <label>
+              <span>Ciudad</span>
+              <input name="city" type="text" placeholder="Ej: Puerto Varas" required />
+            </label>
+
+            <label>
+              <span>WhatsApp (opcional)</span>
+              <input name="phone" type="tel" placeholder="+569..." />
+            </label>
+
+            <label class="full">
+              <span>Mensaje</span>
+              <textarea name="message" rows="4" placeholder="Cuéntanos qué necesitas, con el mayor contexto posible." required></textarea>
+            </label>
+
+            <div class="cta-row left full" style="gap:10px; flex-wrap:wrap;">
+              <button class="btn primary" type="submit">Enviar por WhatsApp</button>
+              <a class="btn outline" href="mailto:hablemos@hogga.cl">Enviar por email</a>
+              <a class="btn outline" href="/proveedores/">Quiero aparecer como proveedor</a>
             </div>
-            <div class="cta-row left"><button class="btn primary" type="submit">Enviar mensaje</button></div>
+
+            <p class="helper-note full">
+              Si eliges “Proveedor”, te llevamos a la vía más rápida para sumarte.
+            </p>
           </form>
         </div>
-      </section>
-    </main>
+
+        <div class="cta-row" style="justify-content:center; margin-top: 14px;">
+          <a class="btn outline" href="https://www.instagram.com/hogga_chile/" target="_blank" rel="noopener noreferrer">Instagram Hogga Servicios</a>
+          <a class="btn outline" href="https://www.instagram.com/hogga_turismo/" target="_blank" rel="noopener noreferrer">Instagram Hogga Turismo</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <!-- FOOTER  -->
   <footer class="footer">
@@ -194,21 +321,13 @@
         <div class="cta-column">
           <a class="foot-cta"
              href="https://wa.me/56951809138?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20servicios"
-             target="_blank" rel="noopener noreferrer">
-            Pedir dato Hogga Servicios
-          </a>
-
+             target="_blank" rel="noopener noreferrer">Pedir dato Hogga Servicios</a>
           <a class="foot-cta"
              href="https://wa.me/56975457652?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20turismo"
-             target="_blank" rel="noopener noreferrer">
-            Pedir dato Hogga Turismo
-          </a>
-
+             target="_blank" rel="noopener noreferrer">Pedir dato Hogga Turismo</a>
           <a class="foot-cta"
              href="https://wa.me/56951759158?text=Hola%20Hogga%2C%20quiero%20mejorar%20el%20posicionamiento%20de%20mi%20negocio"
-             target="_blank" rel="noopener noreferrer">
-            Hablar con Hogga Negocios
-          </a>
+             target="_blank" rel="noopener noreferrer">Hablar con Hogga Negocios</a>
         </div>
       </div>
 
@@ -251,5 +370,57 @@
 
   <script defer src="/js/main.js"></script>
   <script defer src="/js/consent-banner.js"></script>
-  </body>
+
+  <script>
+    (function(){
+      // Year
+      const y = document.getElementById('y');
+      if (y) y.textContent = new Date().getFullYear();
+
+      // WhatsApp routing
+      const WA = {
+        servicios: '56951809138',
+        turismo: '56975457652',
+        negocios: '56951759158',
+        proveedores: '56951759158',
+        otro: '56951759158'
+      };
+
+      function buildWaLink(number, text){
+        return `https://wa.me/${number}?text=${encodeURIComponent(text)}`;
+      }
+
+      const form = document.getElementById('contactForm');
+      if (!form) return;
+
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        const data = new FormData(form);
+        const topic = (data.get('topic') || '').toString();
+        const name  = (data.get('name') || '').toString().trim();
+        const city  = (data.get('city') || '').toString().trim();
+        const phone = (data.get('phone') || '').toString().trim();
+        const msg   = (data.get('message') || '').toString().trim();
+
+        const number = WA[topic] || WA.otro;
+
+        let header = "Hola Hogga, tengo una consulta.";
+        if (topic === 'servicios') header = "Hola Hogga Servicios, necesito un dato.";
+        if (topic === 'turismo') header = "Hola Hogga Turismo, necesito una recomendación.";
+        if (topic === 'negocios') header = "Hola Hogga, soy negocio y quiero mejorar mi presencia digital.";
+        if (topic === 'proveedores') header = "Hola Hogga, quiero aparecer como proveedor en Hogga.";
+
+        const text =
+`${header}
+
+Nombre: ${name}
+Ciudad: ${city}
+WhatsApp (opcional): ${phone || '—'}
+Mensaje: ${msg}`;
+
+        window.open(buildWaLink(number, text), '_blank', 'noopener,noreferrer');
+      });
+    })();
+  </script>
+</body>
 </html>
