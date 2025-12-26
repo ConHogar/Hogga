@@ -9,44 +9,8 @@
   <link rel="preconnect" href="https://www.google-analytics.com" />
   <link rel="preconnect" href="https://wa.me" />
 
-  <!-- Consent Mode v2 (regional: CL granted; EEA/UK denied) -->
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-
-    /* 1) Default global: analytics granted (Chile y LatAm) */
-    gtag('consent','default',{
-      analytics_storage:'granted',
-      ad_storage:'denied',
-      ad_user_data:'denied',
-      ad_personalization:'denied',
-      wait_for_update: 500
-    });
-
-    /* 2) Override EEA/UK/CH/NO/IS/LI: todo denied por defecto */
-    gtag('consent','default',{
-      region:['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','CH','GB'],
-      analytics_storage:'denied',
-      ad_storage:'denied',
-      ad_user_data:'denied',
-      ad_personalization:'denied'
-    });
-
-    /* 3) Aplica preferencia guardada (si existe) ANTES de cargar GTM */
-    (function(){
-      try{
-        // reset rápido: ?consent=reset
-        if (new URLSearchParams(location.search).get('consent') === 'reset') {
-          localStorage.removeItem('hogga_consent_pref');
-        }
-        const pref = JSON.parse(localStorage.getItem('hogga_consent_pref'));
-        if (pref && pref.values) {
-          gtag('consent','update', pref.values);
-          window.__hoggaConsentChosen = true;
-        }
-      }catch(e){}
-    })();
-  </script>
+  <!-- Consent logic (centralizada) -->
+  <script src="/js/consent.js"></script>
 
   <!-- Google Tag Manager -->
   <script>
@@ -68,147 +32,209 @@
   <meta property="og:url" content="https://hogga.cl/blog/" />
   <meta property="og:title" content="Blog Hogga — Consejos y datos verificados en Chile" />
   <meta property="og:description" content="Explora artículos sobre turismo, hogar y experiencias locales, escritos con la voz cercana de Hogga." />
-  <meta property="og:image" content="https://hogga.cl/images/og-hogga.jpg" />
+  <meta property="og:image" content="https://hogga.cl/images/og/og-hogga.jpg" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Blog Hogga — Consejos y datos verificados en Chile" />
   <meta name="twitter:description" content="Explora artículos sobre turismo, hogar y experiencias locales, escritos con la voz cercana de Hogga." />
-  <meta name="twitter:image" content="https://hogga.cl/images/og-hogga.jpg" />
+  <meta name="twitter:image" content="https://hogga.cl/images/og/og-hogga.jpg" />
 
-    <!-- ✅ Favicons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/favic/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/images/favic/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/images/favic/favicon-16x16.png">
-    <link rel="manifest" href="/images/favic/site.webmanifest">
-    <link rel="mask-icon" href="/images/favic/safari-pinned-tab.svg" color="#136565">
-    <link rel="icon" href="/favicon.ico">
-    
-    <link rel="stylesheet" href="/css/styles.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+  <!-- ✅ Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favic/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favic/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favic/favicon-16x16.png">
+  <link rel="manifest" href="/images/favic/site.webmanifest">
+  <link rel="mask-icon" href="/images/favic/safari-pinned-tab.svg" color="#136565">
+  <link rel="icon" href="/favicon.ico">
 
-    <!-- RSS -->
-    <link rel="alternate" type="application/rss+xml" title="Blog Hogga RSS" href="https://hogga.cl/blog/rss.xml" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
 
-    <!-- Breadcrumb -->
-    <script type="application/ld+json">
-    {
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="Blog Hogga RSS" href="https://hogga.cl/blog/rss.xml" />
+
+  <!-- Breadcrumb -->
+  <script type="application/ld+json">
+  {
     "@context":"https://schema.org",
     "@type":"BreadcrumbList",
     "itemListElement":[
-        {"@type":"ListItem","position":1,"name":"Inicio","item":"https://hogga.cl/"},
-        {"@type":"ListItem","position":2,"name":"Blog","item":"https://hogga.cl/blog/"}
+      {"@type":"ListItem","position":1,"name":"Inicio","item":"https://hogga.cl/"},
+      {"@type":"ListItem","position":2,"name":"Blog","item":"https://hogga.cl/blog/"}
     ]
-    }
-    </script>
+  }
+  </script>
 
-    <!-- Blog + ItemList de últimos artículos -->
-    <script type="application/ld+json">
-    {
+  <!-- Blog + ItemList de últimos artículos -->
+  <script type="application/ld+json">
+  {
     "@context":"https://schema.org",
     "@graph":[
-        {
+      {
         "@type":"Blog",
         "@id":"https://hogga.cl/blog/#blog",
         "name":"Blog Hogga",
         "url":"https://hogga.cl/blog/",
         "inLanguage":"es-CL",
         "description":"Consejos, guías y datos verificados sobre hogar, turismo y experiencias locales en Chile."
-        },
-        {
+      },
+      {
         "@type":"ItemList",
         "name":"Últimos artículos",
         "itemListOrder":"https://schema.org/ItemListOrderDescending",
         "itemListElement":[
-            {"@type":"ListItem","position":1,"url":"https://hogga.cl/blog/ahorrar-agua-en-casa/"},
-            {"@type":"ListItem","position":2,"url":"https://hogga.cl/blog/ruta-lagos-sur-chile/"},
-            {"@type":"ListItem","position":3,"url":"https://hogga.cl/blog/elegir-proveedor-seguro/"}
+          {"@type":"ListItem","position":1,"url":"https://hogga.cl/blog/ahorrar-agua-en-casa/"},
+          {"@type":"ListItem","position":2,"url":"https://hogga.cl/blog/ruta-lagos-sur-chile/"},
+          {"@type":"ListItem","position":3,"url":"https://hogga.cl/blog/parques-nacionales-los-lagos/"}
         ]
-        }
+      }
     ]
-    }
-    </script>
+  }
+  </script>
 
+  <!-- Estilos extra SOLO para blog index (no rompe tu styles.css) -->
+  <style>
+    .blog-toolbar{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      margin: 18px 0 18px;
+    }
+    .blog-search input{
+      width:100%;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(15,23,42,.12);
+      background: rgba(255,255,255,.75);
+      box-shadow: var(--shadow-card);
+      font: inherit;
+    }
+    .blog-filters{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .blog-filters .chip{
+      cursor:pointer;
+      user-select:none;
+    }
+    .blog-filters .chip.is-active{
+      background: rgba(19,101,101,.12);
+      border-color: rgba(19,101,101,.35);
+    }
+    .blog-count{
+      margin: 0;
+      color: rgba(15,23,42,.7);
+      font-size: .95rem;
+    }
+    .sr-only{
+      position:absolute;
+      width:1px;height:1px;
+      padding:0;margin:-1px;
+      overflow:hidden;clip:rect(0,0,0,0);
+      white-space:nowrap;border:0;
+    }
+  </style>
 </head>
 
 <body>
   <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-56V9ZN8P"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-56V9ZN8P"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
-  <!-- HEADER -->
-    <header class="main-header">
-      <div class="container header-content">
-        <a class="brand" href="/" aria-label="Hogga, inicio">
-          <img class="logo" src="/images/logo.webp" alt="Hogga — red chilena de datos confiables y verificados" width="120" height="36" />
-        </a>
-        <!-- Botón hamburger (solo móvil) -->
-        <button class="nav-toggle" aria-label="Abrir menú" aria-controls="site-nav" aria-expanded="false">
-          <span class="nav-toggle-box" aria-hidden="true">
-            <span class="nav-toggle-line"></span>
-            <span class="nav-toggle-line"></span>
-            <span class="nav-toggle-line"></span>
-          </span>
-        </button>
-          <nav id="site-nav" class="site-nav" role="navigation" aria-label="Navegación principal">
-            <a href="/hogga-servicios/">Para hogar</a>
-            <a href="/turismo/">Para viajar</a>
-            <a href="/negocios/">Para negocios</a>
-            <a href="/decisiones/">Decisiones</a>
-            <a href="/blog/">Blog</a>
-            <a href="/contacto/">Contacto</a>
-          </nav>
-      </div>
-    </header>
 
-  <!-- MAIN -->
+  <!-- HEADER -->
+  <header class="main-header">
+    <div class="container header-content">
+      <a class="brand" href="/" aria-label="Hogga, inicio">
+        <img class="logo" src="/images/logo.webp" alt="Hogga — red chilena de datos confiables y verificados" width="120" height="36" />
+      </a>
+
+      <button class="nav-toggle" aria-label="Abrir menú" aria-controls="site-nav" aria-expanded="false">
+        <span class="nav-toggle-box" aria-hidden="true">
+          <span class="nav-toggle-line"></span>
+          <span class="nav-toggle-line"></span>
+          <span class="nav-toggle-line"></span>
+        </span>
+      </button>
+
+      <nav id="site-nav" class="site-nav" role="navigation" aria-label="Navegación principal">
+        <a href="/hogga-servicios/">Para hogar</a>
+        <a href="/turismo/">Para viajar</a>
+        <a href="/negocios/">Para negocios</a>
+        <a href="/decisiones/">Decisiones</a>
+        <a href="/blog/">Blog</a>
+        <a href="/contacto/">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
   <main>
     <!-- HERO -->
     <section class="hero hero--blog">
-        <div class="hero-bg"></div>
-        <div class="container hero-content">
-          <span class="eyebrow">Blog Hogga</span>
-          <h1>Consejos y datos verificados para la vida en Chile</h1>
-          <p class="lead">
-            Guías prácticas y <strong>recomendaciones reales</strong> sobre 
-            <a href="/blog/hogar/">hogar</a>, <a href="/blog/turismo/">turismo</a> y 
-            <a href="/blog/consejos/">experiencias locales</a>. 
-            Todo con foco en descubribilidad y utilidad — en menos de 5 minutos de lectura.
-          </p>
-        </div>
-      </section>
+      <div class="hero-bg"></div>
+      <div class="container hero-content">
+        <span class="eyebrow">Blog Hogga</span>
+        <h1>Consejos y datos verificados para la vida en Chile</h1>
+        <p class="lead">
+          Guías prácticas y <strong>recomendaciones reales</strong> sobre
+          hogar y turismo. Todo con foco en utilidad, sin humo, en menos de 5 minutos de lectura.
+        </p>
+      </div>
+    </section>
 
-    <!-- Últimos artículos -->
-    <section class="section">
-    <div class="container">
+    <!-- ÚLTIMOS -->
+    <section class="section" id="ultimos">
+      <div class="container">
         <h2>Últimos artículos</h2>
         <p class="sub">Novedades, guías y curiosidades del equipo Hogga.</p>
 
+        <!-- Toolbar -->
+        <div class="blog-toolbar" aria-label="Buscar y filtrar artículos">
+          <label class="blog-search">
+            <span class="sr-only">Buscar en el blog</span>
+            <input id="blogSearch" type="search" placeholder="Buscar: agua, rutas, parques, Puerto Varas…" autocomplete="off" />
+          </label>
+
+          <div class="blog-filters" role="tablist" aria-label="Filtrar por categoría">
+            <button class="chip is-active" type="button" data-filter="all" role="tab" aria-selected="true">✨ Todo</button>
+            <button class="chip" type="button" data-filter="hogar" role="tab" aria-selected="false">🏡 Hogar</button>
+            <button class="chip" type="button" data-filter="turismo" role="tab" aria-selected="false">🌄 Turismo</button>
+            <button class="chip" type="button" data-filter="consejos" role="tab" aria-selected="false">💡 Consejos</button>
+            <button class="chip" type="button" data-filter="historias" role="tab" aria-selected="false">📍 Historias</button>
+          </div>
+
+          <p class="blog-count" id="blogCount" aria-live="polite"></p>
+        </div>
+
+        <!-- Grid -->
         <div class="post-grid">
-        <a href="/blog/ahorrar-agua-en-casa/" class="post-card">
+          <a href="/blog/ahorrar-agua-en-casa/" class="post-card" data-category="hogar" data-tags="agua ahorro casa">
             <figure class="post-media" aria-hidden="true">
-            <img src="/images/blog/agua.webp" width="96" height="96" loading="lazy" alt="">
-            <span class="emoji">💧</span>
+              <img src="/images/blog/agua.webp" width="96" height="96" loading="lazy" alt="">
+              <span class="emoji">💧</span>
             </figure>
             <div class="post-body">
-            <h3 class="post-title">5 formas simples de ahorrar agua en casa</h3>
-            <p class="post-meta">Hogar · 4 min</p>
+              <h3 class="post-title">5 formas simples de ahorrar agua en casa</h3>
+              <p class="post-meta">Hogar · 4 min</p>
             </div>
             <span class="post-cta">Leer</span>
-        </a>
+          </a>
 
-        <a href="/blog/ruta-lagos-sur-chile/" class="post-card">
+          <a href="/blog/ruta-lagos-sur-chile/" class="post-card" data-category="turismo" data-tags="ruta lagos llanquihue volcan osorno">
             <figure class="post-media" aria-hidden="true">
-            <img src="/images/blog/lagos-lago-llanquihue-volcan-osorno.webp" width="96" height="96" loading="lazy" alt="">
-            <span class="emoji">🚗</span>
+              <img src="/images/blog/lagos-lago-llanquihue-volcan-osorno.webp" width="96" height="96" loading="lazy" alt="">
+              <span class="emoji">🚗</span>
             </figure>
             <div class="post-body">
-            <h3 class="post-title">Ruta de los Lagos: los imperdibles del sur</h3>
-            <p class="post-meta">Turismo · 6 min</p>
+              <h3 class="post-title">Ruta de los Lagos: los imperdibles del sur</h3>
+              <p class="post-meta">Turismo · 6 min</p>
             </div>
             <span class="post-cta">Leer</span>
-        </a>
+          </a>
 
-        <a href="/blog/parques-nacionales-los-lagos/" class="post-card">
+          <a href="/blog/parques-nacionales-los-lagos/" class="post-card" data-category="turismo" data-tags="parques nacionales los lagos naturaleza">
             <figure class="post-media" aria-hidden="true">
               <img src="/images/blog/parques-lagos.webp" width="96" height="96" loading="lazy" alt="Parques Nacionales de Los Lagos">
               <span class="emoji">🌲</span>
@@ -219,8 +245,8 @@
             </div>
             <span class="post-cta">Leer</span>
           </a>
-          
-          <a href="/blog/aysen-la-ultima-frontera/" class="post-card">
+
+          <a href="/blog/aysen-la-ultima-frontera/" class="post-card" data-category="turismo" data-tags="aysen carretera austral patagonia">
             <figure class="post-media" aria-hidden="true">
               <img src="/images/blog/aysen.webp" width="96" height="96" loading="lazy" alt="Aysén, la última frontera del sur chileno">
               <span class="emoji">🏔️</span>
@@ -231,8 +257,8 @@
             </div>
             <span class="post-cta">Leer</span>
           </a>
-          
-          <a href="/blog/region-de-los-rios/" class="post-card">
+
+          <a href="/blog/region-de-los-rios/" class="post-card" data-category="turismo" data-tags="los rios valdivia termas selva">
             <figure class="post-media" aria-hidden="true">
               <img src="/images/blog/los-rios.webp" width="96" height="96" loading="lazy" alt="Región de Los Ríos, selva valdiviana y termas escondidas">
               <span class="emoji">🌧️</span>
@@ -243,104 +269,224 @@
             </div>
             <span class="post-cta">Leer</span>
           </a>
-          
         </div>
-    </div>
+      </div>
     </section>
 
-    <!-- Categorías -->
-    <section class="section alt">
-        <div class="container">
-          <h2>Categorías</h2>
-          <div class="chips">
-            <a class="chip" href="#">🏡 Hogar</a>
-            <a class="chip" href="#">🌄 Turismo</a>
-            <a class="chip" href="#">💡 Consejos</a>
-            <a class="chip" href="#">📍 Historias locales</a>
-          </div>
+    <!-- CATEGORÍAS (sin rutas todavía: anclas + filtro) -->
+    <section class="section" id="categorias">
+      <div class="container">
+        <h2>Categorías</h2>
+        <p class="sub">Filtra rápido o parte por el tema que te interesa.</p>
+        <div class="chips" style="justify-content:center;">
+          <a class="chip" href="#ultimos" data-jump-filter="hogar">🏡 Hogar</a>
+          <a class="chip" href="#ultimos" data-jump-filter="turismo">🌄 Turismo</a>
+          <a class="chip" href="#ultimos" data-jump-filter="consejos">💡 Consejos</a>
+          <a class="chip" href="#ultimos" data-jump-filter="historias">📍 Historias locales</a>
         </div>
-      </section>
+      </div>
+    </section>
+
+    <!-- DECISION HELPERS CTA -->
+    <section class="section alt">
+      <div class="container">
+        <h2 style="text-align:center;">¿Tienes un negocio y estás tomando decisiones comerciales/marketing?</h2>
+        <p class="sub" style="text-align:center; max-width:720px; margin:0 auto;">
+          En Hogga armamos guías cortas para ayudarte a decidir con criterio, 
+          sin humo ni promesas raras.
+        </p>
+
+        <div class="decision-links" style="max-width:760px; margin:28px auto 0;">
+          <ul class="clean-list">
+            <li>
+              <a href="/decisiones/que-hacer-primero/">
+                ¿Qué debería hacer primero para conseguir más clientes?
+              </a>
+              <span class="muted"> — Para ordenar prioridades sin volverte loco.</span>
+            </li>
+            <li>
+              <a href="/decisiones/google-maps-suficiente/">
+                ¿Google Maps es suficiente para mi negocio?
+              </a>
+              <span class="muted"> — Muy común en Chile, no siempre alcanza.</span>
+            </li>
+            <li>
+              <a href="/decisiones/arreglar-web-o-hacer-ads/">
+                ¿Arreglo mi web o hago Ads primero?
+              </a>
+              <span class="muted"> — Para no quemar plata.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="cta-row" style="justify-content:center; margin-top:24px;">
+          <a class="btn outline" href="/decisiones/">
+            Ver todas las Decisiones Hogga
+          </a>
+        </div>
+      </div>
+    </section>
+
 
     <!-- CTA -->
     <section class="section">
       <div class="container" style="text-align:center">
         <h2>¿Quieres recibir los nuevos artículos?</h2>
-        <p class="sub">Pronto lanzaremos nuestro boletín mensual con datos y recomendaciones.</p>
-        <a class="btn primary" href="https://wa.me/56951759158?text=Hola%20Hogga%2C%20avísenme%20cuando%20salgan%20nuevos%20artículos" target="_blank" rel="noopener noreferrer">
-          Avisarme por WhatsApp
-        </a>
+        <p class="sub">Te mandamos un ping cuando salga algo nuevo (sin spam).</p>
+
+        <div class="cta-row" style="justify-content:center; margin-top:14px">
+          <a class="btn primary" href="https://wa.me/56951759158?text=Hola%20Hogga%2C%20av%C3%ADsenme%20cuando%20salgan%20nuevos%20art%C3%ADculos" target="_blank" rel="noopener noreferrer">
+            Avisarme por WhatsApp
+          </a>
+          <a class="btn outline" href="/decisiones/">
+            Ver Decisiones (para negocios)
+          </a>
+        </div>
       </div>
     </section>
   </main>
 
-<!-- FOOTER  -->
-    <footer class="footer">
-      <div class="container foot">
-        <div class="foot-brand">
-          <strong>Hogga</strong>
-          <small>
-            Hogga conecta personas con datos locales confiables y proveedores verificados en Chile.  
-            Hecho desde el sur de Chile 🇨🇱
-          </small>
-          <div class="cta-column">
-                <a class="foot-cta"
-                    href="https://wa.me/56951809138?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20servicios"
-                    target="_blank" rel="noopener noreferrer">
-                    Pedir dato Hogga Servicios
-                </a>
+  <!-- FOOTER  -->
+  <footer class="footer">
+    <div class="container foot">
+      <div class="foot-brand">
+        <strong>Hogga</strong>
+        <small>
+          Hogga conecta personas con datos locales confiables y proveedores verificados en Chile.
+          Hecho desde el sur de Chile 🇨🇱
+        </small>
+        <div class="cta-column">
+          <a class="foot-cta"
+             href="https://wa.me/56951809138?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20servicios"
+             target="_blank" rel="noopener noreferrer">
+            Pedir dato Hogga Servicios
+          </a>
 
-                <a class="foot-cta"
-                    href="https://wa.me/56975457652?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20turismo"
-                    target="_blank" rel="noopener noreferrer">
-                    Pedir dato Hogga Turismo
-                </a>
+          <a class="foot-cta"
+             href="https://wa.me/56975457652?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20turismo"
+             target="_blank" rel="noopener noreferrer">
+            Pedir dato Hogga Turismo
+          </a>
 
-                <!-- Nuevo botón para empresas / Hogga Negocios -->
-                <a class="foot-cta"
-                    href="https://wa.me/56951759158?text=Hola%20Hogga%2C%20quiero%20mejorar%20el%20posicionamiento%20de%20mi%20negocio"
-                    target="_blank" rel="noopener noreferrer">
-                    Hablar con Hogga Negocios
-                </a>
-                </div>
-
+          <a class="foot-cta"
+             href="https://wa.me/56951759158?text=Hola%20Hogga%2C%20quiero%20mejorar%20el%20posicionamiento%20de%20mi%20negocio"
+             target="_blank" rel="noopener noreferrer">
+            Hablar con Hogga Negocios
+          </a>
         </div>
-        <nav class="foot-links" aria-label="Enlaces del sitio">
-          <div>
-            <span class="foot-title">Explora Hogga</span>
-            <ul>
-              <li><a href="/">Inicio</a></li>
-              <li><a href="/hogga-servicios/">Para Hogar</a></li>
-              <li><a href="/turismo/">Para Viajar</a></li>
-              <li><a href="/negocios/">Para negocios</a></li>
-              <li><a href="/decisiones/">Decisiones</a></li>
-              <li><a href="/blog/">Blog</a></li>
-              <li><a href="/contacto/">Contacto</a></li>
-            </ul>
-          </div>
-          <div>
-            <span class="foot-title">Legal</span>
-            <ul>
-              <li><a href="/terminos-y-condiciones/">Términos</a></li>
-              <li><a href="/politica-privacidad/">Privacidad</a></li>
-              <li><a href="/bases-legales-concursos-instagram/">Bases Concursos</a></li>
-            </ul>
-          </div>
-          <div>
-            <span class="foot-title">Síguenos</span>
-            <ul>
-              <li><a href="https://www.instagram.com/hogga_chile/" target="_blank" rel="noopener noreferrer">Hogga Servicios</a></li>
-              <li><a href="https://www.instagram.com/hogga_turismo/" target="_blank" rel="noopener noreferrer">Hogga Turismo</a></li>
-              <li><a href="https://www.instagram.com/hogga_regala/" target="_blank" rel="noopener noreferrer">Hogga Regala</a></li>
-            </ul>
-          </div>
-        </nav>
       </div>
-      <div class="container foot-bottom">
-        <small>© <span id="y"></span> Hogga Group SpA. Todos los derechos reservados.</small>
-      </div>
-    </footer>
-  
 
-  <script defer src="/js/main.js"></script>
+      <nav class="foot-links" aria-label="Enlaces del sitio">
+        <div>
+          <span class="foot-title">Explora Hogga</span>
+          <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/hogga-servicios/">Para Hogar</a></li>
+            <li><a href="/turismo/">Para Viajar</a></li>
+            <li><a href="/negocios/">Para negocios</a></li>
+            <li><a href="/decisiones/">Decisiones</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/contacto/">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <span class="foot-title">Legal</span>
+          <ul>
+            <li><a href="/terminos-y-condiciones/">Términos</a></li>
+            <li><a href="/politica-privacidad/">Privacidad</a></li>
+            <li><a href="/bases-legales-concursos-instagram/">Bases Concursos</a></li>
+          </ul>
+        </div>
+        <div>
+          <span class="foot-title">Síguenos</span>
+          <ul>
+            <li><a href="https://www.instagram.com/hogga_chile/" target="_blank" rel="noopener noreferrer">Hogga Servicios</a></li>
+            <li><a href="https://www.instagram.com/hogga_turismo/" target="_blank" rel="noopener noreferrer">Hogga Turismo</a></li>
+            <li><a href="https://www.instagram.com/hogga_regala/" target="_blank" rel="noopener noreferrer">Hogga Regala</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container foot-bottom">
+      <small>© <span id="y"></span> Hogga Group SpA. Todos los derechos reservados.</small>
+    </div>
+  </footer>
+
+    <script defer src="/js/main.js"></script>
+  <script defer src="/js/consent-banner.js"></script>
+
+  <script>
+  (function(){
+    // año
+    const y = document.getElementById('y');
+    if (y) y.textContent = new Date().getFullYear();
+
+    const search = document.getElementById('blogSearch');
+    const count = document.getElementById('blogCount');
+    const cards = Array.from(document.querySelectorAll('.post-grid .post-card'));
+    const filterBtns = Array.from(document.querySelectorAll('.blog-filters .chip'));
+
+    if (!cards.length) return;
+
+    let activeFilter = 'all';
+
+    function norm(s){
+      return (s || '')
+        .toString()
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g,'');
+    }
+
+    function apply(){
+      const q = norm(search ? search.value : '');
+      let shown = 0;
+
+      cards.forEach(card => {
+        const cat = (card.getAttribute('data-category') || 'all').toLowerCase();
+        const tags = norm(card.getAttribute('data-tags'));
+        const title = norm(card.querySelector('.post-title')?.textContent);
+        const meta = norm(card.querySelector('.post-meta')?.textContent);
+
+        const matchesFilter = (activeFilter === 'all') || (cat === activeFilter);
+        const haystack = `${title} ${meta} ${tags}`;
+        const matchesSearch = !q || haystack.includes(q);
+
+        const ok = matchesFilter && matchesSearch;
+        card.style.display = ok ? '' : 'none';
+        if (ok) shown++;
+      });
+
+      if (count) count.textContent = shown === 1 ? '1 artículo' : `${shown} artículos`;
+    }
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => {
+          b.classList.remove('is-active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        btn.classList.add('is-active');
+        btn.setAttribute('aria-selected', 'true');
+        activeFilter = btn.getAttribute('data-filter') || 'all';
+        apply();
+      });
+    });
+
+    if (search) search.addEventListener('input', apply);
+
+    // chips de categorías (abajo) activan filtro y suben
+    document.querySelectorAll('[data-jump-filter]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const f = a.getAttribute('data-jump-filter');
+        const btn = document.querySelector(`.blog-filters .chip[data-filter="${f}"]`);
+        if (btn) btn.click();
+      });
+    });
+
+    apply();
+  })();
+  </script>
 </body>
 </html>
