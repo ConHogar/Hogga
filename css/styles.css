@@ -1861,3 +1861,55 @@ a:focus-visible {
   height: 360px;
   border: 0;
 }
+
+/* Quick picker integrado al sistema */
+.quick-picker{
+  margin: 14px 0 18px;
+}
+
+.quick-picker .picker-line{
+  margin: 0 0 10px;
+  color: var(--muted);
+}
+
+.quick-picker .routes{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 8px 0 10px;
+}
+
+.quick-picker .route-title{
+  font-weight: 800;
+  color: #0f2f2f;
+}
+
+.quick-picker .route-links{
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.quick-picker a.route{
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.quick-picker a.route:hover{
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-1);
+}
+
+.quick-picker .local-lens{
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: .92rem;
+}
+
+.pill.intent{
+  background: rgba(15,118,110,.12);
+  border-color: rgba(15,118,110,.25);
+  color: #0f766e;
+  font-weight: 800;
+}
