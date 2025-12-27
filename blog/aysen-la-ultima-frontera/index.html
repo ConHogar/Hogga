@@ -10,44 +10,8 @@
     <link rel="preconnect" href="https://www.google-analytics.com" />
     <link rel="preconnect" href="https://wa.me" />
 
-  <!-- Consent Mode v2 (regional: CL granted; EEA/UK denied) -->
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-
-    /* 1) Default global: analytics granted (Chile y LatAm) */
-    gtag('consent','default',{
-      analytics_storage:'granted',
-      ad_storage:'denied',
-      ad_user_data:'denied',
-      ad_personalization:'denied',
-      wait_for_update: 500
-    });
-
-    /* 2) Override EEA/UK/CH/NO/IS/LI: todo denied por defecto */
-    gtag('consent','default',{
-      region:['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','CH','GB'],
-      analytics_storage:'denied',
-      ad_storage:'denied',
-      ad_user_data:'denied',
-      ad_personalization:'denied'
-    });
-
-    /* 3) Aplica preferencia guardada (si existe) ANTES de cargar GTM */
-    (function(){
-      try{
-        // reset rápido: ?consent=reset
-        if (new URLSearchParams(location.search).get('consent') === 'reset') {
-          localStorage.removeItem('hogga_consent_pref');
-        }
-        const pref = JSON.parse(localStorage.getItem('hogga_consent_pref'));
-        if (pref && pref.values) {
-          gtag('consent','update', pref.values);
-          window.__hoggaConsentChosen = true;
-        }
-      }catch(e){}
-    })();
-  </script>
+    <!-- Consent logic (centralizada) -->
+    <script src="/js/consent.js"></script>
 
     <!-- Google Tag Manager -->
     <script>
@@ -171,88 +135,169 @@
       </div>
     </header>
 
-    <main class="blog-post container">
-      <article>
-        <header class="post-header">
-          <span class="post-category">Turismo · Patagonia</span>
-          <h1>Aysén: la última frontera del sur chileno</h1>
-          <p class="post-meta">Por <strong>Equipo Hogga Turismo</strong> · Actualizado el 12 de noviembre de 2025</p>
-          <figure class="post-cover">
-            <img
-              src="/images/blog/aysen.webp"
-              loading="eager" fetchpriority="high" decoding="async"
-              alt="Ventisquero Colgante del Parque Nacional Queulat en Aysén, Patagonia chilena">
-            <figcaption>Parque Nacional Queulat: el Ventisquero Colgante, postal clásica de Aysén.</figcaption>
-          </figure>
-        </header>
+ <main class="blog-post container">
+  <article>
+    <header class="post-header">
+      <span class="post-category">🧭 Turismo · Patagonia</span>
+      <h1>Aysén: la última frontera del sur chileno</h1>
+      <p class="post-meta">Por <strong>Equipo Hogga Turismo</strong> · Actualizado el 12 de noviembre de 2025</p>
 
-        <p>La <strong>Región de Aysén</strong> es una de esas partes del mapa donde el camino se convierte en destino. Lagos turquesa, glaciares milenarios y valles solitarios hacen que cada kilómetro valga el esfuerzo. Aquí, el viento tiene nombre y la naturaleza, carácter.</p>
+      <figure class="post-cover">
+        <img
+          src="/images/blog/aysen.webp"
+          loading="eager" fetchpriority="high" decoding="async"
+          alt="Ventisquero Colgante del Parque Nacional Queulat en Aysén, Patagonia chilena">
+        <figcaption>Parque Nacional Queulat: el Ventisquero Colgante, postal clásica de Aysén.</figcaption>
+      </figure>
+    </header>
 
-        <p>Si buscas silencio, autenticidad y paisajes que parecen pintados, Aysén es tu lugar. Esta guía reúne los puntos imperdibles, los mejores accesos y algunos consejos que aprendimos recorriendo su territorio sin prisa.</p>
+    <p class="post-lead">
+      La <strong>Región de Aysén</strong> es uno de esos lugares donde el camino se convierte en destino.
+      Lagos turquesa, glaciares y valles solitarios hacen que cada kilómetro valga el esfuerzo.
+      Si buscas naturaleza cruda y paisajes que parecen pintados, esta es la Patagonia sin filtro.
+    </p>
 
-        <h2>Cómo llegar y moverse</h2>
-        <p><strong>Por aire:</strong> el acceso más común es el <strong>Aeropuerto Balmaceda</strong>, a 50 minutos de Coyhaique. Desde allí, puedes rentar un vehículo o sumarte a buses que recorren la <strong>Carretera Austral</strong>.</p>
-        <p><strong>Por tierra:</strong> la ruta 7, conocida como la Carretera Austral, conecta Aysén con Puerto Montt al norte y Villa O’Higgins al sur. Es una de las rutas más escénicas del mundo: fiordos, bosques, pasos de montaña y ferry incluidos.</p>
+    <div class="callout">
+      <b>Idea clave:</b> en Aysén el error más común es apretar la ruta.
+      Las distancias engañan, el clima manda y el viaje se disfruta lento.
+    </div>
 
-        <figure>
-          <img src="/images/blog/aysen-la-ultima-frontera/carretera-austral.webp" loading="lazy" decoding="async"
-               alt="Tramo escénico de la Carretera Austral entre bosques y montañas en Aysén">
-          <figcaption>Carretera Austral: la ruta que hace que el viaje sea parte del destino.</figcaption>
-        </figure>
+    <!-- TOC -->
+    <nav class="toc" aria-label="Contenido del artículo">
+      <strong>En este artículo:</strong>
+      <ul>
+        <li><a href="#llegar">Cómo llegar y moverse</a></li>
+        <li><a href="#imperdibles">Imperdibles de Aysén</a></li>
+        <li><a href="#cuando">Cuándo ir</a></li>
+        <li><a href="#consejos">Consejos Hogga</a></li>
+        <li><a href="#cta">Opciones verificadas (CTA)</a></li>
+      </ul>
+    </nav>
 
-        <h2>Imperdibles de Aysén</h2>
-        <ul>
-          <li><strong>Puerto Río Tranquilo y las Catedrales de Mármol:</strong> cuevas naturales de roca caliza que emergen sobre las aguas turquesa del Lago General Carrera. Lo mejor: ir temprano o al atardecer.</li>
-        </ul>
-        <figure>
-          <img src="/images/blog/aysen-la-ultima-frontera/catedral-marmol.webp" loading="lazy" decoding="async"
-               alt="Texturas azules y grises de las Catedrales de Mármol en el Lago General Carrera">
-          <figcaption>Catedrales de Mármol: un clásico de Aysén sobre aguas turquesa.</figcaption>
-        </figure>
+    <h2 id="llegar">Cómo llegar y moverse</h2>
+    <p>
+      <strong>Por aire:</strong> el acceso más común es el <strong>Aeropuerto Balmaceda</strong>, a 50 minutos de Coyhaique.
+      Desde allí, puedes rentar un vehículo o sumarte a buses que recorren la <strong>Carretera Austral</strong>.
+    </p>
+    <p>
+      <strong>Por tierra:</strong> la ruta 7 (Carretera Austral) conecta Aysén con Puerto Montt al norte y Villa O’Higgins al sur.
+      Es una de las rutas más escénicas del mundo: fiordos, bosques, pasos de montaña y ferry incluidos.
+    </p>
 
-        <ul>
-          <li><strong>Cerro Castillo:</strong> trekking de nivel medio a difícil, con paisajes dignos de calendario. El parque está cada vez mejor señalizado y ofrece áreas de camping organizadas.</li>
-        </ul>
-        <figure>
-          <img src="/images/blog/aysen-la-ultima-frontera/cerro-castillo.webp" loading="lazy" decoding="async"
-               alt="Macizo Cerro Castillo nevado con bosque de lengas en primer plano">
-          <figcaption>Parque Nacional Cerro Castillo: senderos exigentes y vistas inolvidables.</figcaption>
-        </figure>
+    <div class="tip">
+      <strong>Tip Hogga:</strong> descarga mapas offline y guarda tus reservas.
+      Fuera de Coyhaique la señal se pone tacaña.
+    </div>
 
-        <ul>
-          <li><strong>Parque Queulat:</strong> hogar del famoso <em>Ventisquero Colgante</em>, un glaciar suspendido sobre la montaña que deja sin palabras.</li>
-        </ul>
-        <figure>
-          <img src="/images/blog/aysen-la-ultima-frontera/ventisquero-colgante.webp" loading="lazy" decoding="async"
-               alt="Mirador al Ventisquero Colgante en el Parque Nacional Queulat">
-          <figcaption>Queulat desde el mirador clásico al Ventisquero Colgante.</figcaption>
-        </figure>
+    <figure>
+      <img src="/images/blog/aysen-la-ultima-frontera/carretera-austral.webp" loading="lazy" decoding="async"
+           alt="Tramo escénico de la Carretera Austral entre bosques y montañas en Aysén">
+      <figcaption>Carretera Austral: la ruta que hace que el viaje sea parte del destino.</figcaption>
+    </figure>
 
-        <h2>Cuándo ir</h2>
-        <ul>
-          <li><strong>Verano (dic–feb):</strong> clima más amable y días largos. Ideal para caminatas y navegación.</li>
-          <li><strong>Otoño (mar–may):</strong> colores intensos, menos turistas y precios más bajos.</li>
-          <li><strong>Invierno (jun–ago):</strong> rutas nevadas y atmósfera patagónica total. Ideal para fotografía y soledad.</li>
-        </ul>
+    <h2 id="imperdibles">Imperdibles de Aysén</h2>
 
-        <h2>Consejos Hogga</h2>
-        <ul>
-          <li><strong>Internet:</strong> cobertura limitada fuera de Coyhaique. Descarga mapas offline.</li>
-          <li><strong>Combustible:</strong> planifica paradas; las distancias engañan.</li>
-          <li><strong>Ropa:</strong> capas, impermeable, y siempre un gorro. El viento no perdona.</li>
-          <li><strong>Turismo responsable:</strong> deja cada lugar igual o mejor que como lo encontraste. 🏕️</li>
-        </ul>
+    <div class="mini-check" aria-label="Imperdibles de Aysén">
+      <div class="item">
+        <strong>🪨 Puerto Río Tranquilo y Catedrales de Mármol</strong>
+        <small>Cuevas de roca caliza sobre aguas turquesa del Lago General Carrera. Mejor temprano o al atardecer.</small>
+      </div>
+    </div>
 
-        <p>¿Quieres <strong>alojamientos o tours verificados</strong> en Aysén? Escríbenos y te pasamos opciones reales según tu ruta y presupuesto:<br>
-        👉 <a href="https://wa.me/56975457652?text=Hola%20Hogga%2C%20quiero%20opciones%20verificadas%20para%20viajar%20a%20Aysén" target="_blank" rel="noopener noreferrer">Contactar por WhatsApp</a>.</p>
+    <figure>
+      <img src="/images/blog/aysen-la-ultima-frontera/catedral-marmol.webp" loading="lazy" decoding="async"
+           alt="Texturas azules y grises de las Catedrales de Mármol en el Lago General Carrera">
+      <figcaption>Catedrales de Mármol: un clásico de Aysén sobre aguas turquesa.</figcaption>
+    </figure>
 
-        <blockquote>
-          <p><strong>Hogga Turismo:</strong> recomendaciones reales y datos verificados para descubrir Chile sin perder tiempo. Desde el corazón de la Patagonia chilena 🇨🇱</p>
-        </blockquote>
-      </article>
-    </main>
+    <div class="mini-check">
+      <div class="item">
+        <strong>🥾 Parque Nacional Cerro Castillo</strong>
+        <small>Trekking de nivel medio a difícil, con paisajes de calendario. Hay senderos y zonas de camping cada vez más ordenadas.</small>
+      </div>
+    </div>
 
-<!-- FOOTER  -->
+    <figure>
+      <img src="/images/blog/aysen-la-ultima-frontera/cerro-castillo.webp" loading="lazy" decoding="async"
+           alt="Macizo Cerro Castillo nevado con bosque de lengas en primer plano">
+      <figcaption>Parque Nacional Cerro Castillo: senderos exigentes y vistas inolvidables.</figcaption>
+    </figure>
+
+    <div class="mini-check">
+      <div class="item">
+        <strong>🧊 Parque Nacional Queulat (Ventisquero Colgante)</strong>
+        <small>Un glaciar suspendido sobre la montaña. Hay miradores clásicos y senderos que valen cada gota de sudor.</small>
+      </div>
+    </div>
+
+    <figure>
+      <img src="/images/blog/aysen-la-ultima-frontera/ventisquero-colgante.webp" loading="lazy" decoding="async"
+           alt="Mirador al Ventisquero Colgante en el Parque Nacional Queulat">
+      <figcaption>Queulat desde el mirador clásico al Ventisquero Colgante.</figcaption>
+    </figure>
+
+    <div class="warn">
+      Si vas manejando, deja márgenes de tiempo.
+      Entre ripio, lluvia y “solo una foto más”, el día se va volando.
+    </div>
+
+    <h2 id="cuando">Cuándo ir</h2>
+    <ul>
+      <li><strong>Verano (dic–feb):</strong> clima más amable y días largos. Ideal para caminatas y navegación.</li>
+      <li><strong>Otoño (mar–may):</strong> colores intensos, menos turistas y precios más bajos.</li>
+      <li><strong>Invierno (jun–ago):</strong> rutas nevadas y atmósfera patagónica total. Ideal para fotografía y soledad.</li>
+    </ul>
+
+    <h2 id="consejos">Consejos Hogga</h2>
+    <ul>
+      <li><strong>Internet:</strong> cobertura limitada fuera de Coyhaique. Descarga mapas offline.</li>
+      <li><strong>Combustible:</strong> planifica paradas; las distancias engañan.</li>
+      <li><strong>Ropa:</strong> capas, impermeable, y siempre un gorro. El viento no perdona.</li>
+      <li><strong>Turismo responsable:</strong> deja cada lugar igual o mejor que como lo encontraste. 🏕️</li>
+    </ul>
+
+    <!-- CTA -->
+    <section id="cta" class="cta-box" aria-label="CTA Hogga Turismo">
+      <h3>¿Alojamientos o tours verificados en Aysén?</h3>
+      <p>
+        Te pasamos opciones reales según tu ruta y presupuesto.
+        Sin listas eternas ni datos inflados.
+      </p>
+      <div class="cta-row" role="group" aria-label="Contactar Hogga Turismo">
+        <a class="btn primary"
+          href="https://wa.me/56975457652?text=Hola%20Hogga%2C%20quiero%20opciones%20verificadas%20para%20viajar%20a%20Aysén.%0A%0ARuta%3A%20_____%0AFechas%3A%20_____%0APresupuesto%3A%20_____%0AInterés%3A%20(alojamiento%2Ftours%2Fambos)"
+          target="_blank" rel="noopener noreferrer">
+          Contactar por WhatsApp
+        </a>
+        <a class="btn outline" href="/turismo/">
+          Ver Hogga Turismo
+        </a>
+      </div>
+      <p style="margin:10px 0 0;color:#64748b;font-size:.95rem;">
+        Tip: si nos dices tu ruta (Coyhaique / Tranquilo / Chile Chico, etc.) te respondemos mucho más rápido.
+      </p>
+    </section>
+
+    <!-- Related / Links internos -->
+    <section class="related" aria-label="Enlaces internos recomendados">
+      <h2>Más guías para viajar (sin perder tiempo)</h2>
+      <p class="sub">Si estás armando ruta, estos links te sirven:</p>
+      <div class="chips" aria-label="Categorías del blog">
+        <a class="chip" href="/turismo/">🧭 Hogga Turismo</a>
+        <a class="chip" href="/blog/turismo/">🏔️ Más posts de Turismo</a>
+        <a class="chip" href="/blog/guias/">🧠 Guías</a>
+        <a class="chip" href="/blog/">📚 Volver al Blog</a>
+      </div>
+    </section>
+
+    <blockquote>
+      <p><strong>Hogga Turismo:</strong> recomendaciones reales y datos verificados para descubrir Chile sin perder tiempo. Desde el corazón de la Patagonia chilena 🇨🇱</p>
+    </blockquote>
+  </article>
+</main>
+
+
+    <!-- FOOTER  -->
     <footer class="footer">
       <div class="container foot">
         <div class="foot-brand">
@@ -262,27 +307,26 @@
             Hecho desde el sur de Chile 🇨🇱
           </small>
           <div class="cta-column">
-                <a class="foot-cta"
-                    href="https://wa.me/56951809138?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20servicios"
-                    target="_blank" rel="noopener noreferrer">
-                    Pedir dato Hogga Servicios
-                </a>
+            <a class="foot-cta"
+              href="https://wa.me/56951809138?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20servicios"
+              target="_blank" rel="noopener noreferrer">
+              Pedir dato Hogga Servicios
+            </a>
 
-                <a class="foot-cta"
-                    href="https://wa.me/56975457652?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20turismo"
-                    target="_blank" rel="noopener noreferrer">
-                    Pedir dato Hogga Turismo
-                </a>
+            <a class="foot-cta"
+              href="https://wa.me/56975457652?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20turismo"
+              target="_blank" rel="noopener noreferrer">
+              Pedir dato Hogga Turismo
+            </a>
 
-                <!-- Nuevo botón para empresas / Hogga Negocios -->
-                <a class="foot-cta"
-                    href="https://wa.me/56951759158?text=Hola%20Hogga%2C%20quiero%20mejorar%20el%20posicionamiento%20de%20mi%20negocio"
-                    target="_blank" rel="noopener noreferrer">
-                    Hablar con Hogga Negocios
-                </a>
-                </div>
-
+            <a class="foot-cta"
+              href="https://wa.me/56951759158?text=Hola%20Hogga%2C%20quiero%20mejorar%20el%20posicionamiento%20de%20mi%20negocio"
+              target="_blank" rel="noopener noreferrer">
+              Hablar con Hogga Negocios
+            </a>
+          </div>
         </div>
+
         <nav class="foot-links" aria-label="Enlaces del sitio">
           <div>
             <span class="foot-title">Explora Hogga</span>
@@ -314,11 +358,13 @@
           </div>
         </nav>
       </div>
+
       <div class="container foot-bottom">
         <small>© <span id="y"></span> Hogga Group SpA. Todos los derechos reservados.</small>
       </div>
     </footer>
 
     <script defer src="/js/main.js"></script>
+    <script defer src="/js/consent-banner.js"></script>
   </body>
 </html>

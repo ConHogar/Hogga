@@ -10,44 +10,8 @@
     <link rel="preconnect" href="https://www.google-analytics.com" />
     <link rel="preconnect" href="https://wa.me" />
 
-    <!-- Consent Mode v2 (regional: CL granted; EEA/UK denied) -->
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){ dataLayer.push(arguments); }
-
-      /* 1) Default global: analytics granted (Chile y LatAm) */
-      gtag('consent','default',{
-        analytics_storage:'granted',
-        ad_storage:'denied',
-        ad_user_data:'denied',
-        ad_personalization:'denied',
-        wait_for_update: 500
-      });
-
-      /* 2) Override EEA/UK/CH/NO/IS/LI: todo denied por defecto */
-      gtag('consent','default',{
-        region:['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','CH','GB'],
-        analytics_storage:'denied',
-        ad_storage:'denied',
-        ad_user_data:'denied',
-        ad_personalization:'denied'
-      });
-
-      /* 3) Aplica preferencia guardada (si existe) ANTES de cargar GTM */
-      (function(){
-        try{
-          // reset rápido: ?consent=reset
-          if (new URLSearchParams(location.search).get('consent') === 'reset') {
-            localStorage.removeItem('hogga_consent_pref');
-          }
-          const pref = JSON.parse(localStorage.getItem('hogga_consent_pref'));
-          if (pref && pref.values) {
-            gtag('consent','update', pref.values);
-            window.__hoggaConsentChosen = true;
-          }
-        }catch(e){}
-      })();
-    </script>
+    <!-- Consent logic (centralizada) -->
+    <script src="/js/consent.js"></script>
 
     <!-- Google Tag Manager -->
     <script>
@@ -94,7 +58,7 @@
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Vista de Valdivia y los ríos que la rodean en la Región de Los Ríos" />
     <meta property="article:published_time" content="2025-11-13T09:00:00-03:00" />
-    <meta property="article:modified_time" content="2025-11-13T09:00:00-03:00" />
+    <meta property="article:modified_time" content="2026-01-02T09:00:00-03:00" />
   
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Región de Los Ríos: entre selva valdiviana y termas escondidas" />
@@ -176,183 +140,290 @@
       </div>
     </header>
     
-    <main class="blog-post container">
-      <article>
-        <header class="post-header">
-          <span class="post-category">Turismo · Chile Sur</span>
-          <h1>Región de Los Ríos: entre selva valdiviana y termas escondidas</h1>
-          <p class="post-meta">Por <strong>Equipo Hogga Turismo</strong> · Actualizado el 13 de noviembre de 2025</p>
-          <figure class="post-cover">
-            <img
-              src="/images/blog/los-rios.webp"
-              loading="eager" fetchpriority="high" decoding="async"
-              alt="Vista panorámica de Valdivia con sus ríos rodeados de vegetación en la Región de Los Ríos">
-            <figcaption>Valdivia, punto de partida ideal para explorar la Región de Los Ríos.</figcaption>
-          </figure>
-        </header>
-  
-        <p>La <strong>Región de Los Ríos</strong> es ese lugar donde el verde nunca termina, la lluvia es parte del paisaje y el agua está en todas partes: ríos, lagos, cascadas y termas humeando en medio del bosque. Si te gusta caminar sin apuro, manejar por rutas con curvas bonitas y terminar el día en una tinaja caliente, este rincón del sur es para ti.</p>
-  
-        <p>En esta guía muy aterrizada vamos a lo práctico: <strong>qué ver en Los Ríos</strong>, cómo moverte entre <strong>Valdivia</strong>, la costa, la <strong>selva valdiviana</strong> y el <strong>Lago Ranco</strong>, además de algunos sectores de termas que valen la pena. Son datos pensados para viajeros reales, no para fotos perfectas de catálogo. 🌧️</p>
-  
-        <h2>Antes de partir: tres cosas que tener claras</h2>
-        <ul>
-          <li><strong>Clima versión real:</strong> aquí la lluvia es frecuente, incluso en verano. Lleva capa impermeable liviana, una segunda polera seca y no te pelees con el pronóstico: abraza la lluvia, es parte del encanto.</li>
-          <li><strong>Auto o transporte:</strong> puedes moverte en buses entre ciudades, pero para lagos, termas y sectores rurales, el auto (propio o arrendado) te da mucha libertad.</li>
-          <li><strong>Tiempo mínimo:</strong> con <strong>3–4 días</strong> ya puedes probar un poco de todo. Con una semana, empiezas a entender por qué tanta gente se quiere quedar a vivir acá.</li>
-        </ul>
-  
-        <h2>Valdivia: ríos, mercados y cervezas</h2>
-        <figure>
-          <img
-            src="/images/blog/region-de-los-rios/valdivia-rio.webp"
-            loading="lazy" decoding="async"
-            alt="Río Calle-Calle en Valdivia con embarcaciones y borde costero">
-          <figcaption>Río Calle-Calle: clásico paseo para empezar a conocer Valdivia.</figcaption>
-        </figure>
-  
-        <p><strong>Por qué ir:</strong> Valdivia es la capital regional y la base perfecta para tus primeros días. Tiene río, borde costero, mercado, cerveza, universidades y esa mezcla de ciudad pequeña con mucha vida.</p>
-        <p><strong>Qué hacer en un día o dos:</strong></p>
-        <ul>
-          <li><strong>Mercado fluvial:</strong> ideal para ver lobos marinos, puestos de verduras y pescados frescos. Llegar temprano y recorrer con calma.</li>
-          <li><strong>Paseo en lancha por los ríos:</strong> hay varias rutas, algunas hacia islas con iglesias antiguas, otras hacia la costa.</li>
-          <li><strong>Cervecerías locales:</strong> la escena cervecera es fuerte. Perfecta excusa para cerrar el día bajo techo si llueve.</li>
-        </ul>
-  
-        <p><em>Tip Hogga:</em> si el día está gris, mejor aún. La ciudad y los ríos se ven muy bien con neblina suave.</p>
-  
-        <h2>Costa de Valdivia: Niebla, Corral y fuertes</h2>
-  
-        <p><strong>Por qué ir:</strong> porque a pocos kilómetros de la ciudad tienes mar, historia y miradores con vistas largas a la desembocadura de los ríos.</p>
-        <p><strong>Cómo llegar:</strong> desde Valdivia, toma la ruta hacia <strong>Niebla</strong> (unos 20–30 minutos). Puedes seguir hacia <strong>Corral</strong> en barcaza o por caminos secundarios.</p>
-  
-        <h3>Qué no perderte</h3>
-        <ul>
-          <li><strong>Fuerte de Niebla:</strong> restaurado, con pasarelas y paneles explicativos. Ideal para ir con niños.</li>
-          <li><strong>Playas cercanas:</strong> pequeñas calas y playas más abiertas, según el sector. Ojo con el oleaje.</li>
-          <li><strong>Corral:</strong> si cruzas en barcaza, puedes visitar otros fuertes y miradores.</li>
-        </ul>
-  
-        <p><em>Tip Hogga:</em> lleva algo abrigado incluso en verano. Entre viento y neblina, el cuerpo se enfría rápido.</p>
-  
-        <h2>Selva valdiviana: parques y bosques que te bajan una marcha</h2>
-        <figure>
-          <img
-            src="/images/blog/region-de-los-rios/selva-valdiviana.webp"
-            loading="lazy" decoding="async"
-            alt="Sendero en medio de selva valdiviana con abundante vegetación y neblina">
-          <figcaption>Selva valdiviana: senderos húmedos, verdes y silenciosos.</figcaption>
-        </figure>
-  
-        <p>Si quieres sentir la <strong>selva valdiviana</strong> de cerca, con musgo por todos lados y árboles cubiertos de epífitas, hay varios parques y reservas a distancias razonables desde Valdivia.</p>
-  
-        <h3>Ideas de lugares</h3>
-        <ul>
-          <li><strong>Parque Oncol:</strong> miradores con vista al mar y rutas bien marcadas. Dificultad baja a media.</li>
-          <li><strong>Reservas privadas y senderos locales:</strong> según tu base, puedes encontrar pequeñas reservas con senderos cortos ideales para medio día.</li>
-        </ul>
-  
-        <p><strong>Nivel:</strong> familiar a intermedio. Algunos miradores requieren subida, pero no son técnicos.</p>
-        <p><em>Tip Hogga:</em> calzado con buena suela y, si puedes, bastones de trekking livianos. El barro aquí es de verdad.</p>
-  
-        <h2>Lago Ranco y alrededores: caminos escénicos y pueblos tranquilos</h2>
-        <figure>
-          <img
-            src="/images/blog/region-de-los-rios/lago-ranco.webp"
-            loading="lazy" decoding="async"
-            alt="Orilla del Lago Ranco con montañas de fondo y cielo nublado">
-          <figcaption>Lago Ranco: curvas bonitas, miradores y pueblos tranquilos.</figcaption>
-        </figure>
-  
-        <p><strong>Por qué ir:</strong> el <strong>Lago Ranco</strong> es menos famoso que otros lagos del sur, pero igual de bonito. Tiene rutas costeras con vistas amplias, playas tranquilas y pueblos como Futrono y Lago Ranco que invitan a bajar un cambio.</p>
-  
-        <p><strong>Cómo llegar:</strong> puedes armar ruta desde Valdivia o desde la Ruta 5 Sur, conectando con la zona de <strong>Paillaco</strong> y luego hacia Futrono.</p>
-  
-        <h3>Qué hacer en la zona</h3>
-        <ul>
-          <li><strong>Ruta costera del lago:</strong> manejar bordeando el lago, parando en miradores y playas.</li>
-          <li><strong>Playas y picnic:</strong> en días más despejados, ideal para tirarse al pasto con algo simple de comer.</li>
-          <li><strong>Pequeñas caminatas:</strong> según el sector, hay senderos cortos hacia miradores o cascadas.</li>
-        </ul>
-  
-        <p><em>Tip Hogga:</em> carga combustible antes de salir y chequea horarios de locales si vas fuera de temporada alta. No todo está abierto todo el año.</p>
-  
-        <h2>Saltos del Huilo Huilo: bosque, pasarelas y agua turquesa</h2>
-        <figure>
-          <img
-            src="/images/blog/region-de-los-rios/saltos-huilo-huilo.webp"
-            loading="lazy" decoding="async"
-            alt="Salto Huilo Huilo con aguas turquesa rodeado de bosque nativo">
-          <figcaption>Salto Huilo Huilo: un clásico de la Región de Los Ríos entre bosque y niebla.</figcaption>
-        </figure>
-        
-        <p><strong>Por qué ir:</strong> porque aquí se junta todo lo que uno imagina del sur: bosque denso, pasarelas de madera, cascadas potentes y agua color turquesa. Es parte de la <strong>Reserva Biológica Huilo Huilo</strong>, en plena zona cordillerana de la Región de Los Ríos.</p>
-        
-        <p><strong>Cómo llegar:</strong> la base suele ser <strong>Neltume</strong> o <strong>Panguipulli</strong>. Desde Valdivia, la ruta más común es por <strong>Paillaco – Panguipulli – Neltume</strong> (unas 3–4 horas, según paradas y clima).</p>
-        
-        <h3>Qué hacer en Huilo Huilo</h3>
-        <ul>
-          <li><strong>Pasarelas al Salto Huilo Huilo:</strong> sendero breve y bien señalizado hasta los miradores principales.</li>
-          <li><strong>Otros saltos y miradores:</strong> según el tiempo, puedes sumar otros senderos cortos dentro de la reserva.</li>
-          <li><strong>Día combinado:</strong> mucha gente arma ruta <em>Lago Ranco → Panguipulli → Huilo Huilo</em> y vuelve por otra ruta para hacerla redonda.</li>
-        </ul>
-        
-        <p><em>Tip Hogga:</em> lleva capa impermeable ligera aunque el día parta despejado; en el bosque la humedad se siente más. Y cuida bien el celular/cámara, el spray de la cascada moja más de lo que parece.</p>
-        
+<main class="blog-post container">
+  <article>
+    <header class="post-header">
+      <span class="post-category">🧭 Turismo · Chile Sur</span>
+      <h1>Región de Los Ríos: entre selva valdiviana y termas escondidas</h1>
+      <p class="post-meta">Por <strong>Equipo Hogga Turismo</strong> · Actualizado el 02 de enero de 2026</p>
 
-        <h2>Termas escondidas y rutas combinadas</h2>
-        <figure>
-          <img
-            src="/images/blog/region-de-los-rios/termas-bosque.webp"
-            loading="lazy" decoding="async"
-            alt="Piscinas termales al aire libre en medio de bosque nativo">
-          <figcaption>Termas en medio del bosque: cierre perfecto después de un día de lluvia.</figcaption>
-        </figure>
-  
-        <p>Una de las gracias de esta zona es que puedes combinar caminata, lago y <strong>termas</strong> en un mismo viaje. Algunas quedan dentro de la Región de Los Ríos y otras muy cerca, ya entrando en la Araucanía, pero se arman rutas redondas.</p>
-  
-        <ul>
-          <li><strong>Sector cordillerano:</strong> zonas de termas entre bosques y ríos de montaña, con piscinas al aire libre y otras techadas.</li>
-          <li><strong>Rutas combinadas:</strong> mucha gente arma viaje <em>Valdivia → Lago Ranco → termas</em> de regreso hacia el sur o la Araucanía.</li>
-        </ul>
-  
-        <p><em>Tip Hogga:</em> en temporada alta, reserva antes. Y lleva sandalias simples para moverte entre piscinas sin ensuciar tanto los pies.</p>
-  
-        <h2>¿Cuándo ir a la Región de Los Ríos?</h2>
-        <ul>
-          <li><strong>Primavera (sept–nov):</strong> ríos caudalosos, verde intenso y menos gente.</li>
-          <li><strong>Verano (dic–feb):</strong> más estable, pero igual puede llover. Días largos para combinar lago, bosque y costa.</li>
-          <li><strong>Otoño (mar–may):</strong> colores increíbles en bosques y rutas; muy fotogénico.</li>
-          <li><strong>Invierno (jun–ago):</strong> lluvias frecuentes, ideal si amas la atmósfera de selva valdiviana y termas.</li>
-        </ul>
-  
-        <h2>Itinerarios rápidos para inspirarte</h2>
-        <ul>
-          <li><strong>3 días:</strong> base en Valdivia → ciudad + costa (Niebla/Corral) + un día de selva valdiviana.</li>
-          <li><strong>4–5 días:</strong> Valdivia + costa + Lago Ranco, con espacio para un día de lluvia full chill.</li>
-          <li><strong>1 semana:</strong> Valdivia + costa + selva valdiviana + Lago Ranco + termas en la ruta de regreso.</li>
-        </ul>
-  
-        <h2>Consejos Hogga para viajar tranquilo</h2>
-        <ul>
-          <li><strong>Ropa:</strong> capas, impermeable, gorro liviano, calcetines extra.</li>
-          <li><strong>Zapatos:</strong> ojalá con buena suela; el barro no perdona.</li>
-          <li><strong>Basura:</strong> todo lo que llevas, vuelve contigo. Algunos senderos no tienen basureros.</li>
-          <li><strong>Mapas:</strong> descarga mapas offline; la señal se corta en tramos rurales.</li>
-          <li><strong>Plan B:</strong> siempre ten un plan bajo techo (cervecería, café, museo) por si el cielo se abre… pero para abajo.</li>
-        </ul>
-  
-        <h2>¿Te ayudamos a armar tu ruta?</h2>
-        <p>Si quieres <strong>alojamientos, termas o tours verificados</strong> en la Región de Los Ríos, te podemos recomendar opciones reales según tu presupuesto, tu forma de viajar y el tiempo que tengas:<br>
-        👉 <a href="https://wa.me/56975457652?text=Hola%20Hogga%2C%20quiero%20opciones%20verificadas%20para%20viajar%20a%20la%20Regi%C3%B3n%20de%20Los%20R%C3%ADos" target="_blank" rel="noopener noreferrer">Escríbenos por WhatsApp</a>.</p>
-  
-        <blockquote>
-          <p><strong>Hogga Turismo:</strong> recomendaciones reales y datos verificados para viajar por Chile con calma, sin perder tiempo y sin volverse loco con demasiadas pestañas abiertas. Hecho con cariño desde el sur 🇨🇱</p>
-        </blockquote>
-      </article>
-    </main>
-  
-<!-- FOOTER  -->
+      <figure class="post-cover">
+        <img
+          src="/images/blog/los-rios.webp"
+          loading="eager" fetchpriority="high" decoding="async"
+          alt="Vista panorámica de Valdivia con sus ríos rodeados de vegetación en la Región de Los Ríos">
+        <figcaption>Valdivia, punto de partida ideal para explorar la Región de Los Ríos.</figcaption>
+      </figure>
+    </header>
+
+    <p class="post-lead">
+      La <strong>Región de Los Ríos</strong> es ese lugar donde el verde nunca termina, la lluvia es parte del paisaje
+      y el agua está en todas partes: ríos, lagos, cascadas y termas humeando en medio del bosque.
+      Si te gusta caminar sin apuro, manejar por rutas con curvas bonitas y terminar el día en una tinaja caliente,
+      este rincón del sur es para ti.
+    </p>
+
+    <div class="callout">
+      <b>Idea clave:</b> Los Ríos se disfruta mejor con <strong>plan A</strong> (bosque, costa, lago)
+      y <strong>plan B</strong> (café, museo, cervecería, termas).
+      Acá el clima manda… pero también hace la magia.
+    </div>
+
+    <!-- TOC -->
+    <nav class="toc" aria-label="Contenido del artículo">
+      <strong>En este artículo:</strong>
+      <ul>
+        <li><a href="#antes">Antes de partir</a></li>
+        <li><a href="#valdivia">Valdivia</a></li>
+        <li><a href="#costa">Costa de Valdivia (Niebla/Corral)</a></li>
+        <li><a href="#selva">Selva valdiviana</a></li>
+        <li><a href="#ranco">Lago Ranco</a></li>
+        <li><a href="#huilo">Saltos del Huilo Huilo</a></li>
+        <li><a href="#termas">Termas y rutas combinadas</a></li>
+        <li><a href="#cuando">Cuándo ir</a></li>
+        <li><a href="#itinerarios">Itinerarios</a></li>
+        <li><a href="#consejos">Consejos Hogga</a></li>
+        <li><a href="#cta">Opciones verificadas</a></li>
+      </ul>
+    </nav>
+
+    <h2 id="antes">Antes de partir: tres cosas que tener claras</h2>
+
+    <div class="mini-check" aria-label="Checklist antes de partir">
+      <div class="item">
+        <strong>🌧️ Clima versión real</strong>
+        <small>Lluvia frecuente incluso en verano. Impermeable liviano + una polera seca extra.</small>
+      </div>
+      <div class="item">
+        <strong>🚗 Auto vs transporte</strong>
+        <small>En ciudad puedes moverte sin auto, pero para lagos/termas/sectores rurales el auto te da libertad.</small>
+      </div>
+      <div class="item">
+        <strong>🗓️ Tiempo mínimo</strong>
+        <small>Con <b>3–4 días</b> ya pruebas un poco de todo. Con 1 semana, recién lo empiezas a entender.</small>
+      </div>
+    </div>
+
+    <div class="tip">
+      <strong>Tip Hogga:</strong> si vas a caminar por bosque húmedo, calzado con buena suela.
+      Acá el barro no es metáfora.
+    </div>
+
+    <h2 id="valdivia">Valdivia: ríos, mercados y cervezas</h2>
+    <figure>
+      <img
+        src="/images/blog/region-de-los-rios/valdivia-rio.webp"
+        loading="lazy" decoding="async"
+        alt="Río Calle-Calle en Valdivia con embarcaciones y borde costero">
+      <figcaption>Río Calle-Calle: clásico paseo para empezar a conocer Valdivia.</figcaption>
+    </figure>
+
+    <p><strong>Por qué ir:</strong> Valdivia es la capital regional y una base perfecta para tus primeros días. Tiene río, borde costero, mercado, cerveza, universidades y esa mezcla de ciudad pequeña con mucha vida.</p>
+
+    <h3>Qué hacer en 1–2 días</h3>
+    <ul>
+      <li><strong>Mercado fluvial:</strong> ideal para ver lobos marinos, recorrer puestos y comer algo rico. Llegar temprano ayuda.</li>
+      <li><strong>Paseo en lancha por los ríos:</strong> hay rutas hacia islas, hacia la costa o recorridos cortos panorámicos.</li>
+      <li><strong>Cervecerías locales:</strong> la escena es fuerte y, si llueve, mejor excusa imposible.</li>
+    </ul>
+
+    <p><em>Tip Hogga:</em> Valdivia con neblina suave se ve increíble. No lo veas como “mal clima”, es parte del encanto.</p>
+
+    <h2 id="costa">Costa de Valdivia: Niebla, Corral y fuertes</h2>
+    <p><strong>Por qué ir:</strong> en menos de una hora pasas de ciudad a mar, historia y miradores con vistas largas a la desembocadura de los ríos.</p>
+    <p><strong>Cómo llegar:</strong> desde Valdivia, toma ruta a <strong>Niebla</strong> (20–30 min). Puedes seguir a <strong>Corral</strong> en barcaza o por caminos secundarios.</p>
+
+    <div class="mini-check" aria-label="Imperdibles costa de Valdivia">
+      <div class="item">
+        <strong>🏰 Fuerte de Niebla</strong>
+        <small>Restaurado, caminable y buen panorama familiar.</small>
+      </div>
+      <div class="item">
+        <strong>🌊 Playas y calas</strong>
+        <small>Ojo con el viento y el oleaje. Abrigo siempre.</small>
+      </div>
+      <div class="item">
+        <strong>⛴️ Corral</strong>
+        <small>Barcaza + miradores + otros fuertes. Buen día redondo.</small>
+      </div>
+    </div>
+
+    <div class="warn">
+      En la costa el viento puede pegar fuerte incluso en verano.
+      Lleva una capa extra y no subestimes la “brisa”.
+    </div>
+
+    <h2 id="selva">Selva valdiviana: bosques que te bajan una marcha</h2>
+    <figure>
+      <img
+        src="/images/blog/region-de-los-rios/selva-valdiviana.webp"
+        loading="lazy" decoding="async"
+        alt="Sendero en medio de selva valdiviana con abundante vegetación y neblina">
+      <figcaption>Selva valdiviana: senderos húmedos, verdes y silenciosos.</figcaption>
+    </figure>
+
+    <p>Si quieres sentir la <strong>selva valdiviana</strong> de verdad, con musgo por todos lados y árboles cubiertos de vida, hay parques y reservas cerca de Valdivia que te regalan esa experiencia sin complicarte la logística.</p>
+
+    <h3>Ideas de lugares</h3>
+    <ul>
+      <li><strong>Parque Oncol:</strong> miradores con vista al mar y rutas bien marcadas (dificultad baja a media).</li>
+      <li><strong>Reservas privadas / senderos locales:</strong> según tu base, hay rutas cortas perfectas para medio día.</li>
+    </ul>
+
+    <p><em>Tip Hogga:</em> bastones livianos ayudan si está resbaloso. Y repelente en verano.</p>
+
+    <h2 id="ranco">Lago Ranco y alrededores: caminos escénicos y pueblos tranquilos</h2>
+    <figure>
+      <img
+        src="/images/blog/region-de-los-rios/lago-ranco.webp"
+        loading="lazy" decoding="async"
+        alt="Orilla del Lago Ranco con montañas de fondo y cielo nublado">
+      <figcaption>Lago Ranco: curvas bonitas, miradores y pueblos tranquilos.</figcaption>
+    </figure>
+
+    <p><strong>Por qué ir:</strong> el <strong>Lago Ranco</strong> es menos famoso que otros lagos del sur, pero igual de bonito. Tiene rutas costeras con vistas amplias, playas tranquilas y pueblos como Futrono y Lago Ranco para bajar un cambio.</p>
+
+    <p><strong>Cómo llegar:</strong> puedes armar ruta desde Valdivia o desde la Ruta 5, conectando por <strong>Paillaco</strong> hacia Futrono.</p>
+
+    <h3>Qué hacer</h3>
+    <ul>
+      <li><strong>Ruta costera del lago:</strong> manejar bordeando el lago, parando en miradores y playas.</li>
+      <li><strong>Picnic simple:</strong> en días despejados, el mejor panorama es el más sencillo.</li>
+      <li><strong>Caminatas cortas:</strong> hay senderos hacia miradores o cascadas según el sector.</li>
+    </ul>
+
+    <p><em>Tip Hogga:</em> fuera de temporada alta, revisa horarios: no todo abre todos los días.</p>
+
+    <h2 id="huilo">Saltos del Huilo Huilo: bosque, pasarelas y agua turquesa</h2>
+    <figure>
+      <img
+        src="/images/blog/region-de-los-rios/saltos-huilo-huilo.webp"
+        loading="lazy" decoding="async"
+        alt="Salto Huilo Huilo con aguas turquesa rodeado de bosque nativo">
+      <figcaption>Salto Huilo Huilo: clásico de Los Ríos entre bosque y niebla.</figcaption>
+    </figure>
+
+    <p><strong>Por qué ir:</strong> acá se junta lo que uno imagina del sur: bosque denso, pasarelas de madera, cascadas potentes y agua color turquesa. Es parte de la <strong>Reserva Biológica Huilo Huilo</strong>, en zona cordillerana.</p>
+
+    <p><strong>Cómo llegar:</strong> base típica: <strong>Neltume</strong> o <strong>Panguipulli</strong>. Desde Valdivia, una ruta común es <strong>Paillaco – Panguipulli – Neltume</strong> (3–4 horas, según paradas).</p>
+
+    <div class="mini-check" aria-label="Qué hacer en Huilo Huilo">
+      <div class="item">
+        <strong>🪵 Pasarelas al salto</strong>
+        <small>Sendero breve y bien señalizado, perfecto para medio día.</small>
+      </div>
+      <div class="item">
+        <strong>🌲 Otros saltos y miradores</strong>
+        <small>Si tienes tiempo, suma uno o dos senderos extra dentro de la reserva.</small>
+      </div>
+      <div class="item">
+        <strong>📸 Equipo protegido</strong>
+        <small>El spray de la cascada moja más de lo que parece.</small>
+      </div>
+    </div>
+
+    <p><em>Tip Hogga:</em> impermeable liviano aunque el día parta despejado. En bosque la humedad se siente más.</p>
+
+    <h2 id="termas">Termas escondidas y rutas combinadas</h2>
+    <figure>
+      <img
+        src="/images/blog/region-de-los-rios/termas-bosque.webp"
+        loading="lazy" decoding="async"
+        alt="Piscinas termales al aire libre en medio de bosque nativo">
+      <figcaption>Termas en medio del bosque: cierre perfecto después de un día húmedo.</figcaption>
+    </figure>
+
+    <p>Una de las gracias de esta zona es que puedes combinar caminata, lago y <strong>termas</strong> en un mismo viaje. Algunas están dentro de Los Ríos y otras muy cerca, ya entrando a la Araucanía, así que se arman rutas redondas.</p>
+
+    <ul>
+      <li><strong>Sector cordillerano:</strong> termas entre bosques y ríos, con piscinas al aire libre y otras techadas.</li>
+      <li><strong>Rutas combinadas:</strong> mucha gente arma <em>Valdivia → Lago Ranco → termas</em> como cierre.</li>
+    </ul>
+
+    <div class="tip">
+      <strong>Tip Hogga:</strong> en temporada alta, reserva antes.
+      Y lleva sandalias simples para moverte entre piscinas sin sufrir.
+    </div>
+
+    <h2 id="cuando">¿Cuándo ir a la Región de Los Ríos?</h2>
+    <ul>
+      <li><strong>Primavera (sept–nov):</strong> ríos caudalosos, verde intenso y menos gente.</li>
+      <li><strong>Verano (dic–feb):</strong> más estable, pero igual puede llover. Días largos para combinar lago, bosque y costa.</li>
+      <li><strong>Otoño (mar–may):</strong> colores increíbles y rutas muy fotogénicas.</li>
+      <li><strong>Invierno (jun–ago):</strong> lluvia + termas = combinación ganadora si te gusta esa atmósfera.</li>
+    </ul>
+
+    <h2 id="itinerarios">Itinerarios rápidos para inspirarte</h2>
+    <div class="mini-check" aria-label="Itinerarios Los Ríos">
+      <div class="item">
+        <strong>🗓️ 3 días</strong>
+        <small>Valdivia + costa (Niebla/Corral) + selva valdiviana.</small>
+      </div>
+      <div class="item">
+        <strong>🗓️ 4–5 días</strong>
+        <small>Valdivia + costa + Lago Ranco, con margen para un día “lluvia feliz”.</small>
+      </div>
+      <div class="item">
+        <strong>🗓️ 1 semana</strong>
+        <small>Valdivia + costa + selva + Lago Ranco + Huilo Huilo + termas.</small>
+      </div>
+    </div>
+
+    <h2 id="consejos">Consejos Hogga para viajar tranquilo</h2>
+    <ul>
+      <li><strong>Ropa:</strong> capas, impermeable, gorro liviano, calcetines extra.</li>
+      <li><strong>Zapatos:</strong> buena suela; en senderos húmedos se nota mucho.</li>
+      <li><strong>Basura:</strong> lo que llevas, vuelve contigo (muchos senderos no tienen basureros).</li>
+      <li><strong>Mapas:</strong> offline siempre; la señal se corta en tramos rurales.</li>
+      <li><strong>Plan B:</strong> café/cervecería/museo por si el cielo se abre… pero para abajo.</li>
+    </ul>
+
+    <!-- CTA -->
+    <section id="cta" class="cta-box" aria-label="CTA Hogga Turismo">
+      <h3>¿Te ayudamos a armar tu ruta en Los Ríos?</h3>
+      <p>
+        Si quieres <strong>alojamientos, termas o tours verificados</strong>, te recomendamos opciones reales
+        según tu presupuesto, tu forma de viajar y el tiempo que tengas.
+      </p>
+
+      <div class="cta-row" role="group" aria-label="Contactar Hogga Turismo">
+        <a class="btn primary"
+          href="https://wa.me/56975457652?text=Hola%20Hogga%2C%20quiero%20opciones%20verificadas%20para%20viajar%20a%20la%20Regi%C3%B3n%20de%20Los%20R%C3%ADos.%0A%0ABase%3A%20(Valdivia%20%2F%20Panguipulli%20%2F%20Ranco)%0AFechas%3A%20_____%0AD%C3%ADas%3A%20_____%0AInter%C3%A9s%3A%20(costa%2Fbosque%2Ftermas%2Fmix)%0APresupuesto%3A%20_____%0ACon%20auto%3A%20(s%C3%AD%2Fno)"
+          target="_blank" rel="noopener noreferrer">
+          Contactar por WhatsApp
+        </a>
+        <a class="btn outline" href="/turismo/">
+          Ver Hogga Turismo
+        </a>
+      </div>
+
+      <p style="margin:10px 0 0;color:#64748b;font-size:.95rem;">
+        Tip: si nos dices si viajas con niños / sin auto / con lluvia prevista, afinamos mejor la recomendación.
+      </p>
+    </section>
+
+    <!-- Related / internal links -->
+    <section class="related" aria-label="Enlaces internos recomendados">
+      <h2>Más guías para viajar (sin perder tiempo)</h2>
+      <p class="sub">Si estás armando ruta por el sur, estos links te sirven:</p>
+
+      <div class="chips" aria-label="Categorías del blog">
+        <a class="chip" href="/turismo/">🧭 Hogga Turismo</a>
+        <a class="chip" href="/blog/turismo/">🏔️ Más posts de Turismo</a>
+        <a class="chip" href="/blog/guias/">🧠 Guías</a>
+        <a class="chip" href="/blog/">📚 Volver al Blog</a>
+      </div>
+    </section>
+
+    <blockquote>
+      <p><strong>Hogga Turismo:</strong> recomendaciones reales y datos verificados para viajar por Chile con calma,
+        sin perder tiempo y sin volverse loco con demasiadas pestañas abiertas. Hecho con cariño desde el sur 🇨🇱</p>
+    </blockquote>
+  </article>
+</main>
+
+ 
+    <!-- FOOTER  -->
     <footer class="footer">
       <div class="container foot">
         <div class="foot-brand">
@@ -362,27 +433,26 @@
             Hecho desde el sur de Chile 🇨🇱
           </small>
           <div class="cta-column">
-                <a class="foot-cta"
-                    href="https://wa.me/56951809138?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20servicios"
-                    target="_blank" rel="noopener noreferrer">
-                    Pedir dato Hogga Servicios
-                </a>
+            <a class="foot-cta"
+              href="https://wa.me/56951809138?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20servicios"
+              target="_blank" rel="noopener noreferrer">
+              Pedir dato Hogga Servicios
+            </a>
 
-                <a class="foot-cta"
-                    href="https://wa.me/56975457652?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20turismo"
-                    target="_blank" rel="noopener noreferrer">
-                    Pedir dato Hogga Turismo
-                </a>
+            <a class="foot-cta"
+              href="https://wa.me/56975457652?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20turismo"
+              target="_blank" rel="noopener noreferrer">
+              Pedir dato Hogga Turismo
+            </a>
 
-                <!-- Nuevo botón para empresas / Hogga Negocios -->
-                <a class="foot-cta"
-                    href="https://wa.me/56951759158?text=Hola%20Hogga%2C%20quiero%20mejorar%20el%20posicionamiento%20de%20mi%20negocio"
-                    target="_blank" rel="noopener noreferrer">
-                    Hablar con Hogga Negocios
-                </a>
-                </div>
-
+            <a class="foot-cta"
+              href="https://wa.me/56951759158?text=Hola%20Hogga%2C%20quiero%20mejorar%20el%20posicionamiento%20de%20mi%20negocio"
+              target="_blank" rel="noopener noreferrer">
+              Hablar con Hogga Negocios
+            </a>
+          </div>
         </div>
+
         <nav class="foot-links" aria-label="Enlaces del sitio">
           <div>
             <span class="foot-title">Explora Hogga</span>
@@ -414,11 +484,13 @@
           </div>
         </nav>
       </div>
+
       <div class="container foot-bottom">
         <small>© <span id="y"></span> Hogga Group SpA. Todos los derechos reservados.</small>
       </div>
     </footer>
 
     <script defer src="/js/main.js"></script>
+    <script defer src="/js/consent-banner.js"></script>
   </body>
 </html>

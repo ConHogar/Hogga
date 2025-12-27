@@ -1739,3 +1739,125 @@ a:focus-visible {
 @media (min-width: 860px) { .result-grid { grid-template-columns: 1fr 1fr; } }
 .micro { text-align:center; font-size: 0.92rem; color: rgba(15, 23, 42, 0.75); margin-top: 10px; }
 .inline-muted { color:#6b7280; }
+
+/* =========================
+   BLOG POST (Reusable components)
+   Add once to styles.css
+========================= */
+
+.blog-post.container{max-width:980px}
+
+.post-header{margin:28px 0 10px}
+
+/* category pill */
+.post-category{
+  display:inline-flex;gap:8px;align-items:center;
+  font-weight:800;color:#0f2f2f;
+  background:#e8f6f3;border:1px solid #cfece6;
+  padding:6px 10px;border-radius:999px
+}
+
+/* meta line */
+.post-meta{color:#64748b;margin-top:10px}
+
+/* cover / featured figure */
+.post-cover{
+  margin:18px 0 6px;border-radius:16px;overflow:hidden;
+  border:1px solid rgba(2,6,23,.08);
+  box-shadow:0 12px 26px rgba(2,6,23,.06)
+}
+.post-cover img{display:block;width:100%;height:auto}
+.post-cover figcaption{
+  padding:10px 12px;background:#f8fafc;
+  color:#64748b;font-size:.95rem
+}
+
+/* lead paragraph */
+.post-lead{font-size:1.08rem;line-height:1.7;color:#334155}
+
+/* TOC card */
+.toc{
+  margin:18px 0 26px;background:#fff;
+  border:1px solid rgba(2,6,23,.08);
+  border-radius:16px;padding:14px 14px;
+  box-shadow:0 10px 22px rgba(2,6,23,.05)
+}
+.toc strong{display:block;margin-bottom:8px;color:#0f2f2f}
+.toc ul{margin:0;padding-left:18px}
+.toc a{text-decoration:none;color:var(--brand)}
+.toc a:hover{text-decoration:underline}
+
+/* dark callout */
+.callout{
+  margin:20px 0;background:#0f2f2f;color:#e2e8f0;
+  border-radius:16px;padding:14px 14px
+}
+.callout b{color:#fff}
+
+/* quick summary cards */
+.mini-check{display:grid;gap:10px;margin:18px 0}
+.mini-check .item{
+  background:#fff;border:1px solid rgba(2,6,23,.08);
+  border-radius:14px;padding:12px 12px;
+  box-shadow:0 10px 22px rgba(2,6,23,.04)
+}
+.mini-check .item small{display:block;color:#64748b;margin-top:4px}
+
+/* tip / warn boxes */
+.tip{
+  border-left:4px solid #136565;background:#f3fbfa;
+  padding:12px 12px;border-radius:12px;margin:14px 0;color:#334155
+}
+.warn{
+  border-left:4px solid #f59e0b;background:#fffbeb;
+  padding:12px 12px;border-radius:12px;margin:14px 0;color:#334155
+}
+
+/* CTA box */
+.cta-box{
+  margin:26px 0;border:1px solid rgba(2,6,23,.08);
+  border-radius:18px;padding:16px 16px;background:#fff;
+  box-shadow:0 12px 26px rgba(2,6,23,.05)
+}
+.cta-box h3{margin:0 0 6px}
+.cta-box p{margin:0 0 12px;color:#475569}
+.cta-box .cta-row{justify-content:flex-start}
+
+/* related section */
+.related{margin:26px 0}
+.related .chips{margin-top:10px}
+.blog-post article h2{margin-top:22px}
+
+/* NICE DEFAULTS FOR PHOTO-HEAVY POSTS */
+.blog-post article figure:not(.post-cover){
+  margin:18px 0 8px;
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid rgba(2,6,23,.08);
+  box-shadow:0 10px 22px rgba(2,6,23,.05);
+  background:#fff;
+}
+.blog-post article figure:not(.post-cover) figcaption{
+  padding:10px 12px;
+  background:#f8fafc;
+  color:#64748b;
+  font-size:.95rem;
+}
+.blog-post article figure:not(.post-cover) img{
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+.map-embed {
+  margin: 28px 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+.map-embed iframe {
+  width: 100%;
+  height: 360px;
+  border: 0;
+}
