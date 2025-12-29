@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="es-CL">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -9,77 +10,76 @@
   <link rel="preconnect" href="https://www.google-analytics.com" />
   <link rel="preconnect" href="https://wa.me" />
 
-  <!-- Consent Mode v2 (regional: CL granted; EEA/UK denied) -->
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-
-    /* 1) Default global: analytics granted (Chile y LatAm) */
-    gtag('consent','default',{
-      analytics_storage:'granted',
-      ad_storage:'denied',
-      ad_user_data:'denied',
-      ad_personalization:'denied',
-      wait_for_update: 500
-    });
-
-    /* 2) Override EEA/UK/CH/NO/IS/LI: todo denied por defecto */
-    gtag('consent','default',{
-      region:['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','CH','GB'],
-      analytics_storage:'denied',
-      ad_storage:'denied',
-      ad_user_data:'denied',
-      ad_personalization:'denied'
-    });
-
-    /* 3) Aplica preferencia guardada (si existe) ANTES de cargar GTM */
-    (function(){
-      try{
-        // reset rápido: ?consent=reset
-        if (new URLSearchParams(location.search).get('consent') === 'reset') {
-          localStorage.removeItem('hogga_consent_pref');
-        }
-        const pref = JSON.parse(localStorage.getItem('hogga_consent_pref'));
-        if (pref && pref.values) {
-          gtag('consent','update', pref.values);
-          window.__hoggaConsentChosen = true;
-        }
-      }catch(e){}
-    })();
-  </script>
+  <!-- Consent logic (centralizada) -->
+  <script src="/js/consent.js"></script>
 
   <!-- Google Tag Manager -->
   <script>
-  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-56V9ZN8P');
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-56V9ZN8P');
   </script>
   <!-- End Google Tag Manager -->
   <title>Bases legales — Sorteo Arriendo Juego Inflable por 1 día (ago–sep 2025) | Hogga</title>
-  <meta name="description" content="Bases legales del concurso de Instagram de Hogga: arriendo de castillo inflable por 1 día (hasta $80.000 CLP). Vigencia 27/08/2025 a 06/09/2025." />
+  <meta name="description"
+    content="Bases legales del concurso de Instagram de Hogga: arriendo de castillo inflable por 1 día (hasta $80.000 CLP). Vigencia 27/08/2025 a 06/09/2025." />
   <link rel="canonical" href="https://hogga.cl/bases-legales-concursos-instagram/2025-08-castillo-inflable.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://hogga.cl/bases-legales-concursos-instagram/2025-08-castillo-inflable.html" />
+  <meta property="og:site_name" content="Hogga" />
+  <meta property="og:locale" content="es_CL" />
+  <meta property="og:title" content="Bases legales — Sorteo “Arriendo Juego Inflable” | Hogga" />
+  <meta property="og:description"
+    content="Participa por el arriendo de un juego inflable por un día. Revisa las bases legales, fechas y condiciones del sorteo aquí." />
+  <meta property="og:image" content="https://hogga.cl/images/og-hogga.jpg" />
+  <meta property="og:image:alt" content="Hogga Regala - Sorteo Juego Inflable" />
   <meta name="theme-color" content="#136565" />
   <link rel="stylesheet" href="/css/styles.css" />
   <style>
-    .legal-wrapper{max-width:880px;margin:0 auto;padding:20px}
-    .legal-wrapper h1{margin-bottom:.25rem}
-    .legal-wrapper .sub{color:#6b7280}
-    .legal-wrapper h2{margin-top:2rem;font-size:1.25rem}
-    .legal-wrapper p,.legal-wrapper li{line-height:1.6}
+    .legal-wrapper {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 20px
+    }
+
+    .legal-wrapper h1 {
+      margin-bottom: .25rem
+    }
+
+    .legal-wrapper .sub {
+      color: #6b7280
+    }
+
+    .legal-wrapper h2 {
+      margin-top: 2rem;
+      font-size: 1.25rem
+    }
+
+    .legal-wrapper p,
+    .legal-wrapper li {
+      line-height: 1.6
+    }
   </style>
 </head>
+
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-56V9ZN8P"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-56V9ZN8P" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
   <!-- HEADER (idéntico al home; enlaces absolutos a secciones) -->
   <header class="main-header">
     <div class="container header-content">
       <a class="brand" href="/" aria-label="Hogga, inicio">
-        <img class="logo" src="/images/logo.png" alt="Hogga" width="120" height="36" />
+        <img class="logo" src="/images/logo.webp" alt="Hogga — red chilena de datos confiables y verificados"
+          width="120" height="36" />
       </a>
       <!-- Botón hamburger (solo móvil) -->
       <button class="nav-toggle" aria-label="Abrir menú" aria-controls="site-nav" aria-expanded="false">
@@ -89,140 +89,197 @@
           <span class="nav-toggle-line"></span>
         </span>
       </button>
-      <nav id="site-nav" class="site-nav" role="navigation">
-        <a href="/#como-funciona">¿Cómo funciona?</a>
-        <a href="/hogga-servicios/">Hogga Servicios</a>
-        <a href="/turismo/">Hogga Turismo</a>
+      <nav id="site-nav" class="site-nav" role="navigation" aria-label="Navegación principal">
+        <a href="/hogga-servicios/">Para hogar</a>
+        <a href="/turismo/">Para viajar</a>
+        <a href="/negocios/">Para negocios</a>
+        <a href="/decisiones/">Decisiones</a>
         <a href="/blog/">Blog</a>
         <a href="/contacto/">Contacto</a>
       </nav>
     </div>
   </header>
-  
+
   <main class="legal-wrapper" role="main">
     <h1>Bases legales — Sorteo “Arriendo Juego Inflable”</h1>
     <p class="sub">Vigencia: 27/08/2025 al 06/09/2025 • Instagram @hogga_chile</p>
-  
+
     <h2>1. Organizador</h2>
     <p>
       El sorteo es organizado por <strong>Hogga Group SpA</strong>, en adelante “Hogga”.
     </p>
-  
+
     <h2>2. Participantes</h2>
     <p>
-      Podrán participar personas naturales, <strong>mayores de 18 años</strong>, que cuenten con una cuenta activa en Instagram y cumplan la mecánica descrita en estas bases.
+      Podrán participar personas naturales, <strong>mayores de 18 años</strong>, que cuenten con una cuenta activa en
+      Instagram y cumplan la mecánica descrita en estas bases.
     </p>
-  
+
     <h2>3. Ámbito geográfico</h2>
     <p>
-      Podrán participar personas que residan en las ciudades donde Hogga actualmente tiene proveedores activos, específicamente en <strong>Temuco, Villarrica, Pucón, Valdivia, Osorno, Puerto Varas, Puerto Montt, Ancud</strong> y las comunas inmediatamente aledañas a estas localidades.
+      Podrán participar personas que residan en las ciudades donde Hogga actualmente tiene proveedores activos,
+      específicamente en <strong>Temuco, Villarrica, Pucón, Valdivia, Osorno, Puerto Varas, Puerto Montt, Ancud</strong>
+      y las comunas inmediatamente aledañas a estas localidades.
     </p>
     <p>
-      Sin perjuicio de lo anterior, Hogga podrá, a su sola discreción, honrar la participación de personas que residan dentro de las regiones de <strong>La Araucanía, Los Ríos y Los Lagos</strong>, siempre que sea posible coordinar la entrega del premio de manera razonable.
+      Sin perjuicio de lo anterior, Hogga podrá, a su sola discreción, honrar la participación de personas que residan
+      dentro de las regiones de <strong>La Araucanía, Los Ríos y Los Lagos</strong>, siempre que sea posible coordinar
+      la entrega del premio de manera razonable.
     </p>
-  
+
     <h2>4. Mecánica del sorteo</h2>
     <ul>
       <li>Seguir la cuenta oficial de Instagram <strong>@hogga_chile</strong>.</li>
       <li>Dar “like” a la publicación del sorteo.</li>
-      <li>Comentar indicando su <strong>ciudad</strong> y <strong>nominar a un amigo</strong> en el mismo comentario.</li>
+      <li>Comentar indicando su <strong>ciudad</strong> y <strong>nominar a un amigo</strong> en el mismo comentario.
+      </li>
     </ul>
-    <p>Solo se considerarán válidas las participaciones que cumplan todos los pasos anteriores durante el período de vigencia.</p>
-  
+    <p>Solo se considerarán válidas las participaciones que cumplan todos los pasos anteriores durante el período de
+      vigencia.</p>
+
     <h2>5. Vigencia</h2>
     <p>
-      El sorteo comienza el día <strong>27 de agosto de 2025</strong> y finaliza el día <strong>06 de septiembre de 2025 a las 23:59 horas</strong>. Participaciones posteriores no serán consideradas.
+      El sorteo comienza el día <strong>27 de agosto de 2025</strong> y finaliza el día <strong>06 de septiembre de 2025
+        a las 23:59 horas</strong>. Participaciones posteriores no serán consideradas.
     </p>
-  
+
     <h2>6. Premio (arriendo por un día)</h2>
     <p>
-      El premio consiste en el <strong>arriendo de un juego/castillo inflable por un (1) día</strong>, por un valor máximo de <strong>$80.000 CLP</strong>, <strong>incluyendo transporte dentro del radio urbano</strong> de la ciudad del ganador. <strong>Este premio corresponde a un servicio de arriendo, no a la entrega de un producto en propiedad.</strong>
+      El premio consiste en el <strong>arriendo de un juego/castillo inflable por un (1) día</strong>, por un valor
+      máximo de <strong>$80.000 CLP</strong>, <strong>incluyendo transporte dentro del radio urbano</strong> de la
+      ciudad del ganador. <strong>Este premio corresponde a un servicio de arriendo, no a la entrega de un producto en
+        propiedad.</strong>
     </p>
     <p>
-      El premio está <strong>sujeto a la disponibilidad de los proveedores</strong> en la fecha solicitada y a la coordinación operativa razonable. El <strong>canje debe realizarse antes del 31 de diciembre de 2025</strong>. En caso de no existir disponibilidad de castillo inflable en la ciudad del ganador, Hogga entregará un <strong>servicio alternativo de entretenimiento infantil</strong> (ejemplo: cama elástica o animación) de valor equivalente. El premio no es transferible ni canjeable por dinero. Transcurrido el plazo indicado, el ganador perderá automáticamente todo derecho sobre el premio sin compensación ni sustitución.
+      El premio está <strong>sujeto a la disponibilidad de los proveedores</strong> en la fecha solicitada y a la
+      coordinación operativa razonable. El <strong>canje debe realizarse antes del 31 de diciembre de 2025</strong>. En
+      caso de no existir disponibilidad de castillo inflable en la ciudad del ganador, Hogga entregará un
+      <strong>servicio alternativo de entretenimiento infantil</strong> (ejemplo: cama elástica o animación) de valor
+      equivalente. El premio no es transferible ni canjeable por dinero. Transcurrido el plazo indicado, el ganador
+      perderá automáticamente todo derecho sobre el premio sin compensación ni sustitución.
     </p>
     <p>
-      Cualquier gasto adicional no expresamente indicado como incluido (por ejemplo, traslado fuera del radio urbano, habilitación de espacios o requerimientos especiales) será de cargo exclusivo del ganador.
+      Cualquier gasto adicional no expresamente indicado como incluido (por ejemplo, traslado fuera del radio urbano,
+      habilitación de espacios o requerimientos especiales) será de cargo exclusivo del ganador.
     </p>
-    
-  
+
+
     <h2>7. Selección del ganador</h2>
     <p>
-      El ganador será elegido de forma aleatoria mediante la plataforma <strong>AppSorteos</strong> entre todas las participaciones válidas, el día <strong>07 de septiembre de 2025</strong>.
+      El ganador será elegido de forma aleatoria mediante la plataforma <strong>AppSorteos</strong> entre todas las
+      participaciones válidas, el día <strong>07 de septiembre de 2025</strong>.
     </p>
     <p>Se sorteará un (1) único ganador y un (1) único premio entre todas las participaciones válidas.</p>
 
-  
+
     <h2>8. Comunicación y entrega del premio</h2>
     <p>
-      El nombre del ganador se anunciará en las <strong>historias</strong> de Instagram de <strong>@hogga_chile</strong> y se le contactará por <strong>mensaje directo (DM)</strong>. El ganador deberá responder dentro de un plazo de <strong>5 días corridos</strong> con: nombre completo, ciudad, teléfono y correo electrónico. <strong>Si no se logra contacto dentro del plazo, Hogga podrá declarar desierto el sorteo o realizar un nuevo sorteo entre los demás participantes válidos.</strong>
+      El nombre del ganador se anunciará en las <strong>historias</strong> de Instagram de <strong>@hogga_chile</strong>
+      y se le contactará por <strong>mensaje directo (DM)</strong>. El ganador deberá responder dentro de un plazo de
+      <strong>5 días corridos</strong> con: nombre completo, ciudad, teléfono y correo electrónico. <strong>Si no se
+        logra contacto dentro del plazo, Hogga podrá declarar desierto el sorteo o realizar un nuevo sorteo entre los
+        demás participantes válidos.</strong>
     </p>
     <p>
-      El ganador debe proveer un domicilio válido y accesible dentro del radio urbano para la entrega e instalación. Hogga no se hace responsable por problemas derivados de accesos restringidos, falta de espacio o condiciones inseguras en el lugar de instalación.
+      El ganador debe proveer un domicilio válido y accesible dentro del radio urbano para la entrega e instalación.
+      Hogga no se hace responsable por problemas derivados de accesos restringidos, falta de espacio o condiciones
+      inseguras en el lugar de instalación.
     </p>
     <p>
-      Para hacer efectivo el premio, el ganador deberá acreditar su identidad presentando su cédula de identidad vigente al momento de coordinar la entrega. En caso de que el ganador rechace el premio o no pueda recibirlo en las condiciones establecidas, perderá automáticamente su derecho a éste sin compensación alguna.
+      Para hacer efectivo el premio, el ganador deberá acreditar su identidad presentando su cédula de identidad vigente
+      al momento de coordinar la entrega. En caso de que el ganador rechace el premio o no pueda recibirlo en las
+      condiciones establecidas, perderá automáticamente su derecho a éste sin compensación alguna.
     </p>
-  
+
     <h2>9. Participaciones fraudulentas o cuentas falsas</h2>
     <p>
-      Hogga se reserva el derecho de descalificar cualquier participación que considere fraudulenta, sospechosa o que provenga de cuentas falsas, recién creadas o con actividad no auténtica.
+      Hogga se reserva el derecho de descalificar cualquier participación que considere fraudulenta, sospechosa o que
+      provenga de cuentas falsas, recién creadas o con actividad no auténtica.
     </p>
-  
+
     <h2>10. Responsabilidad y descargos</h2>
     <ul>
-      <li>Hogga únicamente organiza el presente sorteo y no presta directamente el servicio de arriendo. La ejecución y uso del juego/castillo inflable corresponde al proveedor y al ganador.</li>
-      <li>El uso del juego/castillo inflable es de exclusiva responsabilidad del ganador y/o de los adultos responsables a cargo. Hogga no será responsable, en ningún caso, por accidentes, lesiones, daños a personas o bienes, ni por cualquier otro perjuicio derivado del uso del premio.</li>
-      <li>Hogga no será responsable por retrasos, daños o fallas en la entrega atribuibles al proveedor de transporte o a terceros.</li>
-      <li>Hogga nunca solicitará contraseñas, datos bancarios ni transferencias de dinero para participar en este sorteo. El único medio oficial de contacto es la cuenta de Instagram <strong>@hogga_chile</strong>.</li>
+      <li>Hogga únicamente organiza el presente sorteo y no presta directamente el servicio de arriendo. La ejecución y
+        uso del juego/castillo inflable corresponde al proveedor y al ganador.</li>
+      <li>El uso del juego/castillo inflable es de exclusiva responsabilidad del ganador y/o de los adultos responsables
+        a cargo. Hogga no será responsable, en ningún caso, por accidentes, lesiones, daños a personas o bienes, ni por
+        cualquier otro perjuicio derivado del uso del premio.</li>
+      <li>Hogga no será responsable por retrasos, daños o fallas en la entrega atribuibles al proveedor de transporte o
+        a terceros.</li>
+      <li>Hogga nunca solicitará contraseñas, datos bancarios ni transferencias de dinero para participar en este
+        sorteo. El único medio oficial de contacto es la cuenta de Instagram <strong>@hogga_chile</strong>.</li>
       <li>Este sorteo no está patrocinado, avalado ni administrado por Instagram.</li>
-      <li>En caso de condiciones climáticas adversas, imposibilidad del proveedor o cualquier otra causa de fuerza mayor que impida la instalación o uso del premio, Hogga podrá sustituirlo por un servicio similar o declarar el premio desierto, sin que ello genere derecho a indemnización.</li>
-    </ul>    
-  
+      <li>En caso de condiciones climáticas adversas, imposibilidad del proveedor o cualquier otra causa de fuerza mayor
+        que impida la instalación o uso del premio, Hogga podrá sustituirlo por un servicio similar o declarar el premio
+        desierto, sin que ello genere derecho a indemnización.</li>
+    </ul>
+
     <h2>11. Tratamiento de datos personales</h2>
     <p>
-      Los datos personales entregados por el ganador serán utilizados únicamente para gestionar la entrega del premio. Hogga mantendrá confidencialidad y no cederá dichos datos a terceros.
+      Los datos personales entregados por el ganador serán utilizados únicamente para gestionar la entrega del premio.
+      Hogga mantendrá confidencialidad y no cederá dichos datos a terceros.
     </p>
-  
+
     <h2>12. Modificaciones y anulación</h2>
     <p>
-      Hogga podrá modificar fechas o condiciones por causas justificadas, lo que será informado por los mismos medios de difusión del sorteo. Asimismo, podrá declarar desierto el sorteo si no se logra contactar al ganador en el plazo indicado.
+      Hogga podrá modificar fechas o condiciones por causas justificadas, lo que será informado por los mismos medios de
+      difusión del sorteo. Asimismo, podrá declarar desierto el sorteo si no se logra contactar al ganador en el plazo
+      indicado.
     </p>
-  
+
     <h2>13. Aceptación de bases</h2>
     <p>
       La participación en este sorteo implica la aceptación total de estas bases legales.
     </p>
-  
+
     <h2>14. Jurisdicción</h2>
     <p>
-      Para todos los efectos legales, estas bases se rigen por las leyes de la República de Chile y será competente la jurisdicción de los Tribunales de la ciudad de Pucón.
+      Para todos los efectos legales, estas bases se rigen por las leyes de la República de Chile y será competente la
+      jurisdicción de los Tribunales de la ciudad de Pucón.
     </p>
   </main>
-  
 
-  <!-- FOOTER (idéntico al que enviaste) -->
+
+  <!-- FOOTER  -->
   <footer class="footer">
     <div class="container foot">
       <div class="foot-brand">
         <strong>Hogga</strong>
         <small>
-          <strong>Hogga — la red chilena de datos confiables y verificados</strong>  
-          para descubrir, conectar y crecer.  
-          Hecho con cariño desde el sur de Chile 🇨🇱
+          Hogga conecta personas con datos locales confiables y proveedores verificados en Chile.
+          Hecho desde el sur de Chile 🇨🇱
         </small>
         <div class="cta-column">
-          <a class="foot-cta" href="https://wa.me/56951809138?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20servicios" target="_blank" rel="noopener noreferrer">Pedir dato Hogga Servicios</a>
-          <a class="foot-cta" href="https://wa.me/56975457652?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20turismo" target="_blank" rel="noopener noreferrer">Pedir dato Hogga Turismo</a>
+          <a class="foot-cta"
+            href="https://wa.me/56951809138?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20servicios"
+            target="_blank" rel="noopener noreferrer">
+            Pedir dato Hogga Servicios
+          </a>
+
+          <a class="foot-cta"
+            href="https://wa.me/56975457652?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20turismo" target="_blank"
+            rel="noopener noreferrer">
+            Pedir dato Hogga Turismo
+          </a>
+
+          <!-- Nuevo botón para empresas / Hogga Negocios -->
+          <a class="foot-cta"
+            href="https://wa.me/56951759158?text=Hola%20Hogga%2C%20quiero%20mejorar%20el%20posicionamiento%20de%20mi%20negocio"
+            target="_blank" rel="noopener noreferrer">
+            Hablar con Hogga Negocios
+          </a>
         </div>
+
       </div>
       <nav class="foot-links" aria-label="Enlaces del sitio">
         <div>
           <span class="foot-title">Explora Hogga</span>
           <ul>
-            <li><a href="/#como-funciona">¿Cómo funciona?</a></li>
-            <li><a href="/hogga-servicios/">Hogga Servicios</a></li>
-            <li><a href="/turismo/">Hogga Turismo</a></li>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/hogga-servicios/">Para Hogar</a></li>
+            <li><a href="/turismo/">Para Viajar</a></li>
+            <li><a href="/negocios/">Para negocios</a></li>
+            <li><a href="/decisiones/">Decisiones</a></li>
             <li><a href="/blog/">Blog</a></li>
             <li><a href="/contacto/">Contacto</a></li>
           </ul>
@@ -238,9 +295,12 @@
         <div>
           <span class="foot-title">Síguenos</span>
           <ul>
-            <li><a href="https://www.instagram.com/hogga_chile/" target="_blank" rel="noopener noreferrer">Hogga Servicios</a></li>
-            <li><a href="https://www.instagram.com/hogga_turismo/" target="_blank" rel="noopener noreferrer">Hogga Turismo</a></li>
-            <li><a href="https://www.instagram.com/hogga_regala/" target="_blank" rel="noopener noreferrer">Hogga Regala</a></li>
+            <li><a href="https://www.instagram.com/hogga_chile/" target="_blank" rel="noopener noreferrer">Hogga
+                Servicios</a></li>
+            <li><a href="https://www.instagram.com/hogga_turismo/" target="_blank" rel="noopener noreferrer">Hogga
+                Turismo</a></li>
+            <li><a href="https://www.instagram.com/hogga_regala/" target="_blank" rel="noopener noreferrer">Hogga
+                Regala</a></li>
           </ul>
         </div>
       </nav>
@@ -250,7 +310,9 @@
     </div>
   </footer>
 
-  <!-- JS global -->
+
   <script defer src="/js/main.js"></script>
+  <script defer src="/js/consent-banner.js"></script>
 </body>
+
 </html>

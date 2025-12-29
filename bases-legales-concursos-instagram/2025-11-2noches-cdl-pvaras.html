@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="es-CL">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -9,77 +10,77 @@
   <link rel="preconnect" href="https://www.google-analytics.com" />
   <link rel="preconnect" href="https://wa.me" />
 
-  <!-- Consent Mode v2 (regional: CL granted; EEA/UK denied) -->
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-
-    /* 1) Default global: analytics granted (Chile y LatAm) */
-    gtag('consent','default',{
-      analytics_storage:'granted',
-      ad_storage:'denied',
-      ad_user_data:'denied',
-      ad_personalization:'denied',
-      wait_for_update: 500
-    });
-
-    /* 2) Override EEA/UK/CH/NO/IS/LI: todo denied por defecto */
-    gtag('consent','default',{
-      region:['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','CH','GB'],
-      analytics_storage:'denied',
-      ad_storage:'denied',
-      ad_user_data:'denied',
-      ad_personalization:'denied'
-    });
-
-    /* 3) Aplica preferencia guardada (si existe) ANTES de cargar GTM */
-    (function(){
-      try{
-        // reset rápido: ?consent=reset
-        if (new URLSearchParams(location.search).get('consent') === 'reset') {
-          localStorage.removeItem('hogga_consent_pref');
-        }
-        const pref = JSON.parse(localStorage.getItem('hogga_consent_pref'));
-        if (pref && pref.values) {
-          gtag('consent','update', pref.values);
-          window.__hoggaConsentChosen = true;
-        }
-      }catch(e){}
-    })();
-  </script>
+  <!-- Consent logic (centralizada) -->
+  <script src="/js/consent.js"></script>
 
   <!-- Google Tag Manager -->
   <script>
-  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-56V9ZN8P');
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-56V9ZN8P');
   </script>
   <!-- End Google Tag Manager -->
   <title>Bases legales — Sorteo “2 noches Hotel Cabaña del Lago (Puerto Varas)” (nov 2025) | Hogga Regala</title>
-  <meta name="description" content="Bases legales del sorteo de Instagram de Hogga Regala: estadía de 2 noches para 1 o 2 personas en habitación estándar (single o doble) con desayuno incluido en Hotel Cabaña del Lago, Puerto Varas. Vigencia sorteo: 07/11/2025 00:00 a 21/11/2025 17:00. Uso del premio: entre el 01/04/2026 y el 31/12/2026, sujeto a disponibilidad del hotel." />
-  <link rel="canonical" href="https://hogga.cl/bases-legales-concursos-instagram/2025-11-hotel-cabanas-del-lago.html" />  
+  <meta name="description"
+    content="Bases legales del sorteo de Instagram de Hogga Regala: estadía de 2 noches para 1 o 2 personas en habitación estándar (single o doble) con desayuno incluido en Hotel Cabaña del Lago, Puerto Varas. Vigencia sorteo: 07/11/2025 00:00 a 21/11/2025 17:00. Uso del premio: entre el 01/04/2026 y el 31/12/2026, sujeto a disponibilidad del hotel." />
+  <link rel="canonical" href="https://hogga.cl/bases-legales-concursos-instagram/2025-11-hotel-cabanas-del-lago.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url"
+    content="https://hogga.cl/bases-legales-concursos-instagram/2025-11-hotel-cabanas-del-lago.html" />
+  <meta property="og:site_name" content="Hogga" />
+  <meta property="og:locale" content="es_CL" />
+  <meta property="og:title" content="Bases legales — Sorteo “2 noches Hotel Cabaña del Lago” | Hogga Regala" />
+  <meta property="og:description"
+    content="Participa por una estadía de 2 noches en Puerto Varas. Revisa las bases legales, fechas y condiciones del sorteo aquí." />
+  <meta property="og:image" content="https://hogga.cl/images/og-hogga.jpg" />
+  <meta property="og:image:alt" content="Hogga Regala - Sorteo Hotel Cabaña del Lago" />
   <meta name="theme-color" content="#136565" />
   <link rel="stylesheet" href="/css/styles.css" />
   <style>
-    .legal-wrapper{max-width:880px;margin:0 auto;padding:20px}
-    .legal-wrapper h1{margin-bottom:.25rem}
-    .legal-wrapper .sub{color:#6b7280}
-    .legal-wrapper h2{margin-top:2rem;font-size:1.25rem}
-    .legal-wrapper p,.legal-wrapper li{line-height:1.6}
+    .legal-wrapper {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 20px
+    }
+
+    .legal-wrapper h1 {
+      margin-bottom: .25rem
+    }
+
+    .legal-wrapper .sub {
+      color: #6b7280
+    }
+
+    .legal-wrapper h2 {
+      margin-top: 2rem;
+      font-size: 1.25rem
+    }
+
+    .legal-wrapper p,
+    .legal-wrapper li {
+      line-height: 1.6
+    }
   </style>
 </head>
+
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-56V9ZN8P"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-56V9ZN8P" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
   <!-- HEADER -->
   <header class="main-header">
     <div class="container header-content">
       <a class="brand" href="/" aria-label="Hogga, inicio">
-        <img class="logo" src="/images/logo.png" alt="Hogga" width="120" height="36" />
+        <img class="logo" src="/images/logo.webp" alt="Hogga — red chilena de datos confiables y verificados"
+          width="120" height="36" />
       </a>
       <!-- Botón hamburger (solo móvil) -->
       <button class="nav-toggle" aria-label="Abrir menú" aria-controls="site-nav" aria-expanded="false">
@@ -89,10 +90,11 @@
           <span class="nav-toggle-line"></span>
         </span>
       </button>
-      <nav id="site-nav" class="site-nav" role="navigation">
-        <a href="/#como-funciona">¿Cómo funciona?</a>
-        <a href="/hogga-servicios/">Hogga Servicios</a>
-        <a href="/turismo/">Hogga Turismo</a>
+      <nav id="site-nav" class="site-nav" role="navigation" aria-label="Navegación principal">
+        <a href="/hogga-servicios/">Para hogar</a>
+        <a href="/turismo/">Para viajar</a>
+        <a href="/negocios/">Para negocios</a>
+        <a href="/decisiones/">Decisiones</a>
         <a href="/blog/">Blog</a>
         <a href="/contacto/">Contacto</a>
       </nav>
@@ -102,184 +104,248 @@
   <main class="legal-wrapper" role="main">
     <h1>Bases legales — Sorteo “2 noches Hotel Cabaña del Lago (Puerto Varas)”</h1>
     <p class="sub">Instagram @hogga_regala • Sorteo: <strong>24/11/2025, 18:00</strong> (hora de Chile continental)</p>
-  
+
     <h2>1. Organizador</h2>
     <p>
       El sorteo es organizado por <strong>Hogga Group SpA</strong> (“Hogga”).
     </p>
-  
+
     <h2>2. Participantes</h2>
     <p>
-      Podrán participar personas naturales, <strong>mayores de 18 años</strong>, con cuenta activa en Instagram, que cumplan la mecánica y requisitos de estas bases.
+      Podrán participar personas naturales, <strong>mayores de 18 años</strong>, con cuenta activa en Instagram, que
+      cumplan la mecánica y requisitos de estas bases.
     </p>
-  
+
     <h2>3. Ámbito geográfico</h2>
     <p>
       La participación está abierta a personas con <strong>domicilio en Chile</strong>.
     </p>
-  
+
     <h2>4. Mecánica del sorteo</h2>
     <ul>
-      <li>Seguir las cuentas oficiales <strong>@hogga_regala</strong>, <strong>@hogga_turismo</strong> y <strong>@hotel_cdl</strong> en Instagram.</li>
+      <li>Seguir las cuentas oficiales <strong>@hogga_regala</strong>, <strong>@hogga_turismo</strong> y
+        <strong>@hotel_cdl</strong> en Instagram.
+      </li>
       <li>Dar “like” a la publicación del sorteo.</li>
       <li>Comentar en la publicación del sorteo <strong>etiquetando a un amigo/a</strong> en el mismo comentario.</li>
     </ul>
     <p>
-      <strong>Notas:</strong> 
-      Se permite más de un comentario siempre que se etiquete a <em>amigos distintos</em> cada vez (sin repetir la misma cuenta) y sin mencionar cuentas de famosos, marcas o cuentas inactivas. Hogga podrá eliminar participaciones que no cumplan estas reglas o que sean consideradas spam. 
-      La cuenta participante deberá mantener el seguimiento a las cuentas indicadas al momento del sorteo y de la verificación del ganador.
+      <strong>Notas:</strong>
+      Se permite más de un comentario siempre que se etiquete a <em>amigos distintos</em> cada vez (sin repetir la misma
+      cuenta) y sin mencionar cuentas de famosos, marcas o cuentas inactivas. Hogga podrá eliminar participaciones que
+      no cumplan estas reglas o que sean consideradas spam.
+      La cuenta participante deberá mantener el seguimiento a las cuentas indicadas al momento del sorteo y de la
+      verificación del ganador.
     </p>
-  
+
     <h2>5. Vigencia</h2>
     <p>
-      Este sorteo estará vigente desde el <strong>07/11/2025 (20:00)</strong> y <strong>hasta el 24/11/2025 a las 18:00</strong> (hora de Chile continental). 
+      Este sorteo estará vigente desde el <strong>07/11/2025 (20:00)</strong> y <strong>hasta el 24/11/2025 a las
+        18:00</strong> (hora de Chile continental).
       Participaciones posteriores a esa fecha y hora no serán consideradas.
     </p>
-  
+
     <h2>6. Premio</h2>
     <p>
-      El premio consiste en <strong>una (1) estadía de dos (2) noches</strong> para <strong>una o dos personas adultas</strong> en <strong>habitación estándar (single o doble)</strong> con <strong>desayuno incluido</strong> 
+      El premio consiste en <strong>una (1) estadía de dos (2) noches</strong> para <strong>una o dos personas
+        adultas</strong> en <strong>habitación estándar (single o doble)</strong> con <strong>desayuno incluido</strong>
       en <strong>Hotel Cabaña del Lago</strong>, ubicado en Puerto Varas, Región de Los Lagos, Chile.
     </p>
     <p>
-        Sitio oficial del hotel: 
-        <a href="https://hotelcabanadellago.cl/" target="_blank" rel="noopener noreferrer">
-          hotelcabanadellago.cl
-        </a>
-      </p>
-    <p>
-      El premio podrá ser utilizado <strong>únicamente entre el 01/04/2026 y el 30/09/2026</strong>, ambas fechas incluidas, 
-      <strong>sujeto a la disponibilidad del hotel</strong>. Pueden existir fechas bloqueadas o no disponibles (por ejemplo, feriados, fines de semana largos u otros períodos de alta demanda), lo que será informado al momento de coordinar la reserva.
+      Sitio oficial del hotel:
+      <a href="https://hotelcabanadellago.cl/" target="_blank" rel="noopener noreferrer">
+        hotelcabanadellago.cl
+      </a>
     </p>
     <p>
-      El premio <strong>no incluye</strong> traslados, pasajes, seguros, comidas adicionales, bebidas, propinas, estacionamientos pagados, actividades, upgrade de habitación ni ningún otro gasto distinto de los expresamente señalados en estas bases.
+      El premio podrá ser utilizado <strong>únicamente entre el 01/04/2026 y el 30/09/2026</strong>, ambas fechas
+      incluidas,
+      <strong>sujeto a la disponibilidad del hotel</strong>. Pueden existir fechas bloqueadas o no disponibles (por
+      ejemplo, feriados, fines de semana largos u otros períodos de alta demanda), lo que será informado al momento de
+      coordinar la reserva.
     </p>
     <p>
-      El premio es <strong>personal e intransferible</strong>. No podrá cederse, venderse, canjearse por dinero ni reemplazarse por otros productos o servicios. 
-      Una vez confirmada la reserva a nombre del ganador, <strong>no se admitirán cambios de titular ni modificaciones de fechas</strong>, salvo que el hotel, 
-      a su exclusiva discreción, lo permita de acuerdo con sus propias políticas internas. 
-      Cualquier cambio autorizado por el hotel será gestionado directamente bajo responsabilidad del hotel y <strong>no constituirá obligación ni responsabilidad de Hogga Group SpA</strong>.
+      El premio <strong>no incluye</strong> traslados, pasajes, seguros, comidas adicionales, bebidas, propinas,
+      estacionamientos pagados, actividades, upgrade de habitación ni ningún otro gasto distinto de los expresamente
+      señalados en estas bases.
     </p>
     <p>
-      El uso del premio estará sujeto a los <strong>términos y condiciones vigentes del Hotel Cabaña del Lago</strong>, 
-      disponibles en 
+      El premio es <strong>personal e intransferible</strong>. No podrá cederse, venderse, canjearse por dinero ni
+      reemplazarse por otros productos o servicios.
+      Una vez confirmada la reserva a nombre del ganador, <strong>no se admitirán cambios de titular ni modificaciones
+        de fechas</strong>, salvo que el hotel,
+      a su exclusiva discreción, lo permita de acuerdo con sus propias políticas internas.
+      Cualquier cambio autorizado por el hotel será gestionado directamente bajo responsabilidad del hotel y <strong>no
+        constituirá obligación ni responsabilidad de Hogga Group SpA</strong>.
+    </p>
+    <p>
+      El uso del premio estará sujeto a los <strong>términos y condiciones vigentes del Hotel Cabaña del Lago</strong>,
+      disponibles en
       <a href="https://hotelcabanadellago.cl/terminos-y-condiciones/" target="_blank" rel="noopener noreferrer">
         https://hotelcabanadellago.cl/terminos-y-condiciones/
       </a>.
     </p>
     <p>
-      La confirmación de la reserva, así como eventuales solicitudes de cambio, reprogramación o cancelación, 
-      estarán <strong>sujetas exclusivamente a la disponibilidad, criterios y políticas internas del hotel</strong>, a su entera discreción. 
-      Hogga Group SpA <strong>no es responsable</strong> por la gestión operativa del alojamiento, la disponibilidad de fechas, 
+      La confirmación de la reserva, así como eventuales solicitudes de cambio, reprogramación o cancelación,
+      estarán <strong>sujetas exclusivamente a la disponibilidad, criterios y políticas internas del hotel</strong>, a
+      su entera discreción.
+      Hogga Group SpA <strong>no es responsable</strong> por la gestión operativa del alojamiento, la disponibilidad de
+      fechas,
       ni por eventuales modificaciones, restricciones de uso o cierres temporales del establecimiento.
     </p>
     <p>
-      En caso de que el hotel no pueda ofrecer disponibilidad en las fechas solicitadas o modifique sus condiciones de funcionamiento, 
-      Hogga podrá proponer fechas alternativas dentro del periodo de vigencia del premio o declarar el premio como no utilizable, 
+      En caso de que el hotel no pueda ofrecer disponibilidad en las fechas solicitadas o modifique sus condiciones de
+      funcionamiento,
+      Hogga podrá proponer fechas alternativas dentro del periodo de vigencia del premio o declarar el premio como no
+      utilizable,
       sin que ello genere derecho a indemnización ni compensación alguna para el ganador.
     </p>
-  
+
     <h2>7. Selección del ganador</h2>
     <p>
-      El ganador del sorteo será elegido de forma aleatoria entre todas las participaciones válidas, utilizando una plataforma o herramienta de selección aleatoria de terceros 
+      El ganador del sorteo será elegido de forma aleatoria entre todas las participaciones válidas, utilizando una
+      plataforma o herramienta de selección aleatoria de terceros
       (por ejemplo: AppSorteos, Simpliers, Sortea2 u otra de características equivalentes).
     </p>
     <p>
-      Se seleccionará un (1) ganador titular y hasta dos (2) suplentes para el caso de no respuesta o descalificación del titular.
+      Se seleccionará un (1) ganador titular y hasta dos (2) suplentes para el caso de no respuesta o descalificación
+      del titular.
     </p>
     <p>
-      Antes de publicar el resultado, Hogga podrá verificar que la cuenta ganadora cumpla con los requisitos establecidos en estas bases (cuenta real, activa, que siga a las cuentas indicadas y con residencia en Chile continental). 
+      Antes de publicar el resultado, Hogga podrá verificar que la cuenta ganadora cumpla con los requisitos
+      establecidos en estas bases (cuenta real, activa, que siga a las cuentas indicadas y con residencia en Chile
+      continental).
       De no cumplirlos, se procederá a seleccionar un suplente.
     </p>
-  
+
     <h2>8. Comunicación y entrega del premio</h2>
     <p>
-      El nombre de la cuenta ganadora se publicará en las <strong>historias</strong> de @hogga_regala y/o @hogga_turismo y se contactará por <strong>mensaje directo (DM)</strong>. 
-      El ganador deberá responder dentro de <strong>5 días corridos</strong> indicando: nombre completo, RUT, ciudad de residencia, teléfono y correo electrónico.
+      El nombre de la cuenta ganadora se publicará en las <strong>historias</strong> de @hogga_regala y/o @hogga_turismo
+      y se contactará por <strong>mensaje directo (DM)</strong>.
+      El ganador deberá responder dentro de <strong>5 días corridos</strong> indicando: nombre completo, RUT, ciudad de
+      residencia, teléfono y correo electrónico.
     </p>
     <p>
-      La reserva será gestionada <strong>exclusivamente por Hogga Group SpA</strong> en coordinación con el Hotel Cabaña del Lago. 
-      El ganador deberá proponer al menos <strong>dos posibles rangos de fechas</strong> dentro del periodo de uso del premio, y la confirmación quedará sujeta a la disponibilidad informada por el hotel.
+      La reserva será gestionada <strong>exclusivamente por Hogga Group SpA</strong> en coordinación con el Hotel Cabaña
+      del Lago.
+      El ganador deberá proponer al menos <strong>dos posibles rangos de fechas</strong> dentro del periodo de uso del
+      premio, y la confirmación quedará sujeta a la disponibilidad informada por el hotel.
     </p>
     <p>
-      El ganador deberá presentarse al check-in con su <strong>cédula de identidad o pasaporte vigente</strong>, cuyo nombre debe coincidir con el de la reserva. 
-      Si el ganador no se presenta, llega fuera del horario de check-in, no cumple con los requisitos del hotel o no utiliza el premio en el periodo establecido, 
+      El ganador deberá presentarse al check-in con su <strong>cédula de identidad o pasaporte vigente</strong>, cuyo
+      nombre debe coincidir con el de la reserva.
+      Si el ganador no se presenta, llega fuera del horario de check-in, no cumple con los requisitos del hotel o no
+      utiliza el premio en el periodo establecido,
       perderá el derecho a la estadía sin derecho a compensación.
     </p>
     <p>
-      Si el ganador no responde en el plazo indicado, no entrega la información solicitada o no cumple las condiciones de estas bases, Hogga podrá asignar el premio a un suplente o declarar desierto el sorteo, sin derecho a compensación.
+      Si el ganador no responde en el plazo indicado, no entrega la información solicitada o no cumple las condiciones
+      de estas bases, Hogga podrá asignar el premio a un suplente o declarar desierto el sorteo, sin derecho a
+      compensación.
     </p>
-  
+
     <h2>9. Participaciones fraudulentas o cuentas falsas</h2>
     <p>
-      Hogga se reserva el derecho de descalificar cualquier participación que considere fraudulenta o sospechosa, incluyendo pero no limitada a: 
-      cuentas recién creadas, sin actividad real, sin foto de perfil, con comportamiento automatizado (bots), participación masiva en sorteos, compra de seguidores o cualquier intento de manipular los resultados.
+      Hogga se reserva el derecho de descalificar cualquier participación que considere fraudulenta o sospechosa,
+      incluyendo pero no limitada a:
+      cuentas recién creadas, sin actividad real, sin foto de perfil, con comportamiento automatizado (bots),
+      participación masiva en sorteos, compra de seguidores o cualquier intento de manipular los resultados.
     </p>
     <p>
-      Asimismo, podrán ser excluidas las participaciones de cuentas extranjeras o con indicios de no residir en Chile continental, aun cuando cumplan formalmente con los pasos del sorteo.
+      Asimismo, podrán ser excluidas las participaciones de cuentas extranjeras o con indicios de no residir en Chile
+      continental, aun cuando cumplan formalmente con los pasos del sorteo.
     </p>
     <p>
-      Hogga podrá utilizar herramientas de verificación y/o listas de exclusión internas (“blacklist”) para detectar y eliminar participaciones irregulares, con el fin de resguardar la transparencia y equidad del sorteo.
+      Hogga podrá utilizar herramientas de verificación y/o listas de exclusión internas (“blacklist”) para detectar y
+      eliminar participaciones irregulares, con el fin de resguardar la transparencia y equidad del sorteo.
     </p>
     <p>
-      En caso de detectar fraude o incumplimiento, Hogga podrá anular la participación o revocar el premio incluso después de la selección, sin derecho a compensación.
+      En caso de detectar fraude o incumplimiento, Hogga podrá anular la participación o revocar el premio incluso
+      después de la selección, sin derecho a compensación.
     </p>
-  
+
     <h2>10. Responsabilidad y descargos</h2>
     <ul>
-      <li>Hogga organiza el sorteo y gestiona la coordinación del premio con el hotel. No es responsable por cambios de disponibilidad, modificaciones de tarifas, políticas internas del hotel ni por la calidad del servicio prestado por éste.</li>
-      <li>El Hotel Cabaña del Lago participa únicamente como proveedor del servicio de alojamiento asociado al premio y no administra el sorteo ni la mecánica de participación.</li>
+      <li>Hogga organiza el sorteo y gestiona la coordinación del premio con el hotel. No es responsable por cambios de
+        disponibilidad, modificaciones de tarifas, políticas internas del hotel ni por la calidad del servicio prestado
+        por éste.</li>
+      <li>El Hotel Cabaña del Lago participa únicamente como proveedor del servicio de alojamiento asociado al premio y
+        no administra el sorteo ni la mecánica de participación.</li>
       <li>Hogga nunca solicitará contraseñas, datos bancarios ni transferencias de dinero para participar.</li>
       <li>Este sorteo <strong>no está patrocinado, avalado ni administrado por Instagram</strong>.</li>
-      <li>Ante casos fortuitos o fuerza mayor (incluyendo, pero no limitado a, desastres naturales, emergencias sanitarias, medidas de autoridad, cierre temporal del establecimiento, etc.), Hogga podrá modificar condiciones, proponer alternativas razonables, posponer o cancelar el sorteo o la utilización del premio, 
+      <li>Ante casos fortuitos o fuerza mayor (incluyendo, pero no limitado a, desastres naturales, emergencias
+        sanitarias, medidas de autoridad, cierre temporal del establecimiento, etc.), Hogga podrá modificar condiciones,
+        proponer alternativas razonables, posponer o cancelar el sorteo o la utilización del premio,
         sin que ello genere derecho a indemnización ni compensación económica.</li>
     </ul>
-  
+
     <h2>11. Tratamiento de datos personales</h2>
     <p>
-      Los datos personales del ganador serán utilizados únicamente para gestionar la coordinación y uso del premio y se tratarán conforme a la normativa chilena vigente (Ley N°19.628). 
-      Hogga no cederá dichos datos a terceros, salvo lo estrictamente necesario para coordinar la reserva con el hotel o lo exigido por ley.
+      Los datos personales del ganador serán utilizados únicamente para gestionar la coordinación y uso del premio y se
+      tratarán conforme a la normativa chilena vigente (Ley N°19.628).
+      Hogga no cederá dichos datos a terceros, salvo lo estrictamente necesario para coordinar la reserva con el hotel o
+      lo exigido por ley.
     </p>
-  
+
     <h2>12. Modificaciones</h2>
     <p>
-      Hogga podrá modificar fechas o condiciones por causas justificadas, informándolo por los mismos medios de difusión del sorteo.
+      Hogga podrá modificar fechas o condiciones por causas justificadas, informándolo por los mismos medios de difusión
+      del sorteo.
     </p>
-  
+
     <h2>13. Aceptación</h2>
     <p>
       La participación implica la <strong>aceptación total</strong> de estas bases legales.
     </p>
-  
+
     <h2>14. Jurisdicción</h2>
     <p>
-      Para todos los efectos legales, estas bases se rigen por las leyes de la República de Chile y será competente la jurisdicción de los Tribunales de la <strong>ciudad de Santiago</strong>.
+      Para todos los efectos legales, estas bases se rigen por las leyes de la República de Chile y será competente la
+      jurisdicción de los Tribunales de la <strong>ciudad de Santiago</strong>.
     </p>
   </main>
-  
 
-  <!-- FOOTER -->
+
+  <!-- FOOTER  -->
   <footer class="footer">
     <div class="container foot">
       <div class="foot-brand">
         <strong>Hogga</strong>
         <small>
-          <strong>Hogga — la red chilena de datos confiables y verificados</strong>  
-          para descubrir, conectar y crecer.  
-          Hecho con cariño desde el sur de Chile 🇨🇱
+          Hogga conecta personas con datos locales confiables y proveedores verificados en Chile.
+          Hecho desde el sur de Chile 🇨🇱
         </small>
         <div class="cta-column">
-          <a class="foot-cta" href="https://wa.me/56951809138?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20servicios" target="_blank" rel="noopener noreferrer">Pedir dato Hogga Servicios</a>
-          <a class="foot-cta" href="https://wa.me/56975457652?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20turismo" target="_blank" rel="noopener noreferrer">Pedir dato Hogga Turismo</a>
+          <a class="foot-cta"
+            href="https://wa.me/56951809138?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20servicios"
+            target="_blank" rel="noopener noreferrer">
+            Pedir dato Hogga Servicios
+          </a>
+
+          <a class="foot-cta"
+            href="https://wa.me/56975457652?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20turismo" target="_blank"
+            rel="noopener noreferrer">
+            Pedir dato Hogga Turismo
+          </a>
+
+          <!-- Nuevo botón para empresas / Hogga Negocios -->
+          <a class="foot-cta"
+            href="https://wa.me/56951759158?text=Hola%20Hogga%2C%20quiero%20mejorar%20el%20posicionamiento%20de%20mi%20negocio"
+            target="_blank" rel="noopener noreferrer">
+            Hablar con Hogga Negocios
+          </a>
         </div>
+
       </div>
       <nav class="foot-links" aria-label="Enlaces del sitio">
         <div>
           <span class="foot-title">Explora Hogga</span>
           <ul>
-            <li><a href="/#como-funciona">¿Cómo funciona?</a></li>
-            <li><a href="/hogga-servicios/">Hogga Servicios</a></li>
-            <li><a href="/turismo/">Hogga Turismo</a></li>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/hogga-servicios/">Para Hogar</a></li>
+            <li><a href="/turismo/">Para Viajar</a></li>
+            <li><a href="/negocios/">Para negocios</a></li>
+            <li><a href="/decisiones/">Decisiones</a></li>
             <li><a href="/blog/">Blog</a></li>
             <li><a href="/contacto/">Contacto</a></li>
           </ul>
@@ -295,9 +361,12 @@
         <div>
           <span class="foot-title">Síguenos</span>
           <ul>
-            <li><a href="https://www.instagram.com/hogga_chile/" target="_blank" rel="noopener noreferrer">Hogga Servicios</a></li>
-            <li><a href="https://www.instagram.com/hogga_turismo/" target="_blank" rel="noopener noreferrer">Hogga Turismo</a></li>
-            <li><a href="https://www.instagram.com/hogga_regala/" target="_blank" rel="noopener noreferrer">Hogga Regala</a></li>
+            <li><a href="https://www.instagram.com/hogga_chile/" target="_blank" rel="noopener noreferrer">Hogga
+                Servicios</a></li>
+            <li><a href="https://www.instagram.com/hogga_turismo/" target="_blank" rel="noopener noreferrer">Hogga
+                Turismo</a></li>
+            <li><a href="https://www.instagram.com/hogga_regala/" target="_blank" rel="noopener noreferrer">Hogga
+                Regala</a></li>
           </ul>
         </div>
       </nav>
@@ -307,6 +376,9 @@
     </div>
   </footer>
 
+
   <script defer src="/js/main.js"></script>
+  <script defer src="/js/consent-banner.js"></script>
 </body>
+
 </html>
