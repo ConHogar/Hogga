@@ -88,6 +88,15 @@
       ]
     }
   </script>
+<style>
+
+  .related-block{ margin-top: 18px; }
+#related-decisions h2{ margin-bottom: 10px; }
+#related-decisions .sub{ margin-top: 0; margin-bottom: 14px; }
+.related-block{ margin-top: 18px; }
+.related-more{ margin-top: 14px; display:flex; justify-content:center; }
+</style>
+
 </head>
 
 
@@ -126,7 +135,7 @@
     <section class="hero hero--decision">
       <div class="hero-bg"></div>
       <div class="container hero-content">
-        <span class="eyebrow">Decisión (BoFu) — Google & Google Maps</span>
+        <span class="eyebrow">Decisión — Google & Google Maps</span>
 
         <h1>¿Mi negocio está perdiendo clientes en Google?</h1>
 
@@ -155,16 +164,17 @@
           estás perdiendo compras que podrían haber sido tuyas.
         </p>
 
-        <div class="note">
-          <strong>Cómo usar esta página:</strong>
-          marca lo que te pasa hoy. No busques el 100%.
-          Con 2–3 señales claras, ya vale la pena revisar.
-        </div>
+      <div class="note">
+        <strong>Cómo usar esta página:</strong>
+        marca lo que te pasa hoy. No busques el 100%.
+        Con 2–3 señales claras, ya vale la pena revisar.
+        <span class="muted">No es para hacerlo perfecto, es para decidir.</span>
+      </div>
       </div>
     </section>
 
     <!-- SELF ASSESSMENT -->
-    <section id="autodiagnostico" class="section alt">
+    <section id="autodiagnostico" class="section">
       <div class="container decision-wrap">
         <h2>Autodiagnóstico (2 minutos)</h2>
         <p class="sub">Marca las que sean “sí”.</p>
@@ -233,19 +243,83 @@
               Hablar por WhatsApp
             </a>
             <a class="btn outline" href="/decisiones/">
-              Ver otras decisiones
+              Volver a la biblioteca
             </a>
           </div>
         </div>
+       
       </div>
     </section>
+
+
+     <section id="related-decisions" class="section alt">
+  <div class="container decision-wrap">
+
+    <div class="related-block">
+      <h2>Decisiones relacionadas</h2>
+      <p class="sub">
+        Si esto te hizo sentido, estas otras suelen ser el siguiente paso lógico.
+      </p>
+
+      <div class="decision-grid" aria-label="Decisiones relacionadas">
+        <a class="decision-card" href="/decisiones/por-que-competencia-arriba/">
+          <div class="decision-icon">🥊</div>
+          <div class="decision-body">
+            <span class="decision-title">¿Por qué mi competencia aparece antes que yo?</span>
+            <span class="decision-sub">Para entender señales reales (sin teorías raras).</span>
+            <div class="cat-pills">
+              <span class="pill intent">Frustración</span>
+              <span class="pill">Ranking</span>
+              <span class="pill">Señales</span>
+            </div>
+          </div>
+          <span class="decision-cta">Abrir</span>
+        </a>
+
+        <a class="decision-card" href="/decisiones/google-maps-suficiente/">
+          <div class="decision-icon">🗺️</div>
+          <div class="decision-body">
+            <span class="decision-title">¿Google Maps es suficiente para conseguir clientes?</span>
+            <span class="decision-sub">Para negocios ultra-locales que dependen de “cerca de mí”.</span>
+            <div class="cat-pills">
+              <span class="pill intent">Comparación</span>
+              <span class="pill">Maps</span>
+              <span class="pill">Local</span>
+            </div>
+          </div>
+          <span class="decision-cta">Abrir</span>
+        </a>
+
+        <a class="decision-card" href="/decisiones/mi-web-ayuda-a-vender/">
+          <div class="decision-icon">⚡</div>
+          <div class="decision-body">
+            <span class="decision-title">¿Mi sitio web realmente ayuda a vender?</span>
+            <span class="decision-sub">Para diagnosticar una web que existe, pero está floja.</span>
+            <div class="cat-pills">
+              <span class="pill intent">Confianza</span>
+              <span class="pill">UX</span>
+              <span class="pill">Leads</span>
+            </div>
+          </div>
+          <span class="decision-cta">Abrir</span>
+        </a>
+      </div>
+
+      <div class="related-more" style="margin-top:14px; display:flex; justify-content:center;">
+        <a class="btn outline" href="/decisiones/">Ver biblioteca de decisiones</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 
 <section id="conclusion" class="section">
   <div class="container decision-wrap">
     <h2>Qué significa esto en la práctica</h2>
 
     <p class="sub">
-      Si marcaste varias “sí”, no es una alerta técnica.
+      Si marcaste <strong>3 o más</strong> “sí”, no es una alerta técnica.
       Es una señal comercial: <strong>clientes que sí te buscan están decidiendo por otro</strong>.
       No porque seas peor, sino porque <strong>no quedas bien parado en el momento de la decisión</strong>.
     </p>
@@ -283,7 +357,7 @@
 
     <!-- COMMON WRONG MOVE -->
     <div class="note" style="margin-top:22px">
-      <strong>El error más caro acá</strong>
+      <strong>El error más común acá</strong>
       <p style="margin:10px 0 0 0">
         Pensar que esto se arregla “metiendo publicidad”.
         Muchas veces el problema no es atraer más gente,
@@ -291,12 +365,30 @@
       </p>
     </div>
 
+    <!-- LOCAL LENS -->
+    <div class="note" style="margin-top:22px">
+      <strong>Cómo se ve esto en negocios locales en Chile</strong>
+      <p style="margin:10px 0 0 0">
+        En muchas ciudades y comunas, Google Maps pesa más de lo que la gente cree.
+        No porque sea “mágico”, sino porque ahí el cliente decide rápido: compara, mira fotos,
+        revisa horarios, lee reseñas y llama.
+      </p>
+      <ul class="clean-list" style="margin-top:10px">
+        <li><strong>En ciudades medianas/pequeñas</strong>, Maps suele ser el primer filtro (“cerca de mí”).</li>
+        <li>En rubros competitivos, <strong>fotos + reseñas recientes</strong> cambian la tasa de elección.</li>
+        <li>Con turismo o temporada, <strong>la competencia se mueve por semanas</strong> y se nota más cuando tus datos están desactualizados.</li>
+      </ul>
+      <p class="muted" style="margin-top:10px">
+        La idea no es “hacer de todo”. Es corregir lo que hoy te tapa cuando ya te están buscando.
+      </p>
+    </div>
+
     <!-- DECISION CTA -->
     <div class="cta-row" style="justify-content:center; margin-top:26px">
       <a class="btn primary"
-         href="https://wa.me/56951759158?text=Hola%20Hogga%2C%20quiero%20confirmar%20si%20estoy%20perdiendo%20clientes%20en%20Google.%20Nombre%3A%20_____%20Ciudad%3A%20_____%20Rubro%3A%20_____"
+         href="https://wa.me/56951759158?text=Hola%20Hogga%2C%20quiero%20revisar%20si%20estoy%20perdiendo%20clientes%20en%20Google.%20Nombre%3A%20_____%20Ciudad%3A%20_____%20Rubro%3A%20_____"
          target="_blank" rel="noopener noreferrer">
-        Confirmar mi caso por WhatsApp
+        Revisar mi caso por WhatsApp
       </a>
       <a class="btn outline" href="/decisiones/necesito-sitio-web/">
         Siguiente decisión: ¿Necesito un sitio web?
