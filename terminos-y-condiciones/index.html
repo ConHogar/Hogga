@@ -1,105 +1,151 @@
 <!doctype html>
 <html lang="es-CL">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#136565" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://hogga.cl/terminos-y-condiciones/" />
 
   <!-- Performance (opcional) -->
   <link rel="preconnect" href="https://www.googletagmanager.com" />
   <link rel="preconnect" href="https://www.google-analytics.com" />
   <link rel="preconnect" href="https://wa.me" />
 
-  <!-- Consent Mode v2 (regional: CL granted; EEA/UK denied) -->
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/styles.css" />
 
-    /* 1) Default global: analytics granted (Chile y LatAm) */
-    gtag('consent','default',{
-      analytics_storage:'granted',
-      ad_storage:'denied',
-      ad_user_data:'denied',
-      ad_personalization:'denied',
-      wait_for_update: 500
-    });
-
-    /* 2) Override EEA/UK/CH/NO/IS/LI: todo denied por defecto */
-    gtag('consent','default',{
-      region:['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','CH','GB'],
-      analytics_storage:'denied',
-      ad_storage:'denied',
-      ad_user_data:'denied',
-      ad_personalization:'denied'
-    });
-
-    /* 3) Aplica preferencia guardada (si existe) ANTES de cargar GTM */
-    (function(){
-      try{
-        // reset rápido: ?consent=reset
-        if (new URLSearchParams(location.search).get('consent') === 'reset') {
-          localStorage.removeItem('hogga_consent_pref');
-        }
-        const pref = JSON.parse(localStorage.getItem('hogga_consent_pref'));
-        if (pref && pref.values) {
-          gtag('consent','update', pref.values);
-          window.__hoggaConsentChosen = true;
-        }
-      }catch(e){}
-    })();
-  </script>
+  <!-- Consent logic (centralizada) -->
+  <script src="/js/consent.js"></script>
 
   <!-- Google Tag Manager -->
   <script>
-  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-56V9ZN8P');
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-56V9ZN8P');
   </script>
   <!-- End Google Tag Manager -->
-   
-  <title>Política de Privacidad | Hogga</title>
-  <meta name="description" content="Política de Privacidad de Hogga Group SpA. Información clara sobre qué datos recopilamos, para qué los usamos y cómo ejercer tus derechos." />
-  <link rel="canonical" href="https://hogga.cl/politica-privacidad/" />
-  <meta name="theme-color" content="#136565" />
-  <link rel="stylesheet" href="/css/styles.css" />
-  <style>
-    .legal-wrapper{max-width:880px;margin:0 auto;padding:20px}
-    .legal-wrapper h1{margin-bottom:.25rem}
-    .legal-wrapper .sub{color:#6b7280}
-    .legal-wrapper h2{margin-top:2rem;font-size:1.25rem}
-    .legal-wrapper p,.legal-wrapper li{line-height:1.6}
-    .toc ul {
-  list-style: none;
-  padding-left: 0;
-  margin: 8px 0 0 0;
-        }
-        .toc li {
-        margin: 4px 0;
-        }
-        .toc a {
-        display: block;
-        padding: 4px 0;
-        text-decoration: underline;
-        color: var(--ink);
-        }
-        .toc a:hover {
-        text-decoration: none;
-        color: var(--brand);
-        }
 
+  <title>Términos y Condiciones | Hogga</title>
+  <meta name="description"
+    content="Términos y Condiciones de Hogga. Reglas de uso del sitio, responsabilidades, propiedad intelectual y contacto." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Hogga" />
+  <meta property="og:locale" content="es_CL" />
+  <meta property="og:url" content="https://hogga.cl/terminos-y-condiciones/" />
+  <meta property="og:title" content="Términos y Condiciones | Hogga" />
+  <meta property="og:description"
+    content="Reglas de uso del sitio Hogga: responsabilidades, propiedad intelectual, limitaciones y contacto." />
+  <meta property="og:image" content="https://hogga.cl/images/og/og-hogga.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Hogga" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Términos y Condiciones | Hogga" />
+  <meta name="twitter:description"
+    content="Reglas de uso del sitio Hogga: responsabilidades, propiedad intelectual, limitaciones y contacto." />
+  <meta name="twitter:image" content="https://hogga.cl/images/og/og-hogga.jpg" />
+
+  <!-- JSON-LD: WebPage -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebPage",
+    "name":"Términos y Condiciones",
+    "url":"https://hogga.cl/terminos-y-condiciones/",
+    "inLanguage":"es-CL",
+    "isPartOf":{
+      "@type":"WebSite",
+      "name":"Hogga",
+      "url":"https://hogga.cl/"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Inicio","item":"https://hogga.cl/"},
+      {"@type":"ListItem","position":2,"name":"Términos y Condiciones","item":"https://hogga.cl/terminos-y-condiciones/"}
+    ]
+  }
+  </script>
+
+  <style>
+    .legal-wrapper {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .legal-wrapper h1 {
+      margin-bottom: .25rem;
+    }
+
+    .legal-wrapper .sub {
+      color: #6b7280;
+    }
+
+    .legal-wrapper h2 {
+      margin-top: 2rem;
+      font-size: 1.25rem;
+    }
+
+    .legal-wrapper p,
+    .legal-wrapper li {
+      line-height: 1.6;
+    }
+
+    .toc ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 8px 0 0 0;
+    }
+
+    .toc li {
+      margin: 4px 0;
+    }
+
+    .toc a {
+      display: block;
+      padding: 4px 0;
+      text-decoration: underline;
+      color: var(--ink);
+    }
+
+    .toc a:hover {
+      text-decoration: none;
+      color: var(--brand);
+    }
   </style>
 </head>
+
+
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-56V9ZN8P"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-56V9ZN8P" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
   <!-- HEADER (igual que el home, con enlaces absolutos) -->
   <header class="main-header">
     <div class="container header-content">
       <a class="brand" href="/" aria-label="Hogga, inicio">
-        <img class="logo" src="/images/logo.png" alt="Hogga" width="120" height="36" />
+        <img class="logo" src="/images/logo.webp" alt="Hogga — red chilena de datos confiables y verificados"
+          width="120" height="36" />
       </a>
       <!-- Botón hamburger (solo móvil) -->
       <button class="nav-toggle" aria-label="Abrir menú" aria-controls="site-nav" aria-expanded="false">
@@ -109,10 +155,11 @@
           <span class="nav-toggle-line"></span>
         </span>
       </button>
-      <nav id="site-nav" class="site-nav" role="navigation">
-        <a href="/#como-funciona">¿Cómo funciona?</a>
-        <a href="/hogga-servicios/">Hogga Servicios</a>
-        <a href="/turismo/">Hogga Turismo</a>
+      <nav id="site-nav" class="site-nav" role="navigation" aria-label="Navegación principal">
+        <a href="/hogga-servicios/">Para hogar</a>
+        <a href="/turismo/">Para viajar</a>
+        <a href="/negocios/">Para negocios</a>
+        <a href="/decisiones/">Decisiones</a>
         <a href="/blog/">Blog</a>
         <a href="/contacto/">Contacto</a>
       </nav>
@@ -122,11 +169,11 @@
   <main class="legal-wrapper" role="main">
     <h1>Términos y Condiciones de Uso</h1>
     <p class="sub">Última actualización: 2 de septiembre de 2025</p>
-  
+
     <!-- Índice -->
     <nav class="toc" aria-label="Índice">
-    <strong>Índice</strong>
-    <ul>
+      <strong>Índice</strong>
+      <ul>
         <li><a href="#intro">0) Introducción y Aceptación</a></li>
         <li><a href="#definiciones">1) Definiciones</a></li>
         <li><a href="#rol">2) Naturaleza del Servicio y Rol de Intermediación</a></li>
@@ -145,7 +192,7 @@
         <li><a href="#usuarios">Sección para Usuarios</a></li>
         <li><a href="#proveedores">Sección para Proveedores</a></li>
         <li><a href="#contacto">Contacto</a></li>
-    </ul>
+      </ul>
     </nav>
 
     <section id="intro">
@@ -158,37 +205,44 @@
         Estos Términos se aplican sin perjuicio de los derechos irrenunciables que reconoce la Ley N° 19.496.
       </p>
     </section>
-  
+
     <section id="definiciones">
       <h2>1) Definiciones</h2>
       <ul>
         <li><strong>Usuario:</strong> persona que solicita recomendaciones de servicios.</li>
-        <li><strong>Proveedor:</strong> persona natural o jurídica que ofrece servicios a Usuarios mediante su publicación en Hogga.</li>
-        <li><strong>Publicación:</strong> ficha del Proveedor (nombre, rubro, ciudad, contacto, descripción, imágenes).</li>
+        <li><strong>Proveedor:</strong> persona natural o jurídica que ofrece servicios a Usuarios mediante su
+          publicación en Hogga.</li>
+        <li><strong>Publicación:</strong> ficha del Proveedor (nombre, rubro, ciudad, contacto, descripción, imágenes).
+        </li>
         <li><strong>Recomendación:</strong> listado de Proveedores que Hogga comparte a un Usuario.</li>
-        <li><strong>Planes:</strong> modalidades pagadas para Proveedores (p. ej., Standard/Pro) con beneficios de visibilidad y/o cobertura.</li>
+        <li><strong>Planes:</strong> modalidades pagadas para Proveedores (p. ej., Standard/Pro) con beneficios de
+          visibilidad y/o cobertura.</li>
       </ul>
     </section>
-  
+
     <section id="rol">
       <h2>2) Naturaleza del Servicio y Rol de Intermediación</h2>
       <p>
-        Hogga es una plataforma de intermediación que facilita la <strong>conexión</strong> entre Usuarios y Proveedores. 
-        Hogga <strong>no</strong> presta los servicios ofrecidos por los Proveedores, <strong>no</strong> es empleador ni 
-        representante de éstos, <strong>no</strong> fija precios ni condiciones, y <strong>no</strong> es parte de los contratos
-        celebrados entre Usuario y Proveedor. La decisión de contratar corresponde exclusivamente a las partes. 
+        Hogga es una plataforma de intermediación que facilita la <strong>conexión</strong> entre Usuarios y
+        Proveedores.
+        Hogga <strong>no</strong> presta los servicios ofrecidos por los Proveedores, <strong>no</strong> es empleador
+        ni
+        representante de éstos, <strong>no</strong> fija precios ni condiciones, y <strong>no</strong> es parte de los
+        contratos
+        celebrados entre Usuario y Proveedor. La decisión de contratar corresponde exclusivamente a las partes.
       </p>
     </section>
-  
+
     <section id="elegibilidad">
       <h2>3) Elegibilidad</h2>
       <ul>
         <li><strong>Usuarios:</strong> mayores de 18 años o con autorización de su representante legal.</li>
-        <li><strong>Proveedores:</strong> cumplimiento de normativa aplicable (licencias/certificaciones, permisos, tributación, seguridad laboral)
-            y obligación de mantener información veraz y actualizada.</li>
+        <li><strong>Proveedores:</strong> cumplimiento de normativa aplicable (licencias/certificaciones, permisos,
+          tributación, seguridad laboral)
+          y obligación de mantener información veraz y actualizada.</li>
       </ul>
     </section>
-  
+
     <section id="funcionamiento">
       <h2>4) Funcionamiento Básico</h2>
       <ol>
@@ -198,133 +252,153 @@
         <li>El Usuario puede calificar la experiencia y reportar no-shows.</li>
       </ol>
     </section>
-  
+
     <section id="verificacion">
       <h2>5) Verificación y Publicaciones de Proveedores</h2>
       <p>
-        Hogga realiza verificaciones de buena fe (identidad, rubro, ciudad y señales de experiencia), 
-        lo que <strong>no equivale</strong> a certificación profesional ni garantía de idoneidad. 
-        El Proveedor autoriza la publicación de su información comercial y concede a Hogga una 
-        <strong>licencia no exclusiva, gratuita y mundial</strong> para usarla, reproducirla, transformarla y comunicarla 
+        Hogga realiza verificaciones de buena fe (identidad, rubro, ciudad y señales de experiencia),
+        lo que <strong>no equivale</strong> a certificación profesional ni garantía de idoneidad.
+        El Proveedor autoriza la publicación de su información comercial y concede a Hogga una
+        <strong>licencia no exclusiva, gratuita y mundial</strong> para usarla, reproducirla, transformarla y
+        comunicarla
         públicamente con fines operativos y promocionales mientras la Publicación esté activa y por un plazo razonable
-        posterior para respaldo y auditoría. Hogga podrá aceptar, rechazar, suspender o eliminar Publicaciones por criterios
+        posterior para respaldo y auditoría. Hogga podrá aceptar, rechazar, suspender o eliminar Publicaciones por
+        criterios
         de calidad o incumplimientos.
       </p>
     </section>
-  
+
     <section id="uso-aceptable">
       <h2>6) Uso Aceptable y Prohibiciones</h2>
-      <p>Usted se compromete a usar la plataforma de forma profesional, responsable y conforme a la ley. Quedan prohibidas, entre otras, las siguientes conductas:</p>
+      <p>Usted se compromete a usar la plataforma de forma profesional, responsable y conforme a la ley. Quedan
+        prohibidas, entre otras, las siguientes conductas:</p>
       <ul>
         <li>Entregar datos falsos o de terceros sin autorización; suplantación de identidad.</li>
         <li>Hostigamiento, lenguaje discriminatorio o difusión de contenidos ilícitos.</li>
         <li>Solicitar, ofrecer o ejecutar actividades ilegales o que requieran licencia sin poseerla.</li>
-        <li>Interferir con la operación del sitio (p. ej., scraping agresivo, automatizaciones maliciosas, ingeniería inversa).</li>
+        <li>Interferir con la operación del sitio (p. ej., scraping agresivo, automatizaciones maliciosas, ingeniería
+          inversa).</li>
         <li>Eludir mecanismos de moderación, priorización o pago de planes.</li>
       </ul>
       <p>
-        Hogga podrá limitar funciones, suspender o terminar el acceso en caso de incumplimiento. 
+        Hogga podrá limitar funciones, suspender o terminar el acceso en caso de incumplimiento.
       </p>
     </section>
-  
+
     <section id="resenas">
       <h2>7) Reseñas, No-Shows y Moderación</h2>
       <p>
-        Los Usuarios pueden publicar reseñas y reportar no-shows. Hogga podrá moderar u ocultar contenido 
+        Los Usuarios pueden publicar reseñas y reportar no-shows. Hogga podrá moderar u ocultar contenido
         (p. ej., injurias, datos personales, acusaciones infundadas) y conservar registros para auditoría.
-        El Usuario garantiza derechos sobre lo que publica y autoriza a Hogga a reutilizarlo con fines operativos y promocionales.
+        El Usuario garantiza derechos sobre lo que publica y autoriza a Hogga a reutilizarlo con fines operativos y
+        promocionales.
       </p>
     </section>
-  
+
     <section id="planes">
       <h2>8) Planes, Pagos y Facturación (Proveedores)</h2>
       <ul>
         <li>Planes prepago con posibles beneficios de visibilidad y cobertura por ciudades/categorías.</li>
         <li>Renovación: si no hay pago al vencimiento, la Publicación podrá suspenderse o degradarse.</li>
         <li>Precios/promociones pueden variar; la continuidad implica aceptación.</li>
-        <li>Facturación: se emitirá documentación tributaria conforme a ley chilena. Montos netos + IVA cuando proceda.</li>
+        <li>Facturación: se emitirá documentación tributaria conforme a ley chilena. Montos netos + IVA cuando proceda.
+        </li>
         <li>Reembolsos: como regla general, no proceden por periodos ya devengados salvo error imputable a Hogga.</li>
-        <li>Exposición/leads: Hogga puede priorizar según plan y conducta; <strong>no</strong> garantiza un mínimo de contactos ni resultados.</li>
-        <li>Obligaciones: trato digno, cumplimiento de servicios ofrecidos y actualización de datos; el Proveedor mantiene indemne a Hogga por reclamos derivados de su actividad profesional.</li>
+        <li>Exposición/leads: Hogga puede priorizar según plan y conducta; <strong>no</strong> garantiza un mínimo de
+          contactos ni resultados.</li>
+        <li>Obligaciones: trato digno, cumplimiento de servicios ofrecidos y actualización de datos; el Proveedor
+          mantiene indemne a Hogga por reclamos derivados de su actividad profesional.</li>
       </ul>
     </section>
-  
+
     <section id="propiedad-intelectual">
       <h2>9) Propiedad Intelectual y Licencias</h2>
       <p>
-        El sitio, marca, diseños, bases de datos y código son de propiedad de Hogga o sus licenciantes. 
-        No se concede licencia alguna distinta de la necesaria para el uso normal de la plataforma. 
-        El contenido suministrado por Usuarios/Proveedores (textos, logos, fotografías, reseñas) podrá ser 
+        El sitio, marca, diseños, bases de datos y código son de propiedad de Hogga o sus licenciantes.
+        No se concede licencia alguna distinta de la necesaria para el uso normal de la plataforma.
+        El contenido suministrado por Usuarios/Proveedores (textos, logos, fotografías, reseñas) podrá ser
         utilizado por Hogga conforme a las licencias otorgadas en estas condiciones.
       </p>
     </section>
-  
+
     <section id="privacidad">
       <h2>10) Privacidad y Datos Personales</h2>
       <p>
-        El tratamiento de datos se rige por la <a href="/politica-privacidad/">Política de Privacidad</a> y por la Ley N° 19.628. 
-        Para ejercer derechos de acceso, rectificación, cancelación u oposición, escríbanos a 
+        El tratamiento de datos se rige por la <a href="/politica-privacidad/">Política de Privacidad</a> y por la Ley
+        N° 19.628.
+        Para ejercer derechos de acceso, rectificación, cancelación u oposición, escríbanos a
         <a href="mailto:legal@hogga.cl">privacidad@hogga.cl</a>.
       </p>
     </section>
-  
+
     <section id="responsabilidad">
       <h2>11) Limitación de Responsabilidad</h2>
       <p>
-        En la máxima medida permitida por la ley, Hogga <strong>no asume responsabilidad</strong> por (i) calidad, oportunidad, seguridad o 
-        legalidad de los servicios de los Proveedores; (ii) pérdidas indirectas, incidentales, especiales, punitivas o lucro cesante; 
-        (iii) indisponibilidad temporal de la plataforma. Nada limita la responsabilidad por dolo, ni restringe los derechos irrenunciables
+        En la máxima medida permitida por la ley, Hogga <strong>no asume responsabilidad</strong> por (i) calidad,
+        oportunidad, seguridad o
+        legalidad de los servicios de los Proveedores; (ii) pérdidas indirectas, incidentales, especiales, punitivas o
+        lucro cesante;
+        (iii) indisponibilidad temporal de la plataforma. Nada limita la responsabilidad por dolo, ni restringe los
+        derechos irrenunciables
         de los consumidores.
       </p>
     </section>
-  
+
     <section id="indemnidad">
       <h2>12) Indemnidad</h2>
       <p>
-        Usted (Usuario y/o Proveedor) se obliga a <strong>mantener indemne</strong> a Hogga, sus directores y colaboradores frente a 
-        reclamaciones, pérdidas, costos y gastos (incluidos honorarios razonables) derivados de (a) su uso de la plataforma, 
-        (b) su relación/contrato con terceros, (c) infracciones de estos Términos o de la ley, y (d) contenidos que suministre.
+        Usted (Usuario y/o Proveedor) se obliga a <strong>mantener indemne</strong> a Hogga, sus directores y
+        colaboradores frente a
+        reclamaciones, pérdidas, costos y gastos (incluidos honorarios razonables) derivados de (a) su uso de la
+        plataforma,
+        (b) su relación/contrato con terceros, (c) infracciones de estos Términos o de la ley, y (d) contenidos que
+        suministre.
 
       </p>
     </section>
-  
+
     <section id="terminacion">
       <h2>13) Cambios, Suspensión y Terminación</h2>
       <p>
         Hogga podrá actualizar estos Términos, modificar el servicio, limitar funciones o terminar su disponibilidad
-        total o parcial, informándolo en el sitio. El uso continuado tras los cambios implica aceptación. 
+        total o parcial, informándolo en el sitio. El uso continuado tras los cambios implica aceptación.
         En caso de terminación, se respetarán obligaciones devengadas hasta esa fecha.
       </p>
     </section>
-  
+
     <section id="ley">
       <h2>14) Ley Aplicable y Jurisdicción</h2>
       <p>
-        Estos Términos se rigen por las leyes de la República de Chile. Toda controversia se someterá a los tribunales chilenos
+        Estos Términos se rigen por las leyes de la República de Chile. Toda controversia se someterá a los tribunales
+        chilenos
         competentes, sin perjuicio de los fueros y derechos que la Ley del Consumidor reconoce a los consumidores.
       </p>
     </section>
-  
+
     <section id="usuarios">
       <h2>Sección Específica para Usuarios</h2>
       <ul>
         <li>Hogga <strong>no</strong> cobra comisión al Usuario por las recomendaciones.</li>
-        <li>Antes de contratar, sugerimos solicitar presupuestos, exigir boleta/factura y verificar credenciales cuando el rubro sea regulado.</li>
+        <li>Antes de contratar, sugerimos solicitar presupuestos, exigir boleta/factura y verificar credenciales cuando
+          el rubro sea regulado.</li>
         <li>Reporte no-shows o incidentes para apoyar la mejora del sistema.</li>
       </ul>
     </section>
-  
+
     <section id="proveedores">
       <h2>Sección Específica para Proveedores</h2>
       <ul>
-        <li>Cumplir normativa aplicable (licencias/certificaciones, municipal, sanitaria, seguridad laboral y tributación).</li>
+        <li>Cumplir normativa aplicable (licencias/certificaciones, municipal, sanitaria, seguridad laboral y
+          tributación).</li>
         <li>Responder con profesionalismo; prestar únicamente servicios para los que está calificado.</li>
-        <li>Garantizar veracidad y actualización de su Publicación; autorizar el uso de logos/fotos/textos con fines operativos y promocionales.</li>
+        <li>Garantizar veracidad y actualización de su Publicación; autorizar el uso de logos/fotos/textos con fines
+          operativos y promocionales.</li>
         <li>Abstenerse de prácticas engañosas, captación desleal o conductas discriminatorias.</li>
-        <li>Hogga podrá suspender y/o dar de baja Publicaciones ante incumplimientos graves o riesgos a Usuarios, con aviso a autoridades cuando corresponda.</li>
+        <li>Hogga podrá suspender y/o dar de baja Publicaciones ante incumplimientos graves o riesgos a Usuarios, con
+          aviso a autoridades cuando corresponda.</li>
       </ul>
     </section>
-  
+
     <section id="contacto">
       <h2>Contacto</h2>
       <p>
@@ -334,28 +408,45 @@
     </section>
   </main>
 
-  <!-- FOOTER (igual al home) -->
+  <!-- FOOTER  -->
   <footer class="footer">
     <div class="container foot">
       <div class="foot-brand">
         <strong>Hogga</strong>
         <small>
-          <strong>Hogga — la red chilena de datos confiables y verificados</strong>  
-          para descubrir, conectar y crecer.  
-          Hecho con cariño desde el sur de Chile 🇨🇱
+          Hogga conecta personas con datos locales confiables y proveedores verificados en Chile.
+          Hecho desde el sur de Chile 🇨🇱
         </small>
         <div class="cta-column">
-          <a class="foot-cta" href="https://wa.me/56951809138?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20servicios" target="_blank" rel="noopener">Pedir dato Hogga Servicios</a>
-          <a class="foot-cta" href="https://wa.me/56975457652?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20turismo" target="_blank" rel="noopener">Pedir dato Hogga Turismo</a>
+          <a class="foot-cta"
+            href="https://wa.me/56951809138?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20servicios"
+            target="_blank" rel="noopener noreferrer">
+            Pedir dato Hogga Servicios
+          </a>
+
+          <a class="foot-cta"
+            href="https://wa.me/56975457652?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20turismo" target="_blank"
+            rel="noopener noreferrer">
+            Pedir dato Hogga Turismo
+          </a>
+
+          <a class="foot-cta"
+            href="https://wa.me/56951759158?text=Hola%20Hogga%2C%20quiero%20mejorar%20el%20posicionamiento%20de%20mi%20negocio"
+            target="_blank" rel="noopener noreferrer">
+            Hablar con Hogga Negocios
+          </a>
         </div>
       </div>
+
       <nav class="foot-links" aria-label="Enlaces del sitio">
         <div>
           <span class="foot-title">Explora Hogga</span>
           <ul>
-            <li><a href="/#como-funciona">¿Cómo funciona?</a></li>
-            <li><a href="/hogga-servicios/">Hogga Servicios</a></li>
-            <li><a href="/turismo/">Hogga Turismo</a></li>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/hogga-servicios/">Para Hogar</a></li>
+            <li><a href="/turismo/">Para Viajar</a></li>
+            <li><a href="/negocios/">Para negocios</a></li>
+            <li><a href="/decisiones/">Decisiones</a></li>
             <li><a href="/blog/">Blog</a></li>
             <li><a href="/contacto/">Contacto</a></li>
           </ul>
@@ -371,19 +462,24 @@
         <div>
           <span class="foot-title">Síguenos</span>
           <ul>
-            <li><a href="https://www.instagram.com/hogga_chile/" target="_blank" rel="noopener">Hogga Servicios</a></li>
-            <li><a href="https://www.instagram.com/hogga_turismo/" target="_blank" rel="noopener">Hogga Turismo</a></li>
-            <li><a href="https://www.instagram.com/hogga_regala/" target="_blank" rel="noopener">Hogga Regala</a></li>
+            <li><a href="https://www.instagram.com/hogga_chile/" target="_blank" rel="noopener noreferrer">Hogga
+                Servicios</a></li>
+            <li><a href="https://www.instagram.com/hogga_turismo/" target="_blank" rel="noopener noreferrer">Hogga
+                Turismo</a></li>
+            <li><a href="https://www.instagram.com/hogga_regala/" target="_blank" rel="noopener noreferrer">Hogga
+                Regala</a></li>
           </ul>
         </div>
       </nav>
     </div>
+
     <div class="container foot-bottom">
       <small>© <span id="y"></span> Hogga Group SpA. Todos los derechos reservados.</small>
     </div>
   </footer>
-  
 
   <script defer src="/js/main.js"></script>
+  <script defer src="/js/consent-banner.js"></script>
 </body>
+
 </html>

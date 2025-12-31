@@ -2,15 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://hogga.cl/</loc>
-    <lastmod>2025-12-27</lastmod>
+    <lastmod>2025-12-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://hogga.cl/blog/</loc>
-    <lastmod>2025-12-26</lastmod>
+    <lastmod>2025-12-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hogga.cl/blog/chiloe-dia-2-quinchao-chonchi-nercon/</loc>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://hogga.cl/blog/guias/</loc>
@@ -19,8 +25,14 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://hogga.cl/blog/chiloe-dia-3-ancud-chacao/</loc>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://hogga.cl/blog/aysen-la-ultima-frontera/</loc>
-    <lastmod>2025-12-27</lastmod>
+    <lastmod>2025-12-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -33,6 +45,12 @@
   <url>
     <loc>https://hogga.cl/blog/ruta-lagos-sur-chile/</loc>
     <lastmod>2025-12-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://hogga.cl/blog/chiloe-itinerario-3-dias/</loc>
+    <lastmod>2025-12-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -50,13 +68,19 @@
   </url>
   <url>
     <loc>https://hogga.cl/blog/parques-nacionales-los-lagos/</loc>
-    <lastmod>2025-12-27</lastmod>
+    <lastmod>2025-12-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://hogga.cl/blog/ahorrar-agua-en-casa/</loc>
     <lastmod>2025-12-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://hogga.cl/blog/chiloe-dia-1-ruta-costera-chacao-quemchi-dalcahue/</loc>
+    <lastmod>2025-12-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -98,7 +122,7 @@
   </url>
   <url>
     <loc>https://hogga.cl/hogga-servicios/</loc>
-    <lastmod>2025-12-26</lastmod>
+    <lastmod>2025-12-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -110,7 +134,13 @@
   </url>
   <url>
     <loc>https://hogga.cl/decisiones/</loc>
-    <lastmod>2025-12-24</lastmod>
+    <lastmod>2025-12-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hogga.cl/decisiones/no-me-llegan-clientes/</loc>
+    <lastmod>2025-12-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -128,13 +158,13 @@
   </url>
   <url>
     <loc>https://hogga.cl/decisiones/por-que-competencia-arriba/</loc>
-    <lastmod>2025-12-25</lastmod>
+    <lastmod>2025-12-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hogga.cl/decisiones/necesito-sitio-web/</loc>
-    <lastmod>2025-12-24</lastmod>
+    <lastmod>2025-12-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -146,7 +176,7 @@
   </url>
   <url>
     <loc>https://hogga.cl/decisiones/arreglar-web-o-hacer-ads/</loc>
-    <lastmod>2025-12-24</lastmod>
+    <lastmod>2025-12-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -158,13 +188,13 @@
   </url>
   <url>
     <loc>https://hogga.cl/decisiones/perdiendo-clientes-google/</loc>
-    <lastmod>2025-12-24</lastmod>
+    <lastmod>2025-12-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hogga.cl/decisiones/mi-web-ayuda-a-vender/</loc>
-    <lastmod>2025-12-25</lastmod>
+    <lastmod>2025-12-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -176,7 +206,7 @@
   </url>
   <url>
     <loc>https://hogga.cl/decisiones/google-maps-suficiente/</loc>
-    <lastmod>2025-12-25</lastmod>
+    <lastmod>2025-12-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -212,13 +242,13 @@
   </url>
   <url>
     <loc>https://hogga.cl/terminos-y-condiciones/</loc>
-    <lastmod>2025-11-27</lastmod>
+    <lastmod>2025-12-31</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
   <url>
     <loc>https://hogga.cl/politica-privacidad/</loc>
-    <lastmod>2025-11-27</lastmod>
+    <lastmod>2025-12-31</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -230,37 +260,37 @@
   </url>
   <url>
     <loc>https://hogga.cl/bases-legales-concursos-instagram/2025-08-juego-inflable.html</loc>
-    <lastmod>2025-11-27</lastmod>
+    <lastmod>2025-12-31</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
   <url>
     <loc>https://hogga.cl/bases-legales-concursos-instagram/2025-10-1-galaxy-tab-a9.html</loc>
-    <lastmod>2025-11-27</lastmod>
+    <lastmod>2025-12-31</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
   <url>
     <loc>https://hogga.cl/bases-legales-concursos-instagram/2025-11-2noches-cdl-pvaras.html</loc>
-    <lastmod>2025-11-27</lastmod>
+    <lastmod>2025-12-31</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
   <url>
     <loc>https://hogga.cl/bases-legales-concursos-instagram/2025-10-giftcards-cencosud.html</loc>
-    <lastmod>2025-11-27</lastmod>
+    <lastmod>2025-12-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
   <url>
     <loc>https://hogga.cl/bases-legales-concursos-instagram/2025-10-2-galaxy-tab-a9.html</loc>
-    <lastmod>2025-11-27</lastmod>
+    <lastmod>2025-12-31</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
   <url>
     <loc>https://hogga.cl/bases-legales-concursos-instagram/2025-10-jbl-520bt.html</loc>
-    <lastmod>2025-11-27</lastmod>
+    <lastmod>2025-12-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>

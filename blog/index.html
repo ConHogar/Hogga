@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="es-CL">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -14,16 +15,20 @@
 
   <!-- Google Tag Manager -->
   <script>
-  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-56V9ZN8P');
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-56V9ZN8P');
   </script>
   <!-- End Google Tag Manager -->
 
   <title>Blog Hogga — Consejos, historias y datos verificados en Chile</title>
-  <meta name="description" content="El Blog de Hogga comparte consejos, guías y datos reales para el hogar, el turismo y la vida en Chile. Hecho con cariño desde el sur 🇨🇱" />
+  <meta name="description"
+    content="El Blog de Hogga comparte consejos, guías y datos reales para el hogar, el turismo y la vida en Chile. Hecho con cariño desde el sur 🇨🇱" />
   <link rel="canonical" href="https://hogga.cl/blog/" />
   <meta name="theme-color" content="#136565" />
 
@@ -31,12 +36,14 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://hogga.cl/blog/" />
   <meta property="og:title" content="Blog Hogga — Consejos y datos verificados en Chile" />
-  <meta property="og:description" content="Explora artículos sobre turismo, hogar y experiencias locales, escritos con la voz cercana de Hogga." />
+  <meta property="og:description"
+    content="Explora artículos sobre turismo, hogar y experiencias locales, escritos con la voz cercana de Hogga." />
   <meta property="og:image" content="https://hogga.cl/images/og/og-hogga.jpg" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Blog Hogga — Consejos y datos verificados en Chile" />
-  <meta name="twitter:description" content="Explora artículos sobre turismo, hogar y experiencias locales, escritos con la voz cercana de Hogga." />
+  <meta name="twitter:description"
+    content="Explora artículos sobre turismo, hogar y experiencias locales, escritos con la voz cercana de Hogga." />
   <meta name="twitter:image" content="https://hogga.cl/images/og/og-hogga.jpg" />
 
   <!-- ✅ Favicons -->
@@ -48,7 +55,8 @@
   <link rel="icon" href="/favicon.ico">
 
   <link rel="stylesheet" href="/css/styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Manrope:wght@700;800&display=swap"
+    rel="stylesheet">
 
   <!-- RSS -->
   <link rel="alternate" type="application/rss+xml" title="Blog Hogga RSS" href="https://hogga.cl/blog/rss.xml" />
@@ -94,61 +102,72 @@
 
   <!-- Estilos extra SOLO para blog index (no rompe tu styles.css) -->
   <style>
-    .blog-toolbar{
-      display:flex;
-      flex-direction:column;
-      gap:12px;
+    .blog-toolbar {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
       margin: 18px 0 18px;
     }
-    .blog-search input{
-      width:100%;
+
+    .blog-search input {
+      width: 100%;
       padding: 12px 14px;
       border-radius: 14px;
-      border: 1px solid rgba(15,23,42,.12);
-      background: rgba(255,255,255,.75);
+      border: 1px solid rgba(15, 23, 42, .12);
+      background: rgba(255, 255, 255, .75);
       box-shadow: var(--shadow-card);
       font: inherit;
     }
-    .blog-filters{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
+
+    .blog-filters {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
     }
-    .blog-filters .chip{
-      cursor:pointer;
-      user-select:none;
+
+    .blog-filters .chip {
+      cursor: pointer;
+      user-select: none;
     }
-    .blog-filters .chip.is-active{
-      background: rgba(19,101,101,.12);
-      border-color: rgba(19,101,101,.35);
+
+    .blog-filters .chip.is-active {
+      background: rgba(19, 101, 101, .12);
+      border-color: rgba(19, 101, 101, .35);
     }
-    .blog-count{
+
+    .blog-count {
       margin: 0;
-      color: rgba(15,23,42,.7);
+      color: rgba(15, 23, 42, .7);
       font-size: .95rem;
     }
-    .sr-only{
-      position:absolute;
-      width:1px;height:1px;
-      padding:0;margin:-1px;
-      overflow:hidden;clip:rect(0,0,0,0);
-      white-space:nowrap;border:0;
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
     }
   </style>
 </head>
 
 <body>
   <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-56V9ZN8P"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-56V9ZN8P" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
   <!-- HEADER -->
   <header class="main-header">
     <div class="container header-content">
       <a class="brand" href="/" aria-label="Hogga, inicio">
-        <img class="logo" src="/images/logo.webp" alt="Hogga — red chilena de datos confiables y verificados" width="120" height="36" />
+        <img class="logo" src="/images/logo.webp" alt="Hogga — red chilena de datos confiables y verificados"
+          width="120" height="36" />
       </a>
 
       <button class="nav-toggle" aria-label="Abrir menú" aria-controls="site-nav" aria-expanded="false">
@@ -194,13 +213,16 @@
         <div class="blog-toolbar" aria-label="Buscar y filtrar artículos">
           <label class="blog-search">
             <span class="sr-only">Buscar en el blog</span>
-            <input id="blogSearch" type="search" placeholder="Buscar: agua, rutas, parques, Puerto Varas…" autocomplete="off" />
+            <input id="blogSearch" type="search" placeholder="Buscar: agua, rutas, parques, Puerto Varas…"
+              autocomplete="off" />
           </label>
 
           <div class="blog-filters" role="tablist" aria-label="Filtrar por categoría">
-            <button class="chip is-active" type="button" data-filter="all" role="tab" aria-selected="true">✨ Todo</button>
+            <button class="chip is-active" type="button" data-filter="all" role="tab" aria-selected="true">✨
+              Todo</button>
             <button class="chip" type="button" data-filter="hogar" role="tab" aria-selected="false">🏡 Hogar</button>
-            <button class="chip" type="button" data-filter="turismo" role="tab" aria-selected="false">🌄 Turismo</button>
+            <button class="chip" type="button" data-filter="turismo" role="tab" aria-selected="false">🌄
+              Turismo</button>
             <button class="chip" type="button" data-filter="consejos" role="tab" aria-selected="false">💡 Guías</button>
           </div>
 
@@ -221,9 +243,11 @@
             <span class="post-cta">Leer</span>
           </a>
 
-          <a href="/blog/ruta-lagos-sur-chile/" class="post-card" data-category="turismo" data-tags="ruta lagos llanquihue volcan osorno">
+          <a href="/blog/ruta-lagos-sur-chile/" class="post-card" data-category="turismo"
+            data-tags="ruta lagos llanquihue volcan osorno">
             <figure class="post-media" aria-hidden="true">
-              <img src="/images/blog/lagos-lago-llanquihue-volcan-osorno.webp" width="96" height="96" loading="lazy" alt="">
+              <img src="/images/blog/lagos-lago-llanquihue-volcan-osorno.webp" width="96" height="96" loading="lazy"
+                alt="">
               <span class="emoji">🚗</span>
             </figure>
             <div class="post-body">
@@ -233,9 +257,11 @@
             <span class="post-cta">Leer</span>
           </a>
 
-          <a href="/blog/parques-nacionales-los-lagos/" class="post-card" data-category="turismo" data-tags="parques nacionales los lagos naturaleza">
+          <a href="/blog/parques-nacionales-los-lagos/" class="post-card" data-category="turismo"
+            data-tags="parques nacionales los lagos naturaleza">
             <figure class="post-media" aria-hidden="true">
-              <img src="/images/blog/parques-lagos.webp" width="96" height="96" loading="lazy" alt="Parques Nacionales de Los Lagos">
+              <img src="/images/blog/parques-lagos.webp" width="96" height="96" loading="lazy"
+                alt="Parques Nacionales de Los Lagos">
               <span class="emoji">🌲</span>
             </figure>
             <div class="post-body">
@@ -245,9 +271,70 @@
             <span class="post-cta">Leer</span>
           </a>
 
-          <a href="/blog/aysen-la-ultima-frontera/" class="post-card" data-category="turismo" data-tags="aysen carretera austral patagonia">
+          <a href="/blog/chiloe-itinerario-3-dias/" class="post-card" data-category="turismo"
+            data-tags="chiloe itinerario 3 dias castro dalcahue ancud chacao">
             <figure class="post-media" aria-hidden="true">
-              <img src="/images/blog/aysen.webp" width="96" height="96" loading="lazy" alt="Aysén, la última frontera del sur chileno">
+              <img src="/images/blog/chiloe-itinerario/chiloe-hero.jpg" width="96" height="96" loading="lazy"
+                alt="Paisajes de Chiloé y palafitos">
+              <span class="emoji">🗺️</span>
+            </figure>
+            <div class="post-body">
+              <h3 class="post-title">Chiloé en 3 días: itinerario real para recorrer la isla sin apuro</h3>
+              <p class="post-meta">Turismo · 8 min</p>
+            </div>
+            <span class="post-cta">Leer</span>
+          </a>
+
+
+          <a href="/blog/chiloe-dia-1-ruta-costera-chacao-quemchi-dalcahue/" class="post-card" data-category="turismo"
+            data-tags="chiloe dia 1 chacao quemchi dalcahue ruta costera">
+            <figure class="post-media" aria-hidden="true">
+              <img src="/images/blog/chiloe-dia-1/quemchi.jpg" width="96" height="96" loading="lazy"
+                alt="Ruta costera de Chiloé entre Chacao y Dalcahue">
+              <span class="emoji">🚗</span>
+            </figure>
+            <div class="post-body">
+              <h3 class="post-title">Día 1 en Chiloé: Chacao, Quemchi y Dalcahue por la ruta costera</h3>
+              <p class="post-meta">Turismo · 6 min</p>
+            </div>
+            <span class="post-cta">Leer</span>
+          </a>
+
+          <a href="/blog/chiloe-dia-2-quinchao-chonchi-nercon/" class="post-card" data-category="turismo"
+            data-tags="chiloe dia 2 quinchao chonchi achao nercon">
+            <figure class="post-media" aria-hidden="true">
+              <img src="/images/blog/chiloe-dia-2/quinchao.webp" width="96" height="96" loading="lazy"
+                alt="Isla Quinchao y pueblos de Chiloé">
+              <span class="emoji">⛴️</span>
+            </figure>
+            <div class="post-body">
+              <h3 class="post-title">Día 2 en Chiloé: Quinchao, Achao, Chonchi o Nercón</h3>
+              <p class="post-meta">Turismo · 6 min</p>
+            </div>
+            <span class="post-cta">Leer</span>
+          </a>
+
+
+          <a href="/blog/chiloe-dia-3-ancud-chacao/" class="post-card" data-category="turismo"
+            data-tags="chiloe dia 3 ancud chacao fuerte san antonio ostras">
+            <figure class="post-media" aria-hidden="true">
+              <img src="/images/blog/chiloe-dia-3/fuerte-san-antonio.jpg" width="96" height="96" loading="lazy"
+                alt="Ancud y costa norte de Chiloé">
+              <span class="emoji">🏰</span>
+            </figure>
+            <div class="post-body">
+              <h3 class="post-title">Día 3 en Chiloé: Ancud, fuertes y regreso por Chacao</h3>
+              <p class="post-meta">Turismo · 5 min</p>
+            </div>
+            <span class="post-cta">Leer</span>
+          </a>
+
+
+          <a href="/blog/aysen-la-ultima-frontera/" class="post-card" data-category="turismo"
+            data-tags="aysen carretera austral patagonia">
+            <figure class="post-media" aria-hidden="true">
+              <img src="/images/blog/aysen.webp" width="96" height="96" loading="lazy"
+                alt="Aysén, la última frontera del sur chileno">
               <span class="emoji">🏔️</span>
             </figure>
             <div class="post-body">
@@ -257,9 +344,11 @@
             <span class="post-cta">Leer</span>
           </a>
 
-          <a href="/blog/region-de-los-rios/" class="post-card" data-category="turismo" data-tags="los rios valdivia termas selva">
+          <a href="/blog/region-de-los-rios/" class="post-card" data-category="turismo"
+            data-tags="los rios valdivia termas selva">
             <figure class="post-media" aria-hidden="true">
-              <img src="/images/blog/los-rios.webp" width="96" height="96" loading="lazy" alt="Región de Los Ríos, selva valdiviana y termas escondidas">
+              <img src="/images/blog/los-rios.webp" width="96" height="96" loading="lazy"
+                alt="Región de Los Ríos, selva valdiviana y termas escondidas">
               <span class="emoji">🌧️</span>
             </figure>
             <div class="post-body">
@@ -290,7 +379,7 @@
       <div class="container">
         <h2 style="text-align:center;">¿Tienes un negocio y estás tomando decisiones comerciales/marketing?</h2>
         <p class="sub" style="text-align:center; max-width:720px; margin:0 auto;">
-          En Hogga armamos guías cortas para ayudarte a decidir con criterio, 
+          En Hogga armamos guías cortas para ayudarte a decidir con criterio,
           sin humo ni promesas raras.
         </p>
 
@@ -333,7 +422,9 @@
         <p class="sub">Te mandamos un ping cuando salga algo nuevo (sin spam).</p>
 
         <div class="cta-row" style="justify-content:center; margin-top:14px">
-          <a class="btn primary" href="https://wa.me/56951759158?text=Hola%20Hogga%2C%20av%C3%ADsenme%20cuando%20salgan%20nuevos%20art%C3%ADculos" target="_blank" rel="noopener noreferrer">
+          <a class="btn primary"
+            href="https://wa.me/56951759158?text=Hola%20Hogga%2C%20av%C3%ADsenme%20cuando%20salgan%20nuevos%20art%C3%ADculos"
+            target="_blank" rel="noopener noreferrer">
             Avisarme por WhatsApp
           </a>
           <a class="btn outline" href="/decisiones/">
@@ -355,20 +446,20 @@
         </small>
         <div class="cta-column">
           <a class="foot-cta"
-             href="https://wa.me/56951809138?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20servicios"
-             target="_blank" rel="noopener noreferrer">
+            href="https://wa.me/56951809138?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20servicios"
+            target="_blank" rel="noopener noreferrer">
             Pedir dato Hogga Servicios
           </a>
 
           <a class="foot-cta"
-             href="https://wa.me/56975457652?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20turismo"
-             target="_blank" rel="noopener noreferrer">
+            href="https://wa.me/56975457652?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20turismo" target="_blank"
+            rel="noopener noreferrer">
             Pedir dato Hogga Turismo
           </a>
 
           <a class="foot-cta"
-             href="https://wa.me/56951759158?text=Hola%20Hogga%2C%20quiero%20mejorar%20el%20posicionamiento%20de%20mi%20negocio"
-             target="_blank" rel="noopener noreferrer">
+            href="https://wa.me/56951759158?text=Hola%20Hogga%2C%20quiero%20mejorar%20el%20posicionamiento%20de%20mi%20negocio"
+            target="_blank" rel="noopener noreferrer">
             Hablar con Hogga Negocios
           </a>
         </div>
@@ -398,9 +489,12 @@
         <div>
           <span class="foot-title">Síguenos</span>
           <ul>
-            <li><a href="https://www.instagram.com/hogga_chile/" target="_blank" rel="noopener noreferrer">Hogga Servicios</a></li>
-            <li><a href="https://www.instagram.com/hogga_turismo/" target="_blank" rel="noopener noreferrer">Hogga Turismo</a></li>
-            <li><a href="https://www.instagram.com/hogga_regala/" target="_blank" rel="noopener noreferrer">Hogga Regala</a></li>
+            <li><a href="https://www.instagram.com/hogga_chile/" target="_blank" rel="noopener noreferrer">Hogga
+                Servicios</a></li>
+            <li><a href="https://www.instagram.com/hogga_turismo/" target="_blank" rel="noopener noreferrer">Hogga
+                Turismo</a></li>
+            <li><a href="https://www.instagram.com/hogga_regala/" target="_blank" rel="noopener noreferrer">Hogga
+                Regala</a></li>
           </ul>
         </div>
       </nav>
@@ -411,80 +505,81 @@
     </div>
   </footer>
 
-    <script defer src="/js/main.js"></script>
+  <script defer src="/js/main.js"></script>
   <script defer src="/js/consent-banner.js"></script>
 
   <script>
-  (function(){
-    // año
-    const y = document.getElementById('y');
-    if (y) y.textContent = new Date().getFullYear();
+    (function () {
+      // año
+      const y = document.getElementById('y');
+      if (y) y.textContent = new Date().getFullYear();
 
-    const search = document.getElementById('blogSearch');
-    const count = document.getElementById('blogCount');
-    const cards = Array.from(document.querySelectorAll('.post-grid .post-card'));
-    const filterBtns = Array.from(document.querySelectorAll('.blog-filters .chip'));
+      const search = document.getElementById('blogSearch');
+      const count = document.getElementById('blogCount');
+      const cards = Array.from(document.querySelectorAll('.post-grid .post-card'));
+      const filterBtns = Array.from(document.querySelectorAll('.blog-filters .chip'));
 
-    if (!cards.length) return;
+      if (!cards.length) return;
 
-    let activeFilter = 'all';
+      let activeFilter = 'all';
 
-    function norm(s){
-      return (s || '')
-        .toString()
-        .toLowerCase()
-        .normalize('NFD')
-        .replace(/[\u0300-\u036f]/g,'');
-    }
+      function norm(s) {
+        return (s || '')
+          .toString()
+          .toLowerCase()
+          .normalize('NFD')
+          .replace(/[\u0300-\u036f]/g, '');
+      }
 
-    function apply(){
-      const q = norm(search ? search.value : '');
-      let shown = 0;
+      function apply() {
+        const q = norm(search ? search.value : '');
+        let shown = 0;
 
-      cards.forEach(card => {
-        const cat = (card.getAttribute('data-category') || 'all').toLowerCase();
-        const tags = norm(card.getAttribute('data-tags'));
-        const title = norm(card.querySelector('.post-title')?.textContent);
-        const meta = norm(card.querySelector('.post-meta')?.textContent);
+        cards.forEach(card => {
+          const cat = (card.getAttribute('data-category') || 'all').toLowerCase();
+          const tags = norm(card.getAttribute('data-tags'));
+          const title = norm(card.querySelector('.post-title')?.textContent);
+          const meta = norm(card.querySelector('.post-meta')?.textContent);
 
-        const matchesFilter = (activeFilter === 'all') || (cat === activeFilter);
-        const haystack = `${title} ${meta} ${tags}`;
-        const matchesSearch = !q || haystack.includes(q);
+          const matchesFilter = (activeFilter === 'all') || (cat === activeFilter);
+          const haystack = `${title} ${meta} ${tags}`;
+          const matchesSearch = !q || haystack.includes(q);
 
-        const ok = matchesFilter && matchesSearch;
-        card.style.display = ok ? '' : 'none';
-        if (ok) shown++;
-      });
-
-      if (count) count.textContent = shown === 1 ? '1 artículo' : `${shown} artículos`;
-    }
-
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => {
-          b.classList.remove('is-active');
-          b.setAttribute('aria-selected', 'false');
+          const ok = matchesFilter && matchesSearch;
+          card.style.display = ok ? '' : 'none';
+          if (ok) shown++;
         });
-        btn.classList.add('is-active');
-        btn.setAttribute('aria-selected', 'true');
-        activeFilter = btn.getAttribute('data-filter') || 'all';
-        apply();
+
+        if (count) count.textContent = shown === 1 ? '1 artículo' : `${shown} artículos`;
+      }
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => {
+            b.classList.remove('is-active');
+            b.setAttribute('aria-selected', 'false');
+          });
+          btn.classList.add('is-active');
+          btn.setAttribute('aria-selected', 'true');
+          activeFilter = btn.getAttribute('data-filter') || 'all';
+          apply();
+        });
       });
-    });
 
-    if (search) search.addEventListener('input', apply);
+      if (search) search.addEventListener('input', apply);
 
-    // chips de categorías (abajo) activan filtro y suben
-    document.querySelectorAll('[data-jump-filter]').forEach(a => {
-      a.addEventListener('click', (e) => {
-        const f = a.getAttribute('data-jump-filter');
-        const btn = document.querySelector(`.blog-filters .chip[data-filter="${f}"]`);
-        if (btn) btn.click();
+      // chips de categorías (abajo) activan filtro y suben
+      document.querySelectorAll('[data-jump-filter]').forEach(a => {
+        a.addEventListener('click', (e) => {
+          const f = a.getAttribute('data-jump-filter');
+          const btn = document.querySelector(`.blog-filters .chip[data-filter="${f}"]`);
+          if (btn) btn.click();
+        });
       });
-    });
 
-    apply();
-  })();
+      apply();
+    })();
   </script>
 </body>
+
 </html>

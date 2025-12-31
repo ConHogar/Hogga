@@ -1,85 +1,129 @@
 <!doctype html>
 <html lang="es-CL">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#136565" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://hogga.cl/politica-privacidad/" />
 
   <!-- Performance (opcional) -->
   <link rel="preconnect" href="https://www.googletagmanager.com" />
   <link rel="preconnect" href="https://www.google-analytics.com" />
   <link rel="preconnect" href="https://wa.me" />
 
-  <!-- Consent Mode v2 (regional: CL granted; EEA/UK denied) -->
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/styles.css" />
 
-    /* 1) Default global: analytics granted (Chile y LatAm) */
-    gtag('consent','default',{
-      analytics_storage:'granted',
-      ad_storage:'denied',
-      ad_user_data:'denied',
-      ad_personalization:'denied',
-      wait_for_update: 500
-    });
-
-    /* 2) Override EEA/UK/CH/NO/IS/LI: todo denied por defecto */
-    gtag('consent','default',{
-      region:['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','CH','GB'],
-      analytics_storage:'denied',
-      ad_storage:'denied',
-      ad_user_data:'denied',
-      ad_personalization:'denied'
-    });
-
-    /* 3) Aplica preferencia guardada (si existe) ANTES de cargar GTM */
-    (function(){
-      try{
-        // reset rápido: ?consent=reset
-        if (new URLSearchParams(location.search).get('consent') === 'reset') {
-          localStorage.removeItem('hogga_consent_pref');
-        }
-        const pref = JSON.parse(localStorage.getItem('hogga_consent_pref'));
-        if (pref && pref.values) {
-          gtag('consent','update', pref.values);
-          window.__hoggaConsentChosen = true;
-        }
-      }catch(e){}
-    })();
-  </script>
+  <!-- Consent logic (centralizada) -->
+  <script src="/js/consent.js"></script>
 
   <!-- Google Tag Manager -->
   <script>
-  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-56V9ZN8P');
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-56V9ZN8P');
   </script>
   <!-- End Google Tag Manager -->
+
   <title>Política de Privacidad | Hogga</title>
-  <meta name="description" content="Política de Privacidad de Hogga Group SpA. Información clara sobre qué datos recopilamos, para qué los usamos y cómo ejercer tus derechos." />
-  <link rel="canonical" href="https://hogga.cl/politica-privacidad/" />
-  <meta name="theme-color" content="#136565" />
-  <link rel="stylesheet" href="/css/styles.css" />
+  <meta name="description"
+    content="Política de Privacidad de Hogga. Qué datos recopilamos, para qué los usamos, cómo los cuidamos y cómo ejercer tus derechos." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Hogga" />
+  <meta property="og:locale" content="es_CL" />
+  <meta property="og:url" content="https://hogga.cl/politica-privacidad/" />
+  <meta property="og:title" content="Política de Privacidad | Hogga" />
+  <meta property="og:description"
+    content="Qué datos recopilamos, para qué los usamos, cómo los cuidamos y cómo ejercer tus derechos." />
+  <meta property="og:image" content="https://hogga.cl/images/og/og-hogga.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Hogga" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Política de Privacidad | Hogga" />
+  <meta name="twitter:description"
+    content="Qué datos recopilamos, para qué los usamos, cómo los cuidamos y cómo ejercer tus derechos." />
+  <meta name="twitter:image" content="https://hogga.cl/images/og/og-hogga.jpg" />
+
+  <!-- JSON-LD: WebPage -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebPage",
+    "name":"Política de Privacidad",
+    "url":"https://hogga.cl/politica-privacidad/",
+    "inLanguage":"es-CL",
+    "isPartOf":{
+      "@type":"WebSite",
+      "name":"Hogga",
+      "url":"https://hogga.cl/"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Inicio","item":"https://hogga.cl/"},
+      {"@type":"ListItem","position":2,"name":"Política de Privacidad","item":"https://hogga.cl/politica-privacidad/"}
+    ]
+  }
+  </script>
+
   <style>
-    .legal-wrapper{max-width:880px;margin:0 auto;padding:20px}
-    .legal-wrapper h1{margin-bottom:.25rem}
-    .legal-wrapper .sub{color:#6b7280}
-    .legal-wrapper h2{margin-top:2rem;font-size:1.25rem}
-    .legal-wrapper p,.legal-wrapper li{line-height:1.6}
+    .legal-wrapper {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .legal-wrapper h1 {
+      margin-bottom: .25rem;
+    }
+
+    .legal-wrapper .sub {
+      color: #6b7280;
+    }
+
+    .legal-wrapper h2 {
+      margin-top: 2rem;
+      font-size: 1.25rem;
+    }
+
+    .legal-wrapper p,
+    .legal-wrapper li {
+      line-height: 1.6;
+    }
   </style>
 </head>
+
+
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-56V9ZN8P"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-56V9ZN8P" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
   <!-- HEADER (igual que el home, con enlaces absolutos) -->
   <header class="main-header">
     <div class="container header-content">
       <a class="brand" href="/" aria-label="Hogga, inicio">
-        <img class="logo" src="/images/logo.png" alt="Hogga" width="120" height="36" />
+        <img class="logo" src="/images/logo.webp" alt="Hogga — red chilena de datos confiables y verificados"
+          width="120" height="36" />
       </a>
       <!-- Botón hamburger (solo móvil) -->
       <button class="nav-toggle" aria-label="Abrir menú" aria-controls="site-nav" aria-expanded="false">
@@ -89,10 +133,11 @@
           <span class="nav-toggle-line"></span>
         </span>
       </button>
-      <nav id="site-nav" class="site-nav" role="navigation">
-        <a href="/#como-funciona">¿Cómo funciona?</a>
-        <a href="/hogga-servicios/">Hogga Servicios</a>
-        <a href="/turismo/">Hogga Turismo</a>
+      <nav id="site-nav" class="site-nav" role="navigation" aria-label="Navegación principal">
+        <a href="/hogga-servicios/">Para hogar</a>
+        <a href="/turismo/">Para viajar</a>
+        <a href="/negocios/">Para negocios</a>
+        <a href="/decisiones/">Decisiones</a>
         <a href="/blog/">Blog</a>
         <a href="/contacto/">Contacto</a>
       </nav>
@@ -105,14 +150,18 @@
 
     <h2>1. Introducción</h2>
     <p>
-      Esta Política de Privacidad describe cómo <strong>Hogga Group SpA</strong> (“Hogga”) trata los datos personales de quienes usan nuestras plataformas (sitio web, bots de mensajería y otros servicios digitales).
-      Nuestro objetivo es explicar de forma clara qué datos recopilamos, para qué los usamos y cómo puedes ejercer tus derechos, conforme a la Ley N° 19.628 sobre protección de la vida privada.
+      Esta Política de Privacidad describe cómo <strong>Hogga Group SpA</strong> (“Hogga”) trata los datos personales de
+      quienes usan nuestras plataformas (sitio web, bots de mensajería y otros servicios digitales).
+      Nuestro objetivo es explicar de forma clara qué datos recopilamos, para qué los usamos y cómo puedes ejercer tus
+      derechos, conforme a la Ley N° 19.628 sobre protección de la vida privada.
     </p>
 
     <h2>2. Datos que recopilamos</h2>
     <ul>
-      <li><strong>Datos de contacto</strong> (cuando los entregas voluntariamente): nombre, correo, usuario de redes o WhatsApp.</li>
-      <li><strong>Datos de uso y navegación</strong>: dirección IP parcial, dispositivo, navegador, interacción con el sitio/bots.</li>
+      <li><strong>Datos de contacto</strong> (cuando los entregas voluntariamente): nombre, correo, usuario de redes o
+        WhatsApp.</li>
+      <li><strong>Datos de uso y navegación</strong>: dirección IP parcial, dispositivo, navegador, interacción con el
+        sitio/bots.</li>
       <li><strong>Datos de servicio</strong>: ciudad, categoría solicitada, reseñas y feedback sobre proveedores.</li>
     </ul>
 
@@ -127,7 +176,8 @@
 
     <h2>4. Base legal</h2>
     <p>
-      Tratamos datos conforme a la Ley N° 19.628. Cuando corresponde, contamos con tu consentimiento (por ejemplo, al enviarnos datos vía formularios, mensajes o chats).
+      Tratamos datos conforme a la Ley N° 19.628. Cuando corresponde, contamos con tu consentimiento (por ejemplo, al
+      enviarnos datos vía formularios, mensajes o chats).
     </p>
 
     <h2>5. Cómo recopilamos datos</h2>
@@ -138,52 +188,74 @@
 
     <h2>6. Acceso, almacenamiento y seguridad</h2>
     <p>
-      Los datos se almacenan con proveedores tecnológicos confiables y solo accede personal autorizado o encargados de tratamiento que prestan servicios a Hogga.
+      Los datos se almacenan con proveedores tecnológicos confiables y solo accede personal autorizado o encargados de
+      tratamiento que prestan servicios a Hogga.
     </p>
 
     <h2>7. Tus derechos</h2>
     <p>
-      Puedes solicitar acceso, rectificación, actualización, cancelación u oposición al tratamiento de tus datos, cuando proceda. Para ejercerlos, necesitaremos verificar tu identidad.
+      Puedes solicitar acceso, rectificación, actualización, cancelación u oposición al tratamiento de tus datos, cuando
+      proceda. Para ejercerlos, necesitaremos verificar tu identidad.
     </p>
 
     <h2>8. Contacto</h2>
     <p>
-      Para consultas o ejercicio de derechos, escríbenos a: <a href="mailto:privacidad@hogga.cl">privacidad@hogga.cl</a>.
+      Para consultas o ejercicio de derechos, escríbenos a: <a
+        href="mailto:privacidad@hogga.cl">privacidad@hogga.cl</a>.
     </p>
 
     <h2>9. Cambios a esta política</h2>
     <p>
-      Podemos actualizar esta Política para reflejar cambios legales o de funcionamiento del servicio. Publicaremos la versión vigente en este mismo sitio.
+      Podemos actualizar esta Política para reflejar cambios legales o de funcionamiento del servicio. Publicaremos la
+      versión vigente en este mismo sitio.
     </p>
 
     <h2>10. Jurisdicción</h2>
     <p>
-      Esta Política se rige por las leyes de la República de Chile. Cualquier controversia se someterá a los tribunales competentes.
+      Esta Política se rige por las leyes de la República de Chile. Cualquier controversia se someterá a los tribunales
+      competentes.
     </p>
   </main>
 
-  <!-- FOOTER (igual al home) -->
+  <!-- FOOTER  -->
   <footer class="footer">
     <div class="container foot">
       <div class="foot-brand">
         <strong>Hogga</strong>
         <small>
-          <strong>Hogga — la red chilena de datos confiables y verificados</strong>  
-          para descubrir, conectar y crecer.  
-          Hecho con cariño desde el sur de Chile 🇨🇱
+          Hogga conecta personas con datos locales confiables y proveedores verificados en Chile.
+          Hecho desde el sur de Chile 🇨🇱
         </small>
         <div class="cta-column">
-          <a class="foot-cta" href="https://wa.me/56951809138?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20servicios" target="_blank" rel="noopener noreferrer">Pedir dato Hogga Servicios</a>
-          <a class="foot-cta" href="https://wa.me/56975457652?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20turismo" target="_blank" rel="noopener noreferrer">Pedir dato Hogga Turismo</a>
+          <a class="foot-cta"
+            href="https://wa.me/56951809138?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20servicios"
+            target="_blank" rel="noopener noreferrer">
+            Pedir dato Hogga Servicios
+          </a>
+
+          <a class="foot-cta"
+            href="https://wa.me/56975457652?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20turismo" target="_blank"
+            rel="noopener noreferrer">
+            Pedir dato Hogga Turismo
+          </a>
+
+          <a class="foot-cta"
+            href="https://wa.me/56951759158?text=Hola%20Hogga%2C%20quiero%20mejorar%20el%20posicionamiento%20de%20mi%20negocio"
+            target="_blank" rel="noopener noreferrer">
+            Hablar con Hogga Negocios
+          </a>
         </div>
       </div>
+
       <nav class="foot-links" aria-label="Enlaces del sitio">
         <div>
           <span class="foot-title">Explora Hogga</span>
           <ul>
-            <li><a href="/#como-funciona">¿Cómo funciona?</a></li>
-            <li><a href="/hogga-servicios/">Hogga Servicios</a></li>
-            <li><a href="/turismo/">Hogga Turismo</a></li>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/hogga-servicios/">Para Hogar</a></li>
+            <li><a href="/turismo/">Para Viajar</a></li>
+            <li><a href="/negocios/">Para negocios</a></li>
+            <li><a href="/decisiones/">Decisiones</a></li>
             <li><a href="/blog/">Blog</a></li>
             <li><a href="/contacto/">Contacto</a></li>
           </ul>
@@ -199,19 +271,24 @@
         <div>
           <span class="foot-title">Síguenos</span>
           <ul>
-            <li><a href="https://www.instagram.com/hogga_chile/" target="_blank" rel="noopener noreferrer">Hogga Servicios</a></li>
-            <li><a href="https://www.instagram.com/hogga_turismo/" target="_blank" rel="noopener noreferrer">Hogga Turismo</a></li>
-            <li><a href="https://www.instagram.com/hogga_regala/" target="_blank" rel="noopener noreferrer">Hogga Regala</a></li>
+            <li><a href="https://www.instagram.com/hogga_chile/" target="_blank" rel="noopener noreferrer">Hogga
+                Servicios</a></li>
+            <li><a href="https://www.instagram.com/hogga_turismo/" target="_blank" rel="noopener noreferrer">Hogga
+                Turismo</a></li>
+            <li><a href="https://www.instagram.com/hogga_regala/" target="_blank" rel="noopener noreferrer">Hogga
+                Regala</a></li>
           </ul>
         </div>
       </nav>
     </div>
+
     <div class="container foot-bottom">
       <small>© <span id="y"></span> Hogga Group SpA. Todos los derechos reservados.</small>
     </div>
   </footer>
-  
 
   <script defer src="/js/main.js"></script>
+  <script defer src="/js/consent-banner.js"></script>
 </body>
+
 </html>
