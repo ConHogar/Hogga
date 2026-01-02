@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex, nofollow" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
-    <title>Redirigiendo…</title>
+    <title>Conectando…</title>
 
     <!-- Consent logic (centralizada) -->
     <script src="/js/consent.js"></script>
@@ -29,33 +29,33 @@
             font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
             margin: 0;
             background: #f8fafc;
-            color: #0f172a;
+            color: #0f172a
         }
 
         .wrap {
             max-width: 720px;
             margin: 0 auto;
-            padding: 28px 16px;
+            padding: 28px 16px
         }
 
         .card {
             background: #fff;
             border: 1px solid #e2e8f0;
             border-radius: 16px;
-            padding: 18px;
+            padding: 18px
         }
 
         .muted {
             color: #64748b;
             font-size: 14px;
-            line-height: 1.45;
+            line-height: 1.45
         }
 
         .btns {
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
-            margin-top: 14px;
+            margin-top: 14px
         }
 
         a.btn {
@@ -63,17 +63,17 @@
             padding: 10px 14px;
             border-radius: 12px;
             text-decoration: none;
-            font-weight: 700;
+            font-weight: 700
         }
 
         a.primary {
             background: #0b74d6;
-            color: #fff;
+            color: #fff
         }
 
         a.outline {
             border: 1px solid #0b74d6;
-            color: #0b74d6;
+            color: #0b74d6
         }
     </style>
 </head>
@@ -82,11 +82,10 @@
     <noscript>
         <div class="wrap">
             <div class="card">
-                <h1>Redirigiendo…</h1>
+                <h1>Listo para llamar</h1>
                 <p class="muted">Tu navegador no tiene JavaScript. Usa el botón de abajo.</p>
                 <div class="btns">
-                    <!-- En no-script, no podemos setear href con JS, así que va “duro” -->
-                    <a class="btn primary" href="tel:+56944190452">Continuar</a>
+                    <a class="btn primary" href="tel:+56944190452">Llamar</a>
                     <a class="btn outline" href="/buscar/veterinarias/puerto-varas/#proveedores">Volver</a>
                 </div>
             </div>
@@ -95,12 +94,12 @@
 
     <div class="wrap">
         <div class="card">
-            <h1>Te estamos conectando…</h1>
+            <h1>Listo para llamar</h1>
             <p class="muted" id="line1"></p>
-            <p class="muted">Si no te redirige en 1–2 segundos, usa el botón.</p>
+            <p class="muted">Toca “Llamar” para abrir tu app de teléfono.</p>
 
             <div class="btns">
-                <a class="btn primary" id="goBtn" href="#">Continuar</a>
+                <a class="btn primary" id="goBtn" href="#">Llamar</a>
                 <a class="btn outline" id="backBtn" href="#">Volver</a>
             </div>
         </div>
@@ -118,19 +117,16 @@
         };
         // =================================
 
-        // === Return URL (fallback seguro) ===
+        // === Return URL (sanitizado) ===
         const qsReturn = new URLSearchParams(window.location.search).get("return");
         const fallbackReturn = "/buscar/veterinarias/puerto-varas/#proveedores";
-
-        // Solo permitimos return relativos (misma web). Si viene algo raro, usamos fallback.
-        const RETURN_URL = (qsReturn && qsReturn.startsWith("/")) ? qsReturn : fallbackReturn;
+        const RETURN_URL = (qsReturn && qsReturn.startsWith("/") && !qsReturn.startsWith("//")) ? qsReturn : fallbackReturn;
 
         const line1 = document.getElementById("line1");
         const goBtn = document.getElementById("goBtn");
         const backBtn = document.getElementById("backBtn");
 
-        line1.textContent = `Destino: ${DATA.vendor_name} (${DATA.action === "wsp" ? "WhatsApp" : "Llamada"})`;
-
+        line1.textContent = `Destino: ${DATA.vendor_name} (Llamada)`;
         goBtn.href = DATA.target_url;
         backBtn.href = RETURN_URL;
 
@@ -145,31 +141,12 @@
             hogga_vendor_name: DATA.vendor_name
         });
 
-        // LATER: Optional server logging (Google Sheets / Supabase / Worker)
+        // LATER: Optional server logging
         // fetch("YOUR_LOG_ENDPOINT", {
         //   method: "POST",
         //   headers: { "Content-Type": "application/json" },
         //   body: JSON.stringify(DATA)
         // }).catch(() => {});
-
-        // 2) Go to WhatsApp / call
-        setTimeout(() => {
-            window.location.href = DATA.target_url;
-        }, 120);
-
-        // 3) Bounce back when user returns to Safari
-        function bounceBack() {
-            if (!RETURN_URL || RETURN_URL.includes("/go/")) return;
-            window.location.replace(RETURN_URL);
-        }
-
-        document.addEventListener("visibilitychange", () => {
-            if (!document.hidden) bounceBack();
-        });
-
-        window.addEventListener("pageshow", (e) => {
-            if (e.persisted) bounceBack();
-        });
     </script>
 </body>
 
