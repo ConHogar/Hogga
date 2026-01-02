@@ -84,8 +84,12 @@
                 <h1>Redirigiendo…</h1>
                 <p class="muted">Tu navegador no tiene JavaScript. Usa el botón de abajo.</p>
                 <div class="btns">
-                    <a class="btn primary" id="fallback" href="#">Continuar</a>
-                    <a class="btn outline" href="/buscar/veterinarias/puerto-varas/">Volver</a>
+                    <!-- En noscript esto debe ir “duro” -->
+                    <a class="btn primary"
+                        href="https://wa.me/56944190452?text=Hola%21%20Vengo%20desde%20Hogga.%20%C2%BFAtienden%20ahora%3F%20%C2%BFReciben%20urgencias%3F%20%C2%BFTienen%20m%C3%A9dico%20disponible%3F%20Estoy%20en%20Puerto%20Varas.">
+                        Continuar
+                    </a>
+                    <a class="btn outline" href="/buscar/veterinarias/puerto-varas/#proveedores">Volver</a>
                 </div>
             </div>
         </div>
@@ -95,11 +99,11 @@
         <div class="card">
             <h1>Te estamos conectando…</h1>
             <p class="muted" id="line1"></p>
-            <p class="muted" id="line2">Si no te redirige en 1–2 segundos, usa el botón.</p>
+            <p class="muted">Si no te redirige en 1–2 segundos, usa el botón.</p>
 
             <div class="btns">
                 <a class="btn primary" id="goBtn" href="#">Continuar</a>
-                <a class="btn outline" href="/buscar/veterinarias/puerto-varas/">Volver</a>
+                <a class="btn outline" id="backBtn" href="#">Volver</a>
             </div>
         </div>
     </div>
@@ -112,19 +116,26 @@
             vendor: "rucalaf",
             action: "wsp",
             vendor_name: "Centro Médico Veterinario Rucalaf",
-            target_url: "https://wa.me/56944190452?text=" + encodeURIComponent("Hola! Vengo desde Hogga. ¿Atienden ahora? ¿Reciben urgencias? ¿Tienen médico disponible? Estoy en Puerto Varas.")
+            target_url:
+                "https://wa.me/56944190452?text=" +
+                encodeURIComponent("Hola! Vengo desde Hogga. ¿Atienden ahora? ¿Reciben urgencias? ¿Tienen médico disponible? Estoy en Puerto Varas.")
         };
         // =================================
 
+        // === Return URL (sanitizado) ===
+        const qsReturn = new URLSearchParams(window.location.search).get("return");
+        const fallbackReturn = "/buscar/veterinarias/puerto-varas/#proveedores";
+        const RETURN_URL = (qsReturn && qsReturn.startsWith("/")) ? qsReturn : fallbackReturn;
+
         const line1 = document.getElementById("line1");
         const goBtn = document.getElementById("goBtn");
-        const fallback = document.getElementById("fallback");
+        const backBtn = document.getElementById("backBtn");
 
         line1.textContent = `Destino: ${DATA.vendor_name} (${DATA.action === "wsp" ? "WhatsApp" : "Llamada"})`;
         goBtn.href = DATA.target_url;
-        if (fallback) fallback.href = DATA.target_url;
+        backBtn.href = RETURN_URL;
 
-        // 1) Client-side analytics (GTM)
+        // 1) Fire analytics (GTM)
         window.dataLayer = window.dataLayer || [];
         dataLayer.push({
             event: "hogga_go_click",
@@ -132,17 +143,27 @@
             hogga_city: DATA.city,
             hogga_vendor: DATA.vendor,
             hogga_action: DATA.action,
-            hogga_vendor_name: DATA.vendor_name,
-            hogga_target: DATA.target_url
+            hogga_vendor_name: DATA.vendor_name
         });
 
-        // 2) Optional server logging later (leave off for now)
-        // fetch("YOUR_LOG_ENDPOINT", {method:"POST", headers:{'Content-Type':'application/json'}, body: JSON.stringify(DATA)}).catch(()=>{});
-
-        // 3) Redirect quickly, but give GTM a tiny breath
+        // 2) Go to WhatsApp / call
         setTimeout(() => {
-            window.location.replace(DATA.target_url);
-        }, 180);
+            window.location.href = DATA.target_url;
+        }, 120);
+
+        // 3) Bounce back when user returns to Safari
+        function bounceBack() {
+            if (!RETURN_URL || RETURN_URL.includes("/go/")) return;
+            window.location.replace(RETURN_URL);
+        }
+
+        document.addEventListener("visibilitychange", () => {
+            if (!document.hidden) bounceBack();
+        });
+
+        window.addEventListener("pageshow", (e) => {
+            if (e.persisted) bounceBack();
+        });
     </script>
 </body>
 
