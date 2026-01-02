@@ -117,23 +117,22 @@
         };
         // =================================
 
-        // === Return URL (fallback seguro) ===
+        // === Return URL (sanitizado) ===
         const qsReturn = new URLSearchParams(window.location.search).get("return");
         const fallbackReturn = "/buscar/veterinarias/puerto-varas/#proveedores";
-
-        // Solo permitimos return relativos (misma web). Si viene algo raro, usamos fallback.
         const RETURN_URL = (qsReturn && qsReturn.startsWith("/")) ? qsReturn : fallbackReturn;
 
         const line1 = document.getElementById("line1");
         const goBtn = document.getElementById("goBtn");
         const backBtn = document.getElementById("backBtn");
 
-        line1.textContent = `Destino: ${DATA.vendor_name} (${DATA.action === "wsp" ? "WhatsApp" : "Llamada"})`;
+        const actionLabel = (DATA.action === "wsp") ? "WhatsApp" : "Llamada";
+        line1.textContent = `Destino: ${DATA.vendor_name} (${actionLabel})`;
 
         goBtn.href = DATA.target_url;
         backBtn.href = RETURN_URL;
 
-        // 1) Fire analytics (GTM)
+        // Analytics (GTM)
         window.dataLayer = window.dataLayer || [];
         dataLayer.push({
             event: "hogga_go_click",
@@ -144,19 +143,15 @@
             hogga_vendor_name: DATA.vendor_name
         });
 
-        // LATER: Optional server logging (Google Sheets / Supabase / Worker)
-        // fetch("YOUR_LOG_ENDPOINT", {
-        //   method: "POST",
-        //   headers: { "Content-Type": "application/json" },
-        //   body: JSON.stringify(DATA)
-        // }).catch(() => {});
+        // LATER: Optional server logging
+        // fetch("YOUR_LOG_ENDPOINT", { method:"POST", headers:{ "Content-Type":"application/json" }, body: JSON.stringify(DATA) }).catch(()=>{});
 
-        // 2) Go to WhatsApp / call
+        // Redirect
         setTimeout(() => {
             window.location.href = DATA.target_url;
         }, 120);
 
-        // 3) Bounce back when user returns to Safari
+        // Bounce back when user returns (Safari / bfcache)
         function bounceBack() {
             if (!RETURN_URL || RETURN_URL.includes("/go/")) return;
             window.location.replace(RETURN_URL);
@@ -170,6 +165,7 @@
             if (e.persisted) bounceBack();
         });
     </script>
+
 </body>
 
 </html>
