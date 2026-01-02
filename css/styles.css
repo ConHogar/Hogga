@@ -2828,3 +2828,158 @@ a:focus-visible {
       #000 90%,
       transparent);
 }
+
+/* =========================
+   BUSCAR: PROVEEDORES (clean)
+========================= */
+
+/* Helper SEO (discreto e intencional) */
+.seo-helper {
+  max-width: 820px;
+  margin: 18px auto 0;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #94a3b8;
+  opacity: .85;
+  text-align: center;
+}
+
+/* Grid: 3 columnas desktop, 2 tablet, 1 móvil */
+.vendors-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  align-items: stretch;
+  margin-top: 18px;
+}
+
+/* Card proveedor (usa el look de tus cards actuales, pero más consistente) */
+.vendor-card {
+  background: var(--card);
+  border: 1px solid rgba(2, 6, 23, .06);
+  border-radius: 16px;
+  box-shadow: var(--shadow-card);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  min-height: 260px;
+}
+
+.vendor-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card-lg);
+}
+
+.vendor-card .post-body {
+  padding: 0;
+  /* evita dobles paddings del estilo blog */
+}
+
+.vendor-card .post-title {
+  font-size: 18px;
+  line-height: 1.2;
+  margin: 0 0 6px;
+  font-weight: 800;
+  color: #0f2f2f;
+}
+
+.vendor-card .post-meta {
+  margin: 0 0 10px;
+  font-size: 13.5px;
+  color: #475569;
+}
+
+.vendor-card p {
+  margin: 0;
+  color: #334155;
+  line-height: 1.55;
+}
+
+.vendor-actions {
+  margin-top: auto;
+  display: flex;
+  gap: 10px;
+  padding-top: 14px;
+}
+
+.vendor-actions a {
+  flex: 1;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .vendors-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .vendors-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Info cards (entre trust bar y proveedores) */
+.info-card {
+  background: #fff;
+  border: 1px solid rgba(2, 6, 23, .06);
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 8px 22px rgba(2, 6, 23, .05);
+}
+
+.section.alt .info-card {
+  background: #fbfefe;
+}
+
+.info-head {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
+.info-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 800;
+  border-radius: 999px;
+  border: 1px solid rgba(2, 6, 23, .08);
+  background: rgba(19, 101, 101, .08);
+  color: #0f2f2f;
+}
+
+/* Acentos por sección (solo cambia el fondo del pill) */
+.info-card--urgent .info-pill {
+  background: rgba(37, 99, 235, .10);
+  color: #0b2b67;
+}
+
+.info-card--home .info-pill {
+  background: rgba(16, 185, 129, .12);
+  color: #0f3a2a;
+}
+
+.info-card--civic .info-pill {
+  background: rgba(245, 158, 11, .14);
+  color: #4a2a00;
+}
+
+.info-card--rapid .info-pill {
+  background: rgba(239, 68, 68, .10);
+  color: #5b0b0b;
+}
+
+/* Mejora micro tipografías dentro */
+.info-card h2 {
+  margin-top: 4px;
+}
+
+.info-card .sub {
+  max-width: none;
+}
+
+/* ya no lo restringes */

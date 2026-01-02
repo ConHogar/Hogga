@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="es-CL">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -12,49 +13,52 @@
   <!-- Consent Mode v2 (regional: CL granted; EEA/UK denied) -->
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
+    function gtag() { dataLayer.push(arguments); }
 
     /* 1) Default global: analytics granted (Chile y LatAm) */
-    gtag('consent','default',{
-      analytics_storage:'granted',
-      ad_storage:'denied',
-      ad_user_data:'denied',
-      ad_personalization:'denied',
+    gtag('consent', 'default', {
+      analytics_storage: 'granted',
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
       wait_for_update: 500
     });
 
     /* 2) Override EEA/UK/CH/NO/IS/LI: todo denied por defecto */
-    gtag('consent','default',{
-      region:['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','CH','GB'],
-      analytics_storage:'denied',
-      ad_storage:'denied',
-      ad_user_data:'denied',
-      ad_personalization:'denied'
+    gtag('consent', 'default', {
+      region: ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'IS', 'LI', 'NO', 'CH', 'GB'],
+      analytics_storage: 'denied',
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
     });
 
     /* 3) Aplica preferencia guardada (si existe) ANTES de cargar GTM */
-    (function(){
-      try{
+    (function () {
+      try {
         // reset rápido: ?consent=reset
         if (new URLSearchParams(location.search).get('consent') === 'reset') {
           localStorage.removeItem('hogga_consent_pref');
         }
         const pref = JSON.parse(localStorage.getItem('hogga_consent_pref'));
         if (pref && pref.values) {
-          gtag('consent','update', pref.values);
+          gtag('consent', 'update', pref.values);
           window.__hoggaConsentChosen = true;
         }
-      }catch(e){}
+      } catch (e) { }
     })();
   </script>
 
   <!-- Google Tag Manager -->
   <script>
-  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-56V9ZN8P');
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-56V9ZN8P');
   </script>
   <!-- End Google Tag Manager -->
   <title>Bases legales — Concursos Instagram | Hogga</title>
@@ -63,16 +67,37 @@
   <meta name="theme-color" content="#136565" />
   <link rel="stylesheet" href="/css/styles.css" />
   <style>
-    .legal-wrapper{max-width:880px;margin:0 auto;padding:20px}
-    .legal-card{border:1px solid #e5e7eb;border-radius:12px;padding:16px 20px;margin:16px 0;background:#fff}
-    .legal-card h2{margin:0 0 6px;font-size:1.25rem}
-    .legal-card p.meta{margin:0 0 10px;color:#6b7280;font-size:.9rem}
+    .legal-wrapper {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 20px
+    }
+
+    .legal-card {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin: 16px 0;
+      background: #fff
+    }
+
+    .legal-card h2 {
+      margin: 0 0 6px;
+      font-size: 1.25rem
+    }
+
+    .legal-card p.meta {
+      margin: 0 0 10px;
+      color: #6b7280;
+      font-size: .9rem
+    }
   </style>
 </head>
+
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-56V9ZN8P"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-56V9ZN8P" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
   <!-- HEADER (mismo que tu home, con enlaces absolutos a secciones) -->
   <header class="main-header">
@@ -99,7 +124,8 @@
   </header>
   <main class="legal-wrapper" role="main">
     <h1>Bases legales — Concursos Hogga</h1>
-    <p class="sub">Aquí encontrarás las bases de cada concurso vigente o finalizado. Todos los concursos de Hogga se realizan en Instagram y la cuenta oficial es @hogga_regala (a partir de Septeimbre 2025).</p>
+    <p class="sub">Aquí encontrarás las bases de cada concurso vigente o finalizado. Todos los concursos de Hogga se
+      realizan en Instagram y la cuenta oficial es @hogga_regala (a partir de Septeimbre 2025).</p>
 
     <!-- Concurso vigente -->
     <article class="legal-card">
@@ -161,24 +187,31 @@
       <div class="foot-brand">
         <strong>Hogga</strong>
         <small>
-          <strong>Hogga — la red chilena de datos confiables y verificados</strong>  
-          para descubrir, conectar y crecer.  
+          <strong>Hogga — la red chilena de datos confiables y verificados</strong>
+          para descubrir, conectar y crecer.
           Hecho con cariño desde el sur de Chile 🇨🇱
         </small>
         <div class="cta-column">
-          <a class="foot-cta" href="https://wa.me/56951809138?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20servicios" target="_blank" rel="noopener noreferrer">Pedir dato Hogga Servicios</a>
-          <a class="foot-cta" href="https://wa.me/56975457652?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20turismo" target="_blank" rel="noopener noreferrer">Pedir dato Hogga Turismo</a>
+          <a class="foot-cta"
+            href="https://wa.me/56951809138?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20servicios"
+            target="_blank" rel="noopener noreferrer">Pedir dato Hogga Servicios</a>
+          <a class="foot-cta"
+            href="https://wa.me/56975457652?text=Hola%20Hogga%2C%20necesito%20un%20dato%20de%20turismo" target="_blank"
+            rel="noopener noreferrer">Pedir dato Hogga Turismo</a>
         </div>
       </div>
       <nav class="foot-links" aria-label="Enlaces del sitio">
         <div>
           <span class="foot-title">Explora Hogga</span>
           <ul>
-            <li><a href="/#como-funciona">¿Cómo funciona?</a></li>
-            <li><a href="/hogga-servicios/">Hogga Servicios</a></li>
-            <li><a href="/turismo/">Hogga Turismo</a></li>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/hogga-servicios/">Para Hogar</a></li>
+            <li><a href="/turismo/">Para Viajar</a></li>
+            <li><a href="/negocios/">Para negocios</a></li>
+            <li><a href="/decisiones/">Decisiones</a></li>
             <li><a href="/blog/">Blog</a></li>
             <li><a href="/contacto/">Contacto</a></li>
+            <li><a href="/buscar/">Buscar en Hogga</a></li>
           </ul>
         </div>
         <div>
@@ -192,9 +225,12 @@
         <div>
           <span class="foot-title">Síguenos</span>
           <ul>
-            <li><a href="https://www.instagram.com/hogga_chile/" target="_blank" rel="noopener noreferrer">Hogga Servicios</a></li>
-            <li><a href="https://www.instagram.com/hogga_turismo/" target="_blank" rel="noopener noreferrer">Hogga Turismo</a></li>
-            <li><a href="https://www.instagram.com/hogga_regala/" target="_blank" rel="noopener noreferrer">Hogga Regala</a></li>
+            <li><a href="https://www.instagram.com/hogga_chile/" target="_blank" rel="noopener noreferrer">Hogga
+                Servicios</a></li>
+            <li><a href="https://www.instagram.com/hogga_turismo/" target="_blank" rel="noopener noreferrer">Hogga
+                Turismo</a></li>
+            <li><a href="https://www.instagram.com/hogga_regala/" target="_blank" rel="noopener noreferrer">Hogga
+                Regala</a></li>
           </ul>
         </div>
       </nav>
@@ -203,9 +239,10 @@
       <small>© <span id="y"></span> Hogga Group SpA. Todos los derechos reservados.</small>
     </div>
   </footer>
-  
+
 
   <!-- Tu JS global para menú/ano -->
   <script defer src="/js/main.js"></script>
 </body>
+
 </html>

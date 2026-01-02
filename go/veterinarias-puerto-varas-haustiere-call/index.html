@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="es-CL">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <title>Redirigiendo…</title>
+
+    <!-- Consent logic (centralizada) -->
+    <script src="/js/consent.js"></script>
+
+    <!-- Google Tag Manager (same as your site) -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-56V9ZN8P');
+    </script>
+
+    <style>
+        body {
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+            margin: 0;
+            background: #f8fafc;
+            color: #0f172a
+        }
+
+        .wrap {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 28px 16px
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 18px
+        }
+
+        .muted {
+            color: #64748b;
+            font-size: 14px;
+            line-height: 1.45
+        }
+
+        .btns {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 14px
+        }
+
+        a.btn {
+            display: inline-block;
+            padding: 10px 14px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700
+        }
+
+        a.primary {
+            background: #0b74d6;
+            color: #fff
+        }
+
+        a.outline {
+            border: 1px solid #0b74d6;
+            color: #0b74d6
+        }
+    </style>
+</head>
+
+<body>
+    <noscript>
+        <div class="wrap">
+            <div class="card">
+                <h1>Redirigiendo…</h1>
+                <p class="muted">Tu navegador no tiene JavaScript. Usa el botón de abajo.</p>
+                <div class="btns">
+                    <a class="btn primary" id="fallback" href="#">Continuar</a>
+                    <a class="btn outline" href="/buscar/veterinarias/puerto-varas/">Volver</a>
+                </div>
+            </div>
+        </div>
+    </noscript>
+
+    <div class="wrap">
+        <div class="card">
+            <h1>Te estamos conectando…</h1>
+            <p class="muted" id="line1"></p>
+            <p class="muted" id="line2">Si no te redirige en 1–2 segundos, usa el botón.</p>
+
+            <div class="btns">
+                <a class="btn primary" id="goBtn" href="#">Continuar</a>
+                <a class="btn outline" href="/buscar/veterinarias/puerto-varas/">Volver</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ====== EDIT THESE PER PAGE ======
+        const DATA = {
+            category: "veterinarias",
+            city: "puerto-varas",
+            vendor: "haustiere",
+            action: "call",
+            vendor_name: "Haustiere Centro Veterinario",
+            target_url: "tel:+56986327447"
+        };
+        // =================================
+
+        const line1 = document.getElementById("line1");
+        const goBtn = document.getElementById("goBtn");
+        const fallback = document.getElementById("fallback");
+
+        line1.textContent = `Destino: ${DATA.vendor_name} (${DATA.action === "wsp" ? "WhatsApp" : "Llamada"})`;
+        goBtn.href = DATA.target_url;
+        if (fallback) fallback.href = DATA.target_url;
+
+        // 1) Client-side analytics (GTM)
+        window.dataLayer = window.dataLayer || [];
+        dataLayer.push({
+            event: "hogga_go_click",
+            hogga_category: DATA.category,
+            hogga_city: DATA.city,
+            hogga_vendor: DATA.vendor,
+            hogga_action: DATA.action,
+            hogga_vendor_name: DATA.vendor_name,
+            hogga_target: DATA.target_url
+        });
+
+        // 3) Redirect quickly, but give GTM a tiny breath
+        setTimeout(() => {
+            window.location.replace(DATA.target_url);
+        }, 180);
+    </script>
+</body>
+
+</html>
