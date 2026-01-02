@@ -21,6 +21,7 @@ INCLUDE_DIRS = [
     "hogga-servicios",
     "proveedores",
     "decisiones",  # <-- agrega esto
+    "buscar",
     "contacto",
     "terminos-y-condiciones",
     "politica-privacidad",
@@ -35,6 +36,7 @@ RULES = {
     "hogga-servicios": {"priority": "0.9", "changefreq": "weekly"},
     "proveedores": {"priority": "0.6", "changefreq": "monthly"},
     "decisiones": {"priority": "0.8", "changefreq": "weekly"},  # <-- opcional pero recomendado
+    "buscar": {"priority": "0.7", "changefreq": "weekly"},
     "contacto": {"priority": "0.4", "changefreq": "yearly"},
     "terminos-y-condiciones": {"priority": "0.2", "changefreq": "yearly"},
     "politica-privacidad": {"priority": "0.2", "changefreq": "yearly"},

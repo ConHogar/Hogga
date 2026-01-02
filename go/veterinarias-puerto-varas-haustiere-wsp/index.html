@@ -124,7 +124,10 @@
         // === Return URL (sanitizado) ===
         const qsReturn = new URLSearchParams(window.location.search).get("return");
         const fallbackReturn = "/buscar/veterinarias/puerto-varas/#proveedores";
-        const RETURN_URL = (qsReturn && qsReturn.startsWith("/")) ? qsReturn : fallbackReturn;
+        const RETURN_URL =
+            (qsReturn && qsReturn.startsWith("/") && !qsReturn.startsWith("//"))
+                ? qsReturn
+                : fallbackReturn;
 
         const line1 = document.getElementById("line1");
         const goBtn = document.getElementById("goBtn");

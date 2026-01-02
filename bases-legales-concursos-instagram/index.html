@@ -4,73 +4,63 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#136565" />
+  <meta name="format-detection" content="telephone=no" />
 
-  <!-- Performance (opcional) -->
+  <title>Bases legales — Concursos Instagram | Hogga</title>
+  <meta name="description" content="Listado de bases legales de los concursos de Instagram de Hogga." />
+  <link rel="canonical" href="https://hogga.cl/bases-legales-concursos-instagram/" />
+
+  <!-- Performance -->
   <link rel="preconnect" href="https://www.googletagmanager.com" />
   <link rel="preconnect" href="https://www.google-analytics.com" />
   <link rel="preconnect" href="https://wa.me" />
 
-  <!-- Consent Mode v2 (regional: CL granted; EEA/UK denied) -->
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
+  <!-- Favicons (ajusta rutas si usas otras) -->
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-    /* 1) Default global: analytics granted (Chile y LatAm) */
-    gtag('consent', 'default', {
-      analytics_storage: 'granted',
-      ad_storage: 'denied',
-      ad_user_data: 'denied',
-      ad_personalization: 'denied',
-      wait_for_update: 500
-    });
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="Hogga" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_CL" />
+  <meta property="og:title" content="Bases legales — Concursos Instagram | Hogga" />
+  <meta property="og:description" content="Listado de bases legales de los concursos de Instagram de Hogga." />
+  <meta property="og:url" content="https://hogga.cl/bases-legales-concursos-instagram/" />
+  <meta property="og:image" content="https://hogga.cl/images/og/og-hogga.jpg" />
 
-    /* 2) Override EEA/UK/CH/NO/IS/LI: todo denied por defecto */
-    gtag('consent', 'default', {
-      region: ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'IS', 'LI', 'NO', 'CH', 'GB'],
-      analytics_storage: 'denied',
-      ad_storage: 'denied',
-      ad_user_data: 'denied',
-      ad_personalization: 'denied'
-    });
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Bases legales — Concursos Instagram | Hogga" />
+  <meta name="twitter:description" content="Listado de bases legales de los concursos de Instagram de Hogga." />
+  <meta name="twitter:image" content="https://hogga.cl/images/og/og-hogga.jpg" />
 
-    /* 3) Aplica preferencia guardada (si existe) ANTES de cargar GTM */
-    (function () {
-      try {
-        // reset rápido: ?consent=reset
-        if (new URLSearchParams(location.search).get('consent') === 'reset') {
-          localStorage.removeItem('hogga_consent_pref');
-        }
-        const pref = JSON.parse(localStorage.getItem('hogga_consent_pref'));
-        if (pref && pref.values) {
-          gtag('consent', 'update', pref.values);
-          window.__hoggaConsentChosen = true;
-        }
-      } catch (e) { }
-    })();
-  </script>
+  <!-- Consent logic (centralizada) -->
+  <script src="/js/consent.js"></script>
 
   <!-- Google Tag Manager -->
   <script>
     (function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
-      }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+      w[l] = w[l] || [];
+      w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-56V9ZN8P');
   </script>
   <!-- End Google Tag Manager -->
-  <title>Bases legales — Concursos Instagram | Hogga</title>
-  <meta name="description" content="Listado de bases legales de los concursos de Instagram de Hogga." />
-  <link rel="canonical" href="https://hogga.cl/bases-legales-concursos-instagram/" />
-  <meta name="theme-color" content="#136565" />
+
   <link rel="stylesheet" href="/css/styles.css" />
+
   <style>
     .legal-wrapper {
       max-width: 880px;
       margin: 0 auto;
-      padding: 20px
+      padding: 20px;
     }
 
     .legal-card {
@@ -78,21 +68,22 @@
       border-radius: 12px;
       padding: 16px 20px;
       margin: 16px 0;
-      background: #fff
+      background: #fff;
     }
 
     .legal-card h2 {
       margin: 0 0 6px;
-      font-size: 1.25rem
+      font-size: 1.25rem;
     }
 
     .legal-card p.meta {
       margin: 0 0 10px;
       color: #6b7280;
-      font-size: .9rem
+      font-size: .9rem;
     }
   </style>
 </head>
+
 
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -241,8 +232,8 @@
   </footer>
 
 
-  <!-- Tu JS global para menú/ano -->
   <script defer src="/js/main.js"></script>
+  <script defer src="/js/consent-banner.js"></script>
 </body>
 
 </html>

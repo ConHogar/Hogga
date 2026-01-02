@@ -6,20 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex, nofollow" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
-    <title>Redirigiendo…</title>
+    <title>Conectando…</title>
 
     <!-- Consent logic (centralizada) -->
     <script src="/js/consent.js"></script>
 
-    <!-- Google Tag Manager (same as your site) -->
+    <!-- Google Tag Manager -->
     <script>
         (function (w, d, s, l, i) {
-            w[l] = w[l] || []; w[l].push({
-                'gtm.start':
-                    new Date().getTime(), event: 'gtm.js'
-            }); var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+            w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+            var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-56V9ZN8P');
     </script>
 
@@ -81,11 +78,10 @@
     <noscript>
         <div class="wrap">
             <div class="card">
-                <h1>Redirigiendo…</h1>
+                <h1>Conectando…</h1>
                 <p class="muted">Tu navegador no tiene JavaScript. Usa el botón de abajo.</p>
                 <div class="btns">
-                    <!-- En no-script, no podemos setear href con JS, así que va “duro” -->
-                    <a class="btn primary" href="tel:+56954000987">Continuar</a>
+                    <a class="btn primary" href="tel:+56954000987">Llamar</a>
                     <a class="btn outline" href="/buscar/veterinarias/puerto-varas/#proveedores">Volver</a>
                 </div>
             </div>
@@ -94,12 +90,12 @@
 
     <div class="wrap">
         <div class="card">
-            <h1>Te estamos conectando…</h1>
+            <h1>Listo para llamar</h1>
             <p class="muted" id="line1"></p>
-            <p class="muted">Si no te redirige en 1–2 segundos, usa el botón.</p>
+            <p class="muted" id="line2">Toca “Llamar” para abrir tu app de teléfono.</p>
 
             <div class="btns">
-                <a class="btn primary" id="goBtn" href="#">Continuar</a>
+                <a class="btn primary" id="goBtn" href="#">Llamar</a>
                 <a class="btn outline" id="backBtn" href="#">Volver</a>
             </div>
         </div>
@@ -120,15 +116,13 @@
         // === Return URL (sanitizado) ===
         const qsReturn = new URLSearchParams(window.location.search).get("return");
         const fallbackReturn = "/buscar/veterinarias/puerto-varas/#proveedores";
-        const RETURN_URL = (qsReturn && qsReturn.startsWith("/")) ? qsReturn : fallbackReturn;
+        const RETURN_URL = (qsReturn && qsReturn.startsWith("/") && !qsReturn.startsWith("//")) ? qsReturn : fallbackReturn;
 
         const line1 = document.getElementById("line1");
         const goBtn = document.getElementById("goBtn");
         const backBtn = document.getElementById("backBtn");
 
-        const actionLabel = (DATA.action === "wsp") ? "WhatsApp" : "Llamada";
-        line1.textContent = `Destino: ${DATA.vendor_name} (${actionLabel})`;
-
+        line1.textContent = `Destino: ${DATA.vendor_name} (Llamada)`;
         goBtn.href = DATA.target_url;
         backBtn.href = RETURN_URL;
 
@@ -145,27 +139,7 @@
 
         // LATER: Optional server logging
         // fetch("YOUR_LOG_ENDPOINT", { method:"POST", headers:{ "Content-Type":"application/json" }, body: JSON.stringify(DATA) }).catch(()=>{});
-
-        // Redirect
-        setTimeout(() => {
-            window.location.href = DATA.target_url;
-        }, 120);
-
-        // Bounce back when user returns (Safari / bfcache)
-        function bounceBack() {
-            if (!RETURN_URL || RETURN_URL.includes("/go/")) return;
-            window.location.replace(RETURN_URL);
-        }
-
-        document.addEventListener("visibilitychange", () => {
-            if (!document.hidden) bounceBack();
-        });
-
-        window.addEventListener("pageshow", (e) => {
-            if (e.persisted) bounceBack();
-        });
     </script>
-
 </body>
 
 </html>
