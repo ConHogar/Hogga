@@ -84,9 +84,12 @@
                 <h1>Redirigiendo…</h1>
                 <p class="muted">Tu navegador no tiene JavaScript. Usa el botón de abajo.</p>
                 <div class="btns">
-                    <a class="btn primary" id="fallback" href="#">Continuar</a>
-                    <a class="btn outline" id="backBtnNoJs"
-                        href="/buscar/veterinarias/puerto-varas/#proveedores">Volver</a>
+                    <!-- En noscript el link debe ir "duro" -->
+                    <a class="btn primary"
+                        href="https://wa.me/56986327447?text=Hola%2C%20necesito%20una%20consulta%20veterinaria%20en%20Puerto%20Varas.%20%C2%BFTienen%20disponibilidad%20hoy%3F">
+                        Continuar
+                    </a>
+                    <a class="btn outline" href="/buscar/veterinarias/puerto-varas/#proveedores">Volver</a>
                 </div>
             </div>
         </div>
@@ -106,11 +109,6 @@
     </div>
 
     <script>
-        // === Return URL (fallback seguro) ===
-        const RETURN_URL =
-            new URLSearchParams(window.location.search).get("return")
-            || "/buscar/veterinarias/puerto-varas/#proveedores";
-
         // ====== EDIT THESE PER PAGE ======
         const DATA = {
             category: "veterinarias",
@@ -123,15 +121,18 @@
         };
         // =================================
 
+        // === Return URL (sanitizado) ===
+        const qsReturn = new URLSearchParams(window.location.search).get("return");
+        const fallbackReturn = "/buscar/veterinarias/puerto-varas/#proveedores";
+        const RETURN_URL = (qsReturn && qsReturn.startsWith("/")) ? qsReturn : fallbackReturn;
+
         const line1 = document.getElementById("line1");
         const goBtn = document.getElementById("goBtn");
-        const fallback = document.getElementById("fallback");
         const backBtn = document.getElementById("backBtn");
 
         line1.textContent = `Destino: ${DATA.vendor_name} (${DATA.action === "wsp" ? "WhatsApp" : "Llamada"})`;
         goBtn.href = DATA.target_url;
-        if (fallback) fallback.href = DATA.target_url;
-        if (backBtn) backBtn.href = RETURN_URL;
+        backBtn.href = RETURN_URL;
 
         // 1) Fire analytics (GTM)
         window.dataLayer = window.dataLayer || [];
