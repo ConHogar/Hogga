@@ -2998,3 +2998,44 @@ a:focus-visible {
 }
 
 /* ya no lo restringes */
+
+
+/* Vendor extra details (address + web/maps) */
+.vendor-details {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.vendor-line {
+  margin: 6px 0;
+  color: rgba(15, 23, 42, 0.78);
+  font-size: 0.95rem;
+  line-height: 1.35;
+}
+
+.vendor-line strong {
+  color: rgba(15, 23, 42, 0.92);
+  font-weight: 700;
+}
+
+.vendor-line .sep {
+  margin: 0 8px;
+  opacity: 0.55;
+}
+
+/* If inline-link exists, this will harmonize it; if you already styled it, ignore */
+.inline-link {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  color: rgba(37, 102, 181, 0.92);
+}
+
+.inline-link:hover {
+  opacity: 0.9;
+}
+
+/* Optional: make the buttons sit a bit nicer */
+.vendor-actions {
+  margin-top: 14px;
+}

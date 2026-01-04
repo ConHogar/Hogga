@@ -1,0 +1,110 @@
+/* ===============================
+   Hogga GO pages – shared styles
+   Locked v1
+   =============================== */
+
+body {
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+    margin: 0;
+    background: #f8fafc;
+    color: #0f172a;
+}
+
+/* Layout */
+.wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 28px 16px;
+}
+
+/* Card */
+.card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 18px;
+}
+
+.card h1 {
+    margin: 0 0 8px 0;
+    font-size: 24px;
+    line-height: 1.25;
+}
+
+/* Text */
+.muted {
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.45;
+    margin: 0 0 6px 0;
+}
+
+/* Buttons */
+.btns {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+}
+
+a.btn {
+    display: inline-block;
+    padding: 10px 14px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 700;
+    min-width: 120px;
+    text-align: center;
+    cursor: pointer;
+}
+
+a.btn.primary {
+    background: #0b74d6;
+    color: #ffffff;
+}
+
+a.btn.outline {
+    border: 1px solid #0b74d6;
+    color: #0b74d6;
+    background: transparent;
+}
+
+/* Button hover feedback */
+a.btn.primary:hover {
+    filter: brightness(0.95);
+}
+
+a.btn.outline:hover {
+    background: #eff6ff;
+}
+
+/* Hogga exit / trust block */
+.hogga-exit {
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.hogga-exit img {
+    height: 48px;
+    width: auto;
+    margin-bottom: 6px;
+    opacity: 0.9;
+}
+
+.hogga-exit-text {
+    font-size: 14px;
+    color: #475569;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* Mobile polish */
+@media (max-width: 480px) {
+    .card {
+        padding: 16px;
+    }
+
+    .btns {
+        gap: 8px;
+    }
+}
