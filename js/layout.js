@@ -4,7 +4,7 @@
     if (!mount) return;
 
     try {
-        const res = await fetch('/partials/footer.html', { cache: 'no-store' });
+        const res = await fetch('/partials/footer.html');
         if (!res.ok) throw new Error(`Footer fetch failed: ${res.status}`);
 
         mount.innerHTML = await res.text();
