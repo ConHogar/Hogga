@@ -1286,6 +1286,9 @@ a:focus-visible {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  min-width: 0;
+  max-width: 100%;
 }
 
 .quote-card blockquote {
@@ -1370,8 +1373,8 @@ a:focus-visible {
   /* clave: como duplicamos, -50% es el loop perfecto */
 }
 
-/* Cards */
-.quote-card {
+/* Cards — fixed width ONLY inside slider */
+.reviews-slider .quote-card {
   min-width: 320px;
   max-width: 360px;
   flex: 0 0 auto;
