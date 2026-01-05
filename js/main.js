@@ -105,15 +105,19 @@
 
   // ===== Año dinámico en footer (si existe #y) =====
   function setupFooterYear() {
-    const y = $('#y');
+    const y = document.getElementById('y'); // o $('#y') si tu $ es seguro
     if (y) y.textContent = new Date().getFullYear();
   }
 
-  // cuando el footer ya fue inyectado
-  document.addEventListener('hogga:footer-ready', setupFooterYear);
-
-  // por si el footer está hardcodeado (home u otras páginas)
+  // 1) por si el footer ya está (home o cache rápido)
   setupFooterYear();
+
+  // 2) por si el footer llega después (partial)
+  if (window.__hoggaFooterReady) {
+    setupFooterYear();
+  } else {
+    document.addEventListener('hogga:footer-ready', setupFooterYear, { once: true });
+  }
 
   // ===== Email link seguro (evita scrapers) =====
   function setupEmailLink() {

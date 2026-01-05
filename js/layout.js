@@ -6,10 +6,10 @@
     try {
         const res = await fetch('/partials/footer.html');
         if (!res.ok) throw new Error(`Footer fetch failed: ${res.status}`);
-
         mount.innerHTML = await res.text();
 
-        // 👇 ADD THIS LINE HERE (footer is now in the DOM)
+        // ✅ bandera + evento
+        window.__hoggaFooterReady = true;
         document.dispatchEvent(new Event('hogga:footer-ready'));
 
     } catch (e) {
