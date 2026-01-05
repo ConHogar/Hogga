@@ -109,6 +109,12 @@
     if (y) y.textContent = new Date().getFullYear();
   }
 
+  // cuando el footer ya fue inyectado
+  document.addEventListener('hogga:footer-ready', setupFooterYear);
+
+  // por si el footer está hardcodeado (home u otras páginas)
+  setupFooterYear();
+
   // ===== Email link seguro (evita scrapers) =====
   function setupEmailLink() {
     const el = document.getElementById('contact-email');
