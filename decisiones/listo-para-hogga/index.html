@@ -6,13 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#136565" />
+  <meta name="referrer" content="no-referrer-when-downgrade" />
+  <meta name="format-detection" content="telephone=no" />
 
   <!-- Performance -->
   <link rel="preconnect" href="https://www.googletagmanager.com" />
   <link rel="preconnect" href="https://www.google-analytics.com" />
   <link rel="preconnect" href="https://wa.me" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
   <!-- Consent logic (centralizada) -->
   <script src="/js/consent.js"></script>
@@ -20,12 +22,11 @@
   <!-- Google Tag Manager -->
   <script>
     (function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
-      }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+      w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-56V9ZN8P');
   </script>
   <!-- End Google Tag Manager -->
@@ -36,7 +37,7 @@
   <link rel="canonical" href="https://hogga.cl/decisiones/listo-para-hogga/" />
 
   <!-- Open Graph -->
-  <meta property="og:type" content="article" />
+  <meta property="og:type" content="website" />
   <meta property="og:url" content="https://hogga.cl/decisiones/listo-para-hogga/" />
   <meta property="og:site_name" content="Hogga" />
   <meta property="og:locale" content="es_CL" />
@@ -56,12 +57,12 @@
   <meta name="twitter:image:alt" content="Hogga — decisiones para negocios en Chile" />
 
   <!-- Favicons -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/favic/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favic/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favic/favicon-16x16.png">
-  <link rel="manifest" href="/images/favic/site.webmanifest">
-  <link rel="mask-icon" href="/images/favic/safari-pinned-tab.svg" color="#136565">
-  <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favic/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favic/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favic/favicon-16x16.png" />
+  <link rel="manifest" href="/images/favic/site.webmanifest" />
+  <link rel="mask-icon" href="/images/favic/safari-pinned-tab.svg" color="#136565" />
+  <link rel="icon" href="/favicon.ico" />
 
   <!-- CSS -->
   <link rel="preload" as="image" href="/images/logo.webp" />
@@ -69,9 +70,9 @@
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Manrope:wght@700;800&display=swap"
-    rel="stylesheet">
+    rel="stylesheet" />
 
-  <!-- JSON-LD (Breadcrumbs + Article) -->
+  <!-- JSON-LD (Breadcrumbs + WebPage) -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -85,16 +86,13 @@
           ]
         },
         {
-          "@type": "Article",
-          "headline": "¿Mi negocio está listo para aparecer en Hogga?",
-          "mainEntityOfPage": "https://hogga.cl/decisiones/listo-para-hogga/",
-          "author": { "@type": "Organization", "name": "Hogga" },
-          "publisher": {
-            "@type": "Organization",
-            "name": "Hogga",
-            "logo": { "@type": "ImageObject", "url": "https://hogga.cl/images/logo.webp" }
-          },
-          "inLanguage": "es-CL"
+          "@type": "WebPage",
+          "@id": "https://hogga.cl/decisiones/listo-para-hogga/#webpage",
+          "url": "https://hogga.cl/decisiones/listo-para-hogga/",
+          "name": "¿Mi negocio está listo para aparecer en Hogga? | Decisiones Hogga",
+          "description": "Auto-filtro simple en 2 minutos: si calzas, Hogga te va a servir. Si no, mejor esperar y ordenar 2–3 cosas primero.",
+          "inLanguage": "es-CL",
+          "isPartOf": { "@id": "https://hogga.cl/#website" }
         }
       ]
     }
@@ -266,6 +264,20 @@
 
         <!-- RESULT -->
         <div class="decision-result" id="fitResult" aria-live="polite" style="display:none;">
+          <div class="decision-scale" aria-label="Interpretación del resultado">
+            <div class="scale-item">
+              <span class="scale-pill">0–3</span>
+              <span class="scale-text">Primero orden</span>
+            </div>
+            <div class="scale-item">
+              <span class="scale-pill">4–6</span>
+              <span class="scale-text">Casi listo</span>
+            </div>
+            <div class="scale-item">
+              <span class="scale-pill">7–9</span>
+              <span class="scale-text">Listo para Hogga</span>
+            </div>
+          </div>
           <div class="decision-result-head">
             <span class="pill" id="fitPill">0/9</span>
             <strong id="fitTitle">—</strong>
@@ -319,12 +331,72 @@
       </div>
     </section>
 
+
+    <section id="related-decisions" class="section alt">
+      <div class="container decision-wrap">
+        <h2 style="margin-bottom:10px">Decisiones relacionadas</h2>
+        <p class="sub" style="margin-top:0; margin-bottom:14px">
+          Si este diagnóstico te hizo sentido, estas tres suelen ser el siguiente paso lógico.
+        </p>
+
+        <div class="decision-grid" aria-label="Decisiones relacionadas">
+          <a class="decision-card" href="/decisiones/mi-web-ayuda-a-vender/">
+            <div class="decision-icon">⚡</div>
+            <div class="decision-body">
+              <span class="decision-title">¿Mi sitio web realmente ayuda a vender?</span>
+              <span class="decision-sub">Para saber si tu base está lista para “amplificar”.</span>
+              <div class="cat-pills">
+                <span class="pill intent">Confianza</span>
+                <span class="pill">UX</span>
+                <span class="pill">Leads</span>
+              </div>
+            </div>
+            <span class="decision-cta">Abrir</span>
+          </a>
+
+          <a class="decision-card" href="/decisiones/por-que-competencia-arriba/">
+            <div class="decision-icon">🥊</div>
+            <div class="decision-body">
+              <span class="decision-title">¿Por qué mi competencia aparece antes que yo?</span>
+              <span class="decision-sub">Para entender señales reales (sin teorías raras).</span>
+              <div class="cat-pills">
+                <span class="pill intent">Frustración</span>
+                <span class="pill">Ranking</span>
+                <span class="pill">Señales</span>
+              </div>
+            </div>
+            <span class="decision-cta">Abrir</span>
+          </a>
+
+          <a class="decision-card" href="/decisiones/necesito-sitio-web/">
+            <div class="decision-icon">⚡</div>
+            <div class="decision-body">
+              <span class="decision-title">¿Necesito un sitio web o basta con Instagram/Maps?</span>
+              <span class="decision-sub">Cuándo una web es clave y cuándo no es prioridad.</span>
+              <div class="cat-pills">
+                <span class="pill intent">Confianza</span>
+                <span class="pill">UX</span>
+                <span class="pill">Leads</span>
+              </div>
+            </div>
+            <span class="decision-cta">Abrir</span>
+          </a>
+        </div>
+
+        <div class="cta-row" style="justify-content:center; margin-top:14px">
+          <a class="btn outline" href="/decisiones/">Ver biblioteca de decisiones</a>
+        </div>
+      </div>
+    </section>
+
+
+
     <!-- CTA FINAL -->
-    <section class="section alt cta-final" style="margin-top:0">
+    <section class="section cta-final" style="margin-top:0">
       <div class="container">
-        <h2 style="text-align:center">¿Quieres que lo revise en 1 minuto?</h2>
+        <h2 style="text-align:center">¿Quieres que lo revisemos?</h2>
         <p class="sub" style="text-align:center">
-          Me mandas rubro + ciudad + links (Maps/Instagram/web) y te digo directo si entras ahora o qué falta.
+          Envíanos rubro + ciudad + links (Maps/Instagram/web) y te digo directo si entras ahora o qué falta.
         </p>
 
         <div class="cta-row" style="justify-content:center">

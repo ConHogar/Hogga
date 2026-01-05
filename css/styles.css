@@ -3039,3 +3039,27 @@ a:focus-visible {
 .vendor-actions {
   margin-top: 14px;
 }
+
+.decision-scale {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.scale-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+.scale-pill {
+  background: #eef2f1;
+  color: #136565;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
