@@ -1,6 +1,9 @@
 User-agent: *
 Allow: /
 
+# Evitar indexar páginas de redirección y tracking
+Disallow: /go/
+
 # Evita indexar archivos sueltos innecesarios
 Disallow: /favicon_io.zip
 

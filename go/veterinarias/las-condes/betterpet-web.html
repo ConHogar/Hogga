@@ -6,21 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex, nofollow" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
-    <title>Conectando…</title>
+    <title>Redirigiendo…</title>
 
-    <!-- Consent logic (centralizada) -->
-    <script src="/js/consent.js"></script>
     <link rel="stylesheet" href="/css/go.css" />
+    <script src="/js/consent.js"></script>
 
     <!-- Google Tag Manager -->
     <script>
         (function (w, d, s, l, i) {
             w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-            var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s),
-                dl = l != 'dataLayer' ? '&l=' + l : '';
-            j.async = true;
-            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
             f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-56V9ZN8P');
     </script>
@@ -31,6 +27,7 @@
     <noscript>
         <div class="wrap">
             <div class="card">
+
                 <div class="hogga-exit">
                     <img src="/images/logo-hogga.png" alt="Hogga" />
                     <p class="hogga-exit-text">
@@ -38,11 +35,12 @@
                         Te llevamos directamente al sitio oficial del proveedor.
                     </p>
                 </div>
-                <h1>Listo para llamar</h1>
-                <p class="muted">Tu navegador no tiene JavaScript. Usa el botón de abajo.</p>
+
+                <h1>Redirigiendo…</h1>
+                <p class="muted">Usa el botón para continuar.</p>
                 <div class="btns">
-                    <a class="btn primary" href="tel:+56944190452">Llamar</a>
-                    <a class="btn outline" href="/buscar/veterinarias/puerto-varas/#proveedores">Volver</a>
+                    <a class="btn primary" href="https://betterpet.cl/">Continuar</a>
+                    <a class="btn outline" href="/buscar/veterinarias/las-condes/#proveedores">Volver</a>
                 </div>
             </div>
         </div>
@@ -50,6 +48,7 @@
 
     <div class="wrap">
         <div class="card">
+
             <div class="hogga-exit">
                 <img src="/images/logo-hogga.png" alt="Hogga" />
                 <p class="hogga-exit-text">
@@ -57,43 +56,36 @@
                     Te llevamos directamente al sitio oficial del proveedor.
                 </p>
             </div>
-            <h1>Listo para llamar</h1>
+
+            <h1>Te estamos conectando…</h1>
             <p class="muted" id="line1"></p>
-            <p class="muted">Toca “Llamar” para abrir tu app de teléfono.</p>
+            <p class="muted">Si no te redirige, usa el botón.</p>
 
             <div class="btns">
-                <a class="btn primary" id="goBtn" href="#">Llamar</a>
+                <a class="btn primary" id="goBtn" href="#">Continuar</a>
                 <a class="btn outline" id="backBtn" href="#">Volver</a>
             </div>
         </div>
     </div>
 
     <script>
-        // ====== EDIT THESE PER PAGE ======
         const DATA = {
             category: "veterinarias",
-            city: "puerto-varas",
-            vendor: "rucalaf",
-            action: "call",
-            vendor_name: "Centro Médico Veterinario Rucalaf",
-            target_url: "tel:+56944190452"
+            city: "las-condes",
+            vendor: "betterpet",
+            action: "web",
+            vendor_name: "Better Pet",
+            target_url: "https://betterpet.cl/"
         };
-        // =================================
 
-        // === Return URL (sanitizado) ===
         const qsReturn = new URLSearchParams(window.location.search).get("return");
-        const fallbackReturn = "/buscar/veterinarias/puerto-varas/#proveedores";
+        const fallbackReturn = "/buscar/veterinarias/las-condes/#proveedores";
         const RETURN_URL = (qsReturn && qsReturn.startsWith("/") && !qsReturn.startsWith("//")) ? qsReturn : fallbackReturn;
 
-        const line1 = document.getElementById("line1");
-        const goBtn = document.getElementById("goBtn");
-        const backBtn = document.getElementById("backBtn");
+        document.getElementById("line1").textContent = `Destino: ${DATA.vendor_name} (Sitio oficial)`;
+        document.getElementById("goBtn").href = DATA.target_url;
+        document.getElementById("backBtn").href = RETURN_URL;
 
-        line1.textContent = `Destino: ${DATA.vendor_name} (Llamada)`;
-        goBtn.href = DATA.target_url;
-        backBtn.href = RETURN_URL;
-
-        // 1) Fire analytics (GTM)
         window.dataLayer = window.dataLayer || [];
         dataLayer.push({
             event: "hogga_go_click",
@@ -104,12 +96,7 @@
             hogga_vendor_name: DATA.vendor_name
         });
 
-        // LATER: Optional server logging
-        // fetch("YOUR_LOG_ENDPOINT", {
-        //   method: "POST",
-        //   headers: { "Content-Type": "application/json" },
-        //   body: JSON.stringify(DATA)
-        // }).catch(() => {});
+        setTimeout(() => { window.location.href = DATA.target_url; }, 300);
     </script>
 </body>
 

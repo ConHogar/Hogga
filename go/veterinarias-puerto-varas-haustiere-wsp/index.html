@@ -10,6 +10,7 @@
 
     <!-- Consent logic (centralizada) -->
     <script src="/js/consent.js"></script>
+    <link rel="stylesheet" href="/css/go.css" />
 
     <!-- Google Tag Manager (same as your site) -->
     <script>
@@ -23,64 +24,17 @@
         })(window, document, 'script', 'dataLayer', 'GTM-56V9ZN8P');
     </script>
 
-    <style>
-        body {
-            font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
-            margin: 0;
-            background: #f8fafc;
-            color: #0f172a
-        }
-
-        .wrap {
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 28px 16px
-        }
-
-        .card {
-            background: #fff;
-            border: 1px solid #e2e8f0;
-            border-radius: 16px;
-            padding: 18px
-        }
-
-        .muted {
-            color: #64748b;
-            font-size: 14px;
-            line-height: 1.45
-        }
-
-        .btns {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-top: 14px
-        }
-
-        a.btn {
-            display: inline-block;
-            padding: 10px 14px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 700
-        }
-
-        a.primary {
-            background: #0b74d6;
-            color: #fff
-        }
-
-        a.outline {
-            border: 1px solid #0b74d6;
-            color: #0b74d6
-        }
-    </style>
 </head>
 
 <body>
     <noscript>
         <div class="wrap">
             <div class="card">
+                <div class="hogga-exit">
+                    <img src="/images/logo-hogga.png" alt="Hogga" loading="lazy" />
+                    <p class="hogga-exit-text">Estás saliendo de Hogga.<br>Te llevamos directamente al sitio oficial del
+                        proveedor.</p>
+                </div>
                 <h1>Redirigiendo…</h1>
                 <p class="muted">Tu navegador no tiene JavaScript. Usa el botón de abajo.</p>
                 <div class="btns">
@@ -97,6 +51,12 @@
 
     <div class="wrap">
         <div class="card">
+            <div class="hogga-exit">
+                <img src="/images/logo-hogga.png" alt="Hogga" loading="lazy" />
+                <p class="hogga-exit-text">Estás saliendo de Hogga.<br>Te llevamos directamente al sitio oficial del
+                    proveedor.</p>
+            </div>
+
             <h1>Te estamos conectando…</h1>
             <p class="muted" id="line1"></p>
             <p class="muted">Si no te redirige en 1–2 segundos, usa el botón.</p>

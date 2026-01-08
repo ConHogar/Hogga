@@ -42,10 +42,10 @@
                 <div class="btns">
                     <!-- En noscript esto debe ir “duro” -->
                     <a class="btn primary"
-                        href="https://wa.me/56954000987?text=Hola%2C%20necesito%20una%20consulta%20veterinaria%20en%20Puerto%20Varas.%20%C2%BFTienen%20disponibilidad%20hoy%3F">
+                        href="https://wa.me/56994868383?text=Hola%2C%20necesito%20una%20consulta%20veterinaria%20en%20Las%20Condes.%20%C2%BFTienen%20disponibilidad%20hoy%3F">
                         Continuar
                     </a>
-                    <a class="btn outline" href="/buscar/veterinarias/puerto-varas/#proveedores">Volver</a>
+                    <a class="btn outline" href="/buscar/veterinarias/las-condes/#proveedores">Volver</a>
                 </div>
             </div>
         </div>
@@ -74,17 +74,17 @@
         // ====== EDIT THESE PER PAGE ======
         const DATA = {
             category: "veterinarias",
-            city: "puerto-varas",
-            vendor: "posta",
+            city: "las-condes",
+            vendor: "cruzazul",
             action: "wsp",
-            vendor_name: "Posta Veterinaria Puerto Varas",
+            vendor_name: "Cruz Azul",
             target_url:
-                "https://wa.me/56954000987?text=Hola%2C%20necesito%20una%20consulta%20veterinaria%20en%20Puerto%20Varas.%20%C2%BFTienen%20disponibilidad%20hoy%3F"
+                "https://wa.me/56994868383?text=Hola%2C%20necesito%20una%20consulta%20veterinaria%20en%20Las%20Condes.%20%C2%BFTienen%20disponibilidad%20hoy%3F"
         };
         // =================================
 
         const qsReturn = new URLSearchParams(window.location.search).get("return");
-        const fallbackReturn = "/buscar/veterinarias/puerto-varas/#proveedores";
+        const fallbackReturn = "/buscar/veterinarias/las-condes/#proveedores";
         const RETURN_URL = (qsReturn && qsReturn.startsWith("/")) ? qsReturn : fallbackReturn;
 
         const line1 = document.getElementById("line1");

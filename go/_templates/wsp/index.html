@@ -5,11 +5,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex, nofollow" />
-    <title>Conectando por WhatsApp…</title>
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <title>Conectando...</title>
 
     <script src="/js/consent.js"></script>
+    <link rel="stylesheet" href="/css/go.css" />
 
-    <!-- GTM -->
     <script>
         (function (w, d, s, l, i) {
             w[l] = w[l] || []; w[l].push({
@@ -20,25 +21,41 @@
                     'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-56V9ZN8P');
     </script>
-    <link rel="stylesheet" href="/css/go.css">
-
 </head>
 
 <body>
+    <noscript>
+        <div class="wrap">
+            <div class="card">
+                <div class="hogga-exit">
+                    <img src="/images/logo-hogga.png" alt="Hogga" loading="lazy" />
+                    <p class="hogga-exit-text">
+                        Estás saliendo de Hogga.<br>
+                        Te llevamos directamente al sitio oficial del proveedor.
+                    </p>
+                </div>
+                <h1>Redirigiendo...</h1>
+                <div class="btns">
+                    <a class="btn primary" href="#">Continuar</a>
+                    <a class="btn outline" href="/buscar/">Volver</a>
+                </div>
+            </div>
+        </div>
+    </noscript>
 
     <div class="wrap">
         <div class="card">
-
             <div class="hogga-exit">
-                <img src="/images/logo-hogga.png" alt="Hogga">
+                <img src="/images/logo-hogga.png" alt="Hogga" loading="lazy" />
                 <p class="hogga-exit-text">
                     Estás saliendo de Hogga.<br>
-                    Te conectamos directamente por WhatsApp con el proveedor.
+                    Te conectamos directamente con el proveedor.
                 </p>
             </div>
 
-            <h1>Abriendo WhatsApp…</h1>
+            <h1 id="statusTitle">Conectando...</h1>
             <p class="muted" id="line1"></p>
+            <p class="muted" style="font-size: 0.9em;">Si no abre en unos segundos, usa el botón.</p>
 
             <div class="btns">
                 <a class="btn primary" id="goBtn" href="#">Continuar</a>
@@ -48,25 +65,45 @@
     </div>
 
     <script>
-        /* ===== EDIT THESE ===== */
+        /* =========================================
+           ZONA DE EDICIÓN: CAMBIA ESTOS DATOS
+           ========================================= */
         const DATA = {
-            category: "veterinarias",
-            city: "puerto-varas",
-            vendor: "posta",
-            action: "wsp",
+            category: "veterinarias",      // Ej: veterinarias, gasfiter
+            city: "puerto-varas",          // Ej: puerto-varas, santiago
+            vendor: "posta",               // ID interno del proveedor
+            action: "wsp",                 // 'wsp' (WhatsApp) o 'call' (Llamada) o 'web'
             vendor_name: "Posta Veterinaria Puerto Varas",
-            target_url: "https://wa.me/56954000987?text=Hola%2C%20necesito%20una%20consulta%20veterinaria%20en%20Puerto%20Varas."
+
+            // Link final de destino
+            target_url: "https://wa.me/56954000987?text=Hola...",
+
+            // A dónde volver si no hay historial (fallback)
+            fallback_return: "/buscar/veterinarias/puerto-varas/#proveedores"
         };
-        /* ===================== */
+        /* ========================================= */
 
-        const RETURN_URL = "/buscar/veterinarias/puerto-varas/#proveedores";
 
-        document.getElementById("line1").textContent =
-            `Destino: ${DATA.vendor_name} (WhatsApp)`;
+        // Lógica automática (No tocar abajo)
+        const qsReturn = new URLSearchParams(window.location.search).get("return");
+        const RETURN_URL = (qsReturn && qsReturn.startsWith("/")) ? qsReturn : DATA.fallback_return;
 
-        document.getElementById("goBtn").href = DATA.target_url;
-        document.getElementById("backBtn").href = RETURN_URL;
+        const line1 = document.getElementById("line1");
+        const goBtn = document.getElementById("goBtn");
+        const backBtn = document.getElementById("backBtn");
+        const statusTitle = document.getElementById("statusTitle");
 
+        // Configurar textos según acción
+        const actionLabel = DATA.action === "wsp" ? "WhatsApp" : (DATA.action === "call" ? "Llamada" : "Sitio Web");
+
+        statusTitle.textContent = `Abriendo ${actionLabel}...`;
+        line1.textContent = `Destino: ${DATA.vendor_name}`;
+
+        goBtn.href = DATA.target_url;
+        goBtn.textContent = `Continuar a ${actionLabel}`;
+        backBtn.href = RETURN_URL;
+
+        // Analytics Event
         window.dataLayer = window.dataLayer || [];
         dataLayer.push({
             event: "hogga_go_click",
@@ -77,9 +114,26 @@
             hogga_vendor_name: DATA.vendor_name
         });
 
+        // Redirección automática
         setTimeout(() => {
             window.location.href = DATA.target_url;
-        }, 120);
+        }, 150);
+
+        // Lógica Bounce Back (Mejorada)
+        function bounceBack() {
+            if (!RETURN_URL || RETURN_URL.includes("/go/")) return;
+            window.location.replace(RETURN_URL);
+        }
+
+        // Detectar vuelta a la pestaña
+        document.addEventListener("visibilitychange", () => {
+            if (!document.hidden) setTimeout(bounceBack, 500);
+        });
+
+        // Detectar persistencia (Safari)
+        window.addEventListener("pageshow", (e) => {
+            if (e.persisted) setTimeout(bounceBack, 300);
+        });
     </script>
 
 </body>
