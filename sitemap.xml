@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://hogga.cl/</loc>
-    <lastmod>2026-01-09</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -260,7 +260,7 @@
   </url>
   <url>
     <loc>https://hogga.cl/buscar/veterinarias/</loc>
-    <lastmod>2026-01-09</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -272,13 +272,13 @@
   </url>
   <url>
     <loc>https://hogga.cl/buscar/veterinarias/temuco/</loc>
-    <lastmod>2026-01-09</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://hogga.cl/buscar/veterinarias/vitacura/</loc>
-    <lastmod>2026-01-09</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -289,14 +289,20 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://hogga.cl/buscar/veterinarias/valdivia/</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://hogga.cl/buscar/veterinarias/puerto-montt/</loc>
-    <lastmod>2026-01-07</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://hogga.cl/buscar/veterinarias/las-condes/</loc>
-    <lastmod>2026-01-09</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
