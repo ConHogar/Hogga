@@ -74,28 +74,96 @@
 
     <!-- JSON-LD (Breadcrumbs + WebPage) -->
     <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "@context": "https://schema.org",
-      "@graph": [
+      "@type": "BreadcrumbList",
+      "@id": "https://hogga.cl/buscar/veterinarias/#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://hogga.cl/" },
+        { "@type": "ListItem", "position": 2, "name": "Buscar", "item": "https://hogga.cl/buscar/" },
+        { "@type": "ListItem", "position": 3, "name": "Veterinarias", "item": "https://hogga.cl/buscar/veterinarias/" }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://hogga.cl/buscar/veterinarias/#webpage",
+      "url": "https://hogga.cl/buscar/veterinarias/",
+      "name": "Veterinarias por ciudad | Hogga",
+      "description": "Explora páginas de veterinarias por ciudad. Cada página está pensada para decisiones reales: urgencias, 24 horas, a domicilio y opciones municipales.",
+      "inLanguage": "es-CL",
+      "isPartOf": { "@id": "https://hogga.cl/#website" },
+      "breadcrumb": { "@id": "https://hogga.cl/buscar/veterinarias/#breadcrumb" }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://hogga.cl/buscar/veterinarias/#ciudades",
+      "name": "Veterinarias por ciudad en Chile",
+      "numberOfItems": 9,
+      "itemListElement": [
         {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://hogga.cl/" },
-            { "@type": "ListItem", "position": 2, "name": "Buscar", "item": "https://hogga.cl/buscar/" },
-            { "@type": "ListItem", "position": 3, "name": "Veterinarias", "item": "https://hogga.cl/buscar/veterinarias/" }
-          ]
+          "@type": "ListItem",
+          "position": 1,
+          "item": { "@type": "WebPage", "name": "Veterinarias en Las Condes", "url": "https://hogga.cl/buscar/veterinarias/las-condes/" }
         },
         {
-          "@type": "WebPage",
-          "@id": "https://hogga.cl/buscar/veterinarias/#webpage",
-          "url": "https://hogga.cl/buscar/veterinarias/",
-          "name": "Veterinarias por ciudad | Hogga",
-          "inLanguage": "es-CL",
-          "isPartOf": { "@id": "https://hogga.cl/#website" }
+          "@type": "ListItem",
+          "position": 2,
+          "item": { "@type": "WebPage", "name": "Veterinarias en Vitacura", "url": "https://hogga.cl/buscar/veterinarias/vitacura/" }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": { "@type": "WebPage", "name": "Veterinarias en Concepción", "url": "https://hogga.cl/buscar/veterinarias/concepcion/" }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": { "@type": "WebPage", "name": "Veterinarias en Temuco", "url": "https://hogga.cl/buscar/veterinarias/temuco/" }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": { "@type": "WebPage", "name": "Veterinarias en Valdivia", "url": "https://hogga.cl/buscar/veterinarias/valdivia/" }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": { "@type": "WebPage", "name": "Veterinarias en Osorno", "url": "https://hogga.cl/buscar/veterinarias/osorno/" }
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "item": { "@type": "WebPage", "name": "Veterinarias en Puerto Montt", "url": "https://hogga.cl/buscar/veterinarias/puerto-montt/" }
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "item": { "@type": "WebPage", "name": "Veterinarias en Puerto Varas", "url": "https://hogga.cl/buscar/veterinarias/puerto-varas/" }
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "item": { "@type": "WebPage", "name": "Veterinarias en Viña del Mar", "url": "https://hogga.cl/buscar/veterinarias/vina-del-mar/" }
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "item": { "@type": "WebPage", "name": "Veterinarias en Ancud", "url": "https://hogga.cl/buscar/veterinarias/ancud/" }
+        },
+        {
+          "@type": "ListItem",
+          "position": 11,
+          "item": { "@type": "WebPage", "name": "Veterinarias en Castro", "url": "https://hogga.cl/buscar/veterinarias/castro/" }
         }
       ]
     }
-  </script>
+  ]
+}
+</script>
+
+
 </head>
 
 <body>
@@ -137,11 +205,11 @@
             <div class="hero-bg"></div>
             <div class="container hero-content">
                 <span class="eyebrow">Búsquedas locales</span>
-                <h1>Veterinarias por ciudad</h1>
+                <h1>Encuentra la veterinaria correcta, rápido</h1>
                 <p class="lead" style="max-width:760px;">
-                    Elige tu ciudad para ver una página pensada para decisiones reales:
-                    <strong>urgencias</strong>, <strong>24 horas</strong>, <strong>a domicilio</strong> y opciones
-                    <strong>municipales</strong> cuando corresponda.
+                    Hogga verifica datos locales para que no pierdas tiempo en urgencias.
+                    Buscamos <strong>opciones verificadas</strong> en tu ciudad: <strong>24 horas</strong>,
+                    <strong>especialistas</strong> y <strong>atención a domicilio</strong>.
                 </p>
 
                 <div class="cta-row" role="group" aria-label="Acciones principales">
@@ -151,39 +219,50 @@
             </div>
         </section>
 
+        <!-- TRUST STRIP (New) -->
+        <div class="trust" aria-label="Por qué usar Hogga">
+            <div class="container trust-row">
+                <div class="trust-item"><span class="dot"></span> Datos verificados manualmente</div>
+                <div class="trust-item"><span class="dot"></span> Contacto directo (WhatsApp/Tel)</div>
+                <div class="trust-item"><span class="dot"></span> Sin publicidad intrusiva</div>
+            </div>
+        </div>
+
         <!-- CIUDADES -->
         <section class="section" id="ciudades">
             <div class="container">
                 <h2>Elige una ciudad</h2>
-                <p class="sub">Estas son las primeras páginas que estamos publicando.</p>
+                <p class="sub">Elige tu ciudad para ver opciones y contactos directos.</p>
 
                 <!-- Lista simple (sin hacer “landing SEO”) -->
-                <div class="post-grid" aria-label="Ciudades disponibles">
-                    <a class="post-card" href="/buscar/veterinarias/puerto-varas/">
+
+                <!-- RM -->
+                <h3 class="zone-title" style="margin-top:22px;">Región Metropolitana</h3>
+                <div class="post-grid" aria-label="Ciudades de la RM">
+                    <a class="post-card" href="/buscar/veterinarias/las-condes/">
                         <div class="post-body">
-                            <h3 class="post-title">Puerto Varas</h3>
+                            <h3 class="post-title">Las Condes</h3>
                             <p class="post-meta">Urgencias · 24 horas · a domicilio · municipal</p>
                         </div>
                         <span class="post-cta">Ver opciones</span>
                     </a>
-                    <a class="post-card" href="/buscar/veterinarias/puerto-montt/">
+
+                    <a class="post-card" href="/buscar/veterinarias/vitacura/">
                         <div class="post-body">
-                            <h3 class="post-title">Puerto Montt</h3>
+                            <h3 class="post-title">Vitacura</h3>
                             <p class="post-meta">Urgencias · 24 horas · a domicilio · municipal</p>
                         </div>
                         <span class="post-cta">Ver opciones</span>
                     </a>
-                    <a class="post-card" href="/buscar/veterinarias/osorno/">
+                </div>
+
+                <!-- SUR -->
+                <h3 class="zone-title">Sur</h3>
+                <div class="post-grid" aria-label="Ciudades del Sur">
+                    <a class="post-card" href="/buscar/veterinarias/concepcion/">
                         <div class="post-body">
-                            <h3 class="post-title">Osorno</h3>
-                            <p class="post-meta">Urgencias · 24 horas · a domicilio · municipal</p>
-                        </div>
-                        <span class="post-cta">Ver opciones</span>
-                    </a>
-                    <a class="post-card" href="/buscar/veterinarias/valdivia/">
-                        <div class="post-body">
-                            <h3 class="post-title">Valdivia</h3>
-                            <p class="post-meta">Urgencias · Hospital 24h · Municipal · Parques</p>
+                            <h3 class="post-title">Concepción</h3>
+                            <p class="post-meta">Urgencias · Especialistas · Hualpén · Municipal</p>
                         </div>
                         <span class="post-cta">Ver opciones</span>
                     </a>
@@ -194,30 +273,74 @@
                         </div>
                         <span class="post-cta">Ver opciones</span>
                     </a>
-                    <a class="post-card" href="/buscar/veterinarias/las-condes/">
+
+                    <a class="post-card" href="/buscar/veterinarias/valdivia/">
                         <div class="post-body">
-                            <h3 class="post-title">Las Condes</h3>
-                            <p class="post-meta">Urgencias · 24 horas · a domicilio · municipal</p>
+                            <h3 class="post-title">Valdivia</h3>
+                            <p class="post-meta">Urgencias · Hospital 24h · Municipal · Parques</p>
                         </div>
                         <span class="post-cta">Ver opciones</span>
                     </a>
-                    <a class="post-card" href="/buscar/veterinarias/vitacura/">
+
+                    <a class="post-card" href="/buscar/veterinarias/osorno/">
                         <div class="post-body">
-                            <h3 class="post-title">Vitacura</h3>
+                            <h3 class="post-title">Osorno</h3>
                             <p class="post-meta">Urgencias · 24 horas · a domicilio · municipal</p>
                         </div>
                         <span class="post-cta">Ver opciones</span>
                     </a>
 
-                    <!-- Cuando tengas lista la siguiente, descomenta:
-          <a class="post-card" href="/buscar/veterinarias/puerto-montt/">
-            <div class="post-body">
-              <h3 class="post-title">Puerto Montt</h3>
-              <p class="post-meta">Urgencias · 24 horas · a domicilio · municipal</p>
-            </div>
-            <span class="post-cta">Ver opciones</span>
-          </a>
-          -->
+                    <a class="post-card" href="/buscar/veterinarias/puerto-montt/">
+                        <div class="post-body">
+                            <h3 class="post-title">Puerto Montt</h3>
+                            <p class="post-meta">Urgencias · 24 horas · a domicilio · municipal</p>
+                        </div>
+                        <span class="post-cta">Ver opciones</span>
+                    </a>
+
+                    <a class="post-card" href="/buscar/veterinarias/puerto-varas/">
+                        <div class="post-body">
+                            <h3 class="post-title">Puerto Varas</h3>
+                            <p class="post-meta">Urgencias · 24 horas · a domicilio · municipal</p>
+                        </div>
+                        <span class="post-cta">Ver opciones</span>
+                    </a>
+
+                    <a class="post-card" href="/buscar/veterinarias/ancud/">
+                        <div class="post-body">
+                            <h3 class="post-title">Ancud</h3>
+                            <p class="post-meta">Urgencias · Clínicas y Móvil · Municipal</p>
+                        </div>
+                        <span class="post-cta">Ver opciones</span>
+                    </a>
+
+                    <a class="post-card" href="/buscar/veterinarias/castro/">
+                        <div class="post-body">
+                            <h3 class="post-title">Castro</h3>
+                            <p class="post-meta">Urgencias · Putemún · Municipal</p>
+                        </div>
+                        <span class="post-cta">Ver opciones</span>
+                    </a>
+                </div>
+
+                <!-- ZONA CENTRAL -->
+                <h3 class="zone-title" style="margin-top:22px;">Zona Central</h3>
+                <div class="post-grid" aria-label="Ciudades de la Zona Central">
+                    <a class="post-card" href="/buscar/veterinarias/vina-del-mar/">
+                        <div class="post-body">
+                            <h3 class="post-title">Viña del Mar</h3>
+                            <p class="post-meta">Urgencias · Especialistas (Gatos/Exóticos) · Zona Norte</p>
+                        </div>
+                        <span class="post-cta">Ver opciones</span>
+                    </a>
+
+                    <a class="post-card" href="/buscar/veterinarias/concon/">
+                        <div class="post-body">
+                            <h3 class="post-title">Concón</h3>
+                            <p class="post-meta">Costa de Montemar · Urgencias · Grooming</p>
+                        </div>
+                        <span class="post-cta">Ver opciones</span>
+                    </a>
                 </div>
 
                 <p class="seo-helper" style="margin-top:18px;">

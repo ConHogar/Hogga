@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Llamando a Centro Veterinario Putemun...</title>
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-56V9ZN8P');</script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-56V9ZN8P" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <p style="text-align: center; font-family: sans-serif; margin-top: 50px;">Iniciando llamada...</p>
+
+    <script>
+        const destination = "tel:+56953238460";
+
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            'event': 'vendor_click',
+            'vendor_name': 'Centro Veterinario Putemun',
+            'vendor_category': 'Veterinarias',
+            'vendor_city': 'Castro',
+            'interaction_type': 'call'
+        });
+
+        setTimeout(function () {
+            window.location.href = destination;
+        }, 500);
+
+        setTimeout(function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const returnUrl = urlParams.get('return');
+            if (returnUrl) window.location.replace(returnUrl);
+            else if (window.history.length > 1) window.history.back();
+        }, 2500);
+    </script>
+</body>
+
+</html>

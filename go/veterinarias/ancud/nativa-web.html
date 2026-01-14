@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirigiendo a Hospital Veterinaria Nativa...</title>
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-56V9ZN8P');</script>
+    <!-- End Google Tag Manager -->
+
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+            text-align: center;
+        }
+
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #136565;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        p {
+            color: #666;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-56V9ZN8P" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div style="display: flex; flex-direction: column; align-items: center;">
+        <div class="loader"></div>
+        <p>Te estamos redirigiendo a Hospital Veterinaria Nativa...</p>
+    </div>
+
+    <script>
+        // Configuración
+        const destination = "https://www.facebook.com/p/Veterinaria-Nativa-Ancud-100065175205786/";
+        const timeout = 2500;
+
+        function redirect() {
+            window.location.href = destination;
+        }
+
+        function getReturnUrl() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('return');
+        }
+
+        function handleExit() {
+            const returnUrl = getReturnUrl();
+            if (returnUrl) {
+                window.location.replace(returnUrl);
+            } else {
+                if (window.history.length > 1) {
+                    window.history.back();
+                } else {
+                    window.close();
+                }
+            }
+        }
+
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            'event': 'vendor_click',
+            'vendor_name': 'Hospital Veterinaria Nativa',
+            'vendor_category': 'Veterinarias',
+            'vendor_city': 'Ancud',
+            'interaction_type': 'web'
+        });
+
+        setTimeout(redirect, 500);
+
+        window.onpageshow = function (event) {
+            if (event.persisted || window.performance && window.performance.navigation.type === 2) {
+                handleExit();
+            }
+        };
+    </script>
+</body>
+
+</html>

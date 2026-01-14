@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es-CL">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <title>Conectando…</title>
+
+    <!-- Consent logic (centralizada) -->
+    <script src="/js/consent.js"></script>
+    <link rel="stylesheet" href="/css/go.css" />
+
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-56V9ZN8P');
+    </script>
+
+</head>
+
+<body>
+    <noscript>
+        <div class="wrap">
+            <div class="card">
+                <div class="hogga-exit">
+                    <img src="/images/logo-hogga.png" alt="Hogga" />
+                    <p class="hogga-exit-text">
+                        Estás saliendo de <strong>Hogga</strong>.<br>
+                        Te llevamos directamente al sitio oficial del proveedor.
+                    </p>
+                </div>
+                <h1>Listo para llamar</h1>
+                <p class="muted">Tu navegador no tiene JavaScript. Usa el botón de abajo.</p>
+                <div class="btns">
+                    <a class="btn primary" href="tel:+56954536457">Llamar</a>
+                    <a class="btn outline" href="/buscar/veterinarias/nunoa/#proveedores">Volver</a>
+                </div>
+            </div>
+        </div>
+    </noscript>
+
+    <div class="wrap">
+        <div class="card">
+            <div class="hogga-exit">
+                <img src="/images/logo-hogga.png" alt="Hogga" />
+                <p class="hogga-exit-text">
+                    Estás saliendo de <strong>Hogga</strong>.<br>
+                    Te llevamos directamente al sitio oficial del proveedor.
+                </p>
+            </div>
+            <h1>Listo para llamar</h1>
+            <p class="muted" id="line1"></p>
+            <p class="muted">Toca “Llamar” para abrir tu app de teléfono.</p>
+
+            <div class="btns">
+                <a class="btn primary" id="goBtn" href="#">Llamar</a>
+                <a class="btn outline" id="backBtn" href="#">Volver</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const DATA = {
+            category: "veterinarias",
+            city: "nunoa",
+            vendor: "amivet",
+            action: "call",
+            vendor_name: "Amivet",
+            target_url: "tel:+56954536457"
+        };
+
+        const qsReturn = new URLSearchParams(window.location.search).get("return");
+        const fallbackReturn = "/buscar/veterinarias/nunoa/#proveedores";
+        const RETURN_URL = (qsReturn && qsReturn.startsWith("/") && !qsReturn.startsWith("//")) ? qsReturn : fallbackReturn;
+
+        const line1 = document.getElementById("line1");
+        const goBtn = document.getElementById("goBtn");
+        const backBtn = document.getElementById("backBtn");
+
+        line1.textContent = `Destino: ${DATA.vendor_name} (Llamada)`;
+        goBtn.href = DATA.target_url;
+        backBtn.href = RETURN_URL;
+
+        window.dataLayer = window.dataLayer || [];
+        dataLayer.push({
+            event: "hogga_go_click",
+            hogga_category: DATA.category,
+            hogga_city: DATA.city,
+            hogga_vendor: DATA.vendor,
+            hogga_action: DATA.action,
+            hogga_vendor_name: DATA.vendor_name
+        });
+    </script>
+</body>
+
+</html>

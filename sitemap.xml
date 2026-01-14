@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://hogga.cl/</loc>
-    <lastmod>2026-01-11</lastmod>
+    <lastmod>2026-01-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -50,7 +50,7 @@
   </url>
   <url>
     <loc>https://hogga.cl/blog/chiloe-itinerario-3-dias/</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -236,7 +236,7 @@
   </url>
   <url>
     <loc>https://hogga.cl/buscar/</loc>
-    <lastmod>2026-01-05</lastmod>
+    <lastmod>2026-01-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -260,7 +260,7 @@
   </url>
   <url>
     <loc>https://hogga.cl/buscar/veterinarias/</loc>
-    <lastmod>2026-01-11</lastmod>
+    <lastmod>2026-01-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -272,37 +272,85 @@
   </url>
   <url>
     <loc>https://hogga.cl/buscar/veterinarias/temuco/</loc>
-    <lastmod>2026-01-11</lastmod>
+    <lastmod>2026-01-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://hogga.cl/buscar/veterinarias/vitacura/</loc>
-    <lastmod>2026-01-11</lastmod>
+    <lastmod>2026-01-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://hogga.cl/buscar/veterinarias/puerto-varas/</loc>
-    <lastmod>2026-01-07</lastmod>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hogga.cl/buscar/veterinarias/concon/</loc>
+    <lastmod>2026-01-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://hogga.cl/buscar/veterinarias/valdivia/</loc>
-    <lastmod>2026-01-11</lastmod>
+    <lastmod>2026-01-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://hogga.cl/buscar/veterinarias/puerto-montt/</loc>
-    <lastmod>2026-01-11</lastmod>
+    <lastmod>2026-01-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://hogga.cl/buscar/veterinarias/las-condes/</loc>
-    <lastmod>2026-01-11</lastmod>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hogga.cl/buscar/veterinarias/concepcion/</loc>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hogga.cl/buscar/veterinarias/vina-del-mar/</loc>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hogga.cl/buscar/veterinarias/castro/</loc>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hogga.cl/buscar/veterinarias/nunoa/</loc>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hogga.cl/buscar/veterinarias/ancud/</loc>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hogga.cl/buscar/control-de-plagas/</loc>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hogga.cl/buscar/control-de-plagas/puerto-varas/</loc>
+    <lastmod>2026-01-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
