@@ -1,127 +1,107 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html lang="es-CL">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirigiendo a Clínica Veterinaria Patitas Ancud...</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <title>Redirigiendo…</title>
+
+    <link rel="stylesheet" href="/css/go.css" />
+    <script src="/js/consent.js"></script>
 
     <!-- Google Tag Manager -->
-    <script>(function (w, d, s, l, i) {
-            w[l] = w[l] || []; w[l].push({
-                'gtm.start':
-                    new Date().getTime(), event: 'gtm.js'
-            }); var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-56V9ZN8P');</script>
-    <!-- End Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+            var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-56V9ZN8P');
+    </script>
 
-    <style>
-        body {
-            font-family: system-ui, -apple-system, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f5f5f5;
-            text-align: center;
-        }
-
-        .loader {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #136565;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin-bottom: 20px;
-        }
-
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        p {
-            color: #666;
-            font-size: 16px;
-        }
-    </style>
 </head>
 
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-56V9ZN8P" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+    <noscript>
+        <div class="wrap">
+            <div class="card">
 
-    <div style="display: flex; flex-direction: column; align-items: center;">
-        <div class="loader"></div>
-        <p>Te estamos redirigiendo a Clínica Veterinaria Patitas Ancud...</p>
+                <div class="hogga-exit">
+                    <img src="/images/logo-hogga.png" alt="Hogga" />
+                    <p class="hogga-exit-text">
+                        Estás saliendo de <strong>Hogga</strong>.<br>
+                        Te llevamos directamente al sitio oficial del proveedor.
+                    </p>
+                </div>
+
+                <h1>Redirigiendo…</h1>
+                <p class="muted">Usa el botón para continuar.</p>
+                <div class="btns">
+                    <a class="btn primary" href="https://www.instagram.com/vetpatitasancud">Continuar</a>
+                    <a class="btn outline" href="/buscar/veterinarias/ancud/#proveedores">Volver</a>
+                </div>
+            </div>
+        </div>
+    </noscript>
+
+    <div class="wrap">
+        <div class="card">
+
+            <div class="hogga-exit">
+                <img src="/images/logo-hogga.png" alt="Hogga" />
+                <p class="hogga-exit-text">
+                    Estás saliendo de <strong>Hogga</strong>.<br>
+                    Te llevamos directamente al sitio oficial del proveedor.
+                </p>
+            </div>
+
+            <h1>Te estamos conectando…</h1>
+            <p class="muted" id="line1"></p>
+            <p class="muted">Si no te redirige, usa el botón.</p>
+
+            <div class="btns">
+                <a class="btn primary" id="goBtn" href="#">Continuar</a>
+                <a class="btn outline" id="backBtn" href="#">Volver</a>
+            </div>
+        </div>
     </div>
 
     <script>
-        // Configuración
-        const destination = "https://www.instagram.com/vetpatitasancud";
-        const timeout = 2500; // Tiempo de espera para asegurar que el evento se envíe
-
-        // Función de redirección
-        function redirect() {
-            window.location.href = destination;
-        }
-
-        // Obtener parámetro de retorno si existe
-        function getReturnUrl() {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get('return');
-        }
-
-        // Determinar si debemos cerrar o volver atrás (para target="_blank")
-        function handleExit() {
-            const returnUrl = getReturnUrl();
-            if (returnUrl) {
-                // Si hay return URL, volvemos a ella (reemplazando historia)
-                window.location.replace(returnUrl);
-            } else {
-                // Comportamiento por defecto para pestañas nuevas: intentar cerrar o volver
-                // En móviles a veces no se puede cerrar por script si no se abrió por script
-                // Así que intentamos volver atrás en el historial como fallback seguro
-                if (window.history.length > 1) {
-                    window.history.back();
-                } else {
-                    // Si no hay historial, cerramos (solo funciona en algunos navegadores)
-                    window.close();
-                }
-            }
-        }
-
-        // Evento DataLayer
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-            'event': 'vendor_click',
-            'vendor_name': 'Clínica Veterinaria Patitas Ancud',
-            'vendor_category': 'Veterinarias',
-            'vendor_city': 'Ancud',
-            'interaction_type': 'web'
-        });
-
-        // Ejecutar redirección
-        setTimeout(redirect, 500);
-
-        // Manejar el "vuelta atrás" cuando el usuario regrese a esta pestaña
-        // Si el usuario regresa, lo enviamos de vuelta al listado
-        window.onpageshow = function (event) {
-            if (event.persisted || window.performance && window.performance.navigation.type === 2) {
-                handleExit();
-            }
+        const DATA = {
+            category: "veterinarias",
+            city: "ancud",
+            vendor: "vetpatitasancud",
+            action: "web",
+            vendor_name: "Veterinaria Patitas Ancud",
+            target_url: "https://www.instagram.com/vetpatitasancud"
         };
+
+        const qsReturn = new URLSearchParams(window.location.search).get("return");
+        const fallbackReturn = "/buscar/veterinarias/ancud/#proveedores";
+        const RETURN_URL = (qsReturn && qsReturn.startsWith("/") && !qsReturn.startsWith("//")) ? qsReturn : fallbackReturn;
+
+        document.getElementById("line1").textContent = `Destino: ${DATA.vendor_name} (Sitio oficial)`;
+        document.getElementById("goBtn").href = DATA.target_url;
+        document.getElementById("backBtn").href = RETURN_URL;
+
+        window.dataLayer = window.dataLayer || [];
+
+        const dedupeKey = `hogga_go_${DATA.category}_${DATA.city}_${DATA.vendor}_${DATA.action}`;
+        if (!sessionStorage.getItem(dedupeKey)) {
+            sessionStorage.setItem(dedupeKey, "1");
+            dataLayer.push({
+                event: "hogga_go_click",
+                hogga_category: DATA.category,
+                hogga_city: DATA.city,
+                hogga_vendor: DATA.vendor,
+                hogga_action: DATA.action,
+                hogga_vendor_name: DATA.vendor_name
+            });
+        }
+
+        setTimeout(() => { window.location.replace(DATA.target_url); }, 300);
     </script>
 </body>
 
