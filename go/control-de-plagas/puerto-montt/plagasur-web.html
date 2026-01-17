@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/css/go.css" />
     <script src="/js/consent.js"></script>
 
+    <!-- Google Tag Manager -->
     <script>
         (function (w, d, s, l, i) {
             w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
@@ -19,13 +20,13 @@
             f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-56V9ZN8P');
     </script>
+
 </head>
 
 <body>
     <noscript>
         <div class="wrap">
             <div class="card">
-
                 <div class="hogga-exit">
                     <img src="/images/logo-hogga.png" alt="Hogga" />
                     <p class="hogga-exit-text">
@@ -33,12 +34,11 @@
                         Te llevamos directamente al sitio oficial del proveedor.
                     </p>
                 </div>
-
                 <h1>Redirigiendo…</h1>
                 <p class="muted">Usa el botón para continuar.</p>
                 <div class="btns">
-                    <a class="btn primary" href="https://ecoforestry.cl/">Continuar</a>
-                    <a class="btn outline" href="/buscar/arriendo-maquinaria/puerto-montt/">Volver</a>
+                    <a class="btn primary" href="https://plagasur.cl/">Continuar</a>
+                    <a class="btn outline" href="/buscar/control-de-plagas/puerto-montt/#proveedores">Volver</a>
                 </div>
             </div>
         </div>
@@ -46,7 +46,6 @@
 
     <div class="wrap">
         <div class="card">
-
             <div class="hogga-exit">
                 <img src="/images/logo-hogga.png" alt="Hogga" />
                 <p class="hogga-exit-text">
@@ -68,16 +67,16 @@
 
     <script>
         const DATA = {
-            category: "arriendo-maquinaria",
+            category: "control-de-plagas",
             city: "puerto-montt",
-            vendor: "ecoforestry",
+            vendor: "plagasur",
             action: "web",
-            vendor_name: "Ecoforestry",
-            target_url: "https://ecoforestry.cl/"
+            vendor_name: "Plagasur",
+            target_url: "https://plagasur.cl/"
         };
 
         const qsReturn = new URLSearchParams(window.location.search).get("return");
-        const fallbackReturn = "/buscar/arriendo-maquinaria/puerto-montt/#proveedores";
+        const fallbackReturn = "/buscar/control-de-plagas/puerto-montt/#proveedores";
         const RETURN_URL = (qsReturn && qsReturn.startsWith("/") && !qsReturn.startsWith("//")) ? qsReturn : fallbackReturn;
 
         document.getElementById("line1").textContent = `Destino: ${DATA.vendor_name} (Sitio oficial)`;

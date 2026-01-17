@@ -10,6 +10,7 @@
 
     <!-- Consent logic (centralizada) -->
     <script src="/js/consent.js"></script>
+    <link rel="stylesheet" href="/css/go.css" />
 
     <!-- Google Tag Manager (same as your site) -->
     <script>
@@ -23,73 +24,28 @@
         })(window, document, 'script', 'dataLayer', 'GTM-56V9ZN8P');
     </script>
 
-    <style>
-        body {
-            font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
-            margin: 0;
-            background: #f8fafc;
-            color: #0f172a
-        }
-
-        .wrap {
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 28px 16px
-        }
-
-        .card {
-            background: #fff;
-            border: 1px solid #e2e8f0;
-            border-radius: 16px;
-            padding: 18px
-        }
-
-        .muted {
-            color: #64748b;
-            font-size: 14px;
-            line-height: 1.45
-        }
-
-        .btns {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-top: 14px
-        }
-
-        a.btn {
-            display: inline-block;
-            padding: 10px 14px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 700
-        }
-
-        a.primary {
-            background: #0b74d6;
-            color: #fff
-        }
-
-        a.outline {
-            border: 1px solid #0b74d6;
-            color: #0b74d6
-        }
-    </style>
 </head>
 
 <body>
     <noscript>
         <div class="wrap">
             <div class="card">
+                <div class="hogga-exit">
+                    <img src="/images/logo-hogga.png" alt="Hogga" loading="lazy" />
+                    <p class="hogga-exit-text">Estás saliendo de Hogga.<br>Te llevamos directamente al sitio oficial
+                        del
+                        proveedor.</p>
+                </div>
+
                 <h1>Redirigiendo…</h1>
                 <p class="muted">Tu navegador no tiene JavaScript. Usa el botón de abajo.</p>
                 <div class="btns">
-                    <!-- En noscript el link debe ir "duro" -->
+                    <!-- En noscript esto debe ir “duro” -->
                     <a class="btn primary"
-                        href="https://wa.me/56937259753?text=Hola%2C%20quiero%20cotizar%20arriendo%20de%20maquinaria%20en%20Puerto%20Montt.%20%C2%BFQu%C3%A9%20equipos%20tienen%20disponibles%20y%20cu%C3%A1les%20son%20las%20condiciones%20(m%C3%ADnimo%20de%20horas%20y%20traslado)%3F">
+                        href="https://www.integravetpucon.cl/">
                         Continuar
                     </a>
-                    <a class="btn outline" href="/buscar/arriendo-maquinaria/puerto-montt/">Volver</a>
+                    <a class="btn outline" href="/buscar/veterinarias/pucon/#proveedores">Volver</a>
                 </div>
             </div>
         </div>
@@ -97,6 +53,12 @@
 
     <div class="wrap">
         <div class="card">
+            <div class="hogga-exit">
+                <img src="/images/logo-hogga.png" alt="Hogga" loading="lazy" />
+                <p class="hogga-exit-text">Estás saliendo de Hogga.<br>Te llevamos directamente al sitio oficial del
+                    proveedor.</p>
+            </div>
+
             <h1>Te estamos conectando…</h1>
             <p class="muted" id="line1"></p>
             <p class="muted">Si no te redirige en 1–2 segundos, usa el botón.</p>
@@ -111,29 +73,25 @@
     <script>
         // ====== EDIT THESE PER PAGE ======
         const DATA = {
-            category: "arriendo-maquinaria",
-            city: "puerto-montt",
-            vendor: "ecoforestry",
-            action: "wsp",
-            vendor_name: "Ecoforestry",
+            category: "veterinarias",
+            city: "pucon",
+            vendor: "integravet",
+            action: "web",
+            vendor_name: "Hospital Veterinario Integravet",
             target_url:
-                "https://wa.me/56937259753?text=Hola%2C%20quiero%20cotizar%20arriendo%20de%20maquinaria%20en%20Puerto%20Montt.%20%C2%BFQu%C3%A9%20equipos%20tienen%20disponibles%20y%20cu%C3%A1les%20son%20las%20condiciones%20(m%C3%ADnimo%20de%20horas%20y%20traslado)%3F"
+                "https://www.integravetpucon.cl/"
         };
         // =================================
 
-        // === Return URL (sanitizado) ===
         const qsReturn = new URLSearchParams(window.location.search).get("return");
-        const fallbackReturn = "/buscar/arriendo-maquinaria/puerto-montt/#proveedores";
-        const RETURN_URL =
-            (qsReturn && qsReturn.startsWith("/") && !qsReturn.startsWith("//"))
-                ? qsReturn
-                : fallbackReturn;
+        const fallbackReturn = "/buscar/veterinarias/pucon/#proveedores";
+        const RETURN_URL = (qsReturn && qsReturn.startsWith("/")) ? qsReturn : fallbackReturn;
 
         const line1 = document.getElementById("line1");
         const goBtn = document.getElementById("goBtn");
         const backBtn = document.getElementById("backBtn");
 
-        line1.textContent = `Destino: ${DATA.vendor_name} (${DATA.action === "wsp" ? "WhatsApp" : "Llamada"})`;
+        line1.textContent = `Destino: ${DATA.vendor_name} (${DATA.action === "wsp" ? "WhatsApp" : (DATA.action === "call" ? "Llamada" : "Web")})`;
         goBtn.href = DATA.target_url;
         backBtn.href = RETURN_URL;
 
@@ -147,13 +105,6 @@
             hogga_action: DATA.action,
             hogga_vendor_name: DATA.vendor_name
         });
-
-        // LATER: Optional server logging (Google Sheets / Supabase / Worker)
-        // fetch("YOUR_LOG_ENDPOINT", {
-        //   method: "POST",
-        //   headers: { "Content-Type": "application/json" },
-        //   body: JSON.stringify(DATA)
-        // }).catch(() => {});
 
         // 2) Go to WhatsApp / call
         setTimeout(() => {

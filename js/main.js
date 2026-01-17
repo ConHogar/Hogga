@@ -306,16 +306,40 @@
     const nav = document.getElementById('site-nav');
     if (!btn || !nav) return;
 
+    let scrollY = 0;
+
     const open = () => {
+      scrollY = window.scrollY || 0;
+
+      // clase en html + body
+      document.documentElement.classList.add('nav-open');
       document.body.classList.add('nav-open');
+
+      // lock real (evita “scroll raro” en iOS)
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
+
       btn.setAttribute('aria-expanded', 'true');
       btn.setAttribute('aria-label', 'Cerrar menú');
     };
+
     const close = () => {
+      // sacar clase
+      document.documentElement.classList.remove('nav-open');
       document.body.classList.remove('nav-open');
+
+      // restore scroll
+      const y = Math.abs(parseInt(document.body.style.top || '0', 10)) || scrollY;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      window.scrollTo(0, y);
+
       btn.setAttribute('aria-expanded', 'false');
       btn.setAttribute('aria-label', 'Abrir menú');
     };
+
     const toggle = () => {
       if (document.body.classList.contains('nav-open')) close(); else open();
     };
@@ -334,12 +358,13 @@
     const mq = window.matchMedia('(min-width: 760px)');
     mq.addEventListener?.('change', () => close());
 
-    // Cerrar al tocar fuera del header
+    // Cerrar al tocar fuera del header (sin “abrir y cerrar” por el mismo click)
     document.addEventListener('click', (e) => {
+      if (!document.body.classList.contains('nav-open')) return;
+      if (btn.contains(e.target)) return; // <- clave
+
       const header = document.querySelector('.main-header');
-      if (document.body.classList.contains('nav-open') && header && !header.contains(e.target)) {
-        close();
-      }
+      if (header && !header.contains(e.target)) close();
     }, { capture: true });
 
   }

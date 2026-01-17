@@ -42,7 +42,7 @@
 
 html,
 body {
-  height: 100%;
+  min-height: 100%;
   padding: 0;
   overflow-x: hidden;
 }
@@ -1187,9 +1187,11 @@ a:focus-visible {
   }
 
   /* bloquea scroll de fondo cuando el menú está abierto */
-  .nav-open {
+  html.nav-open,
+  body.nav-open {
     overflow: hidden;
   }
+
 }
 
 /* ===== Compactar menú móvil ===== */
