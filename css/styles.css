@@ -100,6 +100,24 @@ img {
   width: auto
 }
 
+/* Experiment: Mobile Brand Text */
+.brand-text {
+  display: none;
+  font-family: Manrope, sans-serif;
+  font-weight: 800;
+  color: var(--brand);
+  font-size: 1.25rem;
+  margin-left: 0px;
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 768px) {
+  .brand-text {
+    display: block;
+  }
+}
+
+
 .main-header nav a {
   padding: 8px 10px;
   border-radius: var(--r-xs);
