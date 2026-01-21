@@ -3104,7 +3104,7 @@ a:focus-visible {
     "content";
   grid-template-columns: 1fr;
   gap: 16px;
-  align-items: start;
+  align-items: stretch;
 }
 
 /* áreas */
@@ -3120,11 +3120,11 @@ a:focus-visible {
 
 /* imagen */
 .info-card.info-card--with-image>.info-card-image img {
-  max-width: 420px;
   width: 100%;
-  height: auto;
+  height: 100%;
+  min-height: 240px;
+  object-fit: cover;
   display: block;
-  margin: 0 auto;
   border-radius: 14px;
 }
 
@@ -3144,7 +3144,7 @@ a:focus-visible {
   }
 
   .info-card.info-card--with-image>.info-card-image img {
-    margin: 0;
+    min-height: 100%;
   }
 
   /* imagen derecha (alternada) */
@@ -3168,4 +3168,162 @@ a:focus-visible {
 
 .equipment-list li {
   font-weight: 600;
+}
+
+/* Grid 2x2 (added for Portones Electricos hub) */
+.grid-2x2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+@media(min-width: 600px) {
+  .grid-2x2 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Card with Image & Text (Vertical) */
+.card-image-text {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-img-wrap {
+  height: 160px;
+  width: 100%;
+  background: #f5f5f5;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 16px;
+  flex-grow: 1;
+}
+
+.card-content h3 {
+  margin: 0 0 6px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #111;
+}
+
+.card-content p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Landscape modifier (image left, content right) */
+.card-image-text.landscape {
+  flex-direction: column;
+}
+
+@media(min-width: 600px) {
+  .card-image-text.landscape {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .card-image-text.landscape .card-img-wrap {
+    width: 240px;
+    height: 100%;
+    min-height: 200px;
+    flex-shrink: 0;
+  }
+}
+
+/* Checklist Styling */
+.checklist {
+  list-style: none;
+  padding: 0;
+  margin: 1em 0;
+}
+
+.checklist li {
+  position: relative;
+  padding-left: 26px;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.checklist li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #136565;
+  font-weight: 800;
+  font-size: 1.1em;
+}
+
+.checklist.small li {
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+}
+
+/* Helper to ensure cards stretch fully in grid */
+.full-p {
+  height: 100%;
+}
+
+/* Blog specific: Price Tag */
+.price-tag {
+  font-weight: 700;
+  color: #136565;
+  background: #eefcf9;
+  padding: 2px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+/* Utilities */
+.footnote {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 8px;
+  line-height: 1.4;
+}
+
+.text-muted {
+  color: #666;
+}
+
+.mb-2 {
+  margin-bottom: 8px !important;
+}
+
+.mt-2 {
+  margin-top: 8px !important;
+}
+
+/* Inline Images for Blog */
+.float-img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin: 12px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+@media (min-width: 768px) {
+  .float-img {
+    float: right;
+    max-width: 280px;
+    margin: 4px 0 16px 24px;
+  }
 }

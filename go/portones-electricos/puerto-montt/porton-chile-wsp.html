@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="es-CL">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Redirigiendo…</title>
+    <script src="/js/consent.js"></script>
+    <link rel="stylesheet" href="/css/go.css" />
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+            var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-56V9ZN8P');
+    </script>
+</head>
+
+<body>
+    <noscript>
+        <div class="wrap">
+            <div class="card">
+                <div class="hogga-exit"><img src="/images/logo-hogga.png" alt="Hogga" />
+                    <p class="hogga-exit-text">Estás saliendo de Hogga.<br>Te llevamos al sitio oficial.</p>
+                </div>
+                <h1>Redirigiendo…</h1>
+                <div class="btns"><a class="btn primary"
+                        href="https://wa.me/56978817079?text=Hola%20Porton%20Chile%2C%20lo%20v%C3%AD%20en%20Hogga.%20Necesito%20cotizar%20un%20servicio%20de%20portones...">Continuar</a><a
+                        class="btn outline" href="/buscar/portones-electricos/puerto-montt/#proveedores">Volver</a>
+                </div>
+            </div>
+        </div>
+    </noscript>
+    <div class="wrap">
+        <div class="card">
+            <div class="hogga-exit"><img src="/images/logo-hogga.png" alt="Hogga" />
+                <p class="hogga-exit-text">Estás saliendo de Hogga.<br>Te llevamos al sitio oficial.</p>
+            </div>
+            <h1>Te estamos conectando…</h1>
+            <p class="muted" id="line1"></p>
+            <div class="btns"><a class="btn primary" id="goBtn" href="#">Continuar</a><a class="btn outline"
+                    id="backBtn" href="#">Volver</a></div>
+        </div>
+    </div>
+    <script>
+        // ====== EDIT THESE PER PAGE ======
+        const DATA = {
+            category: "portones-electricos",
+            city: "puerto-montt",
+            vendor: "porton-chile",
+            action: "wsp",
+            vendor_name: "Porton Chile",
+            target_url: "https://wa.me/56978817079?text=Hola%20Porton%20Chile%2C%20lo%20v%C3%AD%20en%20Hogga.%20Necesito%20cotizar%20un%20servicio%20de%20portones..."
+        };
+        // =================================
+
+        const qsReturn = new URLSearchParams(window.location.search).get("return");
+        const fallbackReturn = "/buscar/portones-electricos/puerto-montt/#proveedores";
+        const RETURN_URL = (qsReturn && qsReturn.startsWith("/")) ? qsReturn : fallbackReturn;
+
+        const line1 = document.getElementById("line1");
+        const goBtn = document.getElementById("goBtn");
+        const backBtn = document.getElementById("backBtn");
+
+        line1.textContent = `Destino: ${DATA.vendor_name} (${DATA.action === "wsp" ? "WhatsApp" : "Llamada"})`;
+        goBtn.href = DATA.target_url;
+        backBtn.href = RETURN_URL;
+
+        // 1) Fire analytics (GTM)
+        window.dataLayer = window.dataLayer || [];
+
+        const dedupeKey = `hogga_go_${DATA.category}_${DATA.city}_${DATA.vendor}_${DATA.action}`;
+        if (!sessionStorage.getItem(dedupeKey)) {
+            sessionStorage.setItem(dedupeKey, "1");
+            dataLayer.push({
+                event: "hogga_go_click",
+                hogga_category: DATA.category,
+                hogga_city: DATA.city,
+                hogga_vendor: DATA.vendor,
+                hogga_action: DATA.action,
+                hogga_vendor_name: DATA.vendor_name
+            });
+        }
+
+        // LATER: Optional server logging (Google Sheets / Supabase / Worker)
+        // fetch("YOUR_LOG_ENDPOINT", {
+        //   method: "POST",
+        //   headers: { "Content-Type": "application/json" },
+        //   body: JSON.stringify(DATA)
+        // }).catch(() => {});
+
+        // 2) Go to WhatsApp / call
+        setTimeout(() => {
+            window.location.href = DATA.target_url;
+        }, 120);
+
+        // 3) Bounce back when user returns to Safari
+        function bounceBack() {
+            if (!RETURN_URL || RETURN_URL.includes("/go/")) return;
+            window.location.replace(RETURN_URL);
+        }
+
+        document.addEventListener("visibilitychange", () => {
+            if (!document.hidden) bounceBack();
+        });
+
+        window.addEventListener("pageshow", (e) => {
+            if (e.persisted) bounceBack();
+        });
+    </script>
+</body>
+
+</html>
