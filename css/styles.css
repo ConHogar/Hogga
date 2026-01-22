@@ -2077,11 +2077,24 @@ a:focus-visible {
 }
 
 .note {
-  background: #f3faf8;
-  border: 1px solid rgba(19, 101, 101, .18);
-  border-radius: 14px;
-  padding: 14px 16px;
+  background: none;
+  border: none;
+  padding: 0;
+  margin-top: 18px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #355f5f;
+}
+
+.note--quiet {
+  font-size: 0.88rem;
+  color: #4a6f6f;
+}
+
+.note--emphasis {
+  font-size: 0.95rem;
   color: #0f2f2f;
+  font-weight: 500;
 }
 
 /* ========== SEO LOCAL PAGE ALIGNMENT ========== */
