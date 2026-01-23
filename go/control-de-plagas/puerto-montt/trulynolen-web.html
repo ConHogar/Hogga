@@ -6,19 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex, nofollow" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
-    <title>Conectando…</title>
+    <title>Redirigiendo…</title>
 
-    <script src="/js/consent.js"></script>
     <link rel="stylesheet" href="/css/go.css" />
+    <script src="/js/consent.js"></script>
 
     <script>
         (function (w, d, s, l, i) {
             w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-            var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s),
-                dl = l != 'dataLayer' ? '&l=' + l : '';
-            j.async = true;
-            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
             f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-56V9ZN8P');
     </script>
@@ -33,13 +30,13 @@
                     <img src="/images/logo-hogga.png" alt="Hogga" />
                     <p class="hogga-exit-text">
                         Estás saliendo de <strong>Hogga</strong>.<br>
-                        Te llevamos directamente al proveedor.
+                        Te llevamos directamente al sitio oficial del proveedor.
                     </p>
                 </div>
-                <h1>Listo para llamar</h1>
-                <p class="muted">Tu navegador no tiene JavaScript. Usa el botón de abajo.</p>
+                <h1>Redirigiendo…</h1>
+                <p class="muted">Usa el botón para continuar.</p>
                 <div class="btns">
-                    <a class="btn primary" href="tel:+56975457652">Llamar</a>
+                    <a class="btn primary" href="https://trulynolen.cl/">Continuar</a>
                     <a class="btn outline" href="/buscar/control-de-plagas/puerto-montt/#proveedores">Volver</a>
                 </div>
             </div>
@@ -52,15 +49,16 @@
                 <img src="/images/logo-hogga.png" alt="Hogga" />
                 <p class="hogga-exit-text">
                     Estás saliendo de <strong>Hogga</strong>.<br>
-                    Te llevamos directamente al proveedor.
+                    Te llevamos directamente al sitio oficial del proveedor.
                 </p>
             </div>
-            <h1>Listo para llamar</h1>
+
+            <h1>Te estamos conectando…</h1>
             <p class="muted" id="line1"></p>
-            <p class="muted">Toca "Llamar" para abrir tu app de teléfono.</p>
+            <p class="muted">Si no te redirige, usa el botón.</p>
 
             <div class="btns">
-                <a class="btn primary" id="goBtn" href="#">Llamar</a>
+                <a class="btn primary" id="goBtn" href="#">Continuar</a>
                 <a class="btn outline" id="backBtn" href="#">Volver</a>
             </div>
         </div>
@@ -70,24 +68,24 @@
         const DATA = {
             category: "control-de-plagas",
             city: "puerto-montt",
-            vendor: "plagasur",
-            action: "call",
-            vendor_name: "Plagasur",
-            target_url: "tel:+56975457652"
+            vendor: "trulynolen",
+            action: "web",
+            vendor_name: "Truly Nolen Chile",
+            target_url: "https://trulynolen.cl/"
         };
 
         const qsReturn = new URLSearchParams(window.location.search).get("return");
         const fallbackReturn = "/buscar/control-de-plagas/puerto-montt/#proveedores";
         const RETURN_URL = (qsReturn && qsReturn.startsWith("/") && !qsReturn.startsWith("//")) ? qsReturn : fallbackReturn;
 
-        document.getElementById("line1").textContent = `Destino: ${DATA.vendor_name} (Llamada)`;
+        document.getElementById("line1").textContent = `Destino: ${DATA.vendor_name} (Sitio oficial)`;
         document.getElementById("goBtn").href = DATA.target_url;
         document.getElementById("backBtn").href = RETURN_URL;
 
-        // --- TRACKING & REDIRECT FIXES ---
+        // --- TRACKING FIXES ---
         window.dataLayer = window.dataLayer || [];
 
-        // 1. Push Event (No Dedupe)
+        // Push event (No dedupe logic found in original, which is good. Kept it that way.)
         dataLayer.push({
             event: "hogga_go_click",
             hogga_category: DATA.category,
@@ -97,25 +95,19 @@
             hogga_vendor_name: DATA.vendor_name
         });
 
-        // 2. Add Automatic Redirect (Missing in original file)
+        // Increased from 300ms to 800ms for safety
         setTimeout(() => {
             window.location.href = DATA.target_url;
         }, 800);
 
-        // 3. Add Bounce Back (Crucial for tel: links so user doesn't get stuck)
+        // Added bounce back logic
         function bounceBack() {
             if (!RETURN_URL || RETURN_URL.includes("/go/")) return;
             window.location.replace(RETURN_URL);
         }
-
-        document.addEventListener("visibilitychange", () => {
-            if (!document.hidden) bounceBack();
-        });
-
-        window.addEventListener("pageshow", (e) => {
-            if (e.persisted) bounceBack();
-        });
-        // ---------------------------------
+        document.addEventListener("visibilitychange", () => { if (!document.hidden) bounceBack(); });
+        window.addEventListener("pageshow", (e) => { if (e.persisted) bounceBack(); });
+        // ----------------------
     </script>
 </body>
 

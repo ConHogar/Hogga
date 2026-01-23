@@ -8,11 +8,9 @@
     <meta name="referrer" content="no-referrer-when-downgrade" />
     <title>Redirigiendo…</title>
 
-    <!-- Consent logic (centralizada) -->
     <script src="/js/consent.js"></script>
     <link rel="stylesheet" href="/css/go.css" />
 
-    <!-- Google Tag Manager (same as your site) -->
     <script>
         (function (w, d, s, l, i) {
             w[l] = w[l] || []; w[l].push({
@@ -39,7 +37,6 @@
                 <h1>Redirigiendo…</h1>
                 <p class="muted">Tu navegador no tiene JavaScript. Usa el botón de abajo.</p>
                 <div class="btns">
-                    <!-- En noscript esto debe ir “duro” -->
                     <a class="btn primary" href="tel:+56958141385">
                         Llamar
                     </a>
@@ -92,28 +89,25 @@
         goBtn.href = DATA.target_url;
         backBtn.href = RETURN_URL;
 
-        // 1) Fire analytics (GTM)
+        // --- TRACKING FIXES ---
         window.dataLayer = window.dataLayer || [];
 
-        const dedupeKey = `hogga_go_${DATA.category}_${DATA.city}_${DATA.vendor}_${DATA.action}`;
-        if (!sessionStorage.getItem(dedupeKey)) {
-            sessionStorage.setItem(dedupeKey, "1");
-            dataLayer.push({
-                event: "hogga_go_click",
-                hogga_category: DATA.category,
-                hogga_city: DATA.city,
-                hogga_vendor: DATA.vendor,
-                hogga_action: DATA.action,
-                hogga_vendor_name: DATA.vendor_name
-            });
-        }
+        // Removed deduplication logic. Always push the event.
+        dataLayer.push({
+            event: "hogga_go_click",
+            hogga_category: DATA.category,
+            hogga_city: DATA.city,
+            hogga_vendor: DATA.vendor,
+            hogga_action: DATA.action,
+            hogga_vendor_name: DATA.vendor_name
+        });
 
-        // 2) Go to URL
+        // Increased timeout from 120ms to 800ms
         setTimeout(() => {
             window.location.href = DATA.target_url;
-        }, 120);
+        }, 800);
 
-        // 3) No bounce back for tel: links
+        // ----------------------
     </script>
 </body>
 

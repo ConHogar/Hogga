@@ -8,6 +8,7 @@
     <title>Redirigiendo…</title>
     <script src="/js/consent.js"></script>
     <link rel="stylesheet" href="/css/go.css" />
+
     <script>
         (function (w, d, s, l, i) {
             w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
@@ -45,17 +46,48 @@
         </div>
     </div>
     <script>
-        const DATA = { category: "arriendo-maquinaria", city: "puerto-montt", vendor: "ecoforestry", action: "wsp", vendor_name: "Ecoforestry", target_url: "https://wa.me/56937259753?text=Hola%2C%20quiero%20cotizar%20arriendo%20de%20maquinaria%20en%20Puerto%20Montt.%20%C2%BFQu%C3%A9%20equipos%20tienen%20disponibles%20y%20cu%C3%A1les%20son%20las%20condiciones%20(m%C3%ADnimo%20de%20horas%20y%20traslado)%3F" };
+        const DATA = {
+            category: "arriendo-maquinaria",
+            city: "puerto-montt",
+            vendor: "ecoforestry",
+            action: "wsp",
+            vendor_name: "Ecoforestry",
+            target_url: "https://wa.me/56937259753?text=Hola%2C%20quiero%20cotizar%20arriendo%20de%20maquinaria%20en%20Puerto%20Montt.%20%C2%BFQu%C3%A9%20equipos%20tienen%20disponibles%20y%20cu%C3%A1les%20son%20las%20condiciones%20(m%C3%ADnimo%20de%20horas%20y%20traslado)%3F"
+        };
+
         const qsReturn = new URLSearchParams(window.location.search).get("return");
         const fallbackReturn = "/buscar/arriendo-maquinaria/puerto-montt/#proveedores";
         const RETURN_URL = (qsReturn && qsReturn.startsWith("/")) ? qsReturn : fallbackReturn;
-        const line1 = document.getElementById("line1"); const goBtn = document.getElementById("goBtn"); const backBtn = document.getElementById("backBtn");
-        line1.textContent = `Destino: ${DATA.vendor_name} (WhatsApp)`; goBtn.href = DATA.target_url; backBtn.href = RETURN_URL;
+
+        const line1 = document.getElementById("line1");
+        const goBtn = document.getElementById("goBtn");
+        const backBtn = document.getElementById("backBtn");
+
+        line1.textContent = `Destino: ${DATA.vendor_name} (WhatsApp)`;
+        goBtn.href = DATA.target_url;
+        backBtn.href = RETURN_URL;
+
+        // --- TRACKING FIXES ---
         window.dataLayer = window.dataLayer || [];
-        const dedupeKey = `hogga_go_${DATA.category}_${DATA.city}_${DATA.vendor}_${DATA.action}`;
-        if (!sessionStorage.getItem(dedupeKey)) { sessionStorage.setItem(dedupeKey, "1"); dataLayer.push({ event: "hogga_go_click", hogga_category: DATA.category, hogga_city: DATA.city, hogga_vendor: DATA.vendor, hogga_action: DATA.action, hogga_vendor_name: DATA.vendor_name }); }
-        setTimeout(() => { window.location.href = DATA.target_url; }, 120);
-        function bounceBack() { if (!RETURN_URL || RETURN_URL.includes("/go/")) return; window.location.replace(RETURN_URL); }
+
+        // Removed deduplication logic so retry attempts are captured.
+        dataLayer.push({
+            event: "hogga_go_click",
+            hogga_category: DATA.category,
+            hogga_city: DATA.city,
+            hogga_vendor: DATA.vendor,
+            hogga_action: DATA.action,
+            hogga_vendor_name: DATA.vendor_name
+        });
+
+        // Increased timeout from 120ms to 800ms
+        setTimeout(() => { window.location.href = DATA.target_url; }, 800);
+        // ----------------------
+
+        function bounceBack() {
+            if (!RETURN_URL || RETURN_URL.includes("/go/")) return;
+            window.location.replace(RETURN_URL);
+        }
         document.addEventListener("visibilitychange", () => { if (!document.hidden) bounceBack(); });
         window.addEventListener("pageshow", (e) => { if (e.persisted) bounceBack(); });
     </script>

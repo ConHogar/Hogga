@@ -28,7 +28,7 @@
                 </div>
                 <h1>Redirigiendo…</h1>
                 <div class="btns"><a class="btn primary" href="tel:+56958141385">Llamar</a><a class="btn outline"
-                        href="/buscar/arriendo-maquinaria/puerto-montt/#proveedores">Volver</a></div>
+                        href="/buscar/arriendo-maquinaria/frutillar/#proveedores">Volver</a></div>
             </div>
         </div>
     </noscript>
@@ -46,7 +46,7 @@
     <script>
         const DATA = {
             category: "arriendo-maquinaria",
-            city: "puerto-montt",
+            city: "frutillar",
             vendor: "hormigonmc",
             action: "call",
             vendor_name: "Hormigón MC",
@@ -54,7 +54,7 @@
         };
 
         const qsReturn = new URLSearchParams(window.location.search).get("return");
-        const fallbackReturn = "/buscar/arriendo-maquinaria/puerto-montt/#proveedores";
+        const fallbackReturn = "/buscar/arriendo-maquinaria/frutillar/#proveedores";
         const RETURN_URL = (qsReturn && qsReturn.startsWith("/")) ? qsReturn : fallbackReturn;
 
         const line1 = document.getElementById("line1");

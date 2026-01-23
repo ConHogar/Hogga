@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="/css/go.css" />
     <script src="/js/consent.js"></script>
 
-    <!-- Google Tag Manager -->
     <script>
         (function (w, d, s, l, i) {
             w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
@@ -92,7 +91,10 @@
             hogga_vendor_name: DATA.vendor_name
         });
 
-        setTimeout(() => { window.location.replace(DATA.target_url); }, 300);
+        // Increased from 300ms to 800ms
+        setTimeout(() => {
+            window.location.replace(DATA.target_url);
+        }, 800);
 
         function bounceBack() {
             if (!RETURN_URL || RETURN_URL.includes("/go/")) return;

@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="/css/go.css" />
     <script src="/js/consent.js"></script>
 
-    <!-- Google Tag Manager -->
     <script>
         (function (w, d, s, l, i) {
             w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
@@ -83,7 +82,10 @@
         document.getElementById("goBtn").href = DATA.target_url;
         document.getElementById("backBtn").href = RETURN_URL;
 
+        // --- TRACKING FIXES ---
         window.dataLayer = window.dataLayer || [];
+
+        // Push event (No dedupe logic found in original, which is good. Kept it that way.)
         dataLayer.push({
             event: "hogga_go_click",
             hogga_category: DATA.category,
@@ -93,7 +95,19 @@
             hogga_vendor_name: DATA.vendor_name
         });
 
-        setTimeout(() => { window.location.replace(DATA.target_url); }, 300);
+        // Increased from 300ms to 800ms for safety
+        setTimeout(() => {
+            window.location.href = DATA.target_url;
+        }, 800);
+
+        // Added bounce back logic
+        function bounceBack() {
+            if (!RETURN_URL || RETURN_URL.includes("/go/")) return;
+            window.location.replace(RETURN_URL);
+        }
+        document.addEventListener("visibilitychange", () => { if (!document.hidden) bounceBack(); });
+        window.addEventListener("pageshow", (e) => { if (e.persisted) bounceBack(); });
+        // ----------------------
     </script>
 </body>
 

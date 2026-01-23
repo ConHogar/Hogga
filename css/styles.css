@@ -3121,8 +3121,12 @@ a:focus-visible {
 }
 
 /* áreas */
+/* áreas */
 .info-card.info-card--with-image>.info-card-image {
   grid-area: media;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .info-card.info-card--with-image>.info-card-content {
@@ -3134,8 +3138,9 @@ a:focus-visible {
 /* imagen */
 .info-card.info-card--with-image>.info-card-image img {
   width: 100%;
-  height: 100%;
-  min-height: 240px;
+  flex: 1;
+  min-height: 200px;
+  /* reducido ligeramente para dar espacio a caption si es muy corto */
   object-fit: cover;
   display: block;
   border-radius: 14px;
@@ -3156,9 +3161,7 @@ a:focus-visible {
     grid-template-areas: "media content";
   }
 
-  .info-card.info-card--with-image>.info-card-image img {
-    min-height: 100%;
-  }
+
 
   /* imagen derecha (alternada) */
   .info-card.info-card--with-image.info-card--img-right {
@@ -3339,4 +3342,37 @@ a:focus-visible {
     max-width: 280px;
     margin: 4px 0 16px 24px;
   }
+}
+
+
+.verified-badge {
+  display: inline-flex;
+  /* Mantiene el icono y texto alineados */
+  align-items: center;
+  background-color: #E6F4EA;
+  /* Fondo verde "Google" muy suave */
+  color: #137333;
+  /* Texto verde oscuro confiable */
+  font-size: 0.75rem;
+  /* Tamaño legible pero discreto */
+  font-weight: 700;
+  /* Negrita para que se lea bien */
+  padding: 2px 8px;
+  /* Un poco de aire alrededor */
+  border-radius: 12px;
+  /* Bordes totalmente redondeados (look moderno) */
+  vertical-align: middle;
+  margin-left: 8px;
+  /* Separación del nombre */
+  cursor: help;
+  /* Muestra un signo de interrogación (?) al pasar el mouse */
+  user-select: none;
+  /* Evita que se seleccione el texto al hacer click */
+  border: 1px solid #CEEAD6;
+  /* Borde sutil para definición */
+}
+
+/* Opcional: Efecto al pasar el mouse para incentivar la lectura del tooltip */
+.verified-badge:hover {
+  background-color: #CEEAD6;
 }

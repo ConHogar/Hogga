@@ -11,7 +11,6 @@
     <script src="/js/consent.js"></script>
     <link rel="stylesheet" href="/css/go.css" />
 
-    <!-- Google Tag Manager -->
     <script>
         (function (w, d, s, l, i) {
             w[l] = w[l] || []; w[l].push({
@@ -84,7 +83,10 @@
         document.getElementById("goBtn").href = DATA.target_url;
         document.getElementById("backBtn").href = RETURN_URL;
 
+        // --- TRACKING FIXES ---
         window.dataLayer = window.dataLayer || [];
+
+        // Push event (No dedupe logic)
         dataLayer.push({
             event: "hogga_go_click",
             hogga_category: DATA.category,
@@ -94,7 +96,10 @@
             hogga_vendor_name: DATA.vendor_name
         });
 
-        setTimeout(() => { window.location.replace(DATA.target_url); }, 120);
+        // Increased timeout from 120ms to 800ms
+        setTimeout(() => {
+            window.location.href = DATA.target_url;
+        }, 800);
 
         function bounceBack() {
             if (!RETURN_URL || RETURN_URL.includes("/go/")) return;

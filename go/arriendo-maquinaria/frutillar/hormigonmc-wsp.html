@@ -8,11 +8,9 @@
     <meta name="referrer" content="no-referrer-when-downgrade" />
     <title>Redirigiendo…</title>
 
-    <!-- Consent logic (centralizada) -->
     <script src="/js/consent.js"></script>
     <link rel="stylesheet" href="/css/go.css" />
 
-    <!-- Google Tag Manager (same as your site) -->
     <script>
         (function (w, d, s, l, i) {
             w[l] = w[l] || []; w[l].push({
@@ -39,7 +37,6 @@
                 <h1>Redirigiendo…</h1>
                 <p class="muted">Tu navegador no tiene JavaScript. Usa el botón de abajo.</p>
                 <div class="btns">
-                    <!-- En noscript esto debe ir “duro” -->
                     <a class="btn primary"
                         href="https://wa.me/56958141385?text=Hola%2C%20quiero%20cotizar%20arriendo%20de%20maquinaria%20en%20Frutillar.%20%C2%BFQu%C3%A9%20equipos%20tienen%20disponibles%20y%20cu%C3%A1les%20son%20las%20condiciones%20(m%C3%ADnimo%20de%20horas%20y%20traslado)%3F">
                         Continuar
@@ -96,23 +93,22 @@
         // 1) Fire analytics (GTM)
         window.dataLayer = window.dataLayer || [];
 
-        const dedupeKey = `hogga_go_${DATA.category}_${DATA.city}_${DATA.vendor}_${DATA.action}`;
-        if (!sessionStorage.getItem(dedupeKey)) {
-            sessionStorage.setItem(dedupeKey, "1");
-            dataLayer.push({
-                event: "hogga_go_click",
-                hogga_category: DATA.category,
-                hogga_city: DATA.city,
-                hogga_vendor: DATA.vendor,
-                hogga_action: DATA.action,
-                hogga_vendor_name: DATA.vendor_name
-            });
-        }
+        // REMOVED SESSION STORAGE LOGIC
+        // Always push data to ensure it is captured
+        dataLayer.push({
+            event: "hogga_go_click",
+            hogga_category: DATA.category,
+            hogga_city: DATA.city,
+            hogga_vendor: DATA.vendor,
+            hogga_action: DATA.action,
+            hogga_vendor_name: DATA.vendor_name
+        });
 
         // 2) Go to URL
+        // Increased from 120 to 800ms
         setTimeout(() => {
             window.location.href = DATA.target_url;
-        }, 120);
+        }, 800);
 
         // 3) Bounce back
         function bounceBack() {

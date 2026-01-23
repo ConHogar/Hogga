@@ -11,7 +11,6 @@
     <script src="/js/consent.js"></script>
     <link rel="stylesheet" href="/css/go.css" />
 
-    <!-- Google Tag Manager -->
     <script>
         (function (w, d, s, l, i) {
             w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
@@ -85,7 +84,10 @@
         document.getElementById("goBtn").href = DATA.target_url;
         document.getElementById("backBtn").href = RETURN_URL;
 
+        // --- TRACKING & REDIRECT FIXES ---
         window.dataLayer = window.dataLayer || [];
+
+        // 1. Push Event
         dataLayer.push({
             event: "hogga_go_click",
             hogga_category: DATA.category,
@@ -94,6 +96,26 @@
             hogga_action: DATA.action,
             hogga_vendor_name: DATA.vendor_name
         });
+
+        // 2. Automatic Redirect (Was missing) - 800ms
+        setTimeout(() => {
+            window.location.href = DATA.target_url;
+        }, 800);
+
+        // 3. Bounce Back Logic (Was missing)
+        function bounceBack() {
+            if (!RETURN_URL || RETURN_URL.includes("/go/")) return;
+            window.location.replace(RETURN_URL);
+        }
+
+        document.addEventListener("visibilitychange", () => {
+            if (!document.hidden) bounceBack();
+        });
+
+        window.addEventListener("pageshow", (e) => {
+            if (e.persisted) bounceBack();
+        });
+        // ---------------------------------
     </script>
 </body>
 

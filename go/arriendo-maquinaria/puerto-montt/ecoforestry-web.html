@@ -8,6 +8,7 @@
     <title>Redirigiendo…</title>
     <script src="/js/consent.js"></script>
     <link rel="stylesheet" href="/css/go.css" />
+
     <script>
         (function (w, d, s, l, i) {
             w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
@@ -44,17 +45,48 @@
         </div>
     </div>
     <script>
-        const DATA = { category: "arriendo-maquinaria", city: "puerto-montt", vendor: "ecoforestry", action: "web", vendor_name: "Ecoforestry", target_url: "https://ecoforestry.cl/" };
+        const DATA = {
+            category: "arriendo-maquinaria",
+            city: "puerto-montt",
+            vendor: "ecoforestry",
+            action: "web",
+            vendor_name: "Ecoforestry",
+            target_url: "https://ecoforestry.cl/"
+        };
+
         const qsReturn = new URLSearchParams(window.location.search).get("return");
         const fallbackReturn = "/buscar/arriendo-maquinaria/puerto-montt/#proveedores";
         const RETURN_URL = (qsReturn && qsReturn.startsWith("/")) ? qsReturn : fallbackReturn;
-        const line1 = document.getElementById("line1"); const goBtn = document.getElementById("goBtn"); const backBtn = document.getElementById("backBtn");
-        line1.textContent = `Destino: ${DATA.vendor_name} (Sitio Web)`; goBtn.href = DATA.target_url; backBtn.href = RETURN_URL;
+
+        const line1 = document.getElementById("line1");
+        const goBtn = document.getElementById("goBtn");
+        const backBtn = document.getElementById("backBtn");
+
+        line1.textContent = `Destino: ${DATA.vendor_name} (Sitio Web)`;
+        goBtn.href = DATA.target_url;
+        backBtn.href = RETURN_URL;
+
+        // --- TRACKING FIXES ---
         window.dataLayer = window.dataLayer || [];
-        const dedupeKey = `hogga_go_${DATA.category}_${DATA.city}_${DATA.vendor}_${DATA.action}`;
-        if (!sessionStorage.getItem(dedupeKey)) { sessionStorage.setItem(dedupeKey, "1"); dataLayer.push({ event: "hogga_go_click", hogga_category: DATA.category, hogga_city: DATA.city, hogga_vendor: DATA.vendor, hogga_action: DATA.action, hogga_vendor_name: DATA.vendor_name }); }
-        setTimeout(() => { window.location.href = DATA.target_url; }, 120);
-        function bounceBack() { if (!RETURN_URL || RETURN_URL.includes("/go/")) return; window.location.replace(RETURN_URL); }
+
+        // Removed sessionStorage logic. Always push the event.
+        dataLayer.push({
+            event: "hogga_go_click",
+            hogga_category: DATA.category,
+            hogga_city: DATA.city,
+            hogga_vendor: DATA.vendor,
+            hogga_action: DATA.action,
+            hogga_vendor_name: DATA.vendor_name
+        });
+
+        // Increased from 120 to 800ms
+        setTimeout(() => { window.location.href = DATA.target_url; }, 800);
+        // ----------------------
+
+        function bounceBack() {
+            if (!RETURN_URL || RETURN_URL.includes("/go/")) return;
+            window.location.replace(RETURN_URL);
+        }
         document.addEventListener("visibilitychange", () => { if (!document.hidden) bounceBack(); });
         window.addEventListener("pageshow", (e) => { if (e.persisted) bounceBack(); });
     </script>
