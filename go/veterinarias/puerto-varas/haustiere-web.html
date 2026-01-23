@@ -19,7 +19,6 @@
             f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-56V9ZN8P');
     </script>
-
 </head>
 
 <body>
@@ -92,12 +91,12 @@
             hogga_vendor_name: DATA.vendor_name
         });
 
-        // Increased from 300ms to 800ms
+        // 1) Auto-redirect mejorado con .replace()
         setTimeout(() => {
-            window.location.href = DATA.target_url;
+            window.location.replace(DATA.target_url);
         }, 800);
 
-        // Added bounce back logic
+        // 2) Lógica de Bounce-Back
         function bounceBack() {
             if (!RETURN_URL || RETURN_URL.includes("/go/")) return;
             window.location.replace(RETURN_URL);

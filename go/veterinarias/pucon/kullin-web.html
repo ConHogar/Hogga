@@ -8,22 +8,20 @@
     <meta name="referrer" content="no-referrer-when-downgrade" />
     <title>Redirigiendo…</title>
 
-    <!-- Consent logic (centralizada) -->
     <script src="/js/consent.js"></script>
     <link rel="stylesheet" href="/css/go.css" />
 
-    <!-- Google Tag Manager (same as your site) -->
     <script>
         (function (w, d, s, l, i) {
-            w[l] = w[l] || []; w[l].push({
-                'gtm.start':
-                    new Date().getTime(), event: 'gtm.js'
-            }); var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+            w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-56V9ZN8P');
     </script>
-
 </head>
 
 <body>
@@ -32,19 +30,14 @@
             <div class="card">
                 <div class="hogga-exit">
                     <img src="/images/logo-hogga.png" alt="Hogga" loading="lazy" />
-                    <p class="hogga-exit-text">Estás saliendo de Hogga.<br>Te llevamos directamente al sitio oficial
-                        del
+                    <p class="hogga-exit-text">Estás saliendo de Hogga.<br>Te llevamos directamente al sitio oficial del
                         proveedor.</p>
                 </div>
 
                 <h1>Redirigiendo…</h1>
-                <p class="muted">Tu navegador no tiene JavaScript. Usa el botón de abajo.</p>
+                <p class="muted">Usa el botón para continuar.</p>
                 <div class="btns">
-                    <!-- En noscript esto debe ir “duro” -->
-                    <a class="btn primary"
-                        href="https://www.instagram.com/kullin.veterinaria/">
-                        Continuar
-                    </a>
+                    <a class="btn primary" href="https://www.instagram.com/kullin.veterinaria/">Continuar</a>
                     <a class="btn outline" href="/buscar/veterinarias/pucon/#proveedores">Volver</a>
                 </div>
             </div>
@@ -71,31 +64,25 @@
     </div>
 
     <script>
-        // ====== EDIT THESE PER PAGE ======
+        // ====== DATOS DEL PROVEEDOR ======
         const DATA = {
             category: "veterinarias",
             city: "pucon",
             vendor: "kullin",
             action: "web",
             vendor_name: "Veterinaria Kullin",
-            target_url:
-                "https://www.instagram.com/kullin.veterinaria/"
+            target_url: "https://www.instagram.com/kullin.veterinaria/"
         };
-        // =================================
 
         const qsReturn = new URLSearchParams(window.location.search).get("return");
         const fallbackReturn = "/buscar/veterinarias/pucon/#proveedores";
         const RETURN_URL = (qsReturn && qsReturn.startsWith("/")) ? qsReturn : fallbackReturn;
 
-        const line1 = document.getElementById("line1");
-        const goBtn = document.getElementById("goBtn");
-        const backBtn = document.getElementById("backBtn");
+        document.getElementById("line1").textContent = `Destino: ${DATA.vendor_name} (Sitio oficial)`;
+        document.getElementById("goBtn").href = DATA.target_url;
+        document.getElementById("backBtn").href = RETURN_URL;
 
-        line1.textContent = `Destino: ${DATA.vendor_name} (${DATA.action === "wsp" ? "WhatsApp" : (DATA.action === "call" ? "Llamada" : "Web")})`;
-        goBtn.href = DATA.target_url;
-        backBtn.href = RETURN_URL;
-
-        // 1) Fire analytics (GTM)
+        // 1) Registro de Analytics (GTM)
         window.dataLayer = window.dataLayer || [];
         dataLayer.push({
             event: "hogga_go_click",
@@ -106,24 +93,19 @@
             hogga_vendor_name: DATA.vendor_name
         });
 
-        // 2) Go to WhatsApp / call
+        // 2) Redirección automática (800ms) usando .replace() para limpiar historial
         setTimeout(() => {
-            window.location.href = DATA.target_url;
-        }, 120);
+            window.location.replace(DATA.target_url);
+        }, 800);
 
-        // 3) Bounce back when user returns to Safari
+        // 3) Lógica de Bounce-Back (Antigravedad)
         function bounceBack() {
             if (!RETURN_URL || RETURN_URL.includes("/go/")) return;
             window.location.replace(RETURN_URL);
         }
 
-        document.addEventListener("visibilitychange", () => {
-            if (!document.hidden) bounceBack();
-        });
-
-        window.addEventListener("pageshow", (e) => {
-            if (e.persisted) bounceBack();
-        });
+        document.addEventListener("visibilitychange", () => { if (!document.hidden) bounceBack(); });
+        window.addEventListener("pageshow", (e) => { if (e.persisted) bounceBack(); });
     </script>
 </body>
 

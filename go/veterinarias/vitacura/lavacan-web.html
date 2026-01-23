@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="/css/go.css" />
     <script src="/js/consent.js"></script>
 
-    <!-- Google Tag Manager -->
     <script>
         (function (w, d, s, l, i) {
             w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
@@ -20,14 +19,12 @@
             f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-56V9ZN8P');
     </script>
-
 </head>
 
 <body>
     <noscript>
         <div class="wrap">
             <div class="card">
-
                 <div class="hogga-exit">
                     <img src="/images/logo-hogga.png" alt="Hogga" />
                     <p class="hogga-exit-text">
@@ -35,7 +32,6 @@
                         Te llevamos directamente al sitio oficial del proveedor.
                     </p>
                 </div>
-
                 <h1>Redirigiendo…</h1>
                 <p class="muted">Usa el botón para continuar.</p>
                 <div class="btns">
@@ -48,7 +44,6 @@
 
     <div class="wrap">
         <div class="card">
-
             <div class="hogga-exit">
                 <img src="/images/logo-hogga.png" alt="Hogga" />
                 <p class="hogga-exit-text">
@@ -86,6 +81,7 @@
         document.getElementById("goBtn").href = DATA.target_url;
         document.getElementById("backBtn").href = RETURN_URL;
 
+        // 1) Registro de Analytics (GTM)
         window.dataLayer = window.dataLayer || [];
         dataLayer.push({
             event: "hogga_go_click",
@@ -96,7 +92,24 @@
             hogga_vendor_name: DATA.vendor_name
         });
 
-        setTimeout(() => { window.location.replace(DATA.target_url); }, 300);
+        // 2) Redirección automática (800ms) con limpieza de historial
+        setTimeout(() => {
+            window.location.replace(DATA.target_url);
+        }, 800);
+
+        // 3) Lógica de Bounce-Back (Antigravedad)
+        function bounceBack() {
+            if (!RETURN_URL || RETURN_URL.includes("/go/")) return;
+            window.location.replace(RETURN_URL);
+        }
+
+        document.addEventListener("visibilitychange", () => {
+            if (!document.hidden) bounceBack();
+        });
+
+        window.addEventListener("pageshow", (e) => {
+            if (e.persisted) bounceBack();
+        });
     </script>
 </body>
 

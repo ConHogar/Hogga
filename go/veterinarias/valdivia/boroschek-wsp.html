@@ -8,11 +8,9 @@
     <meta name="referrer" content="no-referrer-when-downgrade" />
     <title>Redirigiendo…</title>
 
-    <!-- Consent logic (centralizada) -->
     <script src="/js/consent.js"></script>
     <link rel="stylesheet" href="/css/go.css" />
 
-    <!-- Google Tag Manager (same as your site) -->
     <script>
         (function (w, d, s, l, i) {
             w[l] = w[l] || []; w[l].push({
@@ -23,7 +21,6 @@
                     'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-56V9ZN8P');
     </script>
-
 </head>
 
 <body>
@@ -32,15 +29,13 @@
             <div class="card">
                 <div class="hogga-exit">
                     <img src="/images/logo-hogga.png" alt="Hogga" loading="lazy" />
-                    <p class="hogga-exit-text">Estás saliendo de Hogga.<br>Te llevamos directamente al sitio oficial
-                        del
+                    <p class="hogga-exit-text">Estás saliendo de Hogga.<br>Te llevamos directamente al sitio oficial del
                         proveedor.</p>
                 </div>
 
                 <h1>Redirigiendo…</h1>
                 <p class="muted">Tu navegador no tiene JavaScript. Usa el botón de abajo.</p>
                 <div class="btns">
-                    <!-- En noscript esto debe ir “duro” -->
                     <a class="btn primary"
                         href="https://wa.me/56997512190?text=Hola%2C%20necesito%20una%20consulta%20veterinaria%20en%20Valdivia.%20%C2%BFTienen%20disponibilidad%20hoy%3F">
                         Continuar
@@ -71,31 +66,25 @@
     </div>
 
     <script>
-        // ====== EDIT THESE PER PAGE ======
+        // ====== DATOS DEL PROVEEDOR ======
         const DATA = {
             category: "veterinarias",
             city: "valdivia",
             vendor: "boroschek",
             action: "wsp",
             vendor_name: "Clínica Veterinaria Boroschek",
-            target_url:
-                "https://wa.me/56997512190?text=Hola%2C%20necesito%20una%20consulta%20veterinaria%20en%20Valdivia.%20%C2%BFTienen%20disponibilidad%20hoy%3F"
+            target_url: "https://wa.me/56997512190?text=" + encodeURIComponent("Hola, necesito una consulta veterinaria en Valdivia. ¿Tienen disponibilidad hoy?")
         };
-        // =================================
 
         const qsReturn = new URLSearchParams(window.location.search).get("return");
         const fallbackReturn = "/buscar/veterinarias/valdivia/#proveedores";
         const RETURN_URL = (qsReturn && qsReturn.startsWith("/")) ? qsReturn : fallbackReturn;
 
-        const line1 = document.getElementById("line1");
-        const goBtn = document.getElementById("goBtn");
-        const backBtn = document.getElementById("backBtn");
+        document.getElementById("line1").textContent = `Destino: ${DATA.vendor_name} (WhatsApp)`;
+        document.getElementById("goBtn").href = DATA.target_url;
+        document.getElementById("backBtn").href = RETURN_URL;
 
-        line1.textContent = `Destino: ${DATA.vendor_name} (${DATA.action === "wsp" ? "WhatsApp" : "Llamada"})`;
-        goBtn.href = DATA.target_url;
-        backBtn.href = RETURN_URL;
-
-        // 1) Fire analytics (GTM)
+        // 1) Registro de Analytics (GTM)
         window.dataLayer = window.dataLayer || [];
         dataLayer.push({
             event: "hogga_go_click",
@@ -106,19 +95,12 @@
             hogga_vendor_name: DATA.vendor_name
         });
 
-        // LATER: Optional server logging (Google Sheets / Supabase / Worker)
-        // fetch("YOUR_LOG_ENDPOINT", {
-        //   method: "POST",
-        //   headers: { "Content-Type": "application/json" },
-        //   body: JSON.stringify(DATA)
-        // }).catch(() => {});
-
-        // 2) Go to WhatsApp / call
+        // 2) Redirección automática (800ms)
         setTimeout(() => {
             window.location.href = DATA.target_url;
-        }, 120);
+        }, 800);
 
-        // 3) Bounce back when user returns to Safari
+        // 3) Lógica de Bounce-Back (Antigravedad)
         function bounceBack() {
             if (!RETURN_URL || RETURN_URL.includes("/go/")) return;
             window.location.replace(RETURN_URL);

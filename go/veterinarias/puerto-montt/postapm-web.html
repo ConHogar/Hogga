@@ -92,11 +92,12 @@
             hogga_vendor_name: DATA.vendor_name
         });
 
-        // Increased from 120ms to 800ms
+        // 1) Redirección con .replace() para limpiar el historial
         setTimeout(() => {
-            window.location.href = DATA.target_url;
+            window.location.replace(DATA.target_url);
         }, 800);
 
+        // 2) Bounce Back logic
         function bounceBack() {
             if (!RETURN_URL || RETURN_URL.includes("/go/")) return;
             window.location.replace(RETURN_URL);
