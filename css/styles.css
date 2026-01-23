@@ -3069,6 +3069,40 @@ a:focus-visible {
   opacity: 0.55;
 }
 
+/* New specific styles for clean vendor details */
+.detail-item {
+  display: flex;
+  gap: 10px;
+  /* Space between icon and text */
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #374151;
+  /* Matches your text color */
+}
+
+.detail-item:last-child {
+  margin-bottom: 0;
+}
+
+.detail-icon {
+  flex-shrink: 0;
+  /* Keeps icon from getting squashed */
+  color: var(--muted);
+  /* Uses your grey variable */
+}
+
+.detail-text a {
+  color: var(--cta);
+  /* Uses your brand blue link color */
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.detail-text a:hover {
+  text-decoration: underline;
+}
+
 /* If inline-link exists, this will harmonize it; if you already styled it, ignore */
 .inline-link {
   text-decoration: underline;
@@ -3120,8 +3154,7 @@ a:focus-visible {
   align-items: stretch;
 }
 
-/* áreas */
-/* áreas */
+
 .info-card.info-card--with-image>.info-card-image {
   grid-area: media;
   display: flex;
