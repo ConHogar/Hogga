@@ -37,7 +37,7 @@
                 <p class="muted">Tu navegador no tiene JavaScript. Usa el botón de abajo.</p>
                 <div class="btns">
                     <a class="btn primary"
-                        href="https://wa.me/56999096311?text=Hola%2C%20necesito%20una%20consulta%20veterinaria%20en%20Talca.%20%C2%BFTienen%20disponibilidad%20hoy%3F">
+                        href="https://wa.me/56999096311?text=Hola%2C%20vi%20su%20contacto%20en%20Hogga.%20Necesito%20una%20consulta%20veterinaria%20en%20Talca.%20%C2%BFTienen%20disponibilidad%20para%20hoy%3F">
                         Continuar
                     </a>
                     <a class="btn outline" href="/buscar/veterinarias/talca/#proveedores">Volver</a>
@@ -73,7 +73,8 @@
             vendor: "petsalud",
             action: "wsp",
             vendor_name: "Pet Salud Talca",
-            target_url: "https://wa.me/56999096311?text=" + encodeURIComponent("Hola, necesito una consulta veterinaria en Talca. ¿Tienen disponibilidad hoy?")
+            // Monetization Message Updated
+            target_url: "https://wa.me/56999096311?text=" + encodeURIComponent("Hola, vi su contacto en Hogga. Necesito una consulta veterinaria en Talca. ¿Tienen disponibilidad para hoy?")
         };
 
         const qsReturn = new URLSearchParams(window.location.search).get("return");
@@ -104,7 +105,7 @@
             window.location.href = DATA.target_url;
         }, 800);
 
-        // 3) Lógica de Bounce-Back (Evita bucles en el historial)
+        // 3) Lógica de Bounce-Back
         function bounceBack() {
             if (!RETURN_URL || RETURN_URL.includes("/go/")) return;
             window.location.replace(RETURN_URL);
