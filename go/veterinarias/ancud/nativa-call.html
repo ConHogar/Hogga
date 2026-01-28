@@ -91,19 +91,31 @@
         backBtn.href = RETURN_URL;
 
         window.dataLayer = window.dataLayer || [];
+        dataLayer.push({
+            event: "hogga_go_click",
+            hogga_category: DATA.category,
+            hogga_city: DATA.city,
+            hogga_vendor: DATA.vendor,
+            hogga_action: DATA.action,
+            hogga_vendor_name: DATA.vendor_name
+        });
 
-        const dedupeKey = `hogga_go_${DATA.category}_${DATA.city}_${DATA.vendor}_${DATA.action}`;
-        if (!sessionStorage.getItem(dedupeKey)) {
-            sessionStorage.setItem(dedupeKey, "1");
-            dataLayer.push({
-                event: "hogga_go_click",
-                hogga_category: DATA.category,
-                hogga_city: DATA.city,
-                hogga_vendor: DATA.vendor,
-                hogga_action: DATA.action,
-                hogga_vendor_name: DATA.vendor_name
-            });
+        // Auto-redirect after 800ms
+        setTimeout(() => {
+            window.location.href = DATA.target_url;
+        }, 800);
+
+        // Bounce-back logic
+        function bounceBack() {
+            if (!RETURN_URL || RETURN_URL.includes("/go/")) return;
+            window.location.replace(RETURN_URL);
         }
+        window.addEventListener("pageshow", (e) => {
+            if (e.persisted) bounceBack();
+        });
+        window.addEventListener("visibilitychange", () => {
+            if (document.visibilityState === "visible") bounceBack();
+        });
     </script>
 </body>
 

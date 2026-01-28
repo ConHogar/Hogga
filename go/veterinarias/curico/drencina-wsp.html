@@ -65,13 +65,14 @@
     </div>
 
     <script>
+        // ====== DATOS DEL PROVEEDOR ======
         const DATA = {
             category: "veterinarias",
             city: "curico",
             vendor: "drencina",
             action: "wsp",
             vendor_name: "Clínica Veterinaria Doctora Encina",
-            target_url: "https://wa.me/56962090999?text=Hola%2C%20vi%20su%20contacto%20en%20Hogga.%20Necesito%20una%20consulta%20veterinaria%20en%20Curico.%20%C2%BFTienen%20disponibilidad%20para%20hoy%3F"
+            target_url: "https://wa.me/56962090999?text=" + encodeURIComponent("Hola, vi su contacto en Hogga. Necesito una consulta veterinaria en Curico. ¿Tienen disponibilidad para hoy?")
         };
 
         const qsReturn = new URLSearchParams(window.location.search).get("return");
@@ -82,6 +83,7 @@
         document.getElementById("goBtn").href = DATA.target_url;
         document.getElementById("backBtn").href = RETURN_URL;
 
+        // 1) Registro de Analytics (GTM)
         window.dataLayer = window.dataLayer || [];
         dataLayer.push({
             event: "hogga_go_click",
@@ -92,12 +94,17 @@
             hogga_vendor_name: DATA.vendor_name
         });
 
-        setTimeout(() => { window.location.replace(DATA.target_url); }, 300);
+        // 2) Redirección automática (800ms) - .href para Apps
+        setTimeout(() => {
+            window.location.href = DATA.target_url;
+        }, 800);
 
+        // 3) Lógica de Bounce-Back (Antigravedad)
         function bounceBack() {
             if (!RETURN_URL || RETURN_URL.includes("/go/")) return;
             window.location.replace(RETURN_URL);
         }
+
         document.addEventListener("visibilitychange", () => { if (!document.hidden) bounceBack(); });
         window.addEventListener("pageshow", (e) => { if (e.persisted) bounceBack(); });
     </script>

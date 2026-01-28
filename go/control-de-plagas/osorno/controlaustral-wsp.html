@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="es-CL">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <title>Redirigiendo…</title>
+
+    <script src="/js/consent.js"></script>
+    <link rel="stylesheet" href="/css/go.css" />
+
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+            var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-56V9ZN8P');
+    </script>
+</head>
+
+<body>
+    <noscript>
+        <div class="wrap">
+            <div class="card">
+                <div class="hogga-exit">
+                    <img src="/images/logo-hogga.png" alt="Hogga" loading="lazy" />
+                    <p class="hogga-exit-text">
+                        Estás saliendo de <strong>Hogga</strong>.<br>
+                        Te llevamos directamente al sitio oficial del proveedor.
+                    </p>
+                </div>
+                <h1>Redirigiendo…</h1>
+                <p class="muted">Tu navegador no tiene JavaScript. Usa el botón de abajo.</p>
+                <div class="btns">
+                    <a class="btn primary"
+                        href="https://wa.me/56994301316?text=Hola%2C%20vi%20su%20dato%20en%20Hogga.%20Necesito%20consultar%20por%20servicios%20de%20control%20de%20plagas.">
+                        Continuar
+                    </a>
+                    <a class="btn outline" href="/buscar/control-plagas/osorno/#proveedores">Volver</a>
+                </div>
+            </div>
+        </div>
+    </noscript>
+
+    <div class="wrap">
+        <div class="card">
+            <div class="hogga-exit">
+                <img src="/images/logo-hogga.png" alt="Hogga" loading="lazy" />
+                <p class="hogga-exit-text">
+                    Estás saliendo de <strong>Hogga</strong>.<br>
+                    Te llevamos directamente al sitio oficial del proveedor.
+                </p>
+            </div>
+            <h1>Te estamos conectando…</h1>
+            <p class="muted" id="line1"></p>
+            <p class="muted">Si no te redirige en 1–2 segundos, usa el botón.</p>
+
+            <div class="btns">
+                <a class="btn primary" id="goBtn" href="#">Continuar</a>
+                <a class="btn outline" id="backBtn" href="#">Volver</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ====== DATOS DEL PROVEEDOR ======
+        const DATA = {
+            category: "control-plagas",
+            city: "osorno",
+            vendor: "control-austral",
+            action: "wsp",
+            vendor_name: "Control Austral",
+            target_url: "https://wa.me/56994301316?text=" + encodeURIComponent("Hola, vi su dato en Hogga. Necesito consultar por servicios de control de plagas.")
+        };
+
+        const qsReturn = new URLSearchParams(window.location.search).get("return");
+        const fallbackReturn = "/buscar/control-plagas/osorno/#proveedores";
+        const RETURN_URL = (qsReturn && qsReturn.startsWith("/") && !qsReturn.startsWith("//")) ? qsReturn : fallbackReturn;
+
+        document.getElementById("line1").textContent = `Destino: ${DATA.vendor_name} (WhatsApp)`;
+        document.getElementById("goBtn").href = DATA.target_url;
+        document.getElementById("backBtn").href = RETURN_URL;
+
+        // 1) Registro de Analytics (GTM)
+        window.dataLayer = window.dataLayer || [];
+        dataLayer.push({
+            event: "hogga_go_click",
+            hogga_category: DATA.category,
+            hogga_city: DATA.city,
+            hogga_vendor: DATA.vendor,
+            hogga_action: DATA.action,
+            hogga_vendor_name: DATA.vendor_name
+        });
+
+        // 2) Redirección automática (800ms) - .href para Apps
+        setTimeout(() => {
+            window.location.href = DATA.target_url;
+        }, 800);
+
+        // 3) Lógica de Bounce-Back (Antigravedad)
+        function bounceBack() {
+            if (!RETURN_URL || RETURN_URL.includes("/go/")) return;
+            window.location.replace(RETURN_URL);
+        }
+
+        document.addEventListener("visibilitychange", () => { if (!document.hidden) bounceBack(); });
+        window.addEventListener("pageshow", (e) => { if (e.persisted) bounceBack(); });
+    </script>
+</body>
+
+</html>

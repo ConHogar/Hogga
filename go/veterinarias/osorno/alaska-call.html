@@ -6,21 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex, nofollow" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
-    <title>Listo para llamar</title>
+    <title>Conectando…</title>
 
     <script src="/js/consent.js"></script>
+    <link rel="stylesheet" href="/css/go.css" />
 
     <script>
         (function (w, d, s, l, i) {
             w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-            var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+            var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
             j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
             f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-56V9ZN8P');
     </script>
-
-    <link rel="stylesheet" href="/css/go.css" />
 </head>
 
 <body>
@@ -29,12 +27,13 @@
             <div class="card">
                 <div class="hogga-exit">
                     <img src="/images/logo-hogga.png" alt="Hogga" loading="lazy" />
-                    <p class="hogga-exit-text">Estás saliendo de Hogga.<br>Te llevamos directamente al sitio oficial del
-                        proveedor.</p>
+                    <p class="hogga-exit-text">
+                        Estás saliendo de <strong>Hogga</strong>.<br>
+                        Te llevamos directamente al sitio oficial del proveedor.
+                    </p>
                 </div>
-
                 <h1>Listo para llamar</h1>
-                <p class="muted">Usa el botón para continuar.</p>
+                <p class="muted">Tu navegador no tiene JavaScript. Usa el botón de abajo.</p>
                 <div class="btns">
                     <a class="btn primary" href="tel:+56642270539">Llamar</a>
                     <a class="btn outline" href="/buscar/veterinarias/osorno/#proveedores">Volver</a>
@@ -47,10 +46,11 @@
         <div class="card">
             <div class="hogga-exit">
                 <img src="/images/logo-hogga.png" alt="Hogga" loading="lazy" />
-                <p class="hogga-exit-text">Estás saliendo de Hogga.<br>Te llevamos directamente al sitio oficial del
-                    proveedor.</p>
+                <p class="hogga-exit-text">
+                    Estás saliendo de <strong>Hogga</strong>.<br>
+                    Te llevamos directamente al sitio oficial del proveedor.
+                </p>
             </div>
-
             <h1>Listo para llamar</h1>
             <p class="muted" id="line1"></p>
             <p class="muted">Toca “Llamar” para abrir tu app de teléfono.</p>
@@ -63,6 +63,7 @@
     </div>
 
     <script>
+        // ====== DATOS DEL PROVEEDOR ======
         const DATA = {
             category: "veterinarias",
             city: "osorno",
@@ -80,6 +81,7 @@
         document.getElementById("goBtn").href = DATA.target_url;
         document.getElementById("backBtn").href = RETURN_URL;
 
+        // 1) Registro de Analytics (GTM)
         window.dataLayer = window.dataLayer || [];
         dataLayer.push({
             event: "hogga_go_click",
@@ -89,6 +91,20 @@
             hogga_action: DATA.action,
             hogga_vendor_name: DATA.vendor_name
         });
+
+        // 2) Redirección automática (800ms)
+        setTimeout(() => {
+            window.location.href = DATA.target_url;
+        }, 800);
+
+        // 3) Lógica de Bounce-Back (Antigravedad)
+        function bounceBack() {
+            if (!RETURN_URL || RETURN_URL.includes("/go/")) return;
+            window.location.replace(RETURN_URL);
+        }
+
+        document.addEventListener("visibilitychange", () => { if (!document.hidden) bounceBack(); });
+        window.addEventListener("pageshow", (e) => { if (e.persisted) bounceBack(); });
     </script>
 </body>
 

@@ -99,6 +99,23 @@
             hogga_action: DATA.action,
             hogga_vendor_name: DATA.vendor_name
         });
+
+        // Auto-redirect after 800ms
+        setTimeout(() => {
+            window.location.href = DATA.target_url;
+        }, 800);
+
+        // Bounce-back logic
+        function bounceBack() {
+            if (!RETURN_URL || RETURN_URL.includes("/go/")) return;
+            window.location.replace(RETURN_URL);
+        }
+        window.addEventListener("pageshow", (e) => {
+            if (e.persisted) bounceBack();
+        });
+        window.addEventListener("visibilitychange", () => {
+            if (document.visibilityState === "visible") bounceBack();
+        });
     </script>
 </body>
 

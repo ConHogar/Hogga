@@ -1,209 +1,120 @@
-<!DOCTYPE html>
-<html lang="es">
+\u003c!doctype html\u003e
+\u003chtml lang=\"es-CL\"\u003e
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abriendo WhatsApp...</title>
+\u003chead\u003e
+\u003cmeta charset=\"utf-8\" /\u003e
+\u003cmeta name=\"viewport\" content=\"width=device-width, initial-scale=1\" /\u003e
+\u003cmeta name=\"robots\" content=\"noindex follow\" /\u003e
+\u003cmeta name=\"referrer\" content=\"no-referrer-when-downgrade\" /\u003e
+\u003ctitle\u003eRedirigiendo…\u003c/title\u003e
 
-    <!-- Google Tag Manager -->
-    <script>(function (w, d, s, l, i) {
-            w[l] = w[l] || []; w[l].push({
-                'gtm.start':
-                    new Date().getTime(), event: 'gtm.js'
-            }); var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-56V9ZN8P');</script>
-    <!-- End Google Tag Manager -->
-</head>
+\u003cscript src=\"/js/consent.js\"\u003e\u003c/script\u003e
+\u003clink rel=\"stylesheet\" href=\"/css/go.css\" /\u003e
 
-<body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-56V9ZN8P" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+\u003cscript\u003e
+(function (w, d, s, l, i) {
+w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+f.parentNode.insertBefore(j, f);
+})(window, document, 'script', 'dataLayer', 'GTM-56V9ZN8P');
+\u003c/script\u003e
+\u003c/head\u003e
 
-    <p style="text-align: center; font-family: sans-serif; margin-top: 50px;">Abriendo WhatsApp...</p>
+\u003cbody\u003e
+\u003cnoscript\u003e
+\u003cdiv class=\"wrap\"\u003e
+\u003cdiv class=\"card\"\u003e
+\u003cdiv class=\"hogga-exit\"\u003e
+\u003cimg src=\"/images/logo-hogga.png\" alt=\"Hogga\" /\u003e
+\u003cp class=\"hogga-exit-text\"\u003e
+Estás saliendo de \u003cstrong\u003eHogga\u003c/strong\u003e.\u003cbr\u003e
+Te llevamos directamente al sitio oficial del proveedor.
+\u003c/p\u003e
+\u003c/div\u003e
+\u003ch1\u003eRedirigiendo…\u003c/h1\u003e
+\u003cp class=\"muted\"\u003eTu navegador no tiene JavaScript. Usa el botón de abajo.\u003c/p\u003e
+\u003cdiv class=\"btns\"\u003e
+\u003ca class=\"btn primary\"
+href=\"https://wa.me/56948470960?text=Hola%2C%20vi%20su%20contacto%20en%20Hogga.%20Necesito%20una%20consulta%20veterinaria%20en%20Ancud.%20%C2%BFTienen%20disponibilidad%20para%20hoy%3F\"\u003e
+Continuar
+\u003c/a\u003e
+\u003ca class=\"btn outline\" href=\"/buscar/veterinarias/ancud/#proveedores\"\u003eVolver\u003c/a\u003e
+\u003c/div\u003e
+\u003c/div\u003e
+\u003c/div\u003e
+\u003c/noscript\u003e
 
-    <script>
-        const destination = "https://wa.me/56948470960";
+\u003cdiv class=\"wrap\"\u003e
+\u003cdiv class=\"card\"\u003e
+\u003cdiv class=\"hogga-exit\"\u003e
+\u003cimg src=\"/images/logo-hogga.png\" alt=\"Hogga\" /\u003e
+\u003cp class=\"hogga-exit-text\"\u003e
+Estás saliendo de \u003cstrong\u003eHogga\u003c/strong\u003e.\u003cbr\u003e
+Te llevamos directamente al sitio oficial del proveedor.
+\u003c/p\u003e
+\u003c/div\u003e
+\u003ch1\u003eTe estamos conectando…\u003c/h1\u003e
+\u003cp class=\"muted\" id=\"line1\"\u003e\u003c/p\u003e
+\u003cp class=\"muted\"\u003eSi no te redirige, usa el botón.\u003c/p\u003e
 
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-            'event': 'vendor_click',
-            'vendor_name': 'Clínica Veterinaria Patitas Ancud',
-            'vendor_category': 'Veterinarias',
-            'vendor_city': 'Ancud',
-            'interaction_type': 'wsp'
-        });
+\u003cdiv class=\"btns\"\u003e
+\u003ca class=\"btn primary\" id=\"goBtn\" href=\"#\"\u003eContinuar\u003c/a\u003e
+\u003ca class=\"btn outline\" id=\"backBtn\" href=\"#\"\u003eVolver\u003c/a\u003e
+\u003c/div\u003e
+\u003c/div\u003e
+\u003c/div\u003e
 
-        setTimeout(function () {
-            window.location.href = destination;
-        }, 500);
+\u003cscript\u003e
+// ====== DATOS DEL PROVEEDOR ======
+const DATA = {
+category: \"veterinarias\",
+city: \"ancud\",
+vendor: \"vetpatitasancud\",
+action: \"wsp\",
+vendor_name: \"Veterinaria Patitas Ancud\",
+target_url: \"https://wa.me/56948470960?text=\" + encodeURIComponent(\"Hola, vi su contacto en Hogga. Necesito una
+consulta veterinaria en Ancud. ¿Tienen disponibilidad para hoy?\")
+};
 
-        // Auto-close/back logic for target="_blank"
-        window.onpageshow = function (event) {
-            if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
+const qsReturn = new URLSearchParams(window.location.search).get(\"return\");
+const fallbackReturn = \"/buscar/veterinarias/ancud/#proveedores\";
+const RETURN_URL = (qsReturn && qsReturn.startsWith(\"/\") && !qsReturn.startsWith(\"//\")) ? qsReturn : fallbackReturn;
 
-                const urlParams = new URLSearchParams(window.location.search);
-                const returnUrl = urlParams.get('return');
+document.getElementById(\"line1\").textContent = `Destino: ${DATA.vendor_name} (WhatsApp)`;
+document.getElementById(\"goBtn\").href = DATA.target_url;
+document.getElementById(\"backBtn\").href = RETURN_URL;
 
-                if (returnUrl) {
-                    window.location.replace(returnUrl);
-                } else if (window.history.length > 1) {
-                    window.history.back();
-                } else {
-                    window.close();
-                }
-            }
-        };
-    </script>
-</body>
+// 1) Registro de Analytics (GTM)
+window.dataLayer = window.dataLayer || [];
+dataLayer.push({
+event: \"hogga_go_click\",
+hogga_category: DATA.category,
+hogga_city: DATA.city,
+hogga_vendor: DATA.vendor,
+hogga_action: DATA.action,
+hogga_vendor_name: DATA.vendor_name
+});
 
-</html>
+// 2) Redirección automática (800ms) - .href para Apps
+setTimeout(() => {
+window.location.href = DATA.target_url;
+}, 800);
 
+// 3) Lógica de Bounce-Back (Antigravedad)
+function bounceBack() {
+if (!RETURN_URL || RETURN_URL.includes(\"/go/\")) return;
+window.location.replace(RETURN_URL);
+}
 
+document.addEventListener(\"visibilitychange\", () => {
+if (!document.hidden) bounceBack();
+});
 
-<!doctype html>
-<html lang="es-CL">
+window.addEventListener(\"pageshow\", (e) => {
+if (e.persisted) bounceBack();
+});
+\u003c/script\u003e
+\u003c/body\u003e
 
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="robots" content="noindex, nofollow" />
-    <meta name="referrer" content="no-referrer-when-downgrade" />
-    <title>Redirigiendo…</title>
-
-    <!-- Consent logic (centralizada) -->
-    <script src="/js/consent.js"></script>
-    <link rel="stylesheet" href="/css/go.css" />
-
-    <!-- Google Tag Manager (same as your site) -->
-    <script>
-        (function (w, d, s, l, i) {
-            w[l] = w[l] || []; w[l].push({
-                'gtm.start':
-                    new Date().getTime(), event: 'gtm.js'
-            }); var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-56V9ZN8P');
-    </script>
-
-</head>
-
-<body>
-    <noscript>
-        <div class="wrap">
-            <div class="card">
-                <div class="hogga-exit">
-                    <img src="/images/logo-hogga.png" alt="Hogga" loading="lazy" />
-                    <p class="hogga-exit-text">Estás saliendo de Hogga.<br>Te llevamos directamente al sitio oficial
-                        del
-                        proveedor.</p>
-                </div>
-
-                <h1>Redirigiendo…</h1>
-                <p class="muted">Tu navegador no tiene JavaScript. Usa el botón de abajo.</p>
-                <div class="btns">
-                    <!-- En noscript esto debe ir “duro” -->
-                    <a class="btn primary"
-                        href="https://wa.me/56948470960?text=Hola%2C%20vi%20su%20contacto%20en%20Hogga.%20Necesito%20una%20consulta%20veterinaria%20en%20Ancud.%20%C2%BFTienen%20disponibilidad%20para%20hoy%3F">
-                        Continuar
-                    </a>
-                    <a class="btn outline" href="/buscar/veterinarias/ancud/#proveedores">Volver</a>
-                </div>
-            </div>
-        </div>
-    </noscript>
-
-    <div class="wrap">
-        <div class="card">
-            <div class="hogga-exit">
-                <img src="/images/logo-hogga.png" alt="Hogga" loading="lazy" />
-                <p class="hogga-exit-text">Estás saliendo de Hogga.<br>Te llevamos directamente al sitio oficial del
-                    proveedor.</p>
-            </div>
-
-            <h1>Te estamos conectando…</h1>
-            <p class="muted" id="line1"></p>
-            <p class="muted">Si no te redirige en 1–2 segundos, usa el botón.</p>
-
-            <div class="btns">
-                <a class="btn primary" id="goBtn" href="#">Continuar</a>
-                <a class="btn outline" id="backBtn" href="#">Volver</a>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // ====== EDIT THESE PER PAGE ======
-        const DATA = {
-            category: "veterinarias",
-            city: "ancud",
-            vendor: "vetpatitasancud",
-            action: "wsp",
-            vendor_name: "Veterinaria Patitas Ancud",
-            target_url:
-                "https://wa.me/56948470960?text=Hola%2C%20vi%20su%20contacto%20en%20Hogga.%20Necesito%20una%20consulta%20veterinaria%20en%20Ancud.%20%C2%BFTienen%20disponibilidad%20para%20hoy%3F"
-        };
-        // =================================
-
-        const qsReturn = new URLSearchParams(window.location.search).get("return");
-        const fallbackReturn = "/buscar/veterinarias/ancud/#proveedores";
-        const RETURN_URL = (qsReturn && qsReturn.startsWith("/")) ? qsReturn : fallbackReturn;
-
-        const line1 = document.getElementById("line1");
-        const goBtn = document.getElementById("goBtn");
-        const backBtn = document.getElementById("backBtn");
-
-        line1.textContent = `Destino: ${DATA.vendor_name} (${DATA.action === "wsp" ? "WhatsApp" : "Llamada"})`;
-        goBtn.href = DATA.target_url;
-        backBtn.href = RETURN_URL;
-
-        // 1) Fire analytics (GTM)
-        window.dataLayer = window.dataLayer || [];
-
-        const dedupeKey = `hogga_go_${DATA.category}_${DATA.city}_${DATA.vendor}_${DATA.action}`;
-        if (!sessionStorage.getItem(dedupeKey)) {
-            sessionStorage.setItem(dedupeKey, "1");
-            dataLayer.push({
-                event: "hogga_go_click",
-                hogga_category: DATA.category,
-                hogga_city: DATA.city,
-                hogga_vendor: DATA.vendor,
-                hogga_action: DATA.action,
-                hogga_vendor_name: DATA.vendor_name
-            });
-        }
-
-        // LATER: Optional server logging (Google Sheets / Supabase / Worker)
-        // fetch("YOUR_LOG_ENDPOINT", {
-        //   method: "POST",
-        //   headers: { "Content-Type": "application/json" },
-        //   body: JSON.stringify(DATA)
-        // }).catch(() => {});
-
-        // 2) Go to WhatsApp / call
-        setTimeout(() => {
-            window.location.href = DATA.target_url;
-        }, 120);
-
-        // 3) Bounce back when user returns to Safari
-        function bounceBack() {
-            if (!RETURN_URL || RETURN_URL.includes("/go/")) return;
-            window.location.replace(RETURN_URL);
-        }
-
-        document.addEventListener("visibilitychange", () => {
-            if (!document.hidden) bounceBack();
-        });
-
-        window.addEventListener("pageshow", (e) => {
-            if (e.persisted) bounceBack();
-        });
-    </script>
-</body>
-
-</html>
+\u003c/html\u003e

@@ -86,9 +86,33 @@
         document.getElementById("goBtn").href = DATA.target_url;
         document.getElementById("backBtn").href = RETURN_URL;
 
+        // 1) Registro de Analytics (GTM)
+        window.dataLayer = window.dataLayer || [];
+        dataLayer.push({
+            event: "hogga_go_click",
+            hogga_category: DATA.category,
+            hogga_city: DATA.city,
+            hogga_vendor: DATA.vendor,
+            hogga_action: DATA.action,
+            hogga_vendor_name: DATA.vendor_name
+        });
 
+        // 2) Redirección automática (800ms) - .replace para Web
+        setTimeout(() => {
+            window.location.replace(DATA.target_url);
+        }, 800);
 
-        setTimeout(() => { window.location.replace(DATA.target_url); }, 300);
+        // 3) Lógica de Bounce-Back (Antigravedad)
+        function bounceBack() {
+            if (!RETURN_URL || RETURN_URL.includes("/go/")) return;
+            window.location.replace(RETURN_URL);
+        }
+        window.addEventListener("pageshow", (e) => {
+            if (e.persisted) bounceBack();
+        });
+        window.addEventListener("visibilitychange", () => {
+            if (document.visibilityState === "visible") bounceBack();
+        });
     </script>
 </body>
 

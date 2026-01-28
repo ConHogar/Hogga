@@ -8,8 +8,8 @@
     <meta name="referrer" content="no-referrer-when-downgrade" />
     <title>Redirigiendo…</title>
 
-    <link rel="stylesheet" href="/css/go.css" />
     <script src="/js/consent.js"></script>
+    <link rel="stylesheet" href="/css/go.css" />
 
     <script>
         (function (w, d, s, l, i) {
@@ -33,13 +33,13 @@
                     </p>
                 </div>
                 <h1>Redirigiendo…</h1>
-                <p class="muted">Usa el botón para continuar.</p>
+                <p class="muted">Tu navegador no tiene JavaScript. Usa el botón de abajo.</p>
                 <div class="btns">
                     <a class="btn primary"
-                        href="https://wa.me/56954430842?text=Hola%2C%20vi%20su%20contacto%20en%20Hogga.%20Necesito%20una%20consulta%20veterinaria%20en%20Coquimbo.%20%C2%BFTienen%20disponibilidad%20para%20hoy%3F">
+                        href="https://wa.me/56934082534?text=Hola%2C%20vi%20su%20contacto%20en%20Hogga.%20Necesito%20una%20consulta%20veterinaria%20en%20La%20Serena.%20%C2%BFTienen%20disponibilidad%20para%20hoy%3F">
                         Continuar
                     </a>
-                    <a class="btn outline" href="/buscar/veterinarias/coquimbo/#proveedores">Volver</a>
+                    <a class="btn outline" href="/buscar/veterinarias/la-serena/#proveedores">Volver</a>
                 </div>
             </div>
         </div>
@@ -56,7 +56,7 @@
             </div>
             <h1>Te estamos conectando…</h1>
             <p class="muted" id="line1"></p>
-            <p class="muted">Si no te redirige, usa el botón.</p>
+            <p class="muted">Si no te redirige en 1–2 segundos, usa el botón.</p>
 
             <div class="btns">
                 <a class="btn primary" id="goBtn" href="#">Continuar</a>
@@ -66,26 +66,25 @@
     </div>
 
     <script>
-        // ====== EDIT THESE PER PAGE ======
+        // ====== DATOS DEL PROVEEDOR ======
         const DATA = {
             category: "veterinarias",
-            city: "coquimbo",
-            vendor: "vethome",
+            city: "la-serena",
+            vendor: "antakari",
             action: "wsp",
-            vendor_name: "Clínica Vet-Home",
-            // Monetization Message: "Hola, vi su contacto en Hogga. Necesito una consulta veterinaria en Coquimbo. ¿Tienen disponibilidad para hoy?"
-            target_url: "https://wa.me/56954430842?text=Hola%2C%20vi%20su%20contacto%20en%20Hogga.%20Necesito%20una%20consulta%20veterinaria%20en%20Coquimbo.%20%C2%BFTienen%20disponibilidad%20para%20hoy%3F"
+            vendor_name: "Clínica Veterinaria Antakari",
+            target_url: "https://wa.me/56934082534?text=" + encodeURIComponent("Hola, vi su contacto en Hogga. Necesito una consulta veterinaria en La Serena. ¿Tienen disponibilidad para hoy?")
         };
-        // =================================
 
         const qsReturn = new URLSearchParams(window.location.search).get("return");
-        const fallbackReturn = "/buscar/veterinarias/coquimbo/#proveedores";
+        const fallbackReturn = "/buscar/veterinarias/la-serena/#proveedores";
         const RETURN_URL = (qsReturn && qsReturn.startsWith("/") && !qsReturn.startsWith("//")) ? qsReturn : fallbackReturn;
 
         document.getElementById("line1").textContent = `Destino: ${DATA.vendor_name} (WhatsApp)`;
         document.getElementById("goBtn").href = DATA.target_url;
         document.getElementById("backBtn").href = RETURN_URL;
 
+        // 1) Registro de Analytics (GTM)
         window.dataLayer = window.dataLayer || [];
         dataLayer.push({
             event: "hogga_go_click",
@@ -96,7 +95,19 @@
             hogga_vendor_name: DATA.vendor_name
         });
 
-        setTimeout(() => { window.location.replace(DATA.target_url); }, 300);
+        // 2) Redirección automática (800ms) - .href para Apps
+        setTimeout(() => {
+            window.location.href = DATA.target_url;
+        }, 800);
+
+        // 3) Lógica de Bounce-Back (Antigravedad)
+        function bounceBack() {
+            if (!RETURN_URL || RETURN_URL.includes("/go/")) return;
+            window.location.replace(RETURN_URL);
+        }
+
+        document.addEventListener("visibilitychange", () => { if (!document.hidden) bounceBack(); });
+        window.addEventListener("pageshow", (e) => { if (e.persisted) bounceBack(); });
     </script>
 </body>
 
