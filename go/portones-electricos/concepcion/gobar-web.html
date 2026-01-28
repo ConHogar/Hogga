@@ -37,13 +37,12 @@
                 <p class="hogga-exit-text">Estás saliendo de Hogga.<br>Te llevamos al sitio oficial.</p>
             </div>
             <h1>Te estamos conectando…</h1>
-            <p class="muted" id="line1"></p>
+            <p class="muted" id="line1">Destino: Gobar (Sitio oficial)</p>
             <div class="btns"><a class="btn primary" id="goBtn" href="#">Continuar</a><a class="btn outline"
                     id="backBtn" href="#">Volver</a></div>
         </div>
     </div>
     <script>
-        // ====== EDIT THESE PER PAGE ======
         const DATA = {
             category: "portones-electricos",
             city: "concepcion",
@@ -52,54 +51,40 @@
             vendor_name: "Gobar",
             target_url: "https://www.gobar.cl"
         };
-        // =================================
 
         const qsReturn = new URLSearchParams(window.location.search).get("return");
         const fallbackReturn = "/buscar/portones-electricos/concepcion/#proveedores";
         const RETURN_URL = (qsReturn && qsReturn.startsWith("/")) ? qsReturn : fallbackReturn;
 
-        const line1 = document.getElementById("line1");
+        document.getElementById("line1").textContent = `Destino: ${DATA.vendor_name} (Sitio oficial)`;
         const goBtn = document.getElementById("goBtn");
         const backBtn = document.getElementById("backBtn");
-
-        line1.textContent = `Destino: ${DATA.vendor_name} (Sitio Web)`;
         goBtn.href = DATA.target_url;
         backBtn.href = RETURN_URL;
 
-        // 1) Fire analytics (GTM)
+        // 1) Analytics
         window.dataLayer = window.dataLayer || [];
+        dataLayer.push({
+            event: "hogga_go_click",
+            hogga_category: DATA.category,
+            hogga_city: DATA.city,
+            hogga_vendor: DATA.vendor,
+            hogga_action: DATA.action,
+            hogga_vendor_name: DATA.vendor_name
+        });
 
-        const dedupeKey = `hogga_go_${DATA.category}_${DATA.city}_${DATA.vendor}_${DATA.action}`;
-        if (!sessionStorage.getItem(dedupeKey)) {
-            sessionStorage.setItem(dedupeKey, "1");
-            dataLayer.push({
-                event: "hogga_go_click",
-                hogga_category: DATA.category,
-                hogga_city: DATA.city,
-                hogga_vendor: DATA.vendor,
-                hogga_action: DATA.action,
-                hogga_vendor_name: DATA.vendor_name
-            });
-        }
-
-        // 2) Go to WhatsApp / call
+        // 2) Redirección (250ms) usando .replace()
         setTimeout(() => {
-            window.location.href = DATA.target_url;
-        }, 120);
+            window.location.replace(DATA.target_url);
+        }, 250);
 
-        // 3) Bounce back when user returns to Safari
+        // 3) Bounce Back
         function bounceBack() {
             if (!RETURN_URL || RETURN_URL.includes("/go/")) return;
             window.location.replace(RETURN_URL);
         }
-
-        document.addEventListener("visibilitychange", () => {
-            if (!document.hidden) bounceBack();
-        });
-
-        window.addEventListener("pageshow", (e) => {
-            if (e.persisted) bounceBack();
-        });
+        document.addEventListener("visibilitychange", () => { if (!document.hidden) bounceBack(); });
+        window.addEventListener("pageshow", (e) => { if (e.persisted) bounceBack(); });
     </script>
 </body>
 

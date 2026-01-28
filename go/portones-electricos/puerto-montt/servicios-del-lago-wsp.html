@@ -26,7 +26,7 @@
         <div class="wrap">
             <div class="card">
                 <div class="hogga-exit">
-                    <img src="/images/logo-hogga.png" alt="Hogga" loading="lazy" />
+                    <img src="/images/logo-hogga.png" alt="Hogga" />
                     <p class="hogga-exit-text">
                         Estás saliendo de <strong>Hogga</strong>.<br>
                         Te llevamos directamente al sitio oficial del proveedor.
@@ -36,7 +36,7 @@
                 <p class="muted">Tu navegador no tiene JavaScript. Usa el botón de abajo.</p>
                 <div class="btns">
                     <a class="btn primary"
-                        href="https://wa.me/56971403990?text=Hola%2C%20vi%20su%20dato%20en%20Hogga.%20Necesito%20consultar%20por%20servicios%20de%20portones.">
+                        href="https://wa.me/56971403990?text=Hola%20Servicios%20del%20Lago%2C%20los%20v%C3%AD%20en%20Hogga.%20Necesito%20consultar%20por%20un%20servicio%20de%20portones...">
                         Continuar
                     </a>
                     <a class="btn outline" href="/buscar/portones-electricos/puerto-montt/#proveedores">Volver</a>
@@ -48,7 +48,7 @@
     <div class="wrap">
         <div class="card">
             <div class="hogga-exit">
-                <img src="/images/logo-hogga.png" alt="Hogga" loading="lazy" />
+                <img src="/images/logo-hogga.png" alt="Hogga" />
                 <p class="hogga-exit-text">
                     Estás saliendo de <strong>Hogga</strong>.<br>
                     Te llevamos directamente al sitio oficial del proveedor.
@@ -73,7 +73,8 @@
             vendor: "servicios-del-lago",
             action: "wsp",
             vendor_name: "Servicios del Lago",
-            target_url: "https://wa.me/56971403990?text=" + encodeURIComponent("Hola, vi su dato en Hogga. Necesito consultar por servicios de portones.")
+            // Mensaje estandarizado
+            target_url: "https://wa.me/56971403990?text=" + encodeURIComponent("Hola Servicios del Lago, los ví en Hogga. Necesito consultar por un servicio de portones...")
         };
 
         const qsReturn = new URLSearchParams(window.location.search).get("return");
@@ -95,11 +96,10 @@
             hogga_vendor_name: DATA.vendor_name
         });
 
-        // 2) Redirección automática (800ms)
-        // Usamos .href para WhatsApp para asegurar compatibilidad con Deep Links
+        // 2) Redirección automática (800ms) - .href para Apps
         setTimeout(() => {
             window.location.href = DATA.target_url;
-        }, 800);
+        }, 250);
 
         // 3) Lógica de Bounce-Back (Antigravedad)
         function bounceBack() {
