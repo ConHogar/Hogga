@@ -24,40 +24,45 @@
             <div class="card">
                 <div class="hogga-exit">
                     <img src="/images/logo-hogga.png" alt="Hogga" />
-                    <p class="hogga-exit-text">Estás saliendo de Hogga.<br>Te llevamos al sitio oficial.</p>
+                    <p class="hogga-exit-text">Estás saliendo de Hogga.<br>Te llevamos al sitio oficial del proveedor.
+                    </p>
                 </div>
                 <h1>Redirigiendo…</h1>
-                <div class="btns"><a class="btn primary" href="https://trulynolen.cl/">Continuar</a><a
-                        class="btn outline" href="/buscar/control-de-plagas/puerto-montt/#proveedores">Volver</a></div>
+                <div class="btns"><a class="btn primary"
+                        href="https://wa.me/56990962372?text=Hola%2C%20vi%20su%20dato%20en%20Hogga.%20Necesito%20consultar%20por%20servicios%20de%20control%20de%20plagas.">Continuar</a><a
+                        class="btn outline" href="/buscar/control-de-plagas/villarrica/#proveedores">Volver</a>
+                </div>
             </div>
         </div>
     </noscript>
     <div class="wrap">
         <div class="card">
             <div class="hogga-exit"><img src="/images/logo-hogga.png" alt="Hogga" />
-                <p class="hogga-exit-text">Estás saliendo de Hogga.<br>Te llevamos al sitio oficial.</p>
+                <p class="hogga-exit-text">Estás saliendo de Hogga.<br>Te llevamos al sitio oficial del proveedor.</p>
             </div>
             <h1>Te estamos conectando…</h1>
-            <p class="muted" id="line1">Destino: Truly Nolen Chile (Sitio oficial)</p>
+            <p class="muted" id="line1">Destino: Kill Plagas (WhatsApp)</p>
             <div class="btns"><a class="btn primary" id="goBtn" href="#">Continuar</a><a class="btn outline"
                     id="backBtn" href="#">Volver</a></div>
         </div>
     </div>
     <script>
+        // ====== DATOS DEL PROVEEDOR ======
         const DATA = {
             category: "control-de-plagas",
-            city: "puerto-montt",
-            vendor: "trulynolen",
-            action: "web",
-            vendor_name: "Truly Nolen Chile",
-            target_url: "https://trulynolen.cl/"
+            city: "villarrica",
+            vendor: "killplagas",
+            action: "wsp",
+            vendor_name: "Kill Plagas",
+            // Mensaje Estandarizado
+            target_url: "https://wa.me/56990962372?text=" + encodeURIComponent("Hola, vi su dato en Hogga. Necesito consultar por servicios de control de plagas.")
         };
 
         const qsReturn = new URLSearchParams(window.location.search).get("return");
-        const fallbackReturn = "/buscar/control-de-plagas/puerto-montt/#proveedores";
+        const fallbackReturn = "/buscar/control-de-plagas/villarrica/#proveedores";
         const RETURN_URL = (qsReturn && qsReturn.startsWith("/")) ? qsReturn : fallbackReturn;
 
-        document.getElementById("line1").textContent = `Destino: ${DATA.vendor_name} (Sitio oficial)`;
+        document.getElementById("line1").textContent = `Destino: ${DATA.vendor_name} (WhatsApp)`;
         const goBtn = document.getElementById("goBtn");
         const backBtn = document.getElementById("backBtn");
         goBtn.href = DATA.target_url;
@@ -74,9 +79,9 @@
             hogga_vendor_name: DATA.vendor_name
         });
 
-        // 2) Redirección (250ms) usando .replace()
+        // 2) Redirección (250ms)
         setTimeout(() => {
-            window.location.replace(DATA.target_url);
+            window.location.href = DATA.target_url;
         }, 250);
 
         // 3) Bounce Back

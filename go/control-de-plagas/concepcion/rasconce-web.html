@@ -27,8 +27,8 @@
                     <p class="hogga-exit-text">Estás saliendo de Hogga.<br>Te llevamos al sitio oficial.</p>
                 </div>
                 <h1>Redirigiendo…</h1>
-                <div class="btns"><a class="btn primary" href="https://trulynolen.cl/">Continuar</a><a
-                        class="btn outline" href="/buscar/control-de-plagas/puerto-montt/#proveedores">Volver</a></div>
+                <div class="btns"><a class="btn primary" href="https://rascontrol.cl/">Continuar</a><a
+                        class="btn outline" href="/buscar/control-de-plagas/concepcion/#proveedores">Volver</a></div>
             </div>
         </div>
     </noscript>
@@ -38,7 +38,7 @@
                 <p class="hogga-exit-text">Estás saliendo de Hogga.<br>Te llevamos al sitio oficial.</p>
             </div>
             <h1>Te estamos conectando…</h1>
-            <p class="muted" id="line1">Destino: Truly Nolen Chile (Sitio oficial)</p>
+            <p class="muted" id="line1">Destino: RAS Control de Plagas (Sitio oficial)</p>
             <div class="btns"><a class="btn primary" id="goBtn" href="#">Continuar</a><a class="btn outline"
                     id="backBtn" href="#">Volver</a></div>
         </div>
@@ -46,15 +46,15 @@
     <script>
         const DATA = {
             category: "control-de-plagas",
-            city: "puerto-montt",
-            vendor: "trulynolen",
+            city: "concepcion",
+            vendor: "ras-control-plagas",
             action: "web",
-            vendor_name: "Truly Nolen Chile",
-            target_url: "https://trulynolen.cl/"
+            vendor_name: "RAS Control de Plagas",
+            target_url: "https://rascontrol.cl/"
         };
 
         const qsReturn = new URLSearchParams(window.location.search).get("return");
-        const fallbackReturn = "/buscar/control-de-plagas/puerto-montt/#proveedores";
+        const fallbackReturn = "/buscar/control-de-plagas/concepcion/#proveedores";
         const RETURN_URL = (qsReturn && qsReturn.startsWith("/")) ? qsReturn : fallbackReturn;
 
         document.getElementById("line1").textContent = `Destino: ${DATA.vendor_name} (Sitio oficial)`;

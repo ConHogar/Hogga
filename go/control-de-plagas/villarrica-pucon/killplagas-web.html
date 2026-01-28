@@ -24,21 +24,22 @@
             <div class="card">
                 <div class="hogga-exit">
                     <img src="/images/logo-hogga.png" alt="Hogga" />
-                    <p class="hogga-exit-text">Estás saliendo de Hogga.<br>Te llevamos al sitio oficial.</p>
+                    <p class="hogga-exit-text">Estás saliendo de Hogga.<br>Te llevamos al sitio oficial del proveedor.
+                    </p>
                 </div>
                 <h1>Redirigiendo…</h1>
-                <div class="btns"><a class="btn primary" href="https://trulynolen.cl/">Continuar</a><a
-                        class="btn outline" href="/buscar/control-de-plagas/puerto-montt/#proveedores">Volver</a></div>
+                <div class="btns"><a class="btn primary" href="https://www.killplagas.cl/">Continuar</a><a
+                        class="btn outline" href="/buscar/control-de-plagas/villarrica/#proveedores">Volver</a></div>
             </div>
         </div>
     </noscript>
     <div class="wrap">
         <div class="card">
             <div class="hogga-exit"><img src="/images/logo-hogga.png" alt="Hogga" />
-                <p class="hogga-exit-text">Estás saliendo de Hogga.<br>Te llevamos al sitio oficial.</p>
+                <p class="hogga-exit-text">Estás saliendo de Hogga.<br>Te llevamos al sitio oficial del proveedor.</p>
             </div>
             <h1>Te estamos conectando…</h1>
-            <p class="muted" id="line1">Destino: Truly Nolen Chile (Sitio oficial)</p>
+            <p class="muted" id="line1">Destino: Kill Plagas (Sitio oficial)</p>
             <div class="btns"><a class="btn primary" id="goBtn" href="#">Continuar</a><a class="btn outline"
                     id="backBtn" href="#">Volver</a></div>
         </div>
@@ -46,15 +47,15 @@
     <script>
         const DATA = {
             category: "control-de-plagas",
-            city: "puerto-montt",
-            vendor: "trulynolen",
+            city: "villarrica",
+            vendor: "killplagas",
             action: "web",
-            vendor_name: "Truly Nolen Chile",
-            target_url: "https://trulynolen.cl/"
+            vendor_name: "Kill Plagas",
+            target_url: "https://www.killplagas.cl/"
         };
 
         const qsReturn = new URLSearchParams(window.location.search).get("return");
-        const fallbackReturn = "/buscar/control-de-plagas/puerto-montt/#proveedores";
+        const fallbackReturn = "/buscar/control-de-plagas/villarrica/#proveedores";
         const RETURN_URL = (qsReturn && qsReturn.startsWith("/")) ? qsReturn : fallbackReturn;
 
         document.getElementById("line1").textContent = `Destino: ${DATA.vendor_name} (Sitio oficial)`;
