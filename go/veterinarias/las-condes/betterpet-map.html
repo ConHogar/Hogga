@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="es-CL">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <title>Abriendo Mapa…</title>
+
+    <link rel="stylesheet" href="/css/go.css" />
+    <script src="/js/consent.js"></script>
+
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+            var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-56V9ZN8P');
+    </script>
+</head>
+
+<body>
+    <noscript>
+        <div class="wrap">
+            <div class="card">
+                <div class="hogga-exit">
+                    <img src="/images/logo-hogga.png" alt="Hogga" />
+                    <p class="hogga-exit-text">
+                        Estás saliendo de <strong>Hogga</strong>.<br>
+                        Te llevamos a Google Maps.
+                    </p>
+                </div>
+                <h1>Abriendo Mapa…</h1>
+                <p class="muted">Usa el botón para continuar.</p>
+                <div class="btns">
+                    <a class="btn primary"
+                        href="https://www.google.com/maps/place/Cl%C3%ADnica+Veterinaria+Betterpet/@-33.4062189,-70.5678034,911m/data=!3m2!1e3!4b1!4m6!3m5!1s0x9662cf1eb0243ff7:0x700edb1f7bb2cb64!8m2!3d-33.4062189!4d-70.5678034!16s%2Fg%2F11x1fnbbqk?entry=ttu&g_ep=EgoyMDI2MDEyNi4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D">Abrir
+                        Mapa</a>
+                    <a class="btn outline" href="/buscar/veterinarias/las-condes/#proveedores">Volver</a>
+                </div>
+            </div>
+        </div>
+    </noscript>
+
+    <div class="wrap">
+        <div class="card">
+            <div class="hogga-exit">
+                <img src="/images/logo-hogga.png" alt="Hogga" />
+                <p class="hogga-exit-text">
+                    Estás saliendo de <strong>Hogga</strong>.<br>
+                    Te llevamos a Google Maps.
+                </p>
+            </div>
+
+            <h1>Te estamos conectando…</h1>
+            <p class="muted" id="line1"></p>
+            <p class="muted">Si no te redirige, usa el botón.</p>
+
+            <div class="btns">
+                <a class="btn primary" id="goBtn" href="#">Abrir Mapa</a>
+                <a class="btn outline" id="backBtn" href="#">Volver</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ====== EDIT THESE DETAILS ======
+        const DATA = {
+            category: "veterinarias",
+            city: "las-condes",
+            vendor: "betterpet",
+            action: "map",
+            vendor_name: "Clínica Veterinaria Betterpet",
+            target_url: "https://www.google.com/maps/place/Cl%C3%ADnica+Veterinaria+Betterpet/@-33.4062189,-70.5678034,911m/data=!3m2!1e3!4b1!4m6!3m5!1s0x9662cf1eb0243ff7:0x700edb1f7bb2cb64!8m2!3d-33.4062189!4d-70.5678034!16s%2Fg%2F11x1fnbbqk?entry=ttu&g_ep=EgoyMDI2MDEyNi4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D"
+        };
+        // =================================
+
+        const qsReturn = new URLSearchParams(window.location.search).get("return");
+        const fallbackReturn = `/buscar/${DATA.category}/${DATA.city}/#proveedores`;
+        const RETURN_URL = (qsReturn && qsReturn.startsWith("/") && !qsReturn.startsWith("//")) ? qsReturn : fallbackReturn;
+
+        document.getElementById("line1").textContent = `Destino: ${DATA.vendor_name} (Mapa)`;
+        document.getElementById("goBtn").href = DATA.target_url;
+        document.getElementById("backBtn").href = RETURN_URL;
+
+        window.dataLayer = window.dataLayer || [];
+        dataLayer.push({
+            event: "hogga_go_click",
+            hogga_category: DATA.category,
+            hogga_city: DATA.city,
+            hogga_vendor: DATA.vendor,
+            hogga_action: DATA.action,
+            hogga_vendor_name: DATA.vendor_name
+        });
+
+        // 250ms Sweet Spot
+        setTimeout(() => {
+            window.location.replace(DATA.target_url);
+        }, 250);
+
+        // Bounce Back Logic
+        function bounceBack() {
+            if (!RETURN_URL || RETURN_URL.includes("/go/")) return;
+            window.location.replace(RETURN_URL);
+        }
+        document.addEventListener("visibilitychange", () => { if (!document.hidden) bounceBack(); });
+        window.addEventListener("pageshow", (e) => { if (e.persisted) bounceBack(); });
+    </script>
+</body>
+
+</html>

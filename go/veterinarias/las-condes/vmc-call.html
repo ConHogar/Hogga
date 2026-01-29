@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es-CL">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Conectando…</title>
+    <script src="/js/consent.js"></script>
+    <link rel="stylesheet" href="/css/go.css" />
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+            var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-56V9ZN8P');
+    </script>
+</head>
+
+<body>
+    <noscript>
+        <div class="wrap">
+            <div class="card">
+                <div class="hogga-exit">
+                    <img src="/images/logo-hogga.png" alt="Hogga" />
+                    <p class="hogga-exit-text">Estás saliendo de Hogga.<br>Te llevamos al sitio oficial del proveedor.
+                    </p>
+                </div>
+                <h1>Listo para llamar</h1>
+                <div class="btns"><a class="btn primary" href="tel:+56957654803">Llamar</a><a class="btn outline"
+                        href="/buscar/veterinarias/las-condes/#proveedores">Volver</a></div>
+            </div>
+        </div>
+    </noscript>
+    <div class="wrap">
+        <div class="card">
+            <div class="hogga-exit"><img src="/images/logo-hogga.png" alt="Hogga" />
+                <p class="hogga-exit-text">Estás saliendo de Hogga.<br>Te llevamos al sitio oficial del proveedor.</p>
+            </div>
+            <h1>Te estamos conectando…</h1>
+            <p class="muted" id="line1">Destino: Veterinary Medical Center (Llamada)</p>
+            <div class="btns"><a class="btn primary" id="goBtn" href="#">Llamar</a><a class="btn outline" id="backBtn"
+                    href="#">Volver</a></div>
+        </div>
+    </div>
+    <script>
+        const DATA = {
+            category: "veterinarias",
+            city: "las-condes",
+            vendor: "veterinary-medical-center",
+            action: "call",
+            vendor_name: "Veterinary Medical Center",
+            target_url: "tel:+56957654803"
+        };
+
+        const qsReturn = new URLSearchParams(window.location.search).get("return");
+        const fallbackReturn = "/buscar/veterinarias/las-condes/#proveedores";
+        const RETURN_URL = (qsReturn && qsReturn.startsWith("/")) ? qsReturn : fallbackReturn;
+
+        document.getElementById("line1").textContent = `Destino: ${DATA.vendor_name} (Llamada)`;
+        const goBtn = document.getElementById("goBtn");
+        const backBtn = document.getElementById("backBtn");
+        goBtn.href = DATA.target_url;
+        backBtn.href = RETURN_URL;
+
+        // 1) Analytics
+        window.dataLayer = window.dataLayer || [];
+        dataLayer.push({
+            event: "hogga_go_click",
+            hogga_category: DATA.category,
+            hogga_city: DATA.city,
+            hogga_vendor: DATA.vendor,
+            hogga_action: DATA.action,
+            hogga_vendor_name: DATA.vendor_name
+        });
+
+        // 2) Redirección (250ms)
+        setTimeout(() => {
+            window.location.href = DATA.target_url;
+        }, 250);
+
+        // 3) Bounce Back
+        function bounceBack() {
+            if (!RETURN_URL || RETURN_URL.includes("/go/")) return;
+            window.location.replace(RETURN_URL);
+        }
+        document.addEventListener("visibilitychange", () => { if (!document.hidden) bounceBack(); });
+        window.addEventListener("pageshow", (e) => { if (e.persisted) bounceBack(); });
+    </script>
+</body>
+
+</html>
