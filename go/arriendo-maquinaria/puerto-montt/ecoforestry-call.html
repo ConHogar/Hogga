@@ -5,10 +5,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex, nofollow" />
-    <title>Redirigiendo…</title>
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <title>Conectando…</title>
     <script src="/js/consent.js"></script>
     <link rel="stylesheet" href="/css/go.css" />
-
     <script>
         (function (w, d, s, l, i) {
             w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
@@ -23,10 +23,12 @@
     <noscript>
         <div class="wrap">
             <div class="card">
-                <div class="hogga-exit"><img src="/images/logo-hogga.png" alt="Hogga" />
-                    <p class="hogga-exit-text">Estás saliendo de Hogga.<br>Te llevamos al sitio oficial.</p>
+                <div class="hogga-exit">
+                    <img src="/images/logo-hogga.png" alt="Hogga" />
+                    <p class="hogga-exit-text">Estás saliendo de Hogga.<br>Te llevamos al sitio oficial del proveedor.
+                    </p>
                 </div>
-                <h1>Redirigiendo…</h1>
+                <h1>Listo para llamar</h1>
                 <div class="btns"><a class="btn primary" href="tel:+56937259753">Llamar</a><a class="btn outline"
                         href="/buscar/arriendo-maquinaria/puerto-montt/#proveedores">Volver</a></div>
             </div>
@@ -35,10 +37,10 @@
     <div class="wrap">
         <div class="card">
             <div class="hogga-exit"><img src="/images/logo-hogga.png" alt="Hogga" />
-                <p class="hogga-exit-text">Estás saliendo de Hogga.<br>Te llevamos al sitio oficial.</p>
+                <p class="hogga-exit-text">Estás saliendo de Hogga.<br>Te llevamos al sitio oficial del proveedor.</p>
             </div>
             <h1>Te estamos conectando…</h1>
-            <p class="muted" id="line1"></p>
+            <p class="muted" id="line1">Destino: Ecoforestry (Llamada)</p>
             <div class="btns"><a class="btn primary" id="goBtn" href="#">Llamar</a><a class="btn outline" id="backBtn"
                     href="#">Volver</a></div>
         </div>
@@ -57,21 +59,14 @@
         const fallbackReturn = "/buscar/arriendo-maquinaria/puerto-montt/#proveedores";
         const RETURN_URL = (qsReturn && qsReturn.startsWith("/")) ? qsReturn : fallbackReturn;
 
-        const line1 = document.getElementById("line1");
+        document.getElementById("line1").textContent = `Destino: ${DATA.vendor_name} (Llamada)`;
         const goBtn = document.getElementById("goBtn");
         const backBtn = document.getElementById("backBtn");
-
-        line1.textContent = `Destino: ${DATA.vendor_name} (Llamada)`;
         goBtn.href = DATA.target_url;
         backBtn.href = RETURN_URL;
 
-        // --- TRACKING FIXES START HERE ---
-
-        // 1. Initialize DataLayer safely
+        // 1) Analytics
         window.dataLayer = window.dataLayer || [];
-
-        // 2. Removed sessionStorage check. It causes more data loss than it solves.
-        // Always push the event so GTM can try to capture it.
         dataLayer.push({
             event: "hogga_go_click",
             hogga_category: DATA.category,
@@ -81,10 +76,18 @@
             hogga_vendor_name: DATA.vendor_name
         });
 
-        // 3. Increased timeout to 800ms to allow network request to complete
-        setTimeout(() => { window.location.href = DATA.target_url; }, 800);
+        // 2) Redirección (250ms)
+        setTimeout(() => {
+            window.location.href = DATA.target_url;
+        }, 250);
 
-        // --- TRACKING FIXES END HERE ---
+        // 3) Bounce Back
+        function bounceBack() {
+            if (!RETURN_URL || RETURN_URL.includes("/go/")) return;
+            window.location.replace(RETURN_URL);
+        }
+        document.addEventListener("visibilitychange", () => { if (!document.hidden) bounceBack(); });
+        window.addEventListener("pageshow", (e) => { if (e.persisted) bounceBack(); });
     </script>
 </body>
 

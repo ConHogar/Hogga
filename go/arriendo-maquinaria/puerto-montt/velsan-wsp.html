@@ -7,18 +7,14 @@
     <meta name="robots" content="noindex, nofollow" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
     <title>Redirigiendo…</title>
-
     <script src="/js/consent.js"></script>
     <link rel="stylesheet" href="/css/go.css" />
-
     <script>
         (function (w, d, s, l, i) {
-            w[l] = w[l] || []; w[l].push({
-                'gtm.start':
-                    new Date().getTime(), event: 'gtm.js'
-            }); var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+            w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+            var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-56V9ZN8P');
     </script>
 </head>
@@ -28,73 +24,53 @@
         <div class="wrap">
             <div class="card">
                 <div class="hogga-exit">
-                    <img src="/images/logo-hogga.png" alt="Hogga" loading="lazy" />
-                    <p class="hogga-exit-text">Estás saliendo de Hogga.<br>Te llevamos directamente al sitio oficial
-                        del
-                        proveedor.</p>
+                    <img src="/images/logo-hogga.png" alt="Hogga" />
+                    <p class="hogga-exit-text">Estás saliendo de Hogga.<br>Te llevamos al sitio oficial del proveedor.
+                    </p>
                 </div>
-
                 <h1>Redirigiendo…</h1>
-                <p class="muted">Tu navegador no tiene JavaScript. Usa el botón de abajo.</p>
-                <div class="btns">
-                    <a class="btn primary"
-                        href="https://wa.me/56993407250?text=Hola%20Velsan%2C%20vi%20su%20n%C3%BAmero%20en%20Hogga.%20Necesito%20cotizar%20arriendo%20de%20maquinaria%20en%20Puerto%20Montt.">
-                        Continuar
-                    </a>
-                    <a class="btn outline" href="/buscar/arriendo-maquinaria/puerto-montt/#proveedores">Volver</a>
+                <div class="btns"><a class="btn primary"
+                        href="https://wa.me/56993407250?text=Hola%20Velsan%2C%20vi%20su%20n%C3%BAmero%20en%20Hogga.%20Necesito%20cotizar%20arriendo%20de%20maquinaria%20en%20Puerto%20Montt.">Continuar</a><a
+                        class="btn outline" href="/buscar/arriendo-maquinaria/puerto-montt/#proveedores">Volver</a>
                 </div>
             </div>
         </div>
     </noscript>
-
     <div class="wrap">
         <div class="card">
-            <div class="hogga-exit">
-                <img src="/images/logo-hogga.png" alt="Hogga" loading="lazy" />
-                <p class="hogga-exit-text">Estás saliendo de Hogga.<br>Te llevamos directamente al sitio oficial del
-                    proveedor.</p>
+            <div class="hogga-exit"><img src="/images/logo-hogga.png" alt="Hogga" />
+                <p class="hogga-exit-text">Estás saliendo de Hogga.<br>Te llevamos al sitio oficial del proveedor.</p>
             </div>
-
             <h1>Te estamos conectando…</h1>
-            <p class="muted" id="line1"></p>
-            <p class="muted">Si no te redirige en 1–2 segundos, usa el botón.</p>
-
-            <div class="btns">
-                <a class="btn primary" id="goBtn" href="#">Continuar</a>
-                <a class="btn outline" id="backBtn" href="#">Volver</a>
-            </div>
+            <p class="muted" id="line1">Destino: Velsan (WhatsApp)</p>
+            <div class="btns"><a class="btn primary" id="goBtn" href="#">Continuar</a><a class="btn outline"
+                    id="backBtn" href="#">Volver</a></div>
         </div>
     </div>
-
     <script>
-        // ====== EDIT THESE PER PAGE ======
+        // ====== DATOS DEL PROVEEDOR ======
         const DATA = {
             category: "arriendo-maquinaria",
             city: "puerto-montt",
             vendor: "velsan",
             action: "wsp",
             vendor_name: "Velsan",
-            target_url: "https://wa.me/56993407250?text=Hola%20Velsan%2C%20vi%20su%20n%C3%BAmero%20en%20Hogga.%20Necesito%20cotizar%20arriendo%20de%20maquinaria%20en%20Puerto%20Montt."
+            // Mensaje Personalizado con mención a Hogga
+            target_url: "https://wa.me/56993407250?text=" + encodeURIComponent("Hola Velsan, vi su número en Hogga. Necesito cotizar arriendo de maquinaria en Puerto Montt.")
         };
-        // =================================
 
         const qsReturn = new URLSearchParams(window.location.search).get("return");
         const fallbackReturn = "/buscar/arriendo-maquinaria/puerto-montt/#proveedores";
         const RETURN_URL = (qsReturn && qsReturn.startsWith("/")) ? qsReturn : fallbackReturn;
 
-        const line1 = document.getElementById("line1");
+        document.getElementById("line1").textContent = `Destino: ${DATA.vendor_name} (WhatsApp)`;
         const goBtn = document.getElementById("goBtn");
         const backBtn = document.getElementById("backBtn");
-
-        line1.textContent = `Destino: ${DATA.vendor_name} (WhatsApp)`;
         goBtn.href = DATA.target_url;
         backBtn.href = RETURN_URL;
 
-        // 1) Fire analytics (GTM)
+        // 1) Analytics
         window.dataLayer = window.dataLayer || [];
-
-        // REMOVED SESSION STORAGE LOGIC
-        // Always push data to ensure it is captured
         dataLayer.push({
             event: "hogga_go_click",
             hogga_category: DATA.category,
@@ -104,25 +80,18 @@
             hogga_vendor_name: DATA.vendor_name
         });
 
-        // 2) Go to URL
-        // Increased from 120 to 800ms
+        // 2) Redirección (250ms)
         setTimeout(() => {
             window.location.href = DATA.target_url;
-        }, 800);
+        }, 250);
 
-        // 3) Bounce back
+        // 3) Bounce Back
         function bounceBack() {
             if (!RETURN_URL || RETURN_URL.includes("/go/")) return;
             window.location.replace(RETURN_URL);
         }
-
-        document.addEventListener("visibilitychange", () => {
-            if (!document.hidden) bounceBack();
-        });
-
-        window.addEventListener("pageshow", (e) => {
-            if (e.persisted) bounceBack();
-        });
+        document.addEventListener("visibilitychange", () => { if (!document.hidden) bounceBack(); });
+        window.addEventListener("pageshow", (e) => { if (e.persisted) bounceBack(); });
     </script>
 </body>
 

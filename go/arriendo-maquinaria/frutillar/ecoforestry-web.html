@@ -5,10 +5,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex, nofollow" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     <title>Redirigiendo…</title>
     <script src="/js/consent.js"></script>
     <link rel="stylesheet" href="/css/go.css" />
-
     <script>
         (function (w, d, s, l, i) {
             w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
@@ -23,23 +23,24 @@
     <noscript>
         <div class="wrap">
             <div class="card">
-                <div class="hogga-exit"><img src="/images/logo-hogga.png" alt="Hogga" />
-                    <p class="hogga-exit-text">Estás saliendo de Hogga.<br>Te llevamos al sitio oficial.</p>
+                <div class="hogga-exit">
+                    <img src="/images/logo-hogga.png" alt="Hogga" />
+                    <p class="hogga-exit-text">Estás saliendo de Hogga.<br>Te llevamos al sitio oficial del proveedor.
+                    </p>
                 </div>
                 <h1>Redirigiendo…</h1>
                 <div class="btns"><a class="btn primary" href="https://ecoforestry.cl/">Continuar</a><a
-                        class="btn outline" href="/buscar/arriendo-maquinaria/frutillar/#proveedores">Volver</a>
-                </div>
+                        class="btn outline" href="/buscar/arriendo-maquinaria/frutillar/#proveedores">Volver</a></div>
             </div>
         </div>
     </noscript>
     <div class="wrap">
         <div class="card">
             <div class="hogga-exit"><img src="/images/logo-hogga.png" alt="Hogga" />
-                <p class="hogga-exit-text">Estás saliendo de Hogga.<br>Te llevamos al sitio oficial.</p>
+                <p class="hogga-exit-text">Estás saliendo de Hogga.<br>Te llevamos al sitio oficial del proveedor.</p>
             </div>
             <h1>Te estamos conectando…</h1>
-            <p class="muted" id="line1"></p>
+            <p class="muted" id="line1">Destino: Ecoforestry (Sitio oficial)</p>
             <div class="btns"><a class="btn primary" id="goBtn" href="#">Continuar</a><a class="btn outline"
                     id="backBtn" href="#">Volver</a></div>
         </div>
@@ -58,18 +59,14 @@
         const fallbackReturn = "/buscar/arriendo-maquinaria/frutillar/#proveedores";
         const RETURN_URL = (qsReturn && qsReturn.startsWith("/")) ? qsReturn : fallbackReturn;
 
-        const line1 = document.getElementById("line1");
+        document.getElementById("line1").textContent = `Destino: ${DATA.vendor_name} (Sitio oficial)`;
         const goBtn = document.getElementById("goBtn");
         const backBtn = document.getElementById("backBtn");
-
-        line1.textContent = `Destino: ${DATA.vendor_name} (Sitio Web)`;
         goBtn.href = DATA.target_url;
         backBtn.href = RETURN_URL;
 
-        // --- TRACKING FIXES ---
+        // 1) Analytics
         window.dataLayer = window.dataLayer || [];
-
-        // Removed sessionStorage logic. Always push the event.
         dataLayer.push({
             event: "hogga_go_click",
             hogga_category: DATA.category,
@@ -79,10 +76,12 @@
             hogga_vendor_name: DATA.vendor_name
         });
 
-        // Increased from 120 to 800ms
-        setTimeout(() => { window.location.href = DATA.target_url; }, 800);
-        // ----------------------
+        // 2) Redirección (250ms) usando .replace()
+        setTimeout(() => {
+            window.location.replace(DATA.target_url);
+        }, 250);
 
+        // 3) Bounce Back
         function bounceBack() {
             if (!RETURN_URL || RETURN_URL.includes("/go/")) return;
             window.location.replace(RETURN_URL);

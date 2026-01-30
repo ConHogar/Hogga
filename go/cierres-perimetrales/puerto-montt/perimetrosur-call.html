@@ -7,10 +7,8 @@
     <meta name="robots" content="noindex, nofollow" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
     <title>Conectando…</title>
-
     <script src="/js/consent.js"></script>
     <link rel="stylesheet" href="/css/go.css" />
-
     <script>
         (function (w, d, s, l, i) {
             w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
@@ -26,44 +24,28 @@
         <div class="wrap">
             <div class="card">
                 <div class="hogga-exit">
-                    <img src="/images/logo-hogga.png" alt="Hogga" loading="lazy" />
-                    <p class="hogga-exit-text">
-                        Estás saliendo de <strong>Hogga</strong>.<br>
-                        Te llevamos directamente al sitio oficial del proveedor.
+                    <img src="/images/logo-hogga.png" alt="Hogga" />
+                    <p class="hogga-exit-text">Estás saliendo de Hogga.<br>Te llevamos al sitio oficial del proveedor.
                     </p>
                 </div>
                 <h1>Listo para llamar</h1>
-                <p class="muted">Tu navegador no tiene JavaScript. Usa el botón de abajo.</p>
-                <div class="btns">
-                    <a class="btn primary" href="tel:+56988569470">Llamar</a>
-                    <a class="btn outline" href="/buscar/cierres-perimetrales/puerto-montt/#proveedores">Volver</a>
-                </div>
+                <div class="btns"><a class="btn primary" href="tel:+56988569470">Llamar</a><a class="btn outline"
+                        href="/buscar/cierres-perimetrales/puerto-montt/#proveedores">Volver</a></div>
             </div>
         </div>
     </noscript>
-
     <div class="wrap">
         <div class="card">
-            <div class="hogga-exit">
-                <img src="/images/logo-hogga.png" alt="Hogga" loading="lazy" />
-                <p class="hogga-exit-text">
-                    Estás saliendo de <strong>Hogga</strong>.<br>
-                    Te llevamos directamente al sitio oficial del proveedor.
-                </p>
+            <div class="hogga-exit"><img src="/images/logo-hogga.png" alt="Hogga" />
+                <p class="hogga-exit-text">Estás saliendo de Hogga.<br>Te llevamos al sitio oficial del proveedor.</p>
             </div>
-            <h1>Listo para llamar</h1>
-            <p class="muted" id="line1"></p>
-            <p class="muted">Toca “Llamar” para abrir tu app de teléfono.</p>
-
-            <div class="btns">
-                <a class="btn primary" id="goBtn" href="#">Llamar</a>
-                <a class="btn outline" id="backBtn" href="#">Volver</a>
-            </div>
+            <h1>Te estamos conectando…</h1>
+            <p class="muted" id="line1">Destino: Perimetro Sur (Llamada)</p>
+            <div class="btns"><a class="btn primary" id="goBtn" href="#">Llamar</a><a class="btn outline" id="backBtn"
+                    href="#">Volver</a></div>
         </div>
     </div>
-
     <script>
-        // ====== DATOS DEL PROVEEDOR ======
         const DATA = {
             category: "cierres-perimetrales",
             city: "puerto-montt",
@@ -75,13 +57,15 @@
 
         const qsReturn = new URLSearchParams(window.location.search).get("return");
         const fallbackReturn = "/buscar/cierres-perimetrales/puerto-montt/#proveedores";
-        const RETURN_URL = (qsReturn && qsReturn.startsWith("/") && !qsReturn.startsWith("//")) ? qsReturn : fallbackReturn;
+        const RETURN_URL = (qsReturn && qsReturn.startsWith("/")) ? qsReturn : fallbackReturn;
 
         document.getElementById("line1").textContent = `Destino: ${DATA.vendor_name} (Llamada)`;
-        document.getElementById("goBtn").href = DATA.target_url;
-        document.getElementById("backBtn").href = RETURN_URL;
+        const goBtn = document.getElementById("goBtn");
+        const backBtn = document.getElementById("backBtn");
+        goBtn.href = DATA.target_url;
+        backBtn.href = RETURN_URL;
 
-        // 1) Registro de Analytics (GTM)
+        // 1) Analytics
         window.dataLayer = window.dataLayer || [];
         dataLayer.push({
             event: "hogga_go_click",
@@ -92,17 +76,16 @@
             hogga_vendor_name: DATA.vendor_name
         });
 
-        // 2) Redirección automática (800ms)
+        // 2) Redirección (250ms)
         setTimeout(() => {
             window.location.href = DATA.target_url;
-        }, 800);
+        }, 250);
 
-        // 3) Lógica de Bounce-Back (Antigravedad)
+        // 3) Bounce Back
         function bounceBack() {
             if (!RETURN_URL || RETURN_URL.includes("/go/")) return;
             window.location.replace(RETURN_URL);
         }
-
         document.addEventListener("visibilitychange", () => { if (!document.hidden) bounceBack(); });
         window.addEventListener("pageshow", (e) => { if (e.persisted) bounceBack(); });
     </script>

@@ -5,10 +5,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex, nofollow" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     <title>Redirigiendo…</title>
     <script src="/js/consent.js"></script>
     <link rel="stylesheet" href="/css/go.css" />
-
     <script>
         (function (w, d, s, l, i) {
             w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
@@ -23,12 +23,14 @@
     <noscript>
         <div class="wrap">
             <div class="card">
-                <div class="hogga-exit"><img src="/images/logo-hogga.png" alt="Hogga" />
-                    <p class="hogga-exit-text">Estás saliendo de Hogga.<br>Te llevamos al sitio oficial.</p>
+                <div class="hogga-exit">
+                    <img src="/images/logo-hogga.png" alt="Hogga" />
+                    <p class="hogga-exit-text">Estás saliendo de Hogga.<br>Te llevamos al sitio oficial del proveedor.
+                    </p>
                 </div>
                 <h1>Redirigiendo…</h1>
                 <div class="btns"><a class="btn primary"
-                        href="https://wa.me/56958141385?text=Hola%2C%20quiero%20cotizar%20arriendo%20de%20maquinaria%20en%20Puerto%20Montt.%20%C2%BFQu%C3%A9%20equipos%20tienen%20disponibles%20y%20cu%C3%A1les%20son%20las%20condiciones%20(m%C3%ADnimo%20de%20horas%20y%20traslado)%3F">Continuar</a><a
+                        href="https://wa.me/56958141385?text=Hola%2C%20vi%20su%20dato%20en%20Hogga.%20Quiero%20cotizar%20arriendo%20de%20maquinaria%20en%20Puerto%20Montt.%20%C2%BFQu%C3%A9%20equipos%20tienen%20disponibles%3F">Continuar</a><a
                         class="btn outline" href="/buscar/arriendo-maquinaria/puerto-montt/#proveedores">Volver</a>
                 </div>
             </div>
@@ -37,40 +39,38 @@
     <div class="wrap">
         <div class="card">
             <div class="hogga-exit"><img src="/images/logo-hogga.png" alt="Hogga" />
-                <p class="hogga-exit-text">Estás saliendo de Hogga.<br>Te llevamos al sitio oficial.</p>
+                <p class="hogga-exit-text">Estás saliendo de Hogga.<br>Te llevamos al sitio oficial del proveedor.</p>
             </div>
             <h1>Te estamos conectando…</h1>
-            <p class="muted" id="line1"></p>
+            <p class="muted" id="line1">Destino: Hormigón MC (WhatsApp)</p>
             <div class="btns"><a class="btn primary" id="goBtn" href="#">Continuar</a><a class="btn outline"
                     id="backBtn" href="#">Volver</a></div>
         </div>
     </div>
     <script>
+        // ====== DATOS DEL PROVEEDOR ======
         const DATA = {
             category: "arriendo-maquinaria",
             city: "puerto-montt",
             vendor: "hormigonmc",
             action: "wsp",
             vendor_name: "Hormigón MC",
-            target_url: "https://wa.me/56958141385?text=Hola%2C%20quiero%20cotizar%20arriendo%20de%20maquinaria%20en%20Puerto%20Montt.%20%C2%BFQu%C3%A9%20equipos%20tienen%20disponibles%20y%20cu%C3%A1les%20son%20las%20condiciones%20(m%C3%ADnimo%20de%20horas%20y%20traslado)%3F"
+            // Mensaje Personalizado con "Hogga"
+            target_url: "https://wa.me/56958141385?text=" + encodeURIComponent("Hola, vi su dato en Hogga. Quiero cotizar arriendo de maquinaria en Puerto Montt. ¿Qué equipos tienen disponibles?")
         };
 
         const qsReturn = new URLSearchParams(window.location.search).get("return");
         const fallbackReturn = "/buscar/arriendo-maquinaria/puerto-montt/#proveedores";
         const RETURN_URL = (qsReturn && qsReturn.startsWith("/")) ? qsReturn : fallbackReturn;
 
-        const line1 = document.getElementById("line1");
+        document.getElementById("line1").textContent = `Destino: ${DATA.vendor_name} (WhatsApp)`;
         const goBtn = document.getElementById("goBtn");
         const backBtn = document.getElementById("backBtn");
-
-        line1.textContent = `Destino: ${DATA.vendor_name} (WhatsApp)`;
         goBtn.href = DATA.target_url;
         backBtn.href = RETURN_URL;
 
-        // --- TRACKING FIXES ---
+        // 1) Analytics
         window.dataLayer = window.dataLayer || [];
-
-        // Removed deduplication logic.
         dataLayer.push({
             event: "hogga_go_click",
             hogga_category: DATA.category,
@@ -80,10 +80,12 @@
             hogga_vendor_name: DATA.vendor_name
         });
 
-        // Increased timeout to 800ms
-        setTimeout(() => { window.location.href = DATA.target_url; }, 800);
-        // ----------------------
+        // 2) Redirección (250ms)
+        setTimeout(() => {
+            window.location.href = DATA.target_url;
+        }, 250);
 
+        // 3) Bounce Back
         function bounceBack() {
             if (!RETURN_URL || RETURN_URL.includes("/go/")) return;
             window.location.replace(RETURN_URL);
