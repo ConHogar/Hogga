@@ -2,10 +2,8 @@ import os
 
 ROOT_DIR = "."
 REQUIRED_LINKS = [
-    "/hogga-servicios/",
-    "/turismo/",
-    "/negocios/",
-    "/decisiones/",
+    "/hogga-conecta/",
+    "/hogga-destinos/",
     "/blog/",
     "/contacto/"
 ]

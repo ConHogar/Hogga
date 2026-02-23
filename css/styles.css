@@ -1440,7 +1440,7 @@ a:focus-visible {
 }
 
 
-/* ===== Verticales: Hogga Servicios + Hogga Turismo ===== */
+/* ===== Verticales: Hogga Conecta + Hogga Destinos ===== */
 
 #verticales {
   text-align: center;
@@ -3408,4 +3408,36 @@ a:focus-visible {
 /* Opcional: Efecto al pasar el mouse para incentivar la lectura del tooltip */
 .verified-badge:hover {
   background-color: #CEEAD6;
+}
+
+/* Sticky Footer Mobile */
+.sticky-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  border-top: 1px solid #eee;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+  z-index: 9999;
+  display: none;
+  /* Hidden on Desktop */
+}
+
+.sticky-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+}
+
+@media (max-width: 768px) {
+  .sticky-footer {
+    display: block;
+  }
+
+  #site-footer {
+    margin-bottom: 70px;
+  }
 }

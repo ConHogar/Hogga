@@ -1,4 +1,4 @@
-// /js/layout.js
+// /js/layout.js?v=20260223
 (async function () {
     const mount = document.getElementById('site-footer');
     if (!mount) return;

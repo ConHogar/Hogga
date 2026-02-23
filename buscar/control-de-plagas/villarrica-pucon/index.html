@@ -62,7 +62,7 @@
 
     <!-- CSS -->
     <link rel="preload" as="image" href="/images/logo.webp" />
-    <link rel="stylesheet" href="/css/styles.css?v=20260123" />
+    <link rel="stylesheet" href="/css/styles.css?v=20260223" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -274,10 +274,9 @@
             </button>
 
             <nav id="site-nav" class="site-nav" role="navigation" aria-label="Navegación principal">
-                <a href="/hogga-servicios/">Para hogar</a>
-                <a href="/turismo/">Para viajar</a>
-                <a href="/negocios/">Para negocios</a>
-                <a href="/decisiones/">Decisiones</a>
+                <a href="/hogga-conecta/">Conecta</a>
+                <a href="/hogga-destinos/">Destinos</a>
+                <a href="/buscar/">Buscar</a>
                 <a href="/blog/">Blog</a>
                 <a href="/contacto/">Contacto</a>
             </nav>
@@ -289,18 +288,21 @@
         <section class="hero hero--blog" aria-label="Control de Plagas Zona Lacustre">
             <div class="hero-bg"></div>
             <div class="container hero-content">
-                <span class="eyebrow">Búsquedas locales</span>
+                <div class="alert-badge" role="alert" style="margin-bottom: 16px;">
+                    ⚠️ <strong>Atención Verano:</strong> Alta actividad de avispas y roedores en zona lacustre.
+                </div>
+                <span class="eyebrow">Actualizado: Febrero 2026 · Villarrica y Pucón</span>
                 <h1>Control de Plagas en Zona Lacustre (Villarrica - Pucón)</h1>
 
                 <p class="lead" style="max-width:780px;">
-                    Profesionales especializados en <strong>Hantavirus</strong> (ratón cola larga),
-                    <strong>xilófagos</strong> (termitas/carcoma en madera), y <strong>murciélagos</strong> (exclusión
-                    SAG). <br>
-                    Cobertura: Villarrica, Pucón, Lican Ray, Caburgua y caminos rurales.
+                    ¿Buscas <strong>desratización o fumigación</strong> en Villarrica y Pucón?
+                    Aquí tienes proveedores verificados para proteger tu cabaña: precios de referencia, protocolo Hanta
+                    y
+                    contactos directos.
                 </p>
 
                 <div class="cta-row" role="group" aria-label="Acciones principales">
-                    <a class="btn primary" href="#proveedores">Ver empresas</a>
+                    <a class="btn primary" href="#proveedores">Ver empresas verificadas</a>
                     <a class="btn outline" href="/buscar/control-de-plagas/">Volver a categoría</a>
                 </div>
 
@@ -321,34 +323,36 @@
         </div>
 
         <!-- TLDR SECTION -->
-        <section class="section">
+        <!-- GUÍA DE CONTRATACIÓN (VISUAL) -->
+        <section class="section" id="guia">
             <div class="container">
-                <div class="info-card">
-                    <div class="info-head">
-                        <span class="info-pill">Lo esencial</span>
+                <div class="info-card info-card--with-image">
+                    <div class="info-card-image">
+                        <img src="/images/buscar/control-plagas-villarrica-guide.png"
+                            alt="Cabaña de madera en bosque nativo zona lacustre" width="420" height="300"
+                            loading="eager" style="object-position: center;">
                     </div>
-                    <h2>Control de Plagas Zona Lacustre: Qué Saber Antes de Contratar</h2>
-
-                    <ul class="checklist" style="margin-top:16px;">
-                        <li><strong>Hantavirus (crítico):</strong> El ratón cola larga es común en bosques y cabañas
-                            abandonadas. Requiere desratización + sanitización certificada con cloro. No tocar
-                            roedores con las manos.</li>
-                        <li><strong>Xilófagos (termitas/carcoma):</strong> Atacan estructuras de madera (vigas, pisos,
-                            muebles). Inspección anual obligatoria para cabañas. Tratamiento preventivo desde $60.000.
-                        </li>
-                        <li><strong>Murciélagos (protegidos SAG):</strong> No se fumigan. Se usa exclusión controlada
-                            (sacarlos vivos) y sellado. Nunca usar veneno - requiere expertos certificados.</li>
-                        <li><strong>Cobertura zona lacustre:</strong> Confirma que atiendan tu sector (Camino al
-                            Volcán, Molco, Caburgua, Lican Ray). Algunos cobran traslado extra fuera del radio urbano.
-                        </li>
-                    </ul>
-
-                    <p style="margin-top:16px; font-size:0.9em; color:var(--text-light);">
-                        📖 Más abajo: <a href="#guia-contratacion" style="text-decoration:underline;">guía completa de
-                            4 pasos</a>,
-                        <a href="#consejos" style="text-decoration:underline;">plagas zona lacustre</a>, y
-                        <a href="#prevencion" style="text-decoration:underline;">prevención cabañas</a>.
-                    </p>
+                    <div class="info-card-content">
+                        <div class="info-head">
+                            <span class="info-pill">Guía del Consumidor</span>
+                        </div>
+                        <h2>¿Cómo contratar con seguridad en zona lacustre?</h2>
+                        <p class="sub">
+                            La zona rural tiene riesgos específicos (Hanta, xilófagos, murciélagos). Sigue estos 4 pasos
+                            para proteger tu inversión.
+                        </p>
+                        <ul>
+                            <li><strong>Certificación SEREMI:</strong> Exige ver resolución sanitaria y carnet ISP.
+                                Evita
+                                "técnicos" informales.</li>
+                            <li><strong>Inspección Presencial:</strong> Para cabañas, fotos no bastan. Exige visita para
+                                diagnóstico de xilófagos (vigas/pisos).</li>
+                            <li><strong>Protocolo Hanta:</strong> Si hay roedores, exige sanitización con cloro
+                                post-desratización (obligatorio).</li>
+                            <li><strong>Cobertura Confirmada:</strong> Confirma que atiendan tu sector exacto (ej: Km
+                                15, Molco, Caburgua) para evitar recargos sorpresa.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
@@ -379,15 +383,16 @@
                                 <p class="vendor-line"><strong>Dirección:</strong> Luis Durán 1765, Villarrica</p>
                                 <p class="vendor-line"><strong>Cobertura:</strong> Villarrica y alrededores</p>
                                 <p class="vendor-line"><strong>Web:</strong> <a class="inline-link" target="_blank"
+                                        rel="noopener"
                                         href="/go/control-de-plagas/villarrica-pucon/killplagas-web.html?return=/buscar/control-de-plagas/villarrica-pucon/#proveedores">killplagas.cl</a>
                                 </p>
                             </div>
                         </div>
 
                         <div class="vendor-actions">
-                            <a class="btn primary" target="_blank"
+                            <a class="btn primary" target="_blank" rel="noopener"
                                 href="/go/control-de-plagas/villarrica-pucon/killplagas-wsp.html?return=/buscar/control-de-plagas/villarrica-pucon/#proveedores">WhatsApp</a>
-                            <a class="btn outline" target="_blank"
+                            <a class="btn outline" target="_blank" rel="noopener"
                                 href="/go/control-de-plagas/villarrica-pucon/killplagas-call.html?return=/buscar/control-de-plagas/villarrica-pucon/#proveedores">Llamar</a>
                         </div>
                     </article>
@@ -408,16 +413,16 @@
                             <div class="vendor-details">
                                 <p class="vendor-line"><strong>Cobertura:</strong> Villarrica, Pucón, Loncoche</p>
                                 <p class="vendor-line"><strong>Instagram:</strong> <a class="inline-link"
-                                        target="_blank"
+                                        target="_blank" rel="noopener"
                                         href="/go/control-de-plagas/villarrica-pucon/smartplagas-web.html?return=/buscar/control-de-plagas/villarrica-pucon/#proveedores">@smart_plagas</a>
                                 </p>
                             </div>
                         </div>
 
                         <div class="vendor-actions">
-                            <a class="btn primary" target="_blank"
+                            <a class="btn primary" target="_blank" rel="noopener"
                                 href="/go/control-de-plagas/villarrica-pucon/smartplagas-wsp.html?return=/buscar/control-de-plagas/villarrica-pucon/#proveedores">WhatsApp</a>
-                            <a class="btn outline" target="_blank"
+                            <a class="btn outline" target="_blank" rel="noopener"
                                 href="/go/control-de-plagas/villarrica-pucon/smartplagas-call.html?return=/buscar/control-de-plagas/villarrica-pucon/#proveedores">Llamar</a>
                         </div>
                     </article>
@@ -449,53 +454,56 @@
             </div>
         </section>
 
-        <!-- GUÍA DE CONTRATACIÓN -->
-        <section class="section" id="guia-contratacion">
+
+
+        <section class="section">
             <div class="container">
-                <div class="info-head">
-                    <span class="info-pill">Guía del Consumidor</span>
-                </div>
-                <h2>¿Cómo contratar con seguridad en zona lacustre?</h2>
-                <p class="sub">
-                    La zona rural tiene riesgos específicos (Hanta, xilófagos, murciélagos). Sigue estos 4 pasos para
-                    proteger tu inversión.
-                </p>
-
-                <div class="process-grid"
-                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 30px;">
-                    <div class="process-step">
-                        <strong style="font-size: 1.1em; color: var(--primary);">1. Certificación SEREMI</strong>
-                        <p style="font-size: 0.95em;">Exige ver resolución sanitaria y carnet ISP. En zona rural hay
-                            muchos "técnicos" informales sin autorización para manipular productos químicos.</p>
-                    </div>
-                    <div class="process-step">
-                        <strong style="font-size: 1.1em; color: var(--primary);">2. Inspección Presencial</strong>
-                        <p style="font-size: 0.95em;">Para cabañas de madera, pide inspección de vigas, entretechos y
-                            pisos. Fotos no bastan - debe venir un técnico para diagnóstico xilófagos.</p>
-                    </div>
-                    <div class="process-step">
-                        <strong style="font-size: 1.1em; color: var(--primary);">3. Protocolo Hanta</strong>
-                        <p style="font-size: 0.95em;">Si hay roedores, pregunta por sanitización post-desratización con
-                            cloro. Es obligatorio para prevenir Hantavirus. Debe quedar en contrato.</p>
-                    </div>
-                    <div class="process-step">
-                        <strong style="font-size: 1.1em; color: var(--primary);">4. Cobertura Confirmada</strong>
-                        <p style="font-size: 0.95em;">Confirma que atiendan tu ubicación exacta (ej: km 15 Camino
-                            Volcán, Molco, Caburgua). Algunos cobran traslado extra fuera del radio urbano.</p>
-                    </div>
-                </div>
-
-                <p
-                    style="margin-top:20px; font-size:0.85em; color:#666; font-style:italic; border-top:1px solid #ddd; padding-top:10px;">
-                    <strong>Nota de Hogga:</strong> Facilitamos el contacto, pero la contratación y garantías son
-                    responsabilidad exclusiva de cada proveedor.
-                </p>
-            </div>
-        </section>
-
-        <section class="section alt" id="consejos">
-            <div class="container">
+                <!-- PRECIOS Y ZONAS (Moved up for priority) -->
                 <div class="info-card">
+                    <div class="info-head">
+                        <span class="info-pill">Mercado local</span>
+                    </div>
+                    <h2>Precios y Zonas de Cobertura</h2>
+                    <div class="faq-grid" style="margin-top:20px;">
+                        <div class="faq-item">
+                            <h3>💰 Tarifas Estimadas Zona Lacustre</h3>
+                            <ul style="padding-left:20px; margin-top:10px; font-size:0.95em; color:var(--text-light);">
+                                <li style="margin-bottom:8px;"><strong>Fumigación preventiva cabaña:</strong> $40.000 –
+                                    $65.000<br><small>Tratamiento base arañas/insectos, superficie 60-100m².</small>
+                                </li>
+                                <li style="margin-bottom:8px;"><strong>Desratización + Sanitización Hanta:</strong>
+                                    $55.000 – $90.000<br><small>Incluye cebos, sellado y desinfección con cloro
+                                        certificada.</small></li>
+                                <li style="margin-bottom:8px;"><strong>Xilófagos (termitas/carcoma):</strong> $60.000 –
+                                    $250.000<br><small>Varía según superficie y si es preventivo o correctivo
+                                        (inyección + fumigación estructural).</small></li>
+                                <li style="margin-bottom:8px;"><strong>Exclusión murciélagos:</strong> Desde
+                                    $80.000<br><small>Incluye sellado de accesos y certificado SAG.</small></li>
+                            </ul>
+                        </div>
+                        <div class="faq-item">
+                            <h3>📍 Zonas de Cobertura</h3>
+                            <p><strong>Radio urbano (sin costo extra):</strong><br>Villarrica centro, Pucón centro,
+                                Lican Ray.</p>
+                            <p style="margin-top:12px;"><strong>Cobertura extendida (puede cobrar traslado):</strong>
+                                <br>Camino al Volcán (hasta km 25), Molco, Caburgua, Coñaripe, sectores rurales.
+                                Pregunta si cobran traslado antes de agendar.
+                            </p>
+                        </div>
+                        <div class="faq-item">
+                            <h3>🏞️ Factor Temporada</h3>
+                            <p>
+                                <strong>Temporada alta (dic-mar):</strong> Mayor demanda para cabañas turísticas.
+                                Agenda con 1-2 semanas de anticipación.<br><br>
+                                <strong>Temporada baja (abr-nov):</strong> Atención más rápida. Ideal para
+                                mantenimiento preventivo anual contra xilófagos antes de cerrar la cabaña.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PLAGAS COMUNES -->
+                <div class="info-card" id="consejos" style="margin-top:30px;">
                     <div class="info-head">
                         <span class="info-pill">Guía local</span>
                     </div>
@@ -519,7 +527,7 @@
                         </div>
 
                         <div class="faq-item">
-                            <h3>🪵 Termitas y Carcoma (Xilófagos)</h3>
+                            <h3>� Termitas y Carcoma (Xilófagos)</h3>
                             <p>
                                 El 90% de las construcciones en Pucón/Villarrica son de madera. La <strong>termita
                                     valdiviana</strong> y la <strong>carcoma</strong> atacan vigas, pisos, muebles y
@@ -567,51 +575,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- PRECIOS Y ZONAS -->
-                <div class="info-card" style="margin-top:30px;">
-                    <div class="info-head">
-                        <span class="info-pill">Mercado local</span>
-                    </div>
-                    <h2>Precios y Zonas de Cobertura</h2>
-                    <div class="faq-grid" style="margin-top:20px;">
-                        <div class="faq-item">
-                            <h3>💰 Tarifas Estimadas Zona Lacustre</h3>
-                            <ul style="padding-left:20px; margin-top:10px; font-size:0.95em; color:var(--text-light);">
-                                <li style="margin-bottom:8px;"><strong>Fumigación preventiva cabaña:</strong> $40.000 –
-                                    $65.000<br><small>Tratamiento base arañas/insectos, superficie 60-100m².</small>
-                                </li>
-                                <li style="margin-bottom:8px;"><strong>Desratización + Sanitización Hanta:</strong>
-                                    $55.000 – $90.000<br><small>Incluye cebos, sellado y desinfección con cloro
-                                        certificada.</small></li>
-                                <li style="margin-bottom:8px;"><strong>Xilófagos (termitas/carcoma):</strong> $60.000 –
-                                    $250.000<br><small>Varía según superficie y si es preventivo o correctivo
-                                        (inyección + fumigación estructural).</small></li>
-                                <li style="margin-bottom:8px;"><strong>Exclusión murciélagos:</strong> Desde
-                                    $80.000<br><small>Incluye sellado de accesos y certificado SAG.</small></li>
-                            </ul>
-                        </div>
-                        <div class="faq-item">
-                            <h3>📍 Zonas de Cobertura</h3>
-                            <p><strong>Radio urbano (sin costo extra):</strong><br>Villarrica centro, Pucón centro,
-                                Lican Ray.</p>
-                            <p style="margin-top:12px;"><strong>Cobertura extendida (puede cobrar traslado):</strong>
-                                <br>Camino al Volcán (hasta km 25), Molco, Caburgua, Coñaripe, sectores rurales.
-                                Pregunta si cobran traslado antes de agendar.
-                            </p>
-                        </div>
-                        <div class="faq-item">
-                            <h3>🏞️ Factor Temporada</h3>
-                            <p>
-                                <strong>Temporada alta (dic-mar):</strong> Mayor demanda para cabañas turísticas.
-                                Agenda con 1-2 semanas de anticipación.<br><br>
-                                <strong>Temporada baja (abr-nov):</strong> Atención más rápida. Ideal para
-                                mantenimiento preventivo anual contra xilófagos antes de cerrar la cabaña.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </section>
 
@@ -772,16 +735,29 @@
 
                 <div class="cta-row" style="justify-content:center; gap:10px; flex-wrap:wrap;">
                     <a class="btn outline" href="/buscar/">Buscar en Hogga</a>
-                    <a class="btn outline" href="/hogga-servicios/">Hogga Servicios</a>
+                    <a class="btn outline" href="/hogga-conecta/">Hogga Conecta</a>
                 </div>
             </div>
         </section>
 
     </main>
 
+    <div class="sticky-footer">
+        <div class="container sticky-content">
+            <div class="sticky-text">
+                <span style="font-size: 0.8em; display:block; color:#666;">¿Plagas en la cabaña?</span>
+                <strong>Cotiza directo con expertos</strong>
+            </div>
+            <a href="#proveedores" class="btn primary small"
+                style="padding: 8px 20px; box-shadow: 0 4px 6px rgba(19,101,101,0.2);">
+                Ver Teléfonos
+            </a>
+        </div>
+    </div>
+
     <div id="site-footer"></div>
 
-    <script defer src="/js/layout.js"></script>
+    <script defer src="/js/layout.js?v=20260223"></script>
     <script defer src="/js/main.js?v=20260121"></script>
     <script defer src="/js/consent-banner.js"></script>
 </body>

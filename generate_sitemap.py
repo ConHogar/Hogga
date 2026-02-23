@@ -16,11 +16,9 @@ TODAY = date.today().isoformat()
 # Only scan these folders if they exist
 INCLUDE_DIRS = [
     "blog",
-    "negocios",
-    "turismo",
-    "hogga-servicios",
+    "hogga-destinos",
+    "hogga-conecta",
     "proveedores",
-    "decisiones",  # <-- agrega esto
     "buscar",
     "contacto",
     "terminos-y-condiciones",
@@ -31,11 +29,9 @@ INCLUDE_DIRS = [
 # Rules by top-level section
 RULES = {
     "blog": {"priority": "0.7", "changefreq": "weekly"},
-    "negocios": {"priority": "0.8", "changefreq": "weekly"},
-    "turismo": {"priority": "0.8", "changefreq": "weekly"},
-    "hogga-servicios": {"priority": "0.9", "changefreq": "weekly"},
+    "hogga-destinos": {"priority": "0.8", "changefreq": "weekly"},
+    "hogga-conecta": {"priority": "0.9", "changefreq": "monthly"},
     "proveedores": {"priority": "0.6", "changefreq": "monthly"},
-    "decisiones": {"priority": "0.8", "changefreq": "weekly"},  # <-- opcional pero recomendado
     "buscar": {"priority": "0.7", "changefreq": "weekly"},
     "contacto": {"priority": "0.4", "changefreq": "yearly"},
     "terminos-y-condiciones": {"priority": "0.2", "changefreq": "yearly"},
