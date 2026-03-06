@@ -139,7 +139,22 @@
       height: 8px;
       border-radius: 999px;
       background: #136565;
-      display: inline-block
+      display: inline-block;
+      animation: pulse-dot 2s infinite
+    }
+
+    @keyframes pulse-dot {
+      0% {
+        box-shadow: 0 0 0 0 rgba(19, 101, 101, 0.4);
+      }
+
+      70% {
+        box-shadow: 0 0 0 6px rgba(19, 101, 101, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(19, 101, 101, 0);
+      }
     }
 
     .lp-section {
@@ -349,7 +364,7 @@
 
         <div class="scarcity" aria-label="Cupos limitados">
           <span class="dot" aria-hidden="true"></span>
-          Cupos limitados por ciudad y rubro (para que te llegue trabajo de verdad)
+          🔥 Últimos cupos disponibles en tu ciudad. No le regales tus clientes a la competencia.
         </div>
 
         <div class="lp-badges" aria-label="Beneficios clave">
@@ -383,6 +398,45 @@
       </div>
     </section>
 
+    <!-- Métricas / Prueba de Tráfico -->
+    <section class="lp-section" style="padding-top: 10px; padding-bottom: 20px;">
+      <div class="container">
+        <div
+          style="background: #0f2f2f; color: white; border-radius: 20px; padding: 40px 24px; text-align: center; box-shadow: 0 10px 30px rgba(15, 47, 47, 0.2); position: relative; overflow: hidden;">
+          <!-- Fondo decorativo sutil -->
+          <div
+            style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at top right, rgba(19, 101, 101, 0.5) 0%, transparent 60%); pointer-events: none;">
+          </div>
+
+          <h2
+            style="color: white; margin-top: 0; margin-bottom: 16px; font-size: clamp(1.6rem, 3vw, 2.2rem); position: relative; z-index: 1;">
+            +35.000 clientes buscaron servicios solo este mes</h2>
+          <p
+            style="color: rgba(255,255,255,0.85); font-size: 1.1rem; max-width: 650px; margin: 0 auto 32px; font-weight: 500; position: relative; z-index: 1;">
+            Nosotros hacemos el trabajo duro: dominar Google. Hoy generamos más de 1.500 búsquedas diarias de personas
+            listas para contratar, solo faltas tú para atenderlas.</p>
+
+          <div
+            style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; position: relative; z-index: 1;">
+            <div
+              style="background: rgba(255,255,255,0.08); padding: 20px 32px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.15); backdrop-filter: blur(4px);">
+              <div style="font-size: 2.5rem; font-weight: 900; line-height: 1; color: #14b8a6;">+35K</div>
+              <div
+                style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-top: 8px; opacity: 0.9; font-weight: 700;">
+                Visitas en Google (28 días)</div>
+            </div>
+            <div
+              style="background: rgba(255,255,255,0.08); padding: 20px 32px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.15); backdrop-filter: blur(4px);">
+              <div style="font-size: 2.5rem; font-weight: 900; line-height: 1; color: #14b8a6;">+1.500</div>
+              <div
+                style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-top: 8px; opacity: 0.9; font-weight: 700;">
+                Búsquedas Diarias</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Cómo funciona -->
     <section class="lp-section alt">
       <div class="container">
@@ -411,9 +465,9 @@
     <!-- Por qué Hogga / objeciones -->
     <section class="lp-section">
       <div class="container">
-        <h2>¿Por qué Hogga (y por qué ahora)?</h2>
-        <p class="sub">Porque hoy el cliente quiere dos cosas: <b>confianza</b> y <b>respuesta rápida</b>. Eso es lo que
-          priorizamos.</p>
+        <h2>¿Cansado de grupos de Facebook llenos de curiosos que nunca compran?</h2>
+        <p class="sub">Olvídate de pagar publicidad cara o de dar cotizaciones eternas a gente que solo está
+          vitrineando. En Hogga el cliente ya te está buscando con <b>intención real de contratar</b>.</p>
 
         <div class="lp-two">
           <div class="card">
@@ -486,14 +540,17 @@
         <p class="sub">Resultados típicos cuando el proveedor responde rápido y trabaja bien.</p>
         <div class="lp-proof">
           <figure class="lp-quote">
+            <div style="color: #fbbf24; font-size: 1.3rem; margin-bottom: 10px; letter-spacing: 2px;">★★★★★</div>
             <blockquote>“Me llegó gente que realmente andaba buscando. Menos vitrineo, más cierre.”</blockquote>
             <cite>Juan, Gasfitería — Osorno</cite>
           </figure>
           <figure class="lp-quote">
+            <div style="color: #fbbf24; font-size: 1.3rem; margin-bottom: 10px; letter-spacing: 2px;">★★★★★</div>
             <blockquote>“En temporada baja igual se movió. El WhatsApp directo es clave.”</blockquote>
             <cite>Carla, Limpieza — Puerto Varas</cite>
           </figure>
           <figure class="lp-quote">
+            <div style="color: #fbbf24; font-size: 1.3rem; margin-bottom: 10px; letter-spacing: 2px;">★★★★★</div>
             <blockquote>“Con Pro apareces antes y se nota. Si respondes rápido, cierra.”</blockquote>
             <cite>Rodrigo, Cerrajería — Puerto Montt</cite>
           </figure>
@@ -534,21 +591,8 @@
               <input required name="name" type="text" placeholder="Tu nombre" />
             </label>
             <label>
-              <span>WhatsApp</span>
-              <input required name="phone" type="tel" placeholder="+569xxxxxxxx" />
-            </label>
-            <label>
-              <span>Ciudad</span>
-              <input required name="city" type="text" placeholder="Ej: Puerto Varas" />
-            </label>
-            <label>
-              <span>Rubro</span>
-              <input required name="category" type="text" placeholder="Ej: Gasfitería" />
-            </label>
-            <label class="full">
-              <span>Mensaje (opcional)</span>
-              <textarea name="message" rows="4"
-                placeholder="Ej: atiendo de lunes a sábado, tengo fotos, respondo rápido, etc."></textarea>
+              <span>Rubro y Ciudad</span>
+              <input required name="service" type="text" placeholder="Ej: Gasfitería en Puerto Varas" />
             </label>
           </div>
 
@@ -736,10 +780,7 @@
           const msg =
             `Hola Hogga, quiero postular como proveedor.\n\n` +
             `Nombre: ${data.get('name') || ''}\n` +
-            `WhatsApp: ${data.get('phone') || ''}\n` +
-            `Ciudad: ${data.get('city') || ''}\n` +
-            `Rubro: ${data.get('category') || ''}\n` +
-            `Mensaje: ${data.get('message') || ''}\n\n` +
+            `Rubro y Ciudad: ${data.get('service') || ''}\n\n` +
             `¿Hay cupos disponibles y cuál plan me recomiendan?`;
           window.open(buildWa(msg), '_blank', 'noopener,noreferrer');
         });
