@@ -80,108 +80,87 @@
 
   <!-- JSON-LD unificado (sin FAQPage; el FAQ va al final del body) -->
   <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "@context": "https://schema.org",
-      "@graph": [
+      "@type": "WebPage",
+      "@id": "https://hogga.cl/hogga-destinos/#webpage",
+      "url": "https://hogga.cl/hogga-destinos/",
+      "name": "Hogga Destinos",
+      "isPartOf": {
+        "@id": "https://hogga.cl/#website"
+      },
+      "about": {
+        "@id": "https://hogga.cl/hogga-destinos/#service"
+      },
+      "inLanguage": "es-CL",
+      "description": "Encuentra restaurantes, hoteles, cafés, tours y panoramas con datos confiables y verificados. Pide tu dato por WhatsApp y recibe 2–3 opciones reales en menos de 60 segundos. Cobertura nacional en Chile.",
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://hogga.cl/images/og/og-hogga-turismo.jpg",
+        "width": 1200,
+        "height": 630
+      },
+      "potentialAction": [
         {
-          "@type": "Organization",
-          "@id": "https://hogga.cl/#organization",
-          "name": "Hogga Group SpA",
-          "url": "https://hogga.cl/",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://hogga.cl/images/logo.webp"
-          },
-          "description": "Hogga — la red chilena de datos confiables y verificados para descubrir, conectar y crecer.",
-          "sameAs": [
-            "https://www.instagram.com/hogga_chile/",
-            "https://www.instagram.com/hogga_turismo/",
-            "https://www.instagram.com/hogga_regala/",
-            "https://www.facebook.com/profile.php?id=61577176559219",
-            "https://www.youtube.com/@hogga_chile",
-            "https://www.tiktok.com/@hogga_chile"
-          ],
-          "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "telephone": "+56 9 5175 9158",
-                "contactType": "customer service",
-                "availableLanguage": ["es"]
-              },
-              {
-                "@type": "ContactPoint",
-                "telephone": "+56 9 7545 7652",
-                "contactType": "customer service",
-                "availableLanguage": ["es"]
-              }
-            ]
-        },
+          "@type": "SearchAction",
+          "target": "https://wa.me/56975457652?text=Busco%20{search_term_string}%20(Hogga%20Turismo)",
+          "query-input": "required name=search_term_string"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://hogga.cl/hogga-destinos/#service",
+      "name": "Hogga Destinos",
+      "serviceType": "Recomendaciones turísticas verificadas",
+      "provider": {
+        "@id": "https://hogga.cl/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Chile"
+      },
+      "availableChannel": [
         {
-          "@type": "WebSite",
-          "@id": "https://hogga.cl/#website",
-          "url": "https://hogga.cl/",
-          "name": "Hogga",
-          "inLanguage": "es-CL",
-          "publisher": { "@id": "https://hogga.cl/#organization" }
-        },
-        {
-          "@type": "WebPage",
-          "@id": "https://hogga.cl/hogga-destinos/#webpage",
-          "url": "https://hogga.cl/hogga-destinos/",
-          "name": "Hogga Destinos",
-          "isPartOf": { "@id": "https://hogga.cl/#website" },
-          "about": { "@id": "https://hogga.cl/hogga-destinos/#service" },
-          "inLanguage": "es-CL",
-          "description": "Encuentra restaurantes, hoteles, cafés, tours y panoramas con datos confiables y verificados. Pide tu dato por WhatsApp y recibe 2–3 opciones reales en menos de 60 segundos. Cobertura nacional en Chile.",
-          "primaryImageOfPage": {
-            "@type": "ImageObject",
-            "url": "https://hogga.cl/images/og/og-hogga-turismo.jpg",
-            "width": 1200,
-            "height": 630
-          },
-          "potentialAction": [
-            {
-              "@type": "SearchAction",
-              "target": "https://wa.me/56975457652?text=Busco%20{search_term_string}%20(Hogga%20Turismo)",
-              "query-input": "required name=search_term_string"
-            }
+          "@type": "ServiceChannel",
+          "serviceUrl": "https://wa.me/56975457652",
+          "availableLanguage": [
+            "es"
           ]
         },
         {
-          "@type": "Service",
-          "@id": "https://hogga.cl/hogga-destinos/#service",
-          "name": "Hogga Destinos",
-          "serviceType": "Recomendaciones turísticas verificadas",
-          "provider": { "@id": "https://hogga.cl/#organization" },
-          "areaServed": {
-            "@type": "Country",
-            "name": "Chile"
-          },
-            "availableChannel": [
-              {
-                "@type": "ServiceChannel",
-                "serviceUrl": "https://wa.me/56975457652",
-                "availableLanguage": ["es"]
-              },
-              {
-                "@type": "ServiceChannel",
-                "serviceUrl": "https://wa.me/56951759158",
-                "availableLanguage": ["es"]
-              }
-            ],
-          "description": "Datos confiables de restaurantes, hoteles, cafés, tours y panoramas. Recibe 2–3 opciones reales por WhatsApp en menos de 60 segundos."
+          "@type": "ServiceChannel",
+          "serviceUrl": "https://wa.me/56951759158",
+          "availableLanguage": [
+            "es"
+          ]
+        }
+      ],
+      "description": "Datos confiables de restaurantes, hoteles, cafés, tours y panoramas. Recibe 2–3 opciones reales por WhatsApp en menos de 60 segundos."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://hogga.cl/hogga-destinos/#breadcrumbs",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://hogga.cl/"
         },
         {
-          "@type": "BreadcrumbList",
-          "@id": "https://hogga.cl/hogga-destinos/#breadcrumbs",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://hogga.cl/" },
-            { "@type": "ListItem", "position": 2, "name": "Turismo", "item": "https://hogga.cl/hogga-destinos/" }
-          ]
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Turismo",
+          "item": "https://hogga.cl/hogga-destinos/"
         }
       ]
     }
-    </script>
+  ]
+}
+</script>
 
 </head>
 

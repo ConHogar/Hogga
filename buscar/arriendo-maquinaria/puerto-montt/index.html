@@ -68,114 +68,149 @@
     </script>
 
     <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "@context": "https://schema.org",
-      "@graph": [
+      "@type": "BreadcrumbList",
+      "itemListElement": [
         {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://hogga.cl/" },
-            { "@type": "ListItem", "position": 2, "name": "Buscar", "item": "https://hogga.cl/buscar/" },
-            { "@type": "ListItem", "position": 3, "name": "Arriendo Maquinaria", "item": "https://hogga.cl/buscar/arriendo-maquinaria/" },
-            { "@type": "ListItem", "position": 4, "name": "Puerto Montt", "item": "https://hogga.cl/buscar/arriendo-maquinaria/puerto-montt/" }
-          ]
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://hogga.cl/"
         },
         {
-          "@type": "WebSite",
-          "@id": "https://hogga.cl/#website",
-          "url": "https://hogga.cl/",
-          "name": "Hogga",
-          "inLanguage": "es-CL"
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Buscar",
+          "item": "https://hogga.cl/buscar/"
         },
         {
-          "@type": "CollectionPage",
-          "@id": "https://hogga.cl/buscar/arriendo-maquinaria/puerto-montt/#webpage",
-          "url": "https://hogga.cl/buscar/arriendo-maquinaria/puerto-montt/",
-          "name": "Arriendo Maquinaria Puerto Montt: Proveedores Verificados",
-          "description": "Selección verificada de proveedores de movimiento de tierra en Puerto Montt. Mini, Retro y Limpieza.",
-          "inLanguage": "es-CL",
-          "isPartOf": { "@id": "https://hogga.cl/#website" },
-          "primaryImageOfPage": {
-            "@type": "ImageObject",
-            "url": "https://hogga.cl/images/buscar/flota-maquinaria-puerto-montt-hogga.webp"
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Arriendo Maquinaria",
+          "item": "https://hogga.cl/buscar/arriendo-maquinaria/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Puerto Montt",
+          "item": "https://hogga.cl/buscar/arriendo-maquinaria/puerto-montt/"
+        }
+      ]
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://hogga.cl/buscar/arriendo-maquinaria/puerto-montt/#webpage",
+      "url": "https://hogga.cl/buscar/arriendo-maquinaria/puerto-montt/",
+      "name": "Arriendo Maquinaria Puerto Montt: Proveedores Verificados",
+      "description": "Selección verificada de proveedores de movimiento de tierra en Puerto Montt. Mini, Retro y Limpieza.",
+      "inLanguage": "es-CL",
+      "isPartOf": {
+        "@id": "https://hogga.cl/#website"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://hogga.cl/images/buscar/flota-maquinaria-puerto-montt-hogga.webp"
+      },
+      "mainEntity": {
+        "@type": "ItemList",
+        "name": "Selección de Proveedores de Maquinaria en Puerto Montt",
+        "description": "Proveedores con datos verificados (teléfono e identidad) para contacto directo.",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "HORMIGONMC (Mini Excavadora)",
+            "url": "https://hogga.cl/buscar/arriendo-maquinaria/puerto-montt/#hormigonmc"
           },
-          "mainEntity": {
-            "@type": "ItemList",
-            "name": "Selección de Proveedores de Maquinaria en Puerto Montt",
-            "description": "Proveedores con datos verificados (teléfono e identidad) para contacto directo.",
-            "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "HORMIGONMC (Mini Excavadora)", "url": "https://hogga.cl/buscar/arriendo-maquinaria/puerto-montt/#hormigonmc" },
-              { "@type": "ListItem", "position": 2, "name": "VELSAN (Retroexcavadora)", "url": "https://hogga.cl/buscar/arriendo-maquinaria/puerto-montt/#velsan" },
-              { "@type": "ListItem", "position": 3, "name": "Ecoforestry (Retro / Limpieza)", "url": "https://hogga.cl/buscar/arriendo-maquinaria/puerto-montt/#ecoforestry-retro" },
-              { "@type": "ListItem", "position": 4, "name": "AG Servicios (Desmalezado)", "url": "https://hogga.cl/buscar/arriendo-maquinaria/puerto-montt/#agservicios" }
-            ]
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "VELSAN (Retroexcavadora)",
+            "url": "https://hogga.cl/buscar/arriendo-maquinaria/puerto-montt/#velsan"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Ecoforestry (Retro / Limpieza)",
+            "url": "https://hogga.cl/buscar/arriendo-maquinaria/puerto-montt/#ecoforestry-retro"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "AG Servicios (Desmalezado)",
+            "url": "https://hogga.cl/buscar/arriendo-maquinaria/puerto-montt/#agservicios"
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hogga.cl/buscar/arriendo-maquinaria/puerto-montt/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cuánto vale la hora de retroexcavadora en Puerto Montt?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "En 2026, la hora de Retroexcavadora promedia los $50.000 + IVA, mientras que la Mini Excavadora ronda los $20.000 - $25.000. Los valores incluyen operador y combustible."
           }
         },
         {
-          "@type": "FAQPage",
-          "@id": "https://hogga.cl/buscar/arriendo-maquinaria/puerto-montt/#faq",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "¿Cuánto vale la hora de retroexcavadora en Puerto Montt?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "En 2026, la hora de Retroexcavadora promedia los $50.000 + IVA, mientras que la Mini Excavadora ronda los $20.000 - $25.000. Los valores incluyen operador y combustible."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "¿Cuál es el mínimo de horas para arrendar?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "El estándar local es un mínimo de 4 a 6 horas para justificar el traslado de la máquina (cama baja)."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "¿La mini excavadora entra por un portón de casa?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Sí. Las mini excavadoras miden entre 1.5 y 1.8 metros de ancho, lo que permite el paso por portones vehiculares estándar y pasajes residenciales."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "¿Atienden en sectores rurales como Chamiza o Alerce?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Sí. Los proveedores listados cubren Alerce, La Vara, Chamiza, Piedra Azul y Chinquihue. El costo del traslado varía según el kilometraje."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "¿Qué máquina sirve para limpiar espinillo o murra?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Para vegetación densa (murra/zarzamora), se recomienda una Retroexcavadora o un Minicargador con desbrozadora forestal."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "¿Qué pasa con la lluvia en Puerto Montt?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Si la lluvia es fina, se trabaja normal. Si es intensa, se detiene la faena por seguridad y para no dañar el terreno (barro). Siempre coordina si las horas muertas se cobran."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "¿El arriendo incluye operador y petróleo?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Sí, siempre. En Hogga solo listamos opciones de 'Servicio Completo' (Máquina + Operador + Combustible) por temas de seguro y garantía."
-              }
-            }
-          ]
+          "@type": "Question",
+          "name": "¿Cuál es el mínimo de horas para arrendar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El estándar local es un mínimo de 4 a 6 horas para justificar el traslado de la máquina (cama baja)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿La mini excavadora entra por un portón de casa?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Las mini excavadoras miden entre 1.5 y 1.8 metros de ancho, lo que permite el paso por portones vehiculares estándar y pasajes residenciales."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Atienden en sectores rurales como Chamiza o Alerce?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Los proveedores listados cubren Alerce, La Vara, Chamiza, Piedra Azul y Chinquihue. El costo del traslado varía según el kilometraje."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué máquina sirve para limpiar espinillo o murra?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Para vegetación densa (murra/zarzamora), se recomienda una Retroexcavadora o un Minicargador con desbrozadora forestal."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué pasa con la lluvia en Puerto Montt?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Si la lluvia es fina, se trabaja normal. Si es intensa, se detiene la faena por seguridad y para no dañar el terreno (barro). Siempre coordina si las horas muertas se cobran."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿El arriendo incluye operador y petróleo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, siempre. En Hogga solo listamos opciones de 'Servicio Completo' (Máquina + Operador + Combustible) por temas de seguro y garantía."
+          }
         }
       ]
     }
-    </script>
+  ]
+}
+</script>
 </head>
 
 

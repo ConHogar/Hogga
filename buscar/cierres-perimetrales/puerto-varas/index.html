@@ -78,98 +78,115 @@
 
     <!-- JSON-LD (Gold standard: WebSite + Breadcrumb + CollectionPage + FAQ + ItemList without LocalBusiness) -->
     <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebSite",
-        "@id": "https://hogga.cl/#website",
-        "url": "https://hogga.cl/",
-        "name": "Hogga",
-        "inLanguage": "es-CL"
-      },
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://hogga.cl/" },
-          { "@type": "ListItem", "position": 2, "name": "Buscar", "item": "https://hogga.cl/buscar/" },
-          { "@type": "ListItem", "position": 3, "name": "Cierres Perimetrales", "item": "https://hogga.cl/buscar/cierres-perimetrales/" },
-          { "@type": "ListItem", "position": 4, "name": "Puerto Varas", "item": "https://hogga.cl/buscar/cierres-perimetrales/puerto-varas/" }
-        ]
-      },
-      {
-        "@type": "CollectionPage",
-        "@id": "https://hogga.cl/buscar/cierres-perimetrales/puerto-varas/#webpage",
-        "url": "https://hogga.cl/buscar/cierres-perimetrales/puerto-varas/",
-        "name": "Cierres perimetrales en Puerto Varas | Hogga",
-        "description": "Guía + proveedores de cierres perimetrales en Puerto Varas y alrededores: malla, Acma, madera y soluciones para parcelas.",
-        "inLanguage": "es-CL",
-        "isPartOf": { "@id": "https://hogga.cl/#website" },
-        "mainEntity": { "@id": "https://hogga.cl/buscar/cierres-perimetrales/puerto-varas/#proveedores" },
-        "primaryImageOfPage": {
-          "@type": "ImageObject",
-          "url": "https://hogga.cl/images/buscar/cierre-malla-galvanizada.webp"
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://hogga.cl/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Buscar",
+          "item": "https://hogga.cl/buscar/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Cierres Perimetrales",
+          "item": "https://hogga.cl/buscar/cierres-perimetrales/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Puerto Varas",
+          "item": "https://hogga.cl/buscar/cierres-perimetrales/puerto-varas/"
         }
+      ]
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://hogga.cl/buscar/cierres-perimetrales/puerto-varas/#webpage",
+      "url": "https://hogga.cl/buscar/cierres-perimetrales/puerto-varas/",
+      "name": "Cierres perimetrales en Puerto Varas | Hogga",
+      "description": "Guía + proveedores de cierres perimetrales en Puerto Varas y alrededores: malla, Acma, madera y soluciones para parcelas.",
+      "inLanguage": "es-CL",
+      "isPartOf": {
+        "@id": "https://hogga.cl/#website"
       },
-      {
-        "@type": "FAQPage",
-        "@id": "https://hogga.cl/buscar/cierres-perimetrales/puerto-varas/#faq",
-        "inLanguage": "es-CL",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "¿Cuánto demora cerrar una parcela de 5.000 m²?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "En muchos casos el perímetro queda entre 300 y 400 metros lineales (según forma). Una cuadrilla puede tardar 2 a 3 semanas, dependiendo del clima y el acceso."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "¿Qué hago si el terreno tiene mucha pendiente?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Se suele escalonar el cerco (hacer gradas). La malla galvanizada se adapta mejor que paneles rígidos tipo 3D cuando hay desnivel."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "¿Necesito permiso municipal para un cerco?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "En cercos divisorios simples muchas veces no se pide permiso, pero conviene revisar el Plan Regulador, servidumbres y el reglamento del condominio o loteo."
-            }
-          }
-        ]
+      "mainEntity": {
+        "@id": "https://hogga.cl/buscar/cierres-perimetrales/puerto-varas/#proveedores"
       },
-      {
-        "@type": "ItemList",
-        "@id": "https://hogga.cl/buscar/cierres-perimetrales/puerto-varas/#proveedores",
-        "name": "Empresas de cierres perimetrales en Puerto Varas",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Cercos Puerto Varas",
-            "url": "https://hogga.cl/buscar/cierres-perimetrales/puerto-varas/#cercos-pv"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "CYM Chile",
-            "url": "https://hogga.cl/buscar/cierres-perimetrales/puerto-varas/#cym-chile"
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Perimetral Pro",
-            "url": "https://hogga.cl/buscar/cierres-perimetrales/puerto-varas/#perimetral-pro"
-          }
-        ]
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://hogga.cl/images/buscar/cierre-malla-galvanizada.webp"
       }
-    ]
-  }
-  </script>
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hogga.cl/buscar/cierres-perimetrales/puerto-varas/#faq",
+      "inLanguage": "es-CL",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cuánto demora cerrar una parcela de 5.000 m²?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "En muchos casos el perímetro queda entre 300 y 400 metros lineales (según forma). Una cuadrilla puede tardar 2 a 3 semanas, dependiendo del clima y el acceso."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué hago si el terreno tiene mucha pendiente?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Se suele escalonar el cerco (hacer gradas). La malla galvanizada se adapta mejor que paneles rígidos tipo 3D cuando hay desnivel."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Necesito permiso municipal para un cerco?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "En cercos divisorios simples muchas veces no se pide permiso, pero conviene revisar el Plan Regulador, servidumbres y el reglamento del condominio o loteo."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://hogga.cl/buscar/cierres-perimetrales/puerto-varas/#proveedores",
+      "name": "Empresas de cierres perimetrales en Puerto Varas",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Cercos Puerto Varas",
+          "url": "https://hogga.cl/buscar/cierres-perimetrales/puerto-varas/#cercos-pv"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "CYM Chile",
+          "url": "https://hogga.cl/buscar/cierres-perimetrales/puerto-varas/#cym-chile"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Perimetral Pro",
+          "url": "https://hogga.cl/buscar/cierres-perimetrales/puerto-varas/#perimetral-pro"
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 
 <body>

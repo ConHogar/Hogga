@@ -77,19 +77,32 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "WebSite",
-      "@id": "https://hogga.cl/#website",
-      "url": "https://hogga.cl/",
-      "name": "Hogga",
-      "inLanguage": "es-CL"
-    },
-    {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://hogga.cl/" },
-        { "@type": "ListItem", "position": 2, "name": "Buscar", "item": "https://hogga.cl/buscar/" },
-        { "@type": "ListItem", "position": 3, "name": "Control de Plagas", "item": "https://hogga.cl/buscar/control-de-plagas/" },
-        { "@type": "ListItem", "position": 4, "name": "Puerto Varas", "item": "https://hogga.cl/buscar/control-de-plagas/puerto-varas/" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://hogga.cl/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Buscar",
+          "item": "https://hogga.cl/buscar/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Control de Plagas",
+          "item": "https://hogga.cl/buscar/control-de-plagas/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Puerto Varas",
+          "item": "https://hogga.cl/buscar/control-de-plagas/puerto-varas/"
+        }
       ]
     },
     {
@@ -99,8 +112,12 @@
       "name": "Control de Plagas en Puerto Varas: Desratización, Fumigación y Urgencias | Hogga",
       "description": "Listado curado de empresas de control de plagas en Puerto Varas. Desratización, fumigación y eliminación de avispas con contacto directo.",
       "inLanguage": "es-CL",
-      "isPartOf": { "@id": "https://hogga.cl/#website" },
-      "mainEntity": { "@id": "https://hogga.cl/buscar/control-de-plagas/puerto-varas/#proveedores" }
+      "isPartOf": {
+        "@id": "https://hogga.cl/#website"
+      },
+      "mainEntity": {
+        "@id": "https://hogga.cl/buscar/control-de-plagas/puerto-varas/#proveedores"
+      }
     },
     {
       "@type": "FAQPage",

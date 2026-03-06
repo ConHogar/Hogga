@@ -78,20 +78,33 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "WebSite",
-      "@id": "https://hogga.cl/#website",
-      "url": "https://hogga.cl/",
-      "name": "Hogga",
-      "inLanguage": "es-CL"
-    },
-    {
       "@type": "BreadcrumbList",
       "@id": "https://hogga.cl/buscar/veterinarias/pucon/#breadcrumbs",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://hogga.cl/" },
-        { "@type": "ListItem", "position": 2, "name": "Buscar", "item": "https://hogga.cl/buscar/" },
-        { "@type": "ListItem", "position": 3, "name": "Veterinarias", "item": "https://hogga.cl/buscar/veterinarias/" },
-        { "@type": "ListItem", "position": 4, "name": "Pucón", "item": "https://hogga.cl/buscar/veterinarias/pucon/" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://hogga.cl/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Buscar",
+          "item": "https://hogga.cl/buscar/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Veterinarias",
+          "item": "https://hogga.cl/buscar/veterinarias/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Pucón",
+          "item": "https://hogga.cl/buscar/veterinarias/pucon/"
+        }
       ]
     },
     {
@@ -105,7 +118,9 @@
         "@type": "ImageObject",
         "url": "https://hogga.cl/images/buscar/veterinarias-pucon-chile-hogga.webp"
       },
-      "isPartOf": { "@id": "https://hogga.cl/#website" }
+      "isPartOf": {
+        "@id": "https://hogga.cl/#website"
+      }
     },
     {
       "@type": "FAQPage",

@@ -73,36 +73,46 @@
 
     <!-- JSON-LD (Breadcrumbs + WebSite + CollectionPage) -->
     <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "@context": "https://schema.org",
-      "@graph": [
+      "@type": "BreadcrumbList",
+      "itemListElement": [
         {
-          "@type": "WebSite",
-          "@id": "https://hogga.cl/#website",
-          "url": "https://hogga.cl/",
-          "name": "Hogga",
-          "inLanguage": "es-CL"
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://hogga.cl/"
         },
         {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://hogga.cl/" },
-            { "@type": "ListItem", "position": 2, "name": "Buscar", "item": "https://hogga.cl/buscar/" },
-            { "@type": "ListItem", "position": 3, "name": "Control de Plagas", "item": "https://hogga.cl/buscar/control-de-plagas/" }
-          ]
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Buscar",
+          "item": "https://hogga.cl/buscar/"
         },
         {
-          "@type": "CollectionPage",
-          "@id": "https://hogga.cl/buscar/control-de-plagas/#webpage",
-          "url": "https://hogga.cl/buscar/control-de-plagas/",
-          "name": "Control de Plagas por ciudad | Hogga",
-          "description": "Empresas de fumigación, desratización y control de plagas por ciudad en Chile. Datos verificados para contacto directo.",
-          "inLanguage": "es-CL",
-          "isPartOf": { "@id": "https://hogga.cl/#website" }
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Control de Plagas",
+          "item": "https://hogga.cl/buscar/control-de-plagas/"
         }
       ]
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://hogga.cl/buscar/control-de-plagas/#webpage",
+      "url": "https://hogga.cl/buscar/control-de-plagas/",
+      "name": "Control de Plagas por ciudad | Hogga",
+      "description": "Empresas de fumigación, desratización y control de plagas por ciudad en Chile. Datos verificados para contacto directo.",
+      "inLanguage": "es-CL",
+      "isPartOf": {
+        "@id": "https://hogga.cl/#website"
+      }
     }
-  </script>
+  ]
+}
+</script>
 </head>
 
 <body>

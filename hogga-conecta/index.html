@@ -75,94 +75,74 @@
 
   <!-- JSON-LD (unificado; sin FAQPage aquí) -->
   <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "Organization",
-            "@id": "https://hogga.cl/#organization",
-            "name": "Hogga Group SpA",
-            "url": "https://hogga.cl/",
-            "logo": {
-              "@type": "ImageObject",
-              "url": "https://hogga.cl/images/logo.webp"
-            },
-            "description": "Hogga — la red chilena de datos confiables y verificados para descubrir, conectar y crecer.",
-            "sameAs": [
-              "https://www.instagram.com/hogga_chile/",
-              "https://www.instagram.com/hogga_turismo/",
-              "https://www.instagram.com/hogga_regala/"
-            ],
-            "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "telephone": "+56 9 5175 9158",
-                "contactType": "customer service",
-                "availableLanguage": ["es"]
-              },
-              {
-                "@type": "ContactPoint",
-                "telephone": "+56 9 5180 9138",
-                "contactType": "WhatsApp",
-                "availableLanguage": ["es"]
-              }
-            ]
-          },
-          {
-            "@type": "WebSite",
-            "@id": "https://hogga.cl/#website",
-            "url": "https://hogga.cl/",
-            "name": "Hogga",
-            "inLanguage": "es-CL",
-            "publisher": { "@id": "https://hogga.cl/#organization" }
-          },
-          {
-            "@type": "WebPage",
-            "@id": "https://hogga.cl/hogga-conecta/#webpage",
-            "url": "https://hogga.cl/hogga-conecta/",
-            "name": "Hogga Conecta",
-            "isPartOf": { "@id": "https://hogga.cl/#website" },
-            "about": { "@id": "https://hogga.cl/hogga-conecta/#service" },
-            "inLanguage": "es-CL",
-            "description": "Pide datos verificados para tu hogar: mantención, limpieza, mascotas, bienestar, eventos y transporte. Recibe 2–3 opciones reales por WhatsApp en menos de 60 segundos. Cobertura desde Concepción a Chiloé.",
-            "potentialAction": [
-              {
-                "@type": "SearchAction",
-                "target": "https://wa.me/56951809138?text=Busco%20{search_term_string}%20(Hogga%20Servicios)",
-                "query-input": "required name=search_term_string"
-              }
-            ]
-          },
-          {
-            "@type": "Service",
-            "@id": "https://hogga.cl/hogga-conecta/#service",
-            "name": "Hogga Conecta",
-            "serviceType": "Datos verificados de servicios para el hogar",
-            "provider": { "@id": "https://hogga.cl/#organization" },
-            "areaServed": {
-              "@type": "Country",
-              "name": "Chile"
-            },
-            "availableChannel": [
-              {
-                "@type": "ServiceChannel",
-                "serviceUrl": "https://wa.me/56951809138",
-                "availableLanguage": ["es"]
-              }
-            ],
-            "description": "Datos verificados para mantención del hogar, limpieza, mascotas, bienestar, eventos y transporte. Te enviamos 2–3 opciones reales por WhatsApp."
-          },
-          {
-            "@type": "BreadcrumbList",
-            "@id": "https://hogga.cl/hogga-conecta/#breadcrumbs",
-            "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://hogga.cl/" },
-              { "@type": "ListItem", "position": 2, "name": "Servicios", "item": "https://hogga.cl/hogga-conecta/" }
-            ]
-          }
-        ]
-      }
-      </script>
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://hogga.cl/hogga-conecta/#webpage",
+      "url": "https://hogga.cl/hogga-conecta/",
+      "name": "Hogga Conecta",
+      "isPartOf": {
+        "@id": "https://hogga.cl/#website"
+      },
+      "about": {
+        "@id": "https://hogga.cl/hogga-conecta/#service"
+      },
+      "inLanguage": "es-CL",
+      "description": "Pide datos verificados para tu hogar: mantención, limpieza, mascotas, bienestar, eventos y transporte. Recibe 2–3 opciones reales por WhatsApp en menos de 60 segundos. Cobertura desde Concepción a Chiloé.",
+      "potentialAction": [
+        {
+          "@type": "SearchAction",
+          "target": "https://wa.me/56951809138?text=Busco%20{search_term_string}%20(Hogga%20Servicios)",
+          "query-input": "required name=search_term_string"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://hogga.cl/hogga-conecta/#service",
+      "name": "Hogga Conecta",
+      "serviceType": "Datos verificados de servicios para el hogar",
+      "provider": {
+        "@id": "https://hogga.cl/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Chile"
+      },
+      "availableChannel": [
+        {
+          "@type": "ServiceChannel",
+          "serviceUrl": "https://wa.me/56951809138",
+          "availableLanguage": [
+            "es"
+          ]
+        }
+      ],
+      "description": "Datos verificados para mantención del hogar, limpieza, mascotas, bienestar, eventos y transporte. Te enviamos 2–3 opciones reales por WhatsApp."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://hogga.cl/hogga-conecta/#breadcrumbs",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://hogga.cl/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Servicios",
+          "item": "https://hogga.cl/hogga-conecta/"
+        }
+      ]
+    }
+  ]
+}
+</script>
 
 </head>
 

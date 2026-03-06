@@ -77,20 +77,33 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "WebSite",
-      "@id": "https://hogga.cl/#website",
-      "url": "https://hogga.cl/",
-      "name": "Hogga",
-      "inLanguage": "es-CL"
-    },
-    {
       "@type": "BreadcrumbList",
       "@id": "https://hogga.cl/buscar/veterinarias/concepcion/#breadcrumb",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://hogga.cl/" },
-        { "@type": "ListItem", "position": 2, "name": "Buscar", "item": "https://hogga.cl/buscar/" },
-        { "@type": "ListItem", "position": 3, "name": "Veterinarias", "item": "https://hogga.cl/buscar/veterinarias/" },
-        { "@type": "ListItem", "position": 4, "name": "Concepción", "item": "https://hogga.cl/buscar/veterinarias/concepcion/" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://hogga.cl/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Buscar",
+          "item": "https://hogga.cl/buscar/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Veterinarias",
+          "item": "https://hogga.cl/buscar/veterinarias/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Concepción",
+          "item": "https://hogga.cl/buscar/veterinarias/concepcion/"
+        }
       ]
     },
     {
@@ -100,8 +113,12 @@
       "name": "Veterinarias en Concepción: urgencias, Hualpén y centro | Hogga",
       "description": "Veterinarias en Concepción y Hualpén para urgencias, cirugía y atención general. Datos verificados (Medpet, Andalién, CMVC) + municipal y Parque Ecuador.",
       "inLanguage": "es-CL",
-      "isPartOf": { "@id": "https://hogga.cl/#website" },
-      "breadcrumb": { "@id": "https://hogga.cl/buscar/veterinarias/concepcion/#breadcrumb" }
+      "isPartOf": {
+        "@id": "https://hogga.cl/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://hogga.cl/buscar/veterinarias/concepcion/#breadcrumb"
+      }
     },
     {
       "@type": "FAQPage",

@@ -272,8 +272,8 @@
 
           <!-- Negocios -->
           <div class="contact-card">
-            <h3>📈 Soy negocio y quiero más clientes</h3>
-            <p>Si quieres mejorar tu presencia en Google, tu web o tu conversión, hablemos.</p>
+            <h3>📈 Quiero más clientes</h3>
+            <p>Si quieres mejorar tu presencia en Google y recibir más clientes, hablemos.</p>
             <div class="mini-pills">
               <span class="mini-pill">WhatsApp</span>
               <span class="mini-pill">Hogga Vértice</span>
@@ -297,25 +297,13 @@
     <!-- FORM -->
     <section id="form" class="section alt">
       <div class="container contact-wrap">
-        <h2 style="text-align:center">Escríbenos (rápido)</h2>
+        <h2 style="text-align:center">Hablemos directo</h2>
         <p class="sub" style="text-align:center; margin-bottom: 18px;">
-          Este formulario arma el mensaje y lo manda al WhatsApp correcto.
+          ¿Tienes dudas o quieres ser proveedor verificado en Hogga? Escríbenos.
         </p>
 
         <div class="contact-form">
           <form id="contactForm" class="form-grid" aria-label="Formulario de contacto Hogga">
-            <label>
-              <span>¿Qué necesitas?</span>
-              <select name="topic" required>
-                <option value="" selected disabled>Selecciona una opción</option>
-                <option value="servicios">Dato de servicios (hogar)</option>
-                <option value="turismo">Recomendación turismo</option>
-                <option value="negocios">Soy negocio (quiero más clientes)</option>
-                <option value="proveedores">Quiero aparecer como proveedor</option>
-                <option value="otro">Otro</option>
-              </select>
-            </label>
-
             <label>
               <span>Nombre</span>
               <input name="name" type="text" placeholder="Tu nombre" required />
@@ -333,19 +321,15 @@
 
             <label class="full">
               <span>Mensaje</span>
-              <textarea name="message" rows="4" placeholder="Cuéntanos qué necesitas, con el mayor contexto posible."
+              <textarea name="message" rows="4" placeholder="Si eres negocio o proveedor, cuéntanos tus dudas aquí."
                 required></textarea>
             </label>
 
             <div class="cta-row left full" style="gap:10px; flex-wrap:wrap;">
-              <button class="btn primary" type="submit">Enviar por WhatsApp</button>
+              <button class="btn primary" type="submit">Contactar al equipo</button>
               <a class="btn outline" href="mailto:hablemos@hogga.cl">Enviar por email</a>
               <a class="btn outline" href="/proveedores/">Quiero aparecer como proveedor</a>
             </div>
-
-            <p class="helper-note full">
-              Si eliges “Proveedor”, te llevamos a la vía más rápida para sumarte.
-            </p>
           </form>
         </div>
 
@@ -435,14 +419,7 @@
       const y = document.getElementById('y');
       if (y) y.textContent = new Date().getFullYear();
 
-      // WhatsApp routing
-      const WA = {
-        servicios: '56951809138',
-        turismo: '56975457652',
-        negocios: '56951759158',
-        proveedores: '56951759158',
-        otro: '56951759158'
-      };
+      const HOGGA_BUSINESS_WA = '56951759158';
 
       function buildWaLink(number, text) {
         return `https://wa.me/${number}?text=${encodeURIComponent(text)}`;
@@ -454,29 +431,20 @@
       form.addEventListener('submit', function (e) {
         e.preventDefault();
         const data = new FormData(form);
-        const topic = (data.get('topic') || '').toString();
         const name = (data.get('name') || '').toString().trim();
         const city = (data.get('city') || '').toString().trim();
         const phone = (data.get('phone') || '').toString().trim();
         const msg = (data.get('message') || '').toString().trim();
 
-        const number = WA[topic] || WA.otro;
-
-        let header = "Hola Hogga, tengo una consulta.";
-        if (topic === 'servicios') header = "Hola Hogga Conecta, necesito un dato.";
-        if (topic === 'turismo') header = "Hola Hogga Destinos, necesito una recomendación.";
-        if (topic === 'negocios') header = "Hola Hogga, soy negocio y quiero mejorar mi presencia digital.";
-        if (topic === 'proveedores') header = "Hola Hogga, quiero aparecer como proveedor en Hogga.";
-
         const text =
-          `${header}
+          `Hola Equipo Hogga, tengo una consulta comercial/general:
 
 Nombre: ${name}
 Ciudad: ${city}
 WhatsApp (opcional): ${phone || '—'}
 Mensaje: ${msg}`;
 
-        window.open(buildWaLink(number, text), '_blank', 'noopener,noreferrer');
+        window.open(buildWaLink(HOGGA_BUSINESS_WA, text), '_blank', 'noopener,noreferrer');
       });
     })();
   </script>
