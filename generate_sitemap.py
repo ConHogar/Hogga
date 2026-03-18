@@ -1,19 +1,10 @@
-"""
-Generates sitemap.xml for hogga.cl
-Run manually after adding or removing pages.
-
-Improvements:
-- Uses real lastmod per file (filesystem mtime) instead of "today" for everything.
-- Distinguishes /blog/ (index) priority vs individual blog posts.
-"""
-
 import os
+from html import escape
 from datetime import date, datetime
 
 BASE_URL = "https://hogga.cl"
 TODAY = date.today().isoformat()
 
-# Only scan these folders if they exist
 INCLUDE_DIRS = [
     "blog",
     "hogga-destinos",
@@ -23,10 +14,8 @@ INCLUDE_DIRS = [
     "contacto",
     "terminos-y-condiciones",
     "politica-privacidad",
-    "bases-legales-concursos-instagram",
 ]
 
-# Rules by top-level section
 RULES = {
     "blog": {"priority": "0.7", "changefreq": "weekly"},
     "hogga-destinos": {"priority": "0.8", "changefreq": "weekly"},
@@ -36,12 +25,19 @@ RULES = {
     "contacto": {"priority": "0.4", "changefreq": "yearly"},
     "terminos-y-condiciones": {"priority": "0.2", "changefreq": "yearly"},
     "politica-privacidad": {"priority": "0.2", "changefreq": "yearly"},
-    "bases-legales-concursos-instagram": {"priority": "0.2", "changefreq": "yearly"},
 }
 
-# Add any exact filenames you never want indexed (e.g., "draft.html")
 EXCLUDE_FILES = {
     # "draft.html",
+}
+
+EXCLUDE_DIRS = {
+    "go",
+    "partials",
+    "drafts",
+    "test",
+    "tests",
+    "__pycache__",
 }
 
 def url_path_from_fs(fs_path: str) -> str:
@@ -50,17 +46,15 @@ def url_path_from_fs(fs_path: str) -> str:
     """
     p = fs_path.replace("\\", "/")
 
-    # Normalize leading './'
     if p.startswith("./"):
-        p = p[1:]  # remove the dot, keep leading slash
+        p = p[1:]
 
-    # Ensure leading slash
     if not p.startswith("/"):
         p = "/" + p
 
-    # index.html should map to directory URL
     if p.endswith("/index.html"):
-        p = p[:-10]  # remove 'index.html'
+        p = p[:-10]
+
     return p
 
 def section_for_url_path(url_path: str) -> str:
@@ -80,27 +74,53 @@ def lastmod_from_fs(fs_path: str) -> str:
     ts = os.path.getmtime(fs_path)
     return datetime.fromtimestamp(ts).date().isoformat()
 
+def is_noindex(fs_path: str) -> bool:
+    """
+    Return True if the HTML file contains a robots noindex directive.
+    """
+    try:
+        with open(fs_path, "r", encoding="utf-8") as f:
+            content = f.read().lower()
+        return 'name="robots"' in content and "noindex" in content
+    except Exception:
+        return False
+
+def is_sitemap_excluded(fs_path: str) -> bool:
+    """
+    Return True if the file contains a manual sitemap exclusion marker.
+    Example: <!-- sitemap:exclude -->
+    """
+    try:
+        with open(fs_path, "r", encoding="utf-8") as f:
+            content = f.read().lower()
+        return "<!-- sitemap:exclude -->" in content
+    except Exception:
+        return False
+
 urls_xml = []
 
 def add_url(url_path: str, priority: str, changefreq: str, lastmod: str):
-    loc = f"{BASE_URL}{url_path}"
+    loc = escape(f"{BASE_URL}{url_path}")
     urls_xml.append(f"""  <url>
     <loc>{loc}</loc>
     <lastmod>{lastmod}</lastmod>
     <changefreq>{changefreq}</changefreq>
     <priority>{priority}</priority>
   </url>""")
+    print(f"Included: {loc}")
 
-# Home first (keep lastmod as today; you can also tie it to index.html if you want)
-add_url("/", priority="1.0", changefreq="weekly", lastmod=TODAY)
+home_lastmod = lastmod_from_fs("index.html") if os.path.exists("index.html") else TODAY
+add_url("/", priority="1.0", changefreq="weekly", lastmod=home_lastmod)
 
-seen = set(["/"])
+seen = {"/"}
 
 for directory in INCLUDE_DIRS:
     if not os.path.isdir(directory):
         continue
 
     for root, dirs, files in os.walk(directory):
+        dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
+
         for file in files:
             if not file.endswith(".html"):
                 continue
@@ -108,9 +128,15 @@ for directory in INCLUDE_DIRS:
                 continue
 
             fs_path = os.path.join(root, file)
+
+            if is_noindex(fs_path):
+                continue
+
+            if is_sitemap_excluded(fs_path):
+                continue
+
             url_path = url_path_from_fs(fs_path)
 
-            # Avoid duplicates (just in case)
             if url_path in seen:
                 continue
             seen.add(url_path)
@@ -118,11 +144,8 @@ for directory in INCLUDE_DIRS:
             section = section_for_url_path(url_path)
             rule = rule_for_section(section)
 
-            # Default rule priority
             priority = rule["priority"]
 
-            # Optional fine-tune: blog index vs blog posts
-            # Keep /blog/ at 0.7, set posts to 0.6
             if section == "blog" and url_path != "/blog/":
                 priority = "0.6"
 

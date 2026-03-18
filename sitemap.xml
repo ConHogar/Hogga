@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://hogga.cl/</loc>
-    <lastmod>2026-03-18</lastmod>
+    <lastmod>2026-03-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -116,7 +116,7 @@
   </url>
   <url>
     <loc>https://hogga.cl/buscar/</loc>
-    <lastmod>2026-03-17</lastmod>
+    <lastmod>2026-03-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -439,6 +439,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://hogga.cl/buscar/carbon-a-domicilio-puerto-varas-kewencarbon/</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://hogga.cl/contacto/</loc>
     <lastmod>2026-03-06</lastmod>
     <changefreq>yearly</changefreq>
@@ -452,48 +458,6 @@
   </url>
   <url>
     <loc>https://hogga.cl/politica-privacidad/</loc>
-    <lastmod>2026-02-23</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://hogga.cl/bases-legales-concursos-instagram/</loc>
-    <lastmod>2026-02-23</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://hogga.cl/bases-legales-concursos-instagram/2025-08-juego-inflable.html</loc>
-    <lastmod>2026-02-23</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://hogga.cl/bases-legales-concursos-instagram/2025-10-1-galaxy-tab-a9.html</loc>
-    <lastmod>2026-02-23</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://hogga.cl/bases-legales-concursos-instagram/2025-11-2noches-cdl-pvaras.html</loc>
-    <lastmod>2026-02-23</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://hogga.cl/bases-legales-concursos-instagram/2025-10-giftcards-cencosud.html</loc>
-    <lastmod>2026-02-23</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://hogga.cl/bases-legales-concursos-instagram/2025-10-2-galaxy-tab-a9.html</loc>
-    <lastmod>2026-02-23</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://hogga.cl/bases-legales-concursos-instagram/2025-10-jbl-520bt.html</loc>
     <lastmod>2026-02-23</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
