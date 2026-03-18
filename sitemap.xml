@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://hogga.cl/</loc>
-    <lastmod>2026-02-23</lastmod>
+    <lastmod>2026-03-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -98,25 +98,73 @@
   </url>
   <url>
     <loc>https://hogga.cl/hogga-destinos/</loc>
-    <lastmod>2026-02-23</lastmod>
+    <lastmod>2026-03-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hogga.cl/hogga-conecta/</loc>
-    <lastmod>2026-02-23</lastmod>
+    <lastmod>2026-03-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://hogga.cl/proveedores/</loc>
-    <lastmod>2026-02-23</lastmod>
+    <lastmod>2026-03-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://hogga.cl/buscar/</loc>
-    <lastmod>2026-02-23</lastmod>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hogga.cl/buscar/centros-de-belleza/</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hogga.cl/buscar/centros-de-belleza/osorno/</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hogga.cl/buscar/centros-de-belleza/temuco/</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hogga.cl/buscar/centros-de-belleza/puerto-varas/</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hogga.cl/buscar/centros-de-belleza/puerto-montt/</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hogga.cl/buscar/centros-de-belleza/providencia/</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hogga.cl/buscar/centros-de-belleza/las-condes/</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hogga.cl/buscar/centros-de-belleza/nunoa/</loc>
+    <lastmod>2026-03-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -134,13 +182,37 @@
   </url>
   <url>
     <loc>https://hogga.cl/buscar/cierres-perimetrales/puerto-varas/</loc>
-    <lastmod>2026-02-23</lastmod>
+    <lastmod>2026-03-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://hogga.cl/buscar/cierres-perimetrales/puerto-montt/</loc>
-    <lastmod>2026-02-23</lastmod>
+    <lastmod>2026-03-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hogga.cl/buscar/salones-de-belleza/</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hogga.cl/buscar/salones-de-belleza/puerto-varas/</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hogga.cl/buscar/salones-de-belleza/puerto-montt/</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hogga.cl/buscar/salones-de-belleza/las-condes/</loc>
+    <lastmod>2026-03-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -158,7 +230,7 @@
   </url>
   <url>
     <loc>https://hogga.cl/buscar/arriendo-maquinaria/puerto-montt/</loc>
-    <lastmod>2026-02-23</lastmod>
+    <lastmod>2026-03-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -176,7 +248,7 @@
   </url>
   <url>
     <loc>https://hogga.cl/buscar/veterinarias/curico/</loc>
-    <lastmod>2026-02-23</lastmod>
+    <lastmod>2026-03-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -188,7 +260,7 @@
   </url>
   <url>
     <loc>https://hogga.cl/buscar/veterinarias/pucon/</loc>
-    <lastmod>2026-02-23</lastmod>
+    <lastmod>2026-03-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -200,7 +272,7 @@
   </url>
   <url>
     <loc>https://hogga.cl/buscar/veterinarias/puerto-varas/</loc>
-    <lastmod>2026-02-23</lastmod>
+    <lastmod>2026-03-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -212,7 +284,7 @@
   </url>
   <url>
     <loc>https://hogga.cl/buscar/veterinarias/talca/</loc>
-    <lastmod>2026-02-23</lastmod>
+    <lastmod>2026-03-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -236,7 +308,7 @@
   </url>
   <url>
     <loc>https://hogga.cl/buscar/veterinarias/concepcion/</loc>
-    <lastmod>2026-02-23</lastmod>
+    <lastmod>2026-03-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -260,7 +332,7 @@
   </url>
   <url>
     <loc>https://hogga.cl/buscar/veterinarias/nunoa/</loc>
-    <lastmod>2026-02-23</lastmod>
+    <lastmod>2026-03-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -278,7 +350,7 @@
   </url>
   <url>
     <loc>https://hogga.cl/buscar/veterinarias/chillan/</loc>
-    <lastmod>2026-02-23</lastmod>
+    <lastmod>2026-03-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -302,7 +374,7 @@
   </url>
   <url>
     <loc>https://hogga.cl/buscar/portones-electricos/puerto-varas/</loc>
-    <lastmod>2026-02-23</lastmod>
+    <lastmod>2026-03-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -320,7 +392,7 @@
   </url>
   <url>
     <loc>https://hogga.cl/buscar/control-de-plagas/</loc>
-    <lastmod>2026-02-23</lastmod>
+    <lastmod>2026-03-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -338,7 +410,7 @@
   </url>
   <url>
     <loc>https://hogga.cl/buscar/control-de-plagas/puerto-varas/</loc>
-    <lastmod>2026-02-23</lastmod>
+    <lastmod>2026-03-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -368,7 +440,7 @@
   </url>
   <url>
     <loc>https://hogga.cl/contacto/</loc>
-    <lastmod>2026-02-23</lastmod>
+    <lastmod>2026-03-06</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
